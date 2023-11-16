@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+    <span class="header-title">Meadow Manual</span>
+  </header>
+  <div class="content-container">
+    <div class="sidebar">
+      <!-- Chapter links -->
+      <a href="/installing-unity.html" class="{% if page.url == '/installing-unity.html' %}active{% endif %}">Installing Unity</a>
+      <a href="/install-the-template-project.html" class="{% if page.url == '/install-the-template-project.html' %}active{% endif %}">Install the Template Project</a>
+      <a href="/navigate-the-unity-editor.html" class="{% if page.url == '/navigate-the-unity-editor.html' %}active{% endif %}">Navigate the Unity Editor</a>
+      <a href="/create-your-first-experience.html" class="{% if page.url == '/create-your-first-experience.html' %}active{% endif %}">Create Your First Experience</a>
+      <a href="/upload-to-meadow.html" class="{% if page.url == '/upload-to-meadow.html' %}active{% endif %}">Upload to Meadow</a>
+    </div>
+    
+    
+  
+  <div class="main-content">
+    <!-- Main content will be inserted here -->
+    {{ content }}
+  </div>
+  
+  <div class="toc">
+    <p class="toc-title">Table of Contents</p>
+    {{ content | toc_only }}
+  </div>
+  
+</div>
+</body>
+</html>
