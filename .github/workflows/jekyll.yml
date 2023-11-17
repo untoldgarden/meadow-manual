@@ -15,11 +15,13 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0' # Specify the Ruby version
+          ruby-version: '3.0' # Ensure this matches your Gemfile
+
+      - name: Install Bundler
+        run: gem install bundler -v '2.4.22'
 
       - name: Install dependencies
         run: |
-          gem install bundler -v 2.4.22
           bundle install
 
       - name: Build and deploy
