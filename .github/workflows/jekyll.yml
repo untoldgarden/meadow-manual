@@ -18,7 +18,7 @@ jobs:
             -v ${{ github.workspace }}:/srv/jekyll \
             -e JEKYLL_ENV=production \
             jekyll/jekyll:latest \
-            /bin/bash -c "chmod 777 /srv/jekyll && gem install bundler:2.4.22 && bundle config set --local path vendor/bundle && bundle install && bundle exec jekyll build"
+            /bin/bash -c "chown -R jekyll:jekyll /srv/jekyll && gem install bundler:2.4.22 && bundle install && bundle exec jekyll build"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
