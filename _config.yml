@@ -8,6 +8,8 @@ markdown: kramdown
 theme: null
 layouts_dir: _layouts
 data_dir: _data
+baseurl: "/meadow-manual"
+url: "https://untoldgarden.github.io"
 plugins:
   - jekyll-toc
 
