@@ -28,5 +28,5 @@ jobs:
 
       - name: Build and deploy
         uses: helaili/jekyll-action@2.0.4
-        with:
-          token: ${{ secrets.JEKYLL_PAT }}
+        env:
+          JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
