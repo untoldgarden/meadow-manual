@@ -18,7 +18,9 @@ jobs:
           ruby-version: '3.0' # Ensure this matches your Gemfile
 
       - name: Install Bundler
-        run: gem install bundler -v '2.4.22'
+        run: |
+          gem install bundler -v 2.4.22
+          bundler -v
 
       - name: Install dependencies
         run: |
@@ -26,5 +28,5 @@ jobs:
 
       - name: Build and deploy
         uses: helaili/jekyll-action@2.0.4
-        env:
-          JEKYLL_PAT: ${{ secrets.JEKYLL_PAT }}
+        with:
+          token: ${{ secrets.JEKYLL_PAT }}
