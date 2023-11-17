@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload to Meadow</title>
+  <link rel="stylesheet" href="/meadow-manual/assets/css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <img src="/meadow-manual/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+    <span class="header-title">Meadow Manual</span>
+  </header>
+  <div class="content-container">
+    <div class="sidebar">
+      <!-- Chapter links -->
+      <a href="/meadow-manual/installing-unity.html" class="">Installing Unity</a>
+      <a href="/meadow-manual/install-the-template-project.html" class="">Install the Template Project</a>
+      <a href="/meadow-manual/navigate-the-unity-editor.html" class="">Navigate the Unity Editor</a>
+      <a href="/meadow-manual/create-your-first-experience.html" class="">Create Your First Experience</a>
+      <a href="/meadow-manual/upload-to-meadow.html" class="active">Upload to Meadow</a>
+    </div>
+    
+    
+  
+  <div class="main-content">
+    <!-- Main content will be inserted here -->
+    <h2 id="upload-to-meadow">Upload to Meadow</h2>
+
+<p>Meadow is our platform for simplifying the distribution of XR experiences. Instead of having to build an app and set up all the XR functionalities, you can just upload your experience to our platform to see it.</p>
+
+<p>To upload your experience to Meadow you need to create what is called an Asset Bundle. This is Unity’s file format for bundling assets. It is like Unity’s own zip file.</p>
+
+<ol>
+  <li>Add the objects in your experience as children to one empty object.
+    <ol>
+      <li>Create a new empty object in your Hierarchy.</li>
+    </ol>
+  </li>
+</ol>
+
+<p><img src="images/image42.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2. Rename it to the name of your project. 
+</code></pre></div></div>
+
+<p><img src="images/image43.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. Select all the objects that you have created for your experience.
+</code></pre></div></div>
+
+<p><img src="images/image44.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>4. Drag them as children to the new empty object.  \  \ In programming, ‘child’ means an object that is below another object in a hierarchy. Conversely, ‘parent’ is an object that is above another in the hierarchy. And, ‘sibling’ is an object that is on the same level in the hierarchy. A ‘root’ object is the object that is at the top of a hierarchy, that has no further parents. \  \ In the example above you see that both the tuna 3D model and the Audio Source are children to MyTunaProject.  2. Add a Content component to your empty object. 
+5. Select the empty object (the “root” object of your experience.)
+</code></pre></div></div>
+
+<p><img src="images/image45.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>6. Press ‘Add Component’ and search for Content. 
+7. Select the Content component to add it.  \  \ This is a little script that tells the Meadow platform that this is a piece of content that should be displayed in the app.  \  \ It contains a bunch of fields, but you only need to use the Settings field.
+</code></pre></div></div>
+
+<p><img src="images/image46.png" alt="alt_text" title="image_tooltip" /></p>
+
+<ol>
+  <li>
+    <p>Create your content settings.</p>
+
+    <p>Every experience in Meadow is a type of content.  <br />
+ <br />
+The Content settings tells the Meadow app how your experience should be presented in the app, and contains a bunch of useful features that you can use.</p>
+  </li>
+</ol>
+
+<p><img src="images/image47.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>8. In the folder for your experience in the Project Window, right click and select Create -&gt; XREF -&gt; Content Settings
+9. Select the newly created content settings. 
+</code></pre></div></div>
+
+<p><img src="images/image48.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>10. There are a bunch of settings in here that you can use. For this example the default settings work well. 
+</code></pre></div></div>
+
+<p><img src="images/image49.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>11. Now reference your newly created content settings in the content component of your experience. 
+    1. Select your experience root object. 
+    2. Drag the content settings into the Settings slot of the Content component. 
+</code></pre></div></div>
+
+<p><img src="images/image50.png" alt="alt_text" title="image_tooltip" /></p>
+
+<ol>
+  <li>
+    <p>Add your experience to the project folder</p>
+
+    <p>Now we need to add the experience you have created to your folder in the Project Window.</p>
+  </li>
+</ol>
+
+<p><img src="images/image51.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>12. Select the root object of your experience (the one with the Content component.)
+</code></pre></div></div>
+
+<p><img src="images/image52.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>13. Drag it into the empty area of your folder in the Project Window.  \  \ This turns the experience you have built in the hierarchy into a prefab. A prefab is a type of object that can be reused in different scenes, and also built as an asset bundle. Unity shows you that it is a prefab by changing the icon in the Hierarchy to a blue cube. 
+</code></pre></div></div>
+
+<p><img src="images/image53.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>14. **IMPORTANT: **When you change something in your prefab in the scene, it is not automatically applied to the prefab in your project folder. You need to manually apply any changes by selecting the prefab in the scene, finding the little toggle called ‘Overrides’ in the inspector, and then press ‘Apply all’.  5. Add your files to an asset bundle 
+
+Now we need to tell Unity that everything in this folder should be built into an asset bundle. Unity’s UX for this is rather stupid, so bear with me. 
+</code></pre></div></div>
+
+<p><img src="images/image54.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>15. Navigate to your Assets folder in the Project Window.
+</code></pre></div></div>
+
+<p><img src="images/image55.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>16. Select your folder.
+17. In the bottom right corner, you see a small text saying “Asset Labels”. 
+</code></pre></div></div>
+
+<p><img src="images/image56.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>18. Press this text to see the asset bundle menu. (Why they placed it in such a strange location, no one knows.)
+</code></pre></div></div>
+
+<p><img src="images/image57.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>19. Press the foldout that currently says “None”.
+20. Press new. 
+</code></pre></div></div>
+
+<p><img src="images/image58.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>21. Give your asset bundle a sensible name so you can easily recognize it later. This tells Unity that every file in this folder should be built into this asset bundle. This is what you will upload to our platform.  6. Build your asset bundle
+</code></pre></div></div>
+
+<p><img src="images/image59.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>22. In the menu in the top, go to Window -&gt; AssetBundle Browser to open the asset bundle builder. (Not XREF AssetBundle Builder, that one is not working at the moment)
+</code></pre></div></div>
+
+<p><img src="images/image60.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>23. In the window, select the name of your asset bundle to check that everything is included in it. If not, go through step 5 again. 
+</code></pre></div></div>
+
+<p><img src="images/image61.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>24. Press the ‘Build’ tab.
+</code></pre></div></div>
+
+<p><img src="images/image62.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>25. Select the platform you want to build for. iOS for iPhone, or Android for Android.
+26. Press build. The first time you do it it will take a few minutes, after that it will be much faster since Unity caches it.
+27. Check the console, if there are no errors it means your build have been successful. 
+</code></pre></div></div>
+
+<p><img src="images/image63.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>28. The newly created asset bundle ends up in a folder called AssetBundles in the root folder of your project. 
+</code></pre></div></div>
+
+<p><img src="images/image64.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>29. **KNOWN ERROR: **For iOS users on Mac, the project sometimes tries to install something called ‘CocoaPods’. You will see two new windows appear that are called something like “Installing Cocoapods”. You will get tons of errors in the log and the build will fail. This is due to a bug in our libraries that will be resolved soon. \ **Resolution: **Restart the Unity editor (no need to restart Unity Hub or the computer). The errors will be gone and the build should work. The ‘Installing Cocapods’ windows might still appear, just close them. You only need to do this step once, the error will not return.  7. Create an account on Meadow 
+</code></pre></div></div>
+
+<p><img src="images/image65.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>30. Go to the Meadow portal at: [https://xref-client.web.app/](https://xref-client.web.app/)
+31. Press ‘Don't have an account? Sign Up’ in bottom right corner. 
+32. Sign up with an email you have access to.  \  \ The verification email sometimes end up in the trash. \  \ Certain non-standard email providers and government accounts blocks our verification email, use a standard gmail or outlook address instead.  8. Create an experience on Meadow
+</code></pre></div></div>
+
+<p><img src="images/image66.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>33. Press ‘Create new artwork’. An experience is still called an ‘artwork’ on Meadow.
+</code></pre></div></div>
+
+<p><img src="images/image67.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>34. Press the little edit button to the right to edit the artwork and upload the asset bundle.
+</code></pre></div></div>
+
+<p><img src="images/image68.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>35. In this page you can add all the information about your experience, and an image that will be used in the app. 
+</code></pre></div></div>
+
+<p><img src="images/image69.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>36. The only thing you need to change now is placement type. This is by default set to “Geospatial”, which uses Google streetview to place the artwork. However, this doesn’t work indoors, since there is no streetview there. To test it at home, change placement type to ‘In Front of Camera’.
+</code></pre></div></div>
+
+<p><img src="images/image70.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>37. Scroll down to the asset bundle section
+    3. Choose your platform
+    4. Press “Upload iOS Bundle” (or “Upload Android Bundle”)
+    5. Navigate to where your bundle was saved (usually ProjectFolder/AssetBundles/iOS or ProjectFolder/AssetBundles/Android)
+    6. Upload it.
+38. If you have built bundles for both platforms, repeat the process for the next platform. 9. Place the experience 
+</code></pre></div></div>
+
+<p><img src="images/image71.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>39. Go to the ‘Map’ tab in the Meadow portal. 
+40. Search for the location where you are currently at. 
+</code></pre></div></div>
+
+<p><img src="images/image72.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>41. Double click on the map to place the artwork there. 
+</code></pre></div></div>
+
+<p><img src="images/image73.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>42. The experience is represented with a red marker on the map.
+43. Open the Meadow app to see it. If it doesn’t appear it might be because it is not made public yet. Contact me if you cannot see it in the app even if you have followed every step in this tutorial. 10. Add cocreators to your artwork. 
+</code></pre></div></div>
+
+<p><img src="images/image74.png" alt="alt_text" title="image_tooltip" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>44. Go to the tab ‘Collaborators’
+45. Add the email address of the people you would like to invite to be able to edit the experience. These people can upload asset bundles, change texts, images, and place the experience. 
+</code></pre></div></div>
+
+  </div>
+  
+  <div class="toc">
+    <p class="toc-title">Table of Contents</p>
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#upload-to-meadow">Upload to Meadow</a></li>
+</ul>
+  </div>
+  
+</div>
+</body>
+</html>
