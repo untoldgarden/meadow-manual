@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
 </head>
 <body>
-  <header class="site-header">
-    <img src="{{site.baseurl}}/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
-    <span class="header-title">Meadow Manual</span>
-  </header>
   <div class="content-container">
     <div class="sidebar">
+      <header class="site-header">
+        <img src="{{site.baseurl}}/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
       <!-- Chapter links -->
       <a href="/meadow-manual/installing-unity.html" class="{% if page.url == '/installing-unity.html' %}active{% endif %}">Installing Unity</a>
       <a href="/meadow-manual/install-the-template-project.html" class="{% if page.url == '/install-the-template-project.html' %}active{% endif %}">Install the Template Project</a>
@@ -29,7 +29,7 @@
   </div>
   
   <div class="toc">
-    <p class="toc-title">Table of Contents</p>
+    <p class="toc-title">On this Page</p>
     {{ content | toc_only }}
   </div>
   

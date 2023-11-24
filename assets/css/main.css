@@ -6,6 +6,10 @@ body {
   font-family: sans-serif;
   background-color: #0b0d0e;
   color: #d1d1d1; 
+  /* max-width: 1500px; */
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
 }
 
 .content-container {
@@ -19,7 +23,7 @@ body {
   align-items: center;
   background-color: #0b0d0e;
   color: #d1d1d1;
-  padding: 10px 20px;
+  padding: 10px 10px 40px 10px;
   width: 100%;
 }
 
@@ -38,11 +42,15 @@ body {
 }
 
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 250px;
   background-color: #0b0d0e;
   color: #d1d1d1;
   padding: 20px;
   flex-shrink: 0;
+  /* position: fixed; */
 }
 
 .sidebar a {
@@ -78,9 +86,16 @@ body {
   flex-grow: 1;
   padding: 20px;
   overflow-x: hidden;
+  margin-bottom: 150px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .toc {
+  position: fixed;
+    top: 0;
+    right: 0;
   width: 240px;
   background-color: #0b0d0e;
   padding: 20px;
@@ -213,4 +228,27 @@ a:hover, .sidebar a:hover, .toc li a:hover {
   background-color: #34495e;
   border-left-color: #f39c12;
   text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+body {
+  max-width: 100%;
+}
+
+  .content-container {
+    flex-direction: column;
+}
+.sidebar {
+  width: 100%;
+  order: -1;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 100%; 
+}
+
+.toc {
+  display: none;
+}
 }
