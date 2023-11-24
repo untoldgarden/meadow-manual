@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="/meadow-manual/assets/css/main.css">
 </head>
 <body>
-  <header class="site-header">
-    <img src="/meadow-manual/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
-    <span class="header-title">Meadow Manual</span>
-  </header>
   <div class="content-container">
     <div class="sidebar">
+      <header class="site-header">
+        <img src="/meadow-manual/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
       <!-- Chapter links -->
       <a href="/meadow-manual/installing-unity.html" class="">Installing Unity</a>
       <a href="/meadow-manual/install-the-template-project.html" class="">Install the Template Project</a>
@@ -25,7 +25,7 @@
   
   <div class="main-content">
     <!-- Main content will be inserted here -->
-    <h3 id="navigate-the-unity-editor">Navigate the Unity editor</h3>
+    <h1 id="navigate-the-unity-editor">Navigate the Unity editor</h1>
 
 <p>Unity is like a theatre stage, or film set, where all the components of your experience come together. It will not do anything unless you put great assets and actors following a good script on it.</p>
 
@@ -35,72 +35,64 @@
   <li>Meadow is your audio/video tech, this is what’s needed for you to distribute what you see to an audience.</li>
 </ul>
 
-<h3 id="terminology-terminology-toc">Terminology {#terminology} {:toc}</h3>
+<h2 id="starting-unity">Starting Unity</h2>
 
-<p>**Assets: **The files you use to create your experience. Everything from 3D models, textures, to audio files.</p>
-
-<p>**Visual Scripting: **A visual “coding language” developed by Unity, that allows you to create experiences without writing a single line of code.</p>
-
-<p><strong>Axis:</strong> In virtual 3D worlds, axes refer to the invisible lines that define the three-dimensional space of the world, typically represented as the X-axis for horizontal movement, Y-axis for vertical movement, and Z-axis for depth, helping to determine the position, rotation, and scale of objects in space.</p>
-
-<h3 id="starting-unity">Starting Unity</h3>
-
-<p><img src="images/image6.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="images/startingUnity.webp" alt="alt_text" title="Starting Unity" /></p>
 
 <p>When you first open the template project the window will look something like this.</p>
 
 <p>The Unity editor is divided into many different windows. The six most important are:</p>
 
-<h3 id="project-window">Project Window</h3>
+<h2 id="project-window">Project Window</h2>
 
-<p><img src="images/image7.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="images/projectWindow.webp" alt="alt_text" title="image_tooltip" /></p>
 
 <p>The Project Window acts as your central hub for all the assets in your Unity project. It mirrors the contents of your project’s folder on your computer’s file system. Any modifications made within this window are automatically saved and reflected in the corresponding Finder (or File Explorer on Windows) directory, and vice versa.</p>
 
-<p><img src="images/image8.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="images/project-window-unity.webp" alt="alt_text" title="image_tooltip" /></p>
 
 <p>Is the same as:</p>
 
-<p><img src="images/image9.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="images/project-view-finder.webp" alt="alt_text" title="image_tooltip" /></p>
 
-<h3 id="scene-view">Scene View</h3>
+<h2 id="scene-view">Scene View</h2>
 
-<p><img src="images/image10.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="images/sceneView.webp" alt="alt_text" title="image_tooltip" /></p>
 
 <p>The Scene View is your interactive canvas where you create your experience. Here, you can place, arrange, and manipulate objects. This view offers a variety of tools and perspectives, allowing you to navigate and edit your scene from different angles and scales.</p>
 
-<p><strong>Navigation in Scene View</strong></p>
+<h3 id="navigation-in-scene-view">Navigation in Scene View</h3>
 
 <p>Zooming:</p>
 
 <ul>
-  <li>**Mac: **Use two fingers to scroll up or down on the trackpad.</li>
-  <li>**Windows: **Use the scroll wheel on your mouse.</li>
+  <li><strong>Mac:</strong> Use two fingers to scroll up or down on the trackpad.</li>
+  <li><strong>Windows:</strong> Use the scroll wheel on your mouse.</li>
 </ul>
 
 <p>Rotating:</p>
 
 <ul>
-  <li>**Mac: **Hold down the ‘Option’ key, click and drag with your mouse or trackpad.</li>
-  <li>**Windows: **Hold down the ‘Alt’ key, click and drag with your mouse.</li>
+  <li><strong>Mac:</strong> Hold down the ‘Option’ key, click and drag with your mouse or trackpad.</li>
+  <li><strong>Windows:</strong> Hold down the ‘Alt’ key, click and drag with your mouse.</li>
 </ul>
 
 <p>Dolly (Pan):</p>
 
 <ul>
-  <li>**Mac: **Hold down both the ‘Option’ and ‘Command’ keys, then click and drag with your mouse or trackpad.</li>
-  <li>**Windows: **Hold down both the ‘Alt’ and ‘Middle Mouse Button’, then drag with your mouse.</li>
+  <li><strong>Mac:</strong> Hold down both the ‘Option’ and ‘Command’ keys, then click and drag with your mouse or trackpad.</li>
+  <li><strong>Windows:</strong> Hold down both the ‘Alt’ and ‘Middle Mouse Button’, then drag with your mouse.</li>
 </ul>
 
-<h3 id="game-view">Game View</h3>
+<h2 id="game-view">Game View</h2>
 
-<p><img src="images/image11.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="images/gameView.webp" alt="alt_text" title="image_tooltip" /></p>
 
-<p>The Game View provides a preview of your experience. It renders the game from the perspective of the active camera. In AR, the users phone camera is the active camera, so this is not an accurate rendition of what the user will see. Move the camera around to mimic user behaviour in your scene.</p>
+<p>The Game View provides a preview of your experience. It renders the game from the perspective of the active camera. In AR, the users phone camera is the active camera, so this is not an accurate rendition of what the user will see. Move the camera around to simply mimic user behaviour in your scene.</p>
 
-<h3 id="hierarchy-window">Hierarchy Window</h3>
+<h2 id="hierarchy-window">Hierarchy Window</h2>
 
-<p><img src="images/image12.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="images/hierarchy.webp" alt="alt_text" title="image_tooltip" /></p>
 
 <p>The Hierarchy Window displays all the game objects present in your experience, organized in a tree structure. Each item in the hierarchy represents a game object, and child objects can be nested under parents, establishing a clear and manageable structure.  <br />
  <br />
@@ -110,58 +102,58 @@ In the hierarchy, you are working in what is called a Scene. A scene in Unity wo
 
 <p>**IMPORTANT: **The scene is the only thing that isn’t saved automatically in Unity. You need to manually save the scene by pressing cmd + s (ctrl + s on Windows.) If you do not do this, the way you have configured your hierarchy will be lost.</p>
 
-<h3 id="inspector-window">Inspector Window</h3>
+<h2 id="inspector-window">Inspector Window</h2>
 
-<p><img src="images/image13.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="images/inspector.webp" alt="alt_text" title="image_tooltip" /></p>
 
 <p>The Inspector Window provides detailed information and customizable properties for the currently selected game object or asset. Here, you can view and modify attributes such as position, rotation, scale, and any attached components or scripts.</p>
 
-<p><img src="images/image14.png" alt="alt_text" title="image_tooltip" />
+<p><img src="images/inspector-camera-selected.webp" alt="alt_text" title="image_tooltip" />
  <br />
 If you select the ‘Camera’ object from your hierarchy, you will see that it has a Transform component that gives it a position, scale and rotation, as well as a Camera component, that renders a view of the scene to the Game View.</p>
 
-<h3 id="console-window">Console Window</h3>
+<h2 id="console-window">Console Window</h2>
 
-<p><img src="images/image15.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="images/console-view.webp" alt="alt_text" title="image_tooltip" /></p>
 
 <p>The Console Window serves as Unity’s output log, displaying messages, warnings, and errors generated by your game and scripts. It is a valuable resource for debugging and troubleshooting, helping you identify and resolve issues during development.</p>
 
-<p><img src="images/image16.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="images/console.webp" alt="alt_text" title="image_tooltip" /></p>
 
-<p>There might be errors in your console when you first open the template project. Unity often throws some random errors when you open it, those are nothing to worry about.</p>
+<p>There might be errors in your console when you first open the template project. Unity sometimes throws errors when you open it, those are nothing to worry about.</p>
 
-<p><img src="images/image17.png" alt="alt_text" title="image_tooltip" /></p>
+<p><img src="images/console-clear.webp" alt="alt_text" title="image_tooltip" /></p>
 
 <ol>
   <li>Press the little button called ‘Clear’ in the top right corner of the window.</li>
-  <li>If all errors are gone, all is good.</li>
-  <li>If some errors persist, then something has gone wrong when setting up the project. Check the steps of ‘Download and install our template project for Unity’ again.</li>
+  <li>If all errors are gone, all is good and you are ready to start building.</li>
+  <li>If some errors persist, then something has gone wrong when setting up the project. Check the steps of ‘Install the Template Project’ again or reach out to support.
+<img src="images/console-clean.webp" alt="alt_text" title="image_tooltip" /></li>
+  <li>There might be many warnings. In normal programming, warnings are important to keep an eye on. But for our purposes, they are not important.</li>
+  <li>Press the yellow warning triangle to hide all future warnings.
+<img src="images/console-warnings.webp" alt="alt_text" title="image_tooltip" /></li>
 </ol>
-
-<p><img src="images/image18.png" alt="alt_text" title="image_tooltip" /></p>
-
-<ol>
-  <li>There might be many warnings. In normal programming, warnings are important to keep an eye on. But we are here to create AR experiences so you can disregard them.</li>
-  <li>Press the yellow warning triangle to hide all warnings.</li>
-</ol>
-
-<p><img src="images/image19.png" alt="alt_text" title="image_tooltip" /></p>
-
 
   </div>
   
   <div class="toc">
-    <p class="toc-title">Table of Contents</p>
+    <p class="toc-title">On this Page</p>
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h3"><a href="#navigate-the-unity-editor">Navigate the Unity editor</a></li>
-<li class="toc-entry toc-h3"><a href="#terminology-terminology-toc">Terminology {#terminology} {:toc}</a></li>
-<li class="toc-entry toc-h3"><a href="#starting-unity">Starting Unity</a></li>
-<li class="toc-entry toc-h3"><a href="#project-window">Project Window</a></li>
-<li class="toc-entry toc-h3"><a href="#scene-view">Scene View</a></li>
-<li class="toc-entry toc-h3"><a href="#game-view">Game View</a></li>
-<li class="toc-entry toc-h3"><a href="#hierarchy-window">Hierarchy Window</a></li>
-<li class="toc-entry toc-h3"><a href="#inspector-window">Inspector Window</a></li>
-<li class="toc-entry toc-h3"><a href="#console-window">Console Window</a></li>
+<li class="toc-entry toc-h1"><a href="#navigate-the-unity-editor">Navigate the Unity editor</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#starting-unity">Starting Unity</a></li>
+<li class="toc-entry toc-h2"><a href="#project-window">Project Window</a></li>
+<li class="toc-entry toc-h2"><a href="#scene-view">Scene View</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#navigation-in-scene-view">Navigation in Scene View</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#game-view">Game View</a></li>
+<li class="toc-entry toc-h2"><a href="#hierarchy-window">Hierarchy Window</a></li>
+<li class="toc-entry toc-h2"><a href="#inspector-window">Inspector Window</a></li>
+<li class="toc-entry toc-h2"><a href="#console-window">Console Window</a></li>
+</ul>
+</li>
 </ul>
   </div>
   

@@ -7,12 +7,12 @@
   <link rel="stylesheet" href="/meadow-manual/assets/css/main.css">
 </head>
 <body>
-  <header class="site-header">
-    <img src="/meadow-manual/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
-    <span class="header-title">Meadow Manual</span>
-  </header>
   <div class="content-container">
     <div class="sidebar">
+      <header class="site-header">
+        <img src="/meadow-manual/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
       <!-- Chapter links -->
       <a href="/meadow-manual/installing-unity.html" class="">Installing Unity</a>
       <a href="/meadow-manual/install-the-template-project.html" class="active">Install the Template Project</a>
@@ -25,17 +25,22 @@
   
   <div class="main-content">
     <!-- Main content will be inserted here -->
-    <h2 id="download-and-install-our-template-project-for-unity">Download and install the template project for Unity</h2>
+    <h1 id="download-and-install-our-template-project-for-unity">Download and install the template project for Unity</h1>
 
-<p>To help you create and publish your experiences to meadow we have created two packages, that you need to install:  <br />
- <br />
-<strong>XREF</strong>: Short for Extended Reality Experience Framework, includes all the basic functionality necessary to create an experience you can upload to our platform.</p>
+<p>To create and publish your experiences to meadow you need to install two packages in your project.</p>
+
+<p><br />
+<strong>XREF</strong>: XREF stands for Extended Reality Experience Framework, and includes all the basic functionality necessary to create an experience you can upload to our platform.</p>
 
 <p><strong>XREF.ExperienceBuilder:</strong> Contains a bunch of useful features that you can use to create your experiences, like simplified audio interaction, dialogue creation, character movements, etc.  <br />
  <br />
 To make it easier to get started we have created a template project that has our packages already installed.</p>
 
-<h3 id="download-the-template-project-from-github">Download the template project from Github</h3>
+<p><br /><br /></p>
+
+<h2 id="download-the-template-project-from-github">Download the template project from Github</h2>
+
+<h3 id="via-the-github-website">Via the Github website:</h3>
 
 <ol>
   <li>Go to <a href="https://github.com/untoldgarden/XREF_ExperienceBuilder">https://github.com/untoldgarden/XREF_ExperienceBuilder</a></li>
@@ -44,15 +49,22 @@ To make it easier to get started we have created a template project that has our
   <li>Unzip it in a sensible location (e.g. Projects/UnityTutorial)</li>
 </ol>
 
-<h3 id="add-the-template-project-to-unity-hub">Add the template project to Unity Hub</h3>
+<h3 id="via-the-command-line">Via the command line:</h3>
+
+<ol>
+  <li>Navigate to where you want to download the project</li>
+  <li>Run the following command
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/untoldgarden/XREF_ExperienceBuilder
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="add-the-template-project-to-unity-hub">Add the template project to Unity Hub</h2>
+
 <ol>
   <li>Go to Unity Hub</li>
   <li>Click projects</li>
-  <li>Click on the little arrow to the right of ‘Add’ and choose ‘Add project from disk’</li>
-</ol>
-
-<p><img src="images/addProjectFromDisk.webp" alt="alt_text" title="image_tooltip" /></p>
-<ol>
+  <li>Click on the little arrow to the right of ‘Add’ and choose ‘Add project from disk’ <img src="images/addProjectFromDisk.webp" alt="alt_text" title="image_tooltip" /></li>
   <li>Navigate to where you located your project template</li>
   <li>Choose the root folder (e.g. XREF_ExperienceBuilder)</li>
   <li>Press ‘Add Project’</li>
@@ -71,12 +83,17 @@ To make it easier to get started we have created a template project that has our
   </div>
   
   <div class="toc">
-    <p class="toc-title">Table of Contents</p>
+    <p class="toc-title">On this Page</p>
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#download-and-install-our-template-project-for-unity">Download and install the template project for Unity</a>
+<li class="toc-entry toc-h1"><a href="#download-and-install-our-template-project-for-unity">Download and install the template project for Unity</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#download-the-template-project-from-github">Download the template project from Github</a></li>
-<li class="toc-entry toc-h3"><a href="#add-the-template-project-to-unity-hub">Add the template project to Unity Hub</a></li>
+<li class="toc-entry toc-h2"><a href="#download-the-template-project-from-github">Download the template project from Github</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#via-the-github-website">Via the Github website:</a></li>
+<li class="toc-entry toc-h3"><a href="#via-the-command-line">Via the command line:</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#add-the-template-project-to-unity-hub">Add the template project to Unity Hub</a></li>
 </ul>
 </li>
 </ul>
