@@ -9,7 +9,7 @@ theme: null
 layouts_dir: _layouts
 data_dir: _data
 baseurl: ""
-url: "https://untoldgarden.github.io"
+url: "https://manual.meadow.space"
 plugins:
   - jekyll-toc
 
