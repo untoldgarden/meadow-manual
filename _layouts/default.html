@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url}}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
   <div class="content-container">
     <div class="sidebar">
       <header class="site-header">
-        <img src="{{site.baseurl}}/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <img src="{{ '/assets/meadow-logo.webp' | relative_url}}" alt="Meadow Logo" class="logo" />
         <span class="header-title">Meadow Manual</span>
       </header>
       <!-- Chapter links -->
-      <a href="/meadow-manual/installing-unity.html" class="{% if page.url == '/installing-unity.html' %}active{% endif %}">Installing Unity</a>
-      <a href="/meadow-manual/install-the-template-project.html" class="{% if page.url == '/install-the-template-project.html' %}active{% endif %}">Install the Template Project</a>
-      <a href="/meadow-manual/navigate-the-unity-editor.html" class="{% if page.url == '/navigate-the-unity-editor.html' %}active{% endif %}">Navigate the Unity Editor</a>
-      <a href="/meadow-manual/create-your-first-experience.html" class="{% if page.url == '/create-your-first-experience.html' %}active{% endif %}">Create Your First Experience</a>
-      <a href="/meadow-manual/upload-to-meadow.html" class="{% if page.url == '/upload-to-meadow.html' %}active{% endif %}">Upload to Meadow</a>
+      <a href="{{ '/installing-unity.html' | relative_url }}" class="{% if page.url == '/installing-unity.html' %}active{% endif %}">Installing Unity</a>
+      <a href="{{ '/install-the-template-project.html' | relative_url }}" class="{% if page.url == '/install-the-template-project.html' %}active{% endif %}">Install the Template Project</a>
+      <a href="{{ '/navigate-the-unity-editor.html' | relative_url }}" class="{% if page.url == '/navigate-the-unity-editor.html' %}active{% endif %}">Navigate the Unity Editor</a>
+      <a href="{{ '/create-your-first-experience.html' | relative_url }}" class="{% if page.url == '/create-your-first-experience.html' %}active{% endif %}">Create Your First Experience</a>
+      <a href="{{ '/upload-to-meadow.html' | relative_url }}" class="{% if page.url == '/upload-to-meadow.html' %}active{% endif %}">Upload to Meadow</a>      
     </div>
     
     
