@@ -14,10 +14,8 @@ Unity is like a theatre stage, or film set, where all the components of your exp
 
 ## Starting Unity {#starting-unity}
 
-![alt_text](images/startingUnity.webp "Starting Unity")
-
 When you first open the template project the window will look something like this. 
-
+![alt_text](images/startingUnity.webp "Starting Unity")
 The Unity editor is divided into many different windows. The six most important are:
 
 
@@ -130,8 +128,8 @@ There might be errors in your console when you first open the template project. 
 
 1. Press the little button called ‘Clear’ in the top right corner of the window. 
 2. If all errors are gone, all is good and you are ready to start building.
-3. If some errors persist, then something has gone wrong when setting up the project. Check the steps of ‘Install the Template Project’ again or reach out to support.
 ![alt_text](images/console-clean.webp "image_tooltip")
+3. If some errors persist, then something has gone wrong when setting up the project. Check the steps of ‘Install the Template Project’ again or reach out to support.
 4. There might be many warnings. In normal programming, warnings are important to keep an eye on. But for our purposes, they are not important.
 5. Press the yellow warning triangle to hide all future warnings.
 ![alt_text](images/console-warnings.webp "image_tooltip")

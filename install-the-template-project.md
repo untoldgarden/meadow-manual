@@ -44,8 +44,10 @@ git clone https://github.com/untoldgarden/XREF_ExperienceBuilder
 6. Press 'Add Project'
 7. If you installed version 2022.3.11f1 you need to tell Unity that you want to use that version instead
     1. Press the drop down under 'Editor version' that has a little warning triangle on it
-![alt_text](images/hubChangeVersion.webp "image_tooltip")
+    ![alt_text](images/hubChangeVersion.webp "image_tooltip")
     2. Select your installed version of Unity
     3. Press 'Open with...'
     4. In the following dialogue, press 'Change version'
     5. It will take some time to open the project, and then show a new dialogue, press 'Continue'.
+8. The project should open in Unity and look like this:
+![alt_text](images/startingUnity.webp "Starting Unity")
