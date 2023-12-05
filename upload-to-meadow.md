@@ -106,6 +106,8 @@ Now we need to tell Unity that everything in this folder should be built into an
 
 ## Create an account on Meadow 
 
+Meadow is still in a closed beta, so your email need to be whitelisted by us before you can create an account. Contact support to get your email whitelisted.
+
 1. Go to the Meadow portal at: [https://console.meadow.space/](https://console.meadow.space/)
 ![alt_text](images/meadow-console.webp "image_tooltip")
 2. Press ‘Don't have an account? Sign Up’ in bottom right corner. 
