@@ -113,6 +113,8 @@ Meadow is still in a closed beta, so your email need to be whitelisted by us bef
 2. Press ‘Don't have an account? Sign Up’ in bottom right corner. 
 3. Sign up with an email you have access to. The verification email sometimes end up in the trash. Certain non-standard email providers and government accounts blocks our verification email, use a standard gmail or outlook address instead. 
 
+**<font color="red">KNOWN ERROR:</font>** Currently it's not possible to use spaces in your name. We are working on fixing this, until that's done, use a name without spaces.
+
 ## Create an experience on Meadow
 
 1. Press ‘Create new artwork’. An experience is still called an ‘artwork’ on Meadow, this will be changed soon.

@@ -3,8 +3,8 @@ layout: default
 title: Home
 ---
 
-# Welcome to Meadow Manual
+# Welcome to the Meadow Manual
 
-This is the starting point of your manual. You can add an introduction, an overview, or instructions here.
+Meadow is a social platform for creating, publishing and distributing XR experiences. 
 
 <!-- More content as needed -->
