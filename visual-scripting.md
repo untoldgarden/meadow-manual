@@ -6,28 +6,40 @@ toc: true
 
 # Visual Scripting {#visual-scripting}
 
-In Meadow you need to use visual scripting for your experience logic. There are plenty of great tutorials online to give you an introduction to visual scripting. Here are a few to get you started:
-[https://www.youtube.com/watch?v=JYkFm1Sc3v8](https://www.youtube.com/watch?v=JYkFm1Sc3v8)
-[https://www.youtube.com/watch?v=hcrHmGil_rM](https://www.youtube.com/watch?v=hcrHmGil_rM)
+In Meadow you need to use visual scripting for your experience logic. There are plenty of great tutorials online to give you an introduction to visual scripting. Here are two to get you started:
+* [Unity Visual Scripting – Getting Started](https://www.youtube.com/watch?v=JYkFm1Sc3v8)
+* [How to do Visual Scripting in Unity!](https://www.youtube.com/watch?v=hcrHmGil_rM)
 
+<br>
 ## Meadow specific visual scripting events
 
 Meadow has a few specific events related to functions in the app that you can make use of in your experiences. Many are related to specific features covered in other parts of the manual, but here are a few general ones:
 
+<br>
 ### OnExperienceInitialized
 
-This event is triggered when the experience is initialized and ready to go. It is good practice to use this instead of OnStart to start your experience. 
+This event is triggered when the experience is initialized and ready for use. It is recommended to initiate your experience in this event rather than `OnStart` to avoid conflicts with the initialization processes of Meadow and the AR subsystems, which occur during `OnStart`.
 
-Meadow and the AR subsystems does some initialization of their own at OnStart, so you might run into issues if you start your experience too early. 
+**Parameters:**
+- `bool`: Indicates whether the initialization was successful (`true`) or not (`false`).
 
+<br>
 ### ToggleARUI
 
-This event is triggered when the user opens the AR UI. You can use this to pause your experience or show a message to the user.
+This event is triggered when the user toggles the AR user interface. It can be utilized to pause the experience or display a message to the user.
 
-### UserCaptureCreated 
+**Parameters:**
+- `bool`: Represents the state of the AR UI; `true` if the UI is open, `false` otherwise.
 
-This event is triggered when the user takes a picture or a records a video using Meadows own recorder. 
+<br>
+### UserCaptureCreated
 
+This event is triggered following a user action of taking a picture or recording a video using Meadow's integrated capture functionality. It provides information about the type of capture performed by the user, allowing for appropriate handling of the captured media.
+
+**Parameters:**
+- `CaptureType`: Specifies the capture type, which can be `CaptureType.Photo` for photographs or `CaptureType.Video` for videos, enabling tailored responses to different capture actions.
+
+<br>
 ### RepositionStart and RepositionEnd
 
 These event is triggered when the positioning system has new information and repositions your experience accordingly. In most cases this is imperceptible to the user.
