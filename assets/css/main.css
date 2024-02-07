@@ -83,8 +83,8 @@ body {
   padding: 20px;
   overflow-x: auto;
   margin-bottom: 150px;
-  margin-left: calc(15% + 20px); /* Adjust based on sidebar width */
-  margin-right: calc(15% + 20px); /* Adjust based on TOC width */
+  margin-left: calc(20% + 20px); /* Adjust based on sidebar width */
+  margin-right: calc(20% + 20px); /* Adjust based on TOC width */
   max-width: calc(70% - 40px); /* Adjust based on sidebar and TOC width */
 }
 
