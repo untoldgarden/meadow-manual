@@ -18,20 +18,56 @@
       <a href="/install-the-template-project.html" class="">Install the Template Project</a>
       <a href="/navigate-the-unity-editor.html" class="">Navigate the Unity Editor</a>
       <a href="/create-your-first-experience.html" class="">Create Your First Experience</a>
-      <a href="/upload-to-meadow.html" class="">Upload to Meadow</a>      
+      <a href="/upload-to-meadow.html" class="">Upload to Meadow</a>    
+      <a href="/visual-scripting.html" class="">Visual Scripting</a>
+      <a href="/map-marker.html" class="active">Map Marker</a>
     </div>
     
     
   
   <div class="main-content">
     <!-- Main content will be inserted here -->
-    
+    <h1 id="map-marker">Map Marker</h1>
+
+<p>Meadow allows you to create site-specific experiences that are placed on a map. To show your experience on the map you can upload a custom map marker, that can be anything from a simple icon to a 3D model.</p>
+
+<h2 id="create-a-map-marker-using-an-image">Create a Map Marker using an image</h2>
+
+<ol>
+  <li>Create a new folder in your project, outside of your main experience folder.</li>
+  <li>Assign this folder to a new Asset Bundle, call it e.g. yourprojectnamemapmarker. No - or special characters are allowed in the Asset Bundle name.</li>
+  <li>Create an empty GameObject in your scene.</li>
+  <li>As a child to this GameObject, create a quad facing upwards.</li>
+  <li>Move it up a bit so it’s not intersecting with the map itself, which is at 0.</li>
+  <li>Import the icon you want to use to your project.</li>
+  <li>Assign this as the texture on a new material.</li>
+  <li>Assign this material to the quad.</li>
+  <li>Drag the empty gameobject to your Map Marker folder in the project view to create a prefab.</li>
+  <li>Build Asset Bundles in the usual way. You will have a new Asset Bundle in your folder called “yourprojectnamemapmarker”.</li>
+  <li>Upload this Asset Bundle to the Meadow console.</li>
+</ol>
+
+<h2 id="create-a-map-marker-using-a-3d-model">Create a Map Marker using a 3D model</h2>
+
+<ol>
+  <li>Follow step 1-3 in the previous section.</li>
+  <li>Import your 3D model.</li>
+  <li>Drag it to the scene as a child of the empty GameObject.</li>
+  <li>Position and scale it as you want it to appear on the map. Don’t make it too big or too small. A good size is between 1 and 2 meters.</li>
+  <li>Follow step 9-11 in the previous section.</li>
+</ol>
 
   </div>
   
   <div class="toc">
     <p class="toc-title">On this Page</p>
     <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#map-marker">Map Marker</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#create-a-map-marker-using-an-image">Create a Map Marker using an image</a></li>
+<li class="toc-entry toc-h2"><a href="#create-a-map-marker-using-a-3d-model">Create a Map Marker using a 3D model</a></li>
+</ul>
+</li>
 </ul>
   </div>
   
