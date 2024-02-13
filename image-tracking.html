@@ -49,7 +49,7 @@
 
 <p><img src="images/image-import-settings.webp" alt="alt_text" title="Image Import Settings" /></p>
 
-<h2 id="use-xref-tracked-image-manager">Use XREF Tracked Image Manager</h2>
+<h2 id="using-xref-tracked-image-manager">Using XREF Tracked Image Manager</h2>
 
 <p>The <code class="language-plaintext highlighter-rouge">XREF.TrackedImageManager</code> allows you to easily place prefabs on top of images.</p>
 
@@ -64,6 +64,19 @@
 
 <p><img src="images/image-tracking.webp" alt="alt_text" title="Image Tracking" /></p>
 
+<h2 id="using-visual-scripting-event-ontrackedimageschanged">Using Visual Scripting Event OnTrackedImagesChanged</h2>
+
+<p>You can also use visual scripting to trigger logic when an image is tracked for more granular control.</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>Added Images</strong>: <code class="language-plaintext highlighter-rouge">List&lt;ARTrackedImage&gt;</code> - New images added to the tracked images list since the last event.</li>
+  <li><strong>Updated Images</strong>: <code class="language-plaintext highlighter-rouge">List&lt;ARTrackedImage&gt;</code> - Images that have been updated.</li>
+  <li><strong>Removed Images</strong>: <code class="language-plaintext highlighter-rouge">List&lt;ARTrackedImage&gt;</code> - Images that have been removed from the tracked images list.</li>
+</ul>
+
+<p><img src="images/image-tracking-visual-scripting.webp" alt="alt_text" title="Image Tracking Visual Scripting" /></p>
+
   </div>
   
   <div class="toc">
@@ -73,7 +86,8 @@
 <ul>
 <li class="toc-entry toc-h2"><a href="#enable-image-tracking">Enable Image Tracking</a></li>
 <li class="toc-entry toc-h2"><a href="#import-and-prepare-images">Import and Prepare Images</a></li>
-<li class="toc-entry toc-h2"><a href="#use-xref-tracked-image-manager">Use XREF Tracked Image Manager</a></li>
+<li class="toc-entry toc-h2"><a href="#using-xref-tracked-image-manager">Using XREF Tracked Image Manager</a></li>
+<li class="toc-entry toc-h2"><a href="#using-visual-scripting-event-ontrackedimageschanged">Using Visual Scripting Event OnTrackedImagesChanged</a></li>
 </ul>
 </li>
 </ul>
