@@ -23,7 +23,7 @@ The images you want to track need to be imported into your experience and includ
 
 ![alt_text](images/image-import-settings.webp "Image Import Settings")
 
-## Use XREF Tracked Image Manager
+## Using XREF Tracked Image Manager
 
 The `XREF.TrackedImageManager` allows you to easily place prefabs on top of images.
 
@@ -35,3 +35,14 @@ The `XREF.TrackedImageManager` allows you to easily place prefabs on top of imag
 6. Toggle `Update Position` and `Update Rotation` to update the position and rotation of the prefab when the image is moving.
 
 ![alt_text](images/image-tracking.webp "Image Tracking")
+
+## Using Visual Scripting Event OnTrackedImagesChanged
+
+You can also use visual scripting to trigger logic when an image is tracked for more granular control. 
+
+**Parameters:**
+- **Added Images**: `List<ARTrackedImage>` - New images added to the tracked images list since the last event.
+- **Updated Images**: `List<ARTrackedImage>` - Images that have been updated.
+- **Removed Images**: `List<ARTrackedImage>` - Images that have been removed from the tracked images list.
+
+![alt_text](images/image-tracking-visual-scripting.webp "Image Tracking Visual Scripting")
