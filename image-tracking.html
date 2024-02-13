@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Tracking</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <a href="/installing-unity.html" class="">Installing Unity</a>
+      <a href="/install-the-template-project.html" class="">Install the Template Project</a>
+      <a href="/navigate-the-unity-editor.html" class="">Navigate the Unity Editor</a>
+      <a href="/create-your-first-experience.html" class="">Create Your First Experience</a>
+      <a href="/upload-to-meadow.html" class="">Upload to Meadow</a>    
+      <a href="/visual-scripting.html" class="">Visual Scripting</a>
+      <a href="/map-marker.html" class="">Map Marker</a>
+      <a href="/image-tracking.html" class="active">Image Tracking</a>
+    </div>
+    
+    
+  
+  <div class="main-content">
+    <!-- Main content will be inserted here -->
+    <h1 id="image-tracking">Image Tracking</h1>
+
+<p>Meadow allows you to create experiences that are triggered by images. This is a way to create interactive XR experiences that are triggered by posters, paintings, or any other image.</p>
+
+<h2 id="enable-image-tracking">Enable Image Tracking</h2>
+
+<p>In your content settings, toggle <code class="language-plaintext highlighter-rouge">Use Image Tracking</code> to enable image tracking for your experience.</p>
+
+<p><img src="images/image-tracking-settings.webp" alt="alt_text" title="Image Tracking Settings" /></p>
+
+<h2 id="import-and-prepare-images">Import and Prepare Images</h2>
+
+<p>The images you want to track need to be imported into your experience and included in your asset bundle.</p>
+
+<ol>
+  <li>Import the images you want to track into your project.</li>
+  <li>Make sure to enable the <code class="language-plaintext highlighter-rouge">Read/Write</code> option in the import settings for the images.</li>
+</ol>
+
+<p><img src="images/image-import-settings.webp" alt="alt_text" title="Image Import Settings" /></p>
+
+<h2 id="use-xref-tracked-image-manager">Use XREF Tracked Image Manager</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">XREF.TrackedImageManager</code> allows you to easily place prefabs on top of images.</p>
+
+<ol>
+  <li>Add the <code class="language-plaintext highlighter-rouge">XREF.TrackedImageManager</code> prefab to your main prefab. It can be on any GameObject.</li>
+  <li>For each image you want to track, add a new entry to the <code class="language-plaintext highlighter-rouge">Image Prefab Pairs</code> list.</li>
+  <li>Drag the image you want to track to the <code class="language-plaintext highlighter-rouge">Image</code> field.</li>
+  <li>Drag the prefab you want to place on top of the image to the <code class="language-plaintext highlighter-rouge">Prefab</code> field.</li>
+  <li>Specify the <code class="language-plaintext highlighter-rouge">Size</code> of the image in meters. This is the size of the image in the real world.</li>
+  <li>Toggle <code class="language-plaintext highlighter-rouge">Update Position</code> and <code class="language-plaintext highlighter-rouge">Update Rotation</code> to update the position and rotation of the prefab when the image is moving.</li>
+</ol>
+
+<p><img src="images/image-tracking.webp" alt="alt_text" title="Image Tracking" /></p>
+
+  </div>
+  
+  <div class="toc">
+    <p class="toc-title">On this Page</p>
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#image-tracking">Image Tracking</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#enable-image-tracking">Enable Image Tracking</a></li>
+<li class="toc-entry toc-h2"><a href="#import-and-prepare-images">Import and Prepare Images</a></li>
+<li class="toc-entry toc-h2"><a href="#use-xref-tracked-image-manager">Use XREF Tracked Image Manager</a></li>
+</ul>
+</li>
+</ul>
+  </div>
+  
+</div>
+</body>
+</html>
