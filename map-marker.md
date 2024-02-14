@@ -11,7 +11,7 @@ Meadow allows you to create site-specific experiences that are placed on a map. 
 ## Create a Map Marker using an image
 
 1. Create a new folder in your project, outside of your main experience folder. 
-2. Assign this folder to a new Asset Bundle, call it e.g. yourprojectnamemapmarker. No - or special characters are allowed in the Asset Bundle name.
+2. Assign this folder to a new Asset Bundle, call it e.g. yourprojectnamemapmarker or whatever you want. The name does not mater, but avoid dashes or special characters as these are not allowed in the Asset Bundle name.
 3. Create an empty GameObject in your scene. 
 4. As a child to this GameObject, create a quad facing upwards. 
 5. Move it up a bit so it’s not intersecting with the map itself, which is at 0.
@@ -28,4 +28,6 @@ Meadow allows you to create site-specific experiences that are placed on a map. 
 2. Import your 3D model.
 3. Drag it to the scene as a child of the empty GameObject.
 4. Position and scale it as you want it to appear on the map. Don't make it too big or too small. A good size is between 1 and 2 meters. 
-5. Follow step 9-11 in the previous section.
+5. Assign the tag `MapMarker` to your empty GameObject. This is for the system to know that this is the prefab that should be used as the marker. 
+6. Follow step 9-11 in the previous section.
+
