@@ -46,3 +46,15 @@ You can also use visual scripting to trigger logic when an image is tracked for 
 - **Removed Images**: `List<ARTrackedImage>` - Images that have been removed from the tracked images list.
 
 ![alt_text](images/image-tracking-visual-scripting.webp "Image Tracking Visual Scripting")
+
+## Common Issues
+
+### Instantiated Prefab Transform
+
+Make sure the position of the prefab is set to `0, 0, 0,` to place it in the middle of the image that is being tracked. 
+
+Also, make sure the scale is set to something that the user can see. If the prefab is very large the user will not see it as it is instantiated since they are standing inside of it. For example, if the user is standing 1 meter away from the image that is tracked, and the prefab is larger than 1 meter in size, the user might not see it. 
+
+### Image is not recognized
+
+Make sure that the image is set to `Read/Write` enabled in the import settings.
