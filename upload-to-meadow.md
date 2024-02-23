@@ -13,6 +13,7 @@ To upload your experience to Meadow you need to create what is called an Asset B
 ## Add your experience as children to an empty GameObject
 
 1. Create a new empty object in your Hierarchy and give it a sensible name. This is the root object of your experience, that will contain all the other objects.
+<font color="red">**Please note:**</font> Make sure that the root object is at position X = 0, Y = 0, Z = 0. Otherwise your experience will be placed in the wrong location in Meadow.
 ![alt_text](images/create-prefab-root.webp "image_tooltip")
 2. Select all the objects that you have created for your experience.
 ![alt_text](images/select-experience-objects.webp "image_tooltip")
