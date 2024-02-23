@@ -127,6 +127,7 @@ This is the process for publishing your tsv if you are using Google Sheets:
 2. Choose `Entire Document` and `Tab-separated values (.tsv)` as the format.
 3. Press `Publish`.
 4. Copy the link and use it in the `URL` field in the `XREF.DialogueSystem` component.
+5. Any changes you do to the Google Sheet is automatically reflected in your experience.
 
 ![alt_text](images/google-sheet-1.webp "Publish to web using Google Sheet")
 ![alt_text](images/google-sheet-2.webp "Publish to web using Google Sheet")
