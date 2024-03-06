@@ -16,7 +16,7 @@ In Meadow you need to use visual scripting for your experience logic. There are 
 Meadow has a few specific events related to functions in the app that you can make use of in your experiences. Many are related to specific features covered in other parts of the manual, but here are a few general ones:
 
 <br>
-### OnExperienceInitialized
+### OnContentInitialized // OnExperienceInitialized
 
 This event is triggered when the experience is initialized and ready for use. It is recommended to initiate your experience in this event rather than `OnStart` to avoid conflicts with the initialization processes of Meadow and the AR subsystems, which occur during `OnStart`.
 
