@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Install the XREF packages to an existing project</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <a href="/installing-unity.html" class="">Installing Unity</a>
+      <a href="/install-the-template-project.html" class="">Install the Template Project</a>
+      <a href="/install-packages.html" class="active">Install Packages</a>
+      <a href="/navigate-the-unity-editor.html" class="">Navigate the Unity Editor</a>
+      <a href="/create-your-first-experience.html" class="">Create Your First Experience</a>
+      <a href="/upload-to-meadow.html" class="">Upload to Meadow</a>    
+      <a href="/visual-scripting.html" class="">Visual Scripting</a>
+      <a href="/map-marker.html" class="">Map Marker</a>
+      <a href="/image-tracking.html" class="">Image Tracking</a>
+      <a href="/dialogue-system.html" class="">Dialogue System</a>
+    </div>
+    
+    
+  
+  <div class="main-content">
+    <!-- Main content will be inserted here -->
+    <h1 id="importing-scoped-packages-into-an-existing-unity-project">Importing Scoped Packages into an Existing Unity Project</h1>
+
+<p><strong><font color="red">This step is not needed if you are using the template project.</font></strong></p>
+
+<p>You can integrate our packages into an existing Unity project. Our packages are available through a scoped registry, and you can add them directly to your project.</p>
+
+<p>The packages you’ll need are:</p>
+
+<ul>
+  <li><strong>XREF</strong>: The Extended Reality Experience Framework, providing the core functionality for creating immersive experiences.</li>
+  <li><strong>XREF.ExperienceBuilder</strong>: Adds advanced features for creating experiences, including audio interaction, dialogue, and character movement tools.</li>
+  <li><strong>XREF.AssetBundleBrowser</strong>: Aids in managing and deploying asset bundles for your project.</li>
+</ul>
+
+<p><br /></p>
+<h2 id="adding-packages-to-your-project">Adding Packages to Your Project</h2>
+
+<h3 id="add-the-scoped-registry">Add the Scoped Registry</h3>
+
+<ol>
+  <li>In Unity, go to <code class="language-plaintext highlighter-rouge">Edit</code> &gt; <code class="language-plaintext highlighter-rouge">Project Settings</code> &gt; <code class="language-plaintext highlighter-rouge">Package Manager</code>.</li>
+  <li>Enable the option for <code class="language-plaintext highlighter-rouge">Enable Pre-release Packages</code>.</li>
+  <li>Add the Untold Garden scoped registry to your project:
+    <ul>
+      <li>Name: <code class="language-plaintext highlighter-rouge">Untold Garden</code></li>
+      <li>URL: <code class="language-plaintext highlighter-rouge">http://35.189.115.164:4873</code></li>
+      <li>Scopes:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">com.untoldgarden</code></li>
+          <li><code class="language-plaintext highlighter-rouge">com.google.ar.core.arfoundation.extensions-lite</code></li>
+          <li><code class="language-plaintext highlighter-rouge">com.google.external-dependency-manager</code></li>
+          <li><code class="language-plaintext highlighter-rouge">com.google.firebase</code>
+<img src="images/ugscopedregistry.webp" alt="alt_text" title="Untold Garden Scoped Registry" /></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Add the Game Package Registry by Google scoped registry to your project: (This requirement will be removed in a future release.)
+    <ul>
+      <li>Name: <code class="language-plaintext highlighter-rouge">Game Package Registry by Google</code></li>
+      <li>URL: <code class="language-plaintext highlighter-rouge">https://unityregistry-pa.googleapis.com</code></li>
+      <li>Scopes: <code class="language-plaintext highlighter-rouge">com.google</code>
+<img src="images/googlescopedregistry.webp" alt="alt_text" title="Google Scoped Registry" /></li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="add-the-packages">Add the Packages</h3>
+
+<ol>
+  <li>In Unity, go to <code class="language-plaintext highlighter-rouge">Window</code> &gt; <code class="language-plaintext highlighter-rouge">Package Manager</code> to open the package manager.</li>
+  <li>Click the <code class="language-plaintext highlighter-rouge">+</code> button in the top-left corner of the Package Manager.
+<img src="images/installpackage.webp" alt="alt_text" title="Install Package" /></li>
+  <li>Select <code class="language-plaintext highlighter-rouge">Install package by name</code>.</li>
+  <li>Search for and add the following packages to your project:
+    <ul>
+      <li>com.untoldgarden.xref</li>
+      <li>com.untoldgarden.xref-experience-builder</li>
+      <li>com.untoldgarden.xref-assetbundlebrowser</li>
+    </ul>
+  </li>
+  <li>You should now see the packages in your list
+<img src="images/packages.webp" alt="alt_text" title="Packages successfully installed" /></li>
+</ol>
+
+
+  </div>
+  
+  <div class="toc">
+    <p class="toc-title">On this Page</p>
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#importing-scoped-packages-into-an-existing-unity-project">Importing Scoped Packages into an Existing Unity Project</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#adding-packages-to-your-project">Adding Packages to Your Project</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#add-the-scoped-registry">Add the Scoped Registry</a></li>
+<li class="toc-entry toc-h3"><a href="#add-the-packages">Add the Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </div>
+  
+</div>
+</body>
+</html>
