@@ -1,9 +1,7 @@
 title: Meadow Manual
 email: your-email@example.com
 description: >- 
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Meadow is a social platform for building, publishing & distributing immersive content. This manual shows you how you can create and upload your own XR experiences.
 markdown: kramdown
 theme: null
 layouts_dir: _layouts
@@ -18,3 +16,4 @@ defaults:
       path: ""
     values:
       toc: true
+      description: "Meadow is a social platform for building, publishing & distributing immersive content. This manual shows you how you can create and upload your own XR experiences."
