@@ -4,7 +4,7 @@ title: Install the XREF packages to an existing project
 toc: true
 ---
 
-# Importing Scoped Packages into an Existing Unity Project
+# Importing XREF Packages into an Existing Unity Project
 
 **<font color="red">This step is not needed if you are using the template project.</font>**
 
