@@ -48,13 +48,12 @@ Open the experience you would like to update. Here you can choose which bundle t
 
 If you have more updates to publish later on, simply repeat this process to update again.
 
+
 **ATTENTION:** Make sure to choose the correct bundle and bundle type.
 
 <br>
 
-Snail by Rafael Rodrigues
-Grass by MauroGonzalezA
-Flowers by Vish4More
+*Models: Snail by Rafael Rodrigues, Grass by MauroGonzalezA, Flowers by Vish4More*
 
-[CC Liscence](https://creativecommons.org/licenses/by/4.0/)
+[CC License](https://creativecommons.org/licenses/by/4.0/)
 
