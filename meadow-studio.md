@@ -6,19 +6,37 @@ toc: true
 
 # Meadow Studio {#meadow-studio}
 
-Meadow studio info text here.
+Meadow Studio is a plugin for Unity that makes the entire process of building for Meadow 10x faster, and more streamlined. It enables you to:
+
+🌱  Build and upload experiences straight to Meadow
+
+🌻  Automatically set your project settings for Meadow compatiblity
+
+🌷  Add optional packages for creating complex experiences
+
+To create a new project you must used the webapp
+
+[Meadow Space](https://app.meadow.space/)
 
 <br>
 ## Download Meadow Studio
 
-How to download Meadow studio
+Go to https://app.meadow.space/dashboard/meadow-studio
+
+[Download Meadow Studio](https://app.meadow.space/dashboard/meadow-studio)
 
 <br>
 ## Login
 
-How to login to Meadow studio
+Find the Meadow tab in Unity and open the Meadow Studio window. Here you can log in to Meadow Studio with the details you used when first making your Meadow account. This will ensure all your projects are synced and up to date.
 
 <br>
 ## Upload 
 
-How to upload experiences through Meadow studio
+Once you are logged in successfully, you will see all your experiences listed. Click refresh if something is not up to date. 
+
+Open the experience you would like to update. Here you can choose which bundle to assign to it and whether you are trying to update the experience bundle or the map marker bundle. Once picked, enable for the platform / platforms of your choice, and click Upload to Meadow. 
+
+If you have more updates to publish later on, simply repeat this process to update again.
+
+**ATTENTION:** Make sure to choose the correct bundle and bundle type.
