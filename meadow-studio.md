@@ -14,23 +14,26 @@ Meadow Studio is a plugin for Unity that makes the entire process of building fo
 
 🌷  Add optional packages for creating complex experiences
 
-To create a new project however, you must used the webapp
 
+To create a new project however, you must used the webapp:
 [Meadow Space](https://app.meadow.space/)
 
 <br>
-## Download Meadow Studio
+## Download Meadow Studio 
 
-Go to https://app.meadow.space/dashboard/meadow-studio
-
+Go to:
 [Download Meadow Studio](https://app.meadow.space/dashboard/meadow-studio)
+(https://app.meadow.space/dashboard/meadow-studio)
+
+Click Download. Once downloaded, drag and drop the package into your project window.
 
 <br>
 ## Login
 
+Find the Meadow tab in Unity and open the Meadow Studio window. 
 ![alt_text](images/meadow-studio-tab.webp "Meadow Studio Tab")
 
-Find the Meadow tab in Unity and open the Meadow Studio window. Here you can log in to Meadow Studio with the details you used when first making your Meadow account. This will ensure all your projects are synced and up to date.
+Here you can log in to Meadow Studio with the details you used when first making your Meadow account. This will ensure all your projects are synced and up to date.
 
 <br>
 ## Upload 
