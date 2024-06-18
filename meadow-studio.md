@@ -38,11 +38,11 @@ Here you can log in to Meadow Studio with the details you used when first making
 <br>
 ## Upload 
 
-![alt_text](images/meadow-studio-experiences.webp "Meadow Studio Experiences")
+![alt_text](images/meadow-studio-experience-list.webp "Meadow Studio Experiences")
 
 Once you are logged in successfully, you will see all your experiences listed. Click refresh if something is not up to date. 
 
-![alt_text](images/meadow-studio-options.webp "Meadow Studio Options")
+![alt_text](images/meadow-studio-option-list.webp "Meadow Studio Options")
 
 Open the experience you would like to update. Here you can choose which bundle to assign to it and whether you are trying to update the experience bundle or the map marker bundle. Once picked, enable for the platform / platforms of your choice, and click Upload to Meadow. 
 
