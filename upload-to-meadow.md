@@ -7,12 +7,32 @@ toc: true
 # Upload to Meadow {#upload-to-meadow}
 
 To see your experience on your device, and to share it with others, you can upload it to Meadow. This saves you building a bespoke app.
-To upload your experience to Meadow you need to create what is called an Asset Bundle. This is Unity’s file format for bundling assets. It is like Unity’s own zip file. 
+To upload you need the plugin [Meadow Studio](https://manual.meadow.space/meadow-studio.html) installed in your project. This connects your Unity project directly to your Meadow experience, allowing for quick testing. 
+
+## Create an account on Meadow 
+
+Meadow is still in a closed beta, so your email need to be whitelisted by us before you can create an account. Contact support to get your email whitelisted.
+
+1. Go to the Meadow portal at: [https://app.meadow.space/](https://app.meadow.space/)
+2. Press 'Login' at the top right corner. 
+3. Sign up with an email you have access to. The verification email sometimes end up in the trash. Certain non-standard email providers and government accounts blocks our verification email, use a standard gmail or outlook address instead. 
+
+**<font color="red">KNOWN ERROR:</font>** Currently it's not possible to use spaces in your name. We are working on fixing this, until that's done, use a name without spaces.
+
+## Create an experience on Meadow
+
+1. Press 'Go to Experiences' 
+2. On the top right, click '+ New Experience'
+3. Fill in the Title and any other details. Keep in mind, you can always edit these later.
+4. You can skip past the Deploy section for now as Meadow Studio is a more streamlined way of getting this done.
+5. In the 'Distribution' section, double click anywhere on the map to place your experience in that location. You can search for a particular location, or place it where you are. Bear in mind, depending on your settings, you may not be able to open the experience if it is too far away from you.
+6. You can toggle 'Available Everywhere' on or off depending on your preference. If 'Available Everywhere' is on, the Placement Type is automatically 'In Front of Camera', which works anywhere, including indoors. If 'Available Everywhere' is turned off, other than 'In Front of Camera', you also have the 'Geospatial' option. This uses Google streetview to place the experience, and as such, does not work indoors as there is no streetview there. 
+7. Save this as a draft for now, until you have used Meadow Studio to upload your experience.  
 
 
 ## Add your experience as children to an empty GameObject
 
-1. Create a new empty object in your Hierarchy and give it a sensible name. This is the root object of your experience, that will contain all the other objects.
+1. In Unity, create a new empty object in your Hierarchy and give it a sensible name. This is the root object of your experience, that will contain all the other objects.
 <b><font color="red">Please note:</font></b> Make sure that the root object is at position X = 0, Y = 0, Z = 0. Otherwise your experience will be placed in the wrong location in Meadow.
 ![alt_text](images/create-prefab-root.webp "image_tooltip")
 2. Select all the objects that you have created for your experience.
@@ -66,87 +86,17 @@ If you have changed things in your experience but the changes are not showing in
 
 ![alt_text](images/apply-overrides.webp "image_tooltip")
 
-## Add your files to an asset bundle 
+## Use Meadow Studio
 
-Now we need to tell Unity that everything in this folder should be built into an asset bundle. Unity’s UX for this is rather stupid, but not much we can do about it. 
+Follow the instructions listed [here](https://manual.meadow.space/meadow-studio.html) to upload your experience to Meadow via Meadow Studio. 
 
-1. Navigate to your Assets folder in the Project Window.
-![alt_text](images/asset-folder.webp "image_tooltip")
-2. Select your folder, but do not enter it.
-3. In the bottom right corner, you see a teeny tiny text saying “Asset Labels”. 
-![alt_text](images/asset-labels.webp "image_tooltip")
-4. Press this text to see the asset bundle menu. Why they placed it in such a strange location, no one knows.
-![alt_text](images/asset-menu.webp "image_tooltip")
-5. Press the foldout menu that currently says “None”.
-6. Press new. 
-![alt_text](images/asset-menu-open.webp "image_tooltip")
-7. Give your asset bundle a sensible name so you can easily recognize it later. This tells Unity that every file in this folder should be built into this asset bundle. This is what you will upload to our platform. 
+## Publish
 
-**<font color="red">ATTENTION: </font>** Do not use spaces, special characters or capital letters in the name of your asset bundle. This will cause errors when loading it in Meadow. Name it something like “mytuna” or “mytunaexperience”.
-![alt_text](images/name-asset-bundle.webp "image_tooltip")
-
-
-## Build your asset bundle
-
-1. In the menu in the top, go to Window -> AssetBundle Browser to open the asset bundle builder. Not XREF AssetBundle Builder, that one is not working at the moment.
-![alt_text](images/assetbundlebrowser.webp "image_tooltip")
-2. In the window, select the name of your asset bundle to check that everything is included in it. If not, go through the previous step again.
-![alt_text](images/configure-asset-bundle.webp "image_tooltip")
-3. Press the ‘Build’ tab.
-![alt_text](images/assetbundle-window-build.webp "image_tooltip")
-4. Select the platform you want to build for. iOS for iPhone, or Android for Android.
-![alt_text](images/assetbundle-window-select-platform.webp "image_tooltip")
-5. Press build. The first time you do it it will take a few minutes, after that it will be much faster since Unity caches it.
-6. Check the console, if there are no errors it means your build have been successful. 
-7. The newly created asset bundle ends up in a folder called AssetBundles in the root folder of your project. 
-![alt_text](images/created-assetbundles.webp "image_tooltip")
-
-**<font color="red">KNOWN ERROR:</font>** For iOS users on Mac, the first time you build asset bundles the project will try to install something called ‘CocoaPods’. You will see two new windows appear that are called something like “Installing Cocoapods”. You will get tons of errors in the log and the build will fail. This is a bug that we are working on resolving.
-![alt_text](images/cocoapods-error.webp "image_tooltip")
-**Resolution:** Restart the Unity editor (no need to restart Unity Hub or the computer). The errors will be gone and the build should work. The ‘Installing Cocapods’ windows might still appear, just close them. You only need to do this step once, the errors will not return.
-
-## Create an account on Meadow 
-
-Meadow is still in a closed beta, so your email need to be whitelisted by us before you can create an account. Contact support to get your email whitelisted.
-
-1. Go to the Meadow portal at: [https://console.meadow.space/](https://console.meadow.space/)
-![alt_text](images/meadow-console.webp "image_tooltip")
-2. Press ‘Don't have an account? Sign Up’ in bottom right corner. 
-3. Sign up with an email you have access to. The verification email sometimes end up in the trash. Certain non-standard email providers and government accounts blocks our verification email, use a standard gmail or outlook address instead. 
-
-**<font color="red">KNOWN ERROR:</font>** Currently it's not possible to use spaces in your name. We are working on fixing this, until that's done, use a name without spaces.
-
-## Create an experience on Meadow
-
-1. Press ‘Create new artwork’. An experience is still called an ‘artwork’ on Meadow, this will be changed soon.
-![alt_text](images/create-new-experience.webp "image_tooltip")
-2. Press the edit button to the right to edit the experience and upload the asset bundle.
-![alt_text](images/edit-experience.webp "image_tooltip")
-3. In this page you can add all the information about your experience, and an image that will be used in the app. 
-![alt_text](images/experience-settings.webp "image_tooltip")
-4. The only thing you need to change now is placement type. This is by default set to “Geospatial”, which uses Google streetview to place the artwork. However, this doesn’t work indoors, since there is no streetview there. To test it at home, change placement type to ‘In Front of Camera’.
-![alt_text](images/placement-type.webp "image_tooltip")
-5. Scroll down to the asset bundle section
-    1. Choose your platform
-    2. Press “Upload iOS Bundle” (or “Upload Android Bundle”)
-    3. Navigate to where your bundle was saved (usually ProjectFolder/AssetBundles/iOS or ProjectFolder/AssetBundles/Android)
-    4. Upload it.
-![alt_text](images/upload-asset-bundle.webp "image_tooltip")
-6. If you have built bundles for both platforms, repeat the process for the next platform.
-7. Toggle 'Live in app' to make the experience show up in Meadow. You can untoggle this if you want to hide the experience.
-
-## Place the experience 
-
-1. Go to the ‘Map’ tab in the Meadow portal. 
-![alt_text](images/map.webp "image_tooltip")
-2. Search for the location where you are currently at. 
-3. Double click on the map to place the artwork there. 
-![alt_text](images/add-artwork.webp "image_tooltip")
-4. The experience is represented with a red marker on the map.
-![alt_text](images/experience-marker-on-map.webp "image_tooltip")
-5. Open the Meadow app to see it. If it doesn’t appear, contact support.
+1. You can now return to the webapp. Here, in Experiences, click edit on the draft you had previously made. 
+2. On the top right, click Publish.
+3. All changes are saved automatically, so any edits made with be reflected in app without having to Publish again.
 
 ## Add cocreators to your artwork. 
 
-1. Go to the tab ‘Collaborators’
-2. Add the email address of the people you would like to invite to be able to edit the experience. These people can upload asset bundles, change texts, images, and place the experience. 
+1. When editing an experience, go to the tab 'Permissions'
+2. Add the email address of the people you would like to invite to be able to edit the experience. You can decide to add them as a Viewer or Editor. Editors can upload asset bundles, change texts, images, and place the experience. 
