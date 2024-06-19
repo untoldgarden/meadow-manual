@@ -45,12 +45,36 @@
     <h1 id="upload-to-meadow">Upload to Meadow</h1>
 
 <p>To see your experience on your device, and to share it with others, you can upload it to Meadow. This saves you building a bespoke app.
-To upload your experience to Meadow you need to create what is called an Asset Bundle. This is Unity’s file format for bundling assets. It is like Unity’s own zip file.</p>
+To upload you need the plugin <a href="https://manual.meadow.space/meadow-studio.html">Meadow Studio</a> installed in your project. This connects your Unity project directly to your Meadow experience, allowing for quick testing.</p>
+
+<h2 id="create-an-account-on-meadow">Create an account on Meadow</h2>
+
+<p>Meadow is still in a closed beta, so your email need to be whitelisted by us before you can create an account. Contact support to get your email whitelisted.</p>
+
+<ol>
+  <li>Go to the Meadow portal at: <a href="https://app.meadow.space/">https://app.meadow.space/</a></li>
+  <li>Press ‘Login’ at the top right corner.</li>
+  <li>Sign up with an email you have access to. The verification email sometimes end up in the trash. Certain non-standard email providers and government accounts blocks our verification email, use a standard gmail or outlook address instead.</li>
+</ol>
+
+<p><strong><font color="red">KNOWN ERROR:</font></strong> Currently it’s not possible to use spaces in your name. We are working on fixing this, until that’s done, use a name without spaces.</p>
+
+<h2 id="create-an-experience-on-meadow">Create an experience on Meadow</h2>
+
+<ol>
+  <li>Press ‘Go to Experiences’</li>
+  <li>On the top right, click ‘+ New Experience’</li>
+  <li>Fill in the Title and any other details. Keep in mind, you can always edit these later.</li>
+  <li>You can skip past the Deploy section for now as Meadow Studio is a more streamlined way of getting this done.</li>
+  <li>In the ‘Distribution’ section, double click anywhere on the map to place your experience in that location. You can search for a particular location, or place it where you are. Bear in mind, depending on your settings, you may not be able to open the experience if it is too far away from you.</li>
+  <li>You can toggle ‘Available Everywhere’ on or off depending on your preference. If ‘Available Everywhere’ is on, the Placement Type is automatically ‘In Front of Camera’, which works anywhere, including indoors. If ‘Available Everywhere’ is turned off, other than ‘In Front of Camera’, you also have the ‘Geospatial’ option. This uses Google streetview to place the experience, and as such, does not work indoors as there is no streetview there.</li>
+  <li>Save this as a draft for now, until you have used Meadow Studio to upload your experience.</li>
+</ol>
 
 <h2 id="add-your-experience-as-children-to-an-empty-gameobject">Add your experience as children to an empty GameObject</h2>
 
 <ol>
-  <li>Create a new empty object in your Hierarchy and give it a sensible name. This is the root object of your experience, that will contain all the other objects.
+  <li>In Unity, create a new empty object in your Hierarchy and give it a sensible name. This is the root object of your experience, that will contain all the other objects.
 <b><font color="red">Please note:</font></b> Make sure that the root object is at position X = 0, Y = 0, Z = 0. Otherwise your experience will be placed in the wrong location in Meadow.
 <img src="images/create-prefab-root.webp" alt="alt_text" title="image_tooltip" /></li>
   <li>Select all the objects that you have created for your experience.
@@ -114,103 +138,23 @@ In programming, ‘child’ means an object that is below another object in a hi
 
 <p><img src="images/apply-overrides.webp" alt="alt_text" title="image_tooltip" /></p>
 
-<h2 id="add-your-files-to-an-asset-bundle">Add your files to an asset bundle</h2>
+<h2 id="use-meadow-studio">Use Meadow Studio</h2>
 
-<p>Now we need to tell Unity that everything in this folder should be built into an asset bundle. Unity’s UX for this is rather stupid, but not much we can do about it.</p>
+<p>Follow the instructions listed <a href="https://manual.meadow.space/meadow-studio.html">here</a> to upload your experience to Meadow via Meadow Studio.</p>
 
-<ol>
-  <li>Navigate to your Assets folder in the Project Window.
-<img src="images/asset-folder.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Select your folder, but do not enter it.</li>
-  <li>In the bottom right corner, you see a teeny tiny text saying “Asset Labels”. 
-<img src="images/asset-labels.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Press this text to see the asset bundle menu. Why they placed it in such a strange location, no one knows.
-<img src="images/asset-menu.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Press the foldout menu that currently says “None”.</li>
-  <li>Press new. 
-<img src="images/asset-menu-open.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Give your asset bundle a sensible name so you can easily recognize it later. This tells Unity that every file in this folder should be built into this asset bundle. This is what you will upload to our platform.</li>
-</ol>
-
-<p><strong><font color="red">ATTENTION: </font></strong> Do not use spaces, special characters or capital letters in the name of your asset bundle. This will cause errors when loading it in Meadow. Name it something like “mytuna” or “mytunaexperience”.
-<img src="images/name-asset-bundle.webp" alt="alt_text" title="image_tooltip" /></p>
-
-<h2 id="build-your-asset-bundle">Build your asset bundle</h2>
+<h2 id="publish">Publish</h2>
 
 <ol>
-  <li>In the menu in the top, go to Window -&gt; AssetBundle Browser to open the asset bundle builder. Not XREF AssetBundle Builder, that one is not working at the moment.
-<img src="images/assetbundlebrowser.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>In the window, select the name of your asset bundle to check that everything is included in it. If not, go through the previous step again.
-<img src="images/configure-asset-bundle.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Press the ‘Build’ tab.
-<img src="images/assetbundle-window-build.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Select the platform you want to build for. iOS for iPhone, or Android for Android.
-<img src="images/assetbundle-window-select-platform.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Press build. The first time you do it it will take a few minutes, after that it will be much faster since Unity caches it.</li>
-  <li>Check the console, if there are no errors it means your build have been successful.</li>
-  <li>The newly created asset bundle ends up in a folder called AssetBundles in the root folder of your project. 
-<img src="images/created-assetbundles.webp" alt="alt_text" title="image_tooltip" /></li>
-</ol>
-
-<p><strong><font color="red">KNOWN ERROR:</font></strong> For iOS users on Mac, the first time you build asset bundles the project will try to install something called ‘CocoaPods’. You will see two new windows appear that are called something like “Installing Cocoapods”. You will get tons of errors in the log and the build will fail. This is a bug that we are working on resolving.
-<img src="images/cocoapods-error.webp" alt="alt_text" title="image_tooltip" />
-<strong>Resolution:</strong> Restart the Unity editor (no need to restart Unity Hub or the computer). The errors will be gone and the build should work. The ‘Installing Cocapods’ windows might still appear, just close them. You only need to do this step once, the errors will not return.</p>
-
-<h2 id="create-an-account-on-meadow">Create an account on Meadow</h2>
-
-<p>Meadow is still in a closed beta, so your email need to be whitelisted by us before you can create an account. Contact support to get your email whitelisted.</p>
-
-<ol>
-  <li>Go to the Meadow portal at: <a href="https://console.meadow.space/">https://console.meadow.space/</a>
-<img src="images/meadow-console.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Press ‘Don’t have an account? Sign Up’ in bottom right corner.</li>
-  <li>Sign up with an email you have access to. The verification email sometimes end up in the trash. Certain non-standard email providers and government accounts blocks our verification email, use a standard gmail or outlook address instead.</li>
-</ol>
-
-<p><strong><font color="red">KNOWN ERROR:</font></strong> Currently it’s not possible to use spaces in your name. We are working on fixing this, until that’s done, use a name without spaces.</p>
-
-<h2 id="create-an-experience-on-meadow">Create an experience on Meadow</h2>
-
-<ol>
-  <li>Press ‘Create new artwork’. An experience is still called an ‘artwork’ on Meadow, this will be changed soon.
-<img src="images/create-new-experience.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Press the edit button to the right to edit the experience and upload the asset bundle.
-<img src="images/edit-experience.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>In this page you can add all the information about your experience, and an image that will be used in the app. 
-<img src="images/experience-settings.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>The only thing you need to change now is placement type. This is by default set to “Geospatial”, which uses Google streetview to place the artwork. However, this doesn’t work indoors, since there is no streetview there. To test it at home, change placement type to ‘In Front of Camera’.
-<img src="images/placement-type.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Scroll down to the asset bundle section
-    <ol>
-      <li>Choose your platform</li>
-      <li>Press “Upload iOS Bundle” (or “Upload Android Bundle”)</li>
-      <li>Navigate to where your bundle was saved (usually ProjectFolder/AssetBundles/iOS or ProjectFolder/AssetBundles/Android)</li>
-      <li>Upload it.
-<img src="images/upload-asset-bundle.webp" alt="alt_text" title="image_tooltip" /></li>
-    </ol>
-  </li>
-  <li>If you have built bundles for both platforms, repeat the process for the next platform.</li>
-  <li>Toggle ‘Live in app’ to make the experience show up in Meadow. You can untoggle this if you want to hide the experience.</li>
-</ol>
-
-<h2 id="place-the-experience">Place the experience</h2>
-
-<ol>
-  <li>Go to the ‘Map’ tab in the Meadow portal. 
-<img src="images/map.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Search for the location where you are currently at.</li>
-  <li>Double click on the map to place the artwork there. 
-<img src="images/add-artwork.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>The experience is represented with a red marker on the map.
-<img src="images/experience-marker-on-map.webp" alt="alt_text" title="image_tooltip" /></li>
-  <li>Open the Meadow app to see it. If it doesn’t appear, contact support.</li>
+  <li>You can now return to the webapp. Here, in Experiences, click edit on the draft you had previously made.</li>
+  <li>On the top right, click Publish.</li>
+  <li>All changes are saved automatically, so any edits made with be reflected in app without having to Publish again.</li>
 </ol>
 
 <h2 id="add-cocreators-to-your-artwork">Add cocreators to your artwork.</h2>
 
 <ol>
-  <li>Go to the tab ‘Collaborators’</li>
-  <li>Add the email address of the people you would like to invite to be able to edit the experience. These people can upload asset bundles, change texts, images, and place the experience.</li>
+  <li>When editing an experience, go to the tab ‘Permissions’</li>
+  <li>Add the email address of the people you would like to invite to be able to edit the experience. You can decide to add them as a Viewer or Editor. Editors can upload asset bundles, change texts, images, and place the experience.</li>
 </ol>
 
   </div>
@@ -220,15 +164,14 @@ In programming, ‘child’ means an object that is below another object in a hi
     <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h1"><a href="#upload-to-meadow">Upload to Meadow</a>
 <ul>
+<li class="toc-entry toc-h2"><a href="#create-an-account-on-meadow">Create an account on Meadow</a></li>
+<li class="toc-entry toc-h2"><a href="#create-an-experience-on-meadow">Create an experience on Meadow</a></li>
 <li class="toc-entry toc-h2"><a href="#add-your-experience-as-children-to-an-empty-gameobject">Add your experience as children to an empty GameObject</a></li>
 <li class="toc-entry toc-h2"><a href="#add-a-content-component-to-your-root-object">Add a Content component to your root object</a></li>
 <li class="toc-entry toc-h2"><a href="#create-your-content-settings">Create your content settings.</a></li>
 <li class="toc-entry toc-h2"><a href="#add-your-experience-to-the-project-folder">Add your experience to the project folder</a></li>
-<li class="toc-entry toc-h2"><a href="#add-your-files-to-an-asset-bundle">Add your files to an asset bundle</a></li>
-<li class="toc-entry toc-h2"><a href="#build-your-asset-bundle">Build your asset bundle</a></li>
-<li class="toc-entry toc-h2"><a href="#create-an-account-on-meadow">Create an account on Meadow</a></li>
-<li class="toc-entry toc-h2"><a href="#create-an-experience-on-meadow">Create an experience on Meadow</a></li>
-<li class="toc-entry toc-h2"><a href="#place-the-experience">Place the experience</a></li>
+<li class="toc-entry toc-h2"><a href="#use-meadow-studio">Use Meadow Studio</a></li>
+<li class="toc-entry toc-h2"><a href="#publish">Publish</a></li>
 <li class="toc-entry toc-h2"><a href="#add-cocreators-to-your-artwork">Add cocreators to your artwork.</a></li>
 </ul>
 </li>
