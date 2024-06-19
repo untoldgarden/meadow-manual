@@ -23,13 +23,16 @@ Meadow is still in a closed beta, so your email need to be whitelisted by us bef
 
 3. Sign up with an email you have access to. The verification email sometimes end up in the trash. Certain non-standard email providers and government accounts blocks our verification email, use a standard gmail or outlook address instead. 
 
+![alt_text](images/m-settings.webp "Settings")
+
+4. On the top right you can now go to Settings to edit your profile, or to Dashboard to create and edit your experiences.
+
 **<font color="red">KNOWN ERROR:</font>** Currently it's not possible to use spaces in your name. We are working on fixing this, until that's done, use a name without spaces.
 
 ## Create an experience on Meadow
 
-1. In the dashboard, press 'Go to Experiences' 
+1. In the dashboard, go to the 'Experiences' tab 
 
-![alt_text](images/m-dashboard.webp "Dashboard")
 ![alt_text](images/m-experiences.webp "Experiences")
 
 2. Now you are in the Experience tab where any Experience you make or collaborate on will be visible. On the top right, click '+ New Experience'
