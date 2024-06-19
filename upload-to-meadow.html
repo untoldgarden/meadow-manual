@@ -52,8 +52,10 @@ To upload you need the plugin <a href="https://manual.meadow.space/meadow-studio
 <p>Meadow is still in a closed beta, so your email need to be whitelisted by us before you can create an account. Contact support to get your email whitelisted.</p>
 
 <ol>
-  <li>Go to the Meadow portal at: <a href="https://app.meadow.space/">https://app.meadow.space/</a></li>
-  <li>Press ‘Login’ at the top right corner.</li>
+  <li>Go to the Meadow portal at: <a href="https://app.meadow.space/">https://app.meadow.space/</a>
+<img src="images/m-pre-login.webp" alt="alt_text" title="Pre-Login" /></li>
+  <li>Press ‘Login’ at the top right corner. 
+<img src="images/m-login.webp" alt="alt_text" title="Login" /></li>
   <li>Sign up with an email you have access to. The verification email sometimes end up in the trash. Certain non-standard email providers and government accounts blocks our verification email, use a standard gmail or outlook address instead.</li>
 </ol>
 
@@ -61,28 +63,36 @@ To upload you need the plugin <a href="https://manual.meadow.space/meadow-studio
 
 <h2 id="create-an-experience-on-meadow">Create an experience on Meadow</h2>
 
+<p><img src="images/m-dashboard.webp" alt="alt_text" title="Dashboard" /></p>
 <ol>
-  <li>Press ‘Go to Experiences’</li>
-  <li>On the top right, click ‘+ New Experience’</li>
+  <li>In the dashboard, press ‘Go to Experiences’ 
+<img src="images/m-experiences.webp" alt="alt_text" title="Experiences" /></li>
+  <li>Now you are in the Experience tab where any Experience you make or collaborate on will be visible. On the top right, click ‘+ New Experience’
+<img src="images/m-details.webp" alt="alt_text" title="Details" /></li>
   <li>Fill in the Title and any other details. Keep in mind, you can always edit these later.</li>
-  <li>You can skip past the Deploy section for now as Meadow Studio is a more streamlined way of getting this done.</li>
+  <li>You can skip past the Deploy section for now as <a href="https://manual.meadow.space/meadow-studio.html">Meadow Studio</a> is a more streamlined way of getting this done.
+<img src="images/m-map.webp" alt="alt_text" title="Map" /></li>
   <li>In the ‘Distribution’ section, double click anywhere on the map to place your experience in that location. You can search for a particular location, or place it where you are. Bear in mind, depending on your settings, you may not be able to open the experience if it is too far away from you.</li>
   <li>You can toggle ‘Available Everywhere’ on or off depending on your preference. If ‘Available Everywhere’ is on, the Placement Type is automatically ‘In Front of Camera’, which works anywhere, including indoors. If ‘Available Everywhere’ is turned off, other than ‘In Front of Camera’, you also have the ‘Geospatial’ option. This uses Google streetview to place the experience, and as such, does not work indoors as there is no streetview there.</li>
-  <li>Save this as a draft for now, until you have used Meadow Studio to upload your experience.</li>
+  <li>Save this as a draft for now.</li>
 </ol>
 
 <h2 id="add-your-experience-as-children-to-an-empty-gameobject">Add your experience as children to an empty GameObject</h2>
 
 <ol>
   <li>In Unity, create a new empty object in your Hierarchy and give it a sensible name. This is the root object of your experience, that will contain all the other objects.
-<b><font color="red">Please note:</font></b> Make sure that the root object is at position X = 0, Y = 0, Z = 0. Otherwise your experience will be placed in the wrong location in Meadow.
-<img src="images/create-prefab-root.webp" alt="alt_text" title="image_tooltip" /></li>
+<b><font color="red">Please note:</font></b> Make sure that the root object is at position X = 0, Y = 0, Z = 0. Otherwise your experience will be placed in the wrong location in Meadow.</li>
+</ol>
+
+<p><img src="images/create-prefab-root.webp" alt="alt_text" title="image_tooltip" /></p>
+<ol>
   <li>Select all the objects that you have created for your experience.
 <img src="images/select-experience-objects.webp" alt="alt_text" title="image_tooltip" /></li>
   <li>Drag them on top of the new empty object. This turns them into children to that object.
-<img src="images/child-to-prefab-root.webp" alt="alt_text" title="image_tooltip" />
-In programming, ‘child’ means an object that is below another object in a hierarchy. Conversely, ‘parent’ is an object that is above another in the hierarchy. And, ‘sibling’ is an object that is on the same level in the hierarchy. A ‘root’ object is the object that is at the top of a hierarchy, that has no further parents.</li>
+<img src="images/child-to-prefab-root.webp" alt="alt_text" title="image_tooltip" /></li>
 </ol>
+
+<p>In programming, ‘child’ means an object that is below another object in a hierarchy. Conversely, ‘parent’ is an object that is above another in the hierarchy. And, ‘sibling’ is an object that is on the same level in the hierarchy. A ‘root’ object is the object that is at the top of a hierarchy, that has no further parents.</p>
 
 <p>In the example above you see that both the tuna 3D model and the Audio Source are children to MyTunaProject.</p>
 
@@ -153,7 +163,8 @@ In programming, ‘child’ means an object that is below another object in a hi
 <h2 id="add-cocreators-to-your-artwork">Add cocreators to your artwork.</h2>
 
 <ol>
-  <li>When editing an experience, go to the tab ‘Permissions’</li>
+  <li>When editing an experience, go to the tab ‘Permissions’
+<img src="images/m-collaborators.webp" alt="alt_text" title="Collaborators" /></li>
   <li>Add the email address of the people you would like to invite to be able to edit the experience. You can decide to add them as a Viewer or Editor. Editors can upload asset bundles, change texts, images, and place the experience.</li>
 </ol>
 
