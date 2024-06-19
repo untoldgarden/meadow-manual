@@ -49,7 +49,6 @@ The packages you'll need are:
 4. Search for and add the following packages to your project:
    - com.untoldgarden.xref
    - com.untoldgarden.xref-experience-builder
-   - com.untoldgarden.xref-assetbundlebrowser
 5. You should now see the packages in your list
 ![alt_text](images/packages.webp "Packages successfully installed")
 

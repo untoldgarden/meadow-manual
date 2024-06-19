@@ -21,8 +21,7 @@ Meadow allows you to create site-specific experiences that are placed on a map. 
 7. Assign this as the texture on a new material.
 8. Assign this material to the quad.
 9. Drag the empty gameobject to your Map Marker folder in the project view to create a prefab.
-10. Build Asset Bundles in the usual way. You will have a new Asset Bundle in your folder called "yourprojectnamemapmarker". 
-11. Upload this Asset Bundle to the Meadow console.
+10. Use [Meadow Studio](https://manual.meadow.space/meadow-studio.html) to upload your Map Marker to your experience.
 
 ## Create a Map Marker using a 3D model
 

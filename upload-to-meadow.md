@@ -14,31 +14,39 @@ To upload you need the plugin [Meadow Studio](https://manual.meadow.space/meadow
 Meadow is still in a closed beta, so your email need to be whitelisted by us before you can create an account. Contact support to get your email whitelisted.
 
 1. Go to the Meadow portal at: [https://app.meadow.space/](https://app.meadow.space/)
+![alt_text](images/m-pre-login.webp "Pre-Login")
 2. Press 'Login' at the top right corner. 
+![alt_text](images/m-login.webp "Login")
 3. Sign up with an email you have access to. The verification email sometimes end up in the trash. Certain non-standard email providers and government accounts blocks our verification email, use a standard gmail or outlook address instead. 
 
 **<font color="red">KNOWN ERROR:</font>** Currently it's not possible to use spaces in your name. We are working on fixing this, until that's done, use a name without spaces.
 
 ## Create an experience on Meadow
 
-1. Press 'Go to Experiences' 
-2. On the top right, click '+ New Experience'
+![alt_text](images/m-dashboard.webp "Dashboard")
+1. In the dashboard, press 'Go to Experiences' 
+![alt_text](images/m-experiences.webp "Experiences")
+2. Now you are in the Experience tab where any Experience you make or collaborate on will be visible. On the top right, click '+ New Experience'
+![alt_text](images/m-details.webp "Details")
 3. Fill in the Title and any other details. Keep in mind, you can always edit these later.
-4. You can skip past the Deploy section for now as Meadow Studio is a more streamlined way of getting this done.
+4. You can skip past the Deploy section for now as [Meadow Studio](https://manual.meadow.space/meadow-studio.html) is a more streamlined way of getting this done.
+![alt_text](images/m-map.webp "Map")
 5. In the 'Distribution' section, double click anywhere on the map to place your experience in that location. You can search for a particular location, or place it where you are. Bear in mind, depending on your settings, you may not be able to open the experience if it is too far away from you.
 6. You can toggle 'Available Everywhere' on or off depending on your preference. If 'Available Everywhere' is on, the Placement Type is automatically 'In Front of Camera', which works anywhere, including indoors. If 'Available Everywhere' is turned off, other than 'In Front of Camera', you also have the 'Geospatial' option. This uses Google streetview to place the experience, and as such, does not work indoors as there is no streetview there. 
-7. Save this as a draft for now, until you have used Meadow Studio to upload your experience.  
+7. Save this as a draft for now.  
 
 
 ## Add your experience as children to an empty GameObject
 
 1. In Unity, create a new empty object in your Hierarchy and give it a sensible name. This is the root object of your experience, that will contain all the other objects.
 <b><font color="red">Please note:</font></b> Make sure that the root object is at position X = 0, Y = 0, Z = 0. Otherwise your experience will be placed in the wrong location in Meadow.
+
 ![alt_text](images/create-prefab-root.webp "image_tooltip")
 2. Select all the objects that you have created for your experience.
 ![alt_text](images/select-experience-objects.webp "image_tooltip")
 3. Drag them on top of the new empty object. This turns them into children to that object.
 ![alt_text](images/child-to-prefab-root.webp "image_tooltip")
+
 In programming, ‘child’ means an object that is below another object in a hierarchy. Conversely, ‘parent’ is an object that is above another in the hierarchy. And, ‘sibling’ is an object that is on the same level in the hierarchy. A ‘root’ object is the object that is at the top of a hierarchy, that has no further parents. 
 
 In the example above you see that both the tuna 3D model and the Audio Source are children to MyTunaProject. 
@@ -99,4 +107,5 @@ Follow the instructions listed [here](https://manual.meadow.space/meadow-studio.
 ## Add cocreators to your artwork. 
 
 1. When editing an experience, go to the tab 'Permissions'
+![alt_text](images/m-collaborators.webp "Collaborators")
 2. Add the email address of the people you would like to invite to be able to edit the experience. You can decide to add them as a Viewer or Editor. Editors can upload asset bundles, change texts, images, and place the experience. 
