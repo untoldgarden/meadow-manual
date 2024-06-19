@@ -96,7 +96,7 @@ If you have changed things in your experience but the changes are not showing in
 
 ## Use Meadow Studio
 
-Follow the instructions listed [here](https://manual.meadow.space/meadow-studio.html) to upload your experience to Meadow via Meadow Studio. 
+Follow the instructions listed [**here**](https://manual.meadow.space/meadow-studio.html) to upload your experience to Meadow via [Meadow Studio](https://manual.meadow.space/meadow-studio.html). 
 
 ## Publish
 
