@@ -44,9 +44,16 @@ body {
   top: 0;
   left: 0;
   width: calc(15% - 20px);
+  height: 100vh;
+  overflow-y: auto;
   color: #d1d1d1;
-  padding: 20px;
+  padding-top: 20px; 
+  padding-right: 20px; 
+  padding-left: 20px; 
   flex-shrink: 0;
+}
+.sidebar a:last-child {
+  margin-bottom: 40px; 
 }
 
 .sidebar a {
@@ -59,6 +66,7 @@ body {
   display: block; 
   margin-bottom: 5px; 
 }
+
 
 .sidebar a:not(.active):hover {
   background-color: #151718; 
