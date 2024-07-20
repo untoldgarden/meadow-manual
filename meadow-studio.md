@@ -6,7 +6,7 @@ toc: true
 
 # Meadow Studio {#meadow-studio}
 
-Meadow Studio is a plugin for Unity that makes the entire process of building for Meadow 10x faster, and more streamlined. It enables you to:
+Meadow Studio is a plugin for Unity that enables you to:
 
 🌱  Build and upload experiences straight to Meadow
 
@@ -35,16 +35,21 @@ Find the Meadow tab in Unity and open the Meadow Studio window.
 
 Here you can log in to Meadow Studio with the details you used when first making your Meadow account. This will ensure all your projects are synced and up to date.
 
-<br>
-## Upload 
-
 ![alt_text](images/meadow-studio-experience-list.webp "Meadow Studio Experiences")
 
-Once you are logged in successfully, you will see all your experiences listed. Click refresh if something is not up to date. 
+After logging in, you will see all your experiences listed. Click refresh if something is not up to date. 
+
+<br>
+## Upload to Meadow
+
+1. Open the experience you would like to upload to.
+2. In the drop down `Asset Bundle`, select the bundle you would like to upload. This is the bundle that you assigned to your project folder. [See instructions here.](https://manual.meadow.space/upload-to-meadow.html#add-your-files-to-an-asset-bundle)
+3. Specify if this is the Experience Bundle or the Map Marker Bundle. [See Map Marker instructions here.](https://manual.meadow.space/map-marker.html)
+4. Select the platforms for which you would like to upload the experience.
+5. Click <b style="color: #559859;">Upload to Meadow</b>.
+6. The process takes a while the first time it's done as Unity has some caching to do. Subsequent uploads will be faster.
 
 ![alt_text](images/meadow-studio-option-list.webp "Meadow Studio Options")
-
-Open the experience you would like to update. Here you can choose which bundle to assign to it and whether you are trying to update the experience bundle or the map marker bundle. Once picked, enable for the platform / platforms of your choice, and click Upload to Meadow. 
 
 If you have more updates to publish later on, simply repeat this process to update again.
 

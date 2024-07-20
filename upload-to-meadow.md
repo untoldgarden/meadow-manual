@@ -121,9 +121,29 @@ If you have changed things in your experience but the changes are not showing in
 
 ![alt_text](images/apply-overrides.webp "image_tooltip")
 
-## Use Meadow Studio
+## Add your files to an asset bundle 
 
-Follow the instructions listed [**here**](https://manual.meadow.space/meadow-studio.html) to upload your experience to Meadow via [Meadow Studio](https://manual.meadow.space/meadow-studio.html). 
+Now we need to tell Unity that everything in this folder should be built into an asset bundle. Unity’s UX for this is rather stupid, but not much we can do about it. 
+
+1. Navigate to your Assets folder in the Project Window.
+![alt_text](images/asset-folder.webp "image_tooltip")
+2. Select your folder, but do not enter it.
+3. In the bottom right corner, you see a teeny tiny text saying “Asset Labels”. 
+![alt_text](images/asset-labels.webp "image_tooltip")
+4. Press this text to see the asset bundle menu. Why they placed it in such a strange location, no one knows.
+![alt_text](images/asset-menu.webp "image_tooltip")
+5. Press the foldout menu that currently says “None”.
+6. Press new. 
+![alt_text](images/asset-menu-open.webp "image_tooltip")
+7. Give your asset bundle a sensible name so you can easily recognize it later. This tells Unity that every file in this folder should be built into this asset bundle. This is what you will upload to our platform. 
+
+**<font color="red">ATTENTION: </font>** Do not use spaces, special characters or capital letters in the name of your asset bundle. This will cause errors when loading it in Meadow. Name it something like “mytuna” or “mytunaexperience”.
+![alt_text](images/name-asset-bundle.webp "image_tooltip")
+
+
+## Upload your experience using Meadow Studio
+
+Your experience is now ready to upload to Meadow using [Meadow Studio](https://manual.meadow.space/meadow-studio.html). Follow the instructions listed [**here**](https://manual.meadow.space/meadow-studio.html).
 
 ## Publish
 
