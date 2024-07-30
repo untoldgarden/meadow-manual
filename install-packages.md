@@ -14,7 +14,6 @@ The packages you'll need are:
 
 - **XREF**: The Extended Reality Experience Framework, providing the core functionality for creating immersive experiences.
 - **XREF.ExperienceBuilder**: Adds advanced features for creating experiences, including audio interaction, dialogue, and character movement tools.
-- **XREF.AssetBundleBrowser**: Aids in managing and deploying asset bundles for your project.
 
 <br>
 ## Adding Packages to Your Project
