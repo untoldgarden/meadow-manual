@@ -35,7 +35,7 @@ Your dialogue tree is constructed from a `.tsv` sheet with a list of lines of di
 
 ## Using the Dialogue System
 
-1. Add the `XREF.DialogueSystem` prefab to any game object in your prefab. 
+1. Add the `XREFDialogue` component to any game object in your prefab. 
 2. Create a `UIDocument` and add it to the `UIDocument` field in the `XREF.DialogueSystem` component. This is the UI that will be used to display the dialogue. It can be added to any game object.
 3. Add a `VisualAsset` to the `UIDocument`. You can create one yourself, or use a default one located in `packages/XREF.Experiencebuilder/Runtime/Dialogues/VisualTreeAssets/default`. To create your own visual asset, see section "Create your own visual asset".
 4. Add a `Panel Settings` to the `UIDocument`. You can create one yourself, or use a default one that you find when clicking the little circle next to the `Panel Settings` field.
