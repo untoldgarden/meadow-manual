@@ -18,7 +18,7 @@ In your content settings, toggle `Use Image Tracking` to enable image tracking f
 
 The images you want to track need to be imported into your experience and included in your asset bundle. 
 
-1. Import the images you want to track into your project.
+1. Import the images you want to track into your project. Make sure to only use `.png` or `.jpg` images. Please note `.jpeg` images are not supported, just change the extension to `.jpg`.
 2. Make sure to enable the `Read/Write` option in the import settings for the images.
 
 ![alt_text](images/image-import-settings.webp "Image Import Settings")
