@@ -15,6 +15,8 @@ The images you want to track need to be imported into your experience and includ
 1. Import the images you want to track into your project. Make sure to only use `.png` or `.jpg` images. Please note `.jpeg` images are not supported, just change the extension to `.jpg`.
 2. Make sure to enable the `Read/Write` option in the import settings for the images.
 
+Please note that you should not create a `Reference Image Library` in Unity. Meadow will create this automatically when you upload your experience.
+
 ![alt_text](images/image-import-settings.webp "Image Import Settings")
 
 ## Add the Tracked Images component
@@ -52,3 +54,4 @@ Also, make sure the scale is set to something that the user can see. If the pref
 ### Image is not recognized
 
 Make sure that the image is set to `Read/Write` enabled in the import settings.
+

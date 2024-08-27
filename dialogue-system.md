@@ -65,6 +65,8 @@ In each node you can either specify an ID that takes the line from a `.tsv` file
 - **Line**: `string` - The line you want to say, or the ID of the line in the `.tsv` file.
 - **Duration**: `float` - The duration the line will be displayed in seconds. If 0, the line will be displayed continuously.
 
+<br>
+
 **Question with N Options** - Asks a question to the user with N options. There is currently the choice of 1, 2 or 3 options. 
 
 - **Game Object**: `GameObject` - The game object with the XREFDialogue component. Use `this` to reference the game object the visual scripting is on.
@@ -73,12 +75,16 @@ In each node you can either specify an ID that takes the line from a `.tsv` file
 - **Duration**: `float` - The duration before the user can press either of the buttons. 
 - **Port: Option X**: `Flow` - The port that will be triggered when the user presses the button for option X. 
 
+<br>
+
 **Say Line Custom Property** - Prints a line to the user on a specific `Label` element in your visual asset.
 
 - **Game Object**: `GameObject` - The game object with the XREFDialogue component. Use `this` to reference the game object the visual scripting is on.
 - **Line**: `string` - The line you want to say, or the ID of the line in the `.tsv` file.
 - **Property**: `string` - The Visual Asset property you want to display the text on. 
 - **Duration**: `float` - The duration the line will be displayed in seconds. If 0, the line will be displayed continuously.
+
+<br>
 
 **Set Visual Asset** - Sets the visual asset used by your UIDocument.
 
