@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibrations</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:type" content="Meadow Manual" />
+<meta property="og:title" content="Vibrations" />
+<meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+<meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+<meta property="og:url" content="https://manual.meadow.space/vibrations.html" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vibrations">
+<meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+<meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <a href="/installing-unity.html" class="">Installing Unity</a>
+      <a href="/install-the-template-project.html" class="">Install the Template Project</a>
+      <a href="/install-packages.html" class="">Install Packages</a>
+      <a href="/navigate-the-unity-editor.html" class="">Navigate the Unity Editor</a>
+      <a href="/create-your-first-experience.html" class="">Create Your First Experience</a>
+      <a href="/upload-to-meadow.html" class="">Upload to Meadow</a>
+      <a href="/meadow-studio.html" class="">Meadow Studio</a>
+      <a href="/map-marker.html" class="">Map Marker</a>
+      <a href="/visual-scripting.html" class="">Visual Scripting</a>
+      <a href="/image-tracking.html" class="">Image Tracking</a>
+      <a href="/dialogue-system.html" class="">Dialogue System</a>
+      <a href="/vibrations.html" class="active">Vibrations</a>
+    </div>
+    
+    
+  
+  <div class="main-content">
+    <!-- Main content will be inserted here -->
+    <h1 id="vibrations">Vibrations</h1>
+
+<p>Meadow allows you to incorporate haptic feedback into your experiences through vibrations. This feature enhances user interaction by providing tactile responses to various actions or events within your experience.</p>
+
+<h3 id="availability">Availability</h3>
+
+<p>Currently, vibration functionality is fully supported on iOS devices. Support for Android devices is planned for future updates. When designing your experience, consider making vibration an optional feature to ensure compatibility across all platforms.</p>
+
+<p><br /></p>
+
+<h2 id="using-vibrations-in-visual-scripting">Using Vibrations in Visual Scripting</h2>
+
+<p>To implement vibrations in your Meadow experience, you’ll need to use visual scripting nodes. There are four main nodes related to vibrations:</p>
+
+<h3 id="vibrate">Vibrate</h3>
+
+<p>This node initiates a vibration with customizable parameters.</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>Amplitude</strong>: <code class="language-plaintext highlighter-rouge">float</code> - The strength of the vibration (0.0 to 1.0).</li>
+  <li><strong>Frequency</strong>: <code class="language-plaintext highlighter-rouge">float</code> - The frequency of the vibration in hertz.</li>
+  <li><strong>Duration</strong>: <code class="language-plaintext highlighter-rouge">float</code> - The length of the vibration in seconds.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="playemphasis">PlayEmphasis</h3>
+
+<p>This node plays a quick, emphatic vibration.</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>Amplitude</strong>: <code class="language-plaintext highlighter-rouge">float</code> - The strength of the emphasis (0.0 to 1.0).</li>
+  <li><strong>Frequency</strong>: <code class="language-plaintext highlighter-rouge">float</code> - The frequency of the emphasis in hertz.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="change-frequency">Change Frequency</h3>
+
+<p>This node allows you to modify the frequency of an ongoing vibration. Note that this can only be used after the Vibrate node has been activated.</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>Frequency</strong>: <code class="language-plaintext highlighter-rouge">float</code> - The new frequency to set for the ongoing vibration.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="change-amplitude">Change Amplitude</h3>
+
+<p>Similar to Change Frequency, this node lets you adjust the amplitude of an ongoing vibration. It can only be used after the Vibrate node has been activated.</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>Amplitude</strong>: <code class="language-plaintext highlighter-rouge">float</code> - The new amplitude to set for the ongoing vibration (0.0 to 1.0).</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="example-usage">Example Usage</h2>
+
+<p>Here’s are two examples of how you might use the Vibrate node in your visual scripting.</p>
+
+<h3 id="simple-example">Simple Example</h3>
+
+<p>This graph will play a 1 second long vibration as the experience starts:</p>
+
+<p><img src="images/vibration-example.webp" alt="alt_text" title="Vibration Node Example" /></p>
+
+<p><br /></p>
+
+<h3 id="pulsating-vibration">Pulsating Vibration</h3>
+
+<p>To create a slowly pulsating vibration, you can utilize an animation curve as in the following example:</p>
+
+<p><img src="images/vibration-animation-curve.webp" alt="alt_text" title="Vibration Animation Curve Example" /></p>
+
+<p>This graph creates a pulsating vibration effect. Here’s how it works:</p>
+
+<ol>
+  <li>The graph starts with a Custom Event, which could be triggered by user interaction or another game event.</li>
+  <li>The Vibrate node is called with an initial amplitude of 0, a frequency of 0.5 Hz, and a duration pulled from a graph variable.</li>
+  <li>A While Loop is used to continue the vibration effect for the specified duration.</li>
+  <li>Inside the loop, an Animation Curve is evaluated over time to create a smooth pulsating effect. This curve likely goes from 0 to 1 and back to 0, creating a wave-like pattern. Make sure the curve only goes between 0 and 1.</li>
+  <li>The curve length is one second, therefore we divide the current time by the duration to get a value between 0 and 1.</li>
+  <li>The Change Amplitude node is used to continuously update the vibration’s amplitude based on the evaluated curve value. This creates the pulsating sensation.</li>
+  <li>The loop continues until the specified duration is reached, which is checked using the Less node comparing the current time against the duration.</li>
+  <li>Time tracking is handled using the Get Delta Time node and basic math operations to accumulate the total elapsed time.</li>
+</ol>
+
+<p>This setup allows for a much more nuanced and dynamic vibration effect compared to a simple, static vibration. The pulsating effect can provide more engaging haptic feedback for various in-experience events or interactions.</p>
+
+<p>Remember to test your vibration implementations on actual devices to ensure they provide the intended user experience. Keep in mind that the behavior may vary across different device models and operating systems.</p>
+
+<p><br /></p>
+
+<h3 id="ideas-for-vibration-usage-invisible-haptic-labyrinth">Ideas for Vibration Usage: Invisible Haptic Labyrinth</h3>
+
+<p>Create an invisible labyrinth that players navigate solely through vibrations. In this game concept:</p>
+
+<ul>
+  <li>The intensity of the vibration increases as players get closer to the walls.</li>
+  <li>Players lose life when they hit the walls.</li>
+  <li>Players can collaborate by guiding each other and indicating wall locations.</li>
+  <li>The screen doesn’t need to render any visual content, as this is purely a haptic-based game.</li>
+</ul>
+
+<p>Technical Considerations:</p>
+
+<ul>
+  <li>The game would need to use Geolocation or Cloud Anchors to align the labyrinth between players.</li>
+  <li>It should be played in a large, open space without physical obstacles.</li>
+</ul>
+
+<p>This concept showcases how vibrations can be used creatively to craft unique, immersive experiences that go beyond traditional visual-based gameplay.</p>
+
+  </div>
+  
+  <div class="toc">
+    <p class="toc-title">On this Page</p>
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#vibrations">Vibrations</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#availability">Availability</a></li>
+<li class="toc-entry toc-h2"><a href="#using-vibrations-in-visual-scripting">Using Vibrations in Visual Scripting</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#vibrate">Vibrate</a></li>
+<li class="toc-entry toc-h3"><a href="#playemphasis">PlayEmphasis</a></li>
+<li class="toc-entry toc-h3"><a href="#change-frequency">Change Frequency</a></li>
+<li class="toc-entry toc-h3"><a href="#change-amplitude">Change Amplitude</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#example-usage">Example Usage</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#simple-example">Simple Example</a></li>
+<li class="toc-entry toc-h3"><a href="#pulsating-vibration">Pulsating Vibration</a></li>
+<li class="toc-entry toc-h3"><a href="#ideas-for-vibration-usage-invisible-haptic-labyrinth">Ideas for Vibration Usage: Invisible Haptic Labyrinth</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </div>
+  
+</div>
+</body>
+</html>
