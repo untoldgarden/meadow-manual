@@ -45,12 +45,6 @@
 
 <p>Meadow allows you to create experiences that are triggered by images. This is a way to create interactive XR experiences that are triggered by posters, paintings, or any other image.</p>
 
-<h2 id="enable-image-tracking">Enable Image Tracking</h2>
-
-<p>In your content settings, toggle <code class="language-plaintext highlighter-rouge">Use Image Tracking</code> to enable image tracking for your experience.</p>
-
-<p><img src="images/image-tracking-settings.webp" alt="alt_text" title="Image Tracking Settings" /></p>
-
 <h2 id="import-and-prepare-images">Import and Prepare Images</h2>
 
 <p>The images you want to track need to be imported into your experience and included in your asset bundle.</p>
@@ -62,16 +56,16 @@
 
 <p><img src="images/image-import-settings.webp" alt="alt_text" title="Image Import Settings" /></p>
 
-<h2 id="using-xref-tracked-image-manager">Using XREF Tracked Image Manager</h2>
+<h2 id="add-the-tracked-images-component">Add the Tracked Images component</h2>
 
-<p>The <code class="language-plaintext highlighter-rouge">XREF.TrackedImageManager</code> allows you to easily place prefabs on top of images.</p>
+<p>The <code class="language-plaintext highlighter-rouge">TrackedImages</code> components allows you to place prefabs on top of images.</p>
 
 <ol>
-  <li>Add the <code class="language-plaintext highlighter-rouge">XREF.TrackedImageManager</code> prefab to your main prefab. It can be on any GameObject.</li>
+  <li>Add the <code class="language-plaintext highlighter-rouge">TrackedImages</code> prefab to your main prefab. It can be on any GameObject.</li>
   <li>For each image you want to track, add a new entry to the <code class="language-plaintext highlighter-rouge">Image Prefab Pairs</code> list.</li>
-  <li>Drag the image you want to track to the <code class="language-plaintext highlighter-rouge">Image</code> field.</li>
-  <li>Drag the prefab you want to place on top of the image to the <code class="language-plaintext highlighter-rouge">Prefab</code> field.</li>
-  <li>Specify the <code class="language-plaintext highlighter-rouge">Size</code> of the image in meters. This is the size of the image in the real world.</li>
+  <li>Assign the image you want to track to the <code class="language-plaintext highlighter-rouge">Image</code> field.</li>
+  <li>Assign the prefab you want to place on top of the image to the <code class="language-plaintext highlighter-rouge">Prefab</code> field.</li>
+  <li>Specify the <code class="language-plaintext highlighter-rouge">Size</code> of the image in meters. This is the size of the image in the real world. For example an A4 is 0.21 x 0.297 meters.</li>
   <li>Toggle <code class="language-plaintext highlighter-rouge">Update Position</code> and <code class="language-plaintext highlighter-rouge">Update Rotation</code> to update the position and rotation of the prefab when the image is moving.</li>
 </ol>
 
@@ -109,9 +103,8 @@
     <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h1"><a href="#image-tracking">Image Tracking</a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#enable-image-tracking">Enable Image Tracking</a></li>
 <li class="toc-entry toc-h2"><a href="#import-and-prepare-images">Import and Prepare Images</a></li>
-<li class="toc-entry toc-h2"><a href="#using-xref-tracked-image-manager">Using XREF Tracked Image Manager</a></li>
+<li class="toc-entry toc-h2"><a href="#add-the-tracked-images-component">Add the Tracked Images component</a></li>
 <li class="toc-entry toc-h2"><a href="#using-visual-scripting-event-ontrackedimageschanged">Using Visual Scripting Event OnTrackedImagesChanged</a></li>
 <li class="toc-entry toc-h2"><a href="#common-issues">Common Issues</a>
 <ul>
