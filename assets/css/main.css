@@ -39,6 +39,10 @@ body {
   font-weight: bold;
 }
 
+li {
+  margin-bottom: 10px;  /* Adjust this value as needed */
+}
+
 .sidebar {
   position: fixed;
   top: 0;
