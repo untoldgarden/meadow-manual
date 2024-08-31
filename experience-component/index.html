@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience Component</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Experience Component" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/experience-component/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Experience Component">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">Installing Unity</a>
+        <a href="/install-the-template-project" class="">Install the Template Project</a>
+        <a href="/navigate-the-unity-editor" class="">Navigate the Unity Editor</a>
+        <a href="/create-your-first-experience" class="">Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">Upload to Meadow</a>
+        <a href="/use-meadow-in-an-existing-project" class="">Use Meadow in an Existing Project</a>
+        <a href="/update-packages" class="">Update Packages</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">Image Tracking</a>
+        <a href="/dialogue-system" class="">Dialogue System</a>
+        <a href="/vibrations" class="">Vibrations</a>
+        <a href="/map-marker" class="">Map Marker</a>
+        <a href="/visual-scripting" class="">Visual Scripting</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="active">Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      <!-- Main content will be inserted here -->
+      <h1 id="experience-component">Experience Component</h1>
+
+<p>The Experience component is a core part of Meadow, which tells the platform that this is an experience that should be displayed in the app. It holds all the settings that define how your experience should be presented.</p>
+
+<p><img src="../images/experience-component.webp" alt="Experience component" /></p>
+
+<h2 id="position">Position</h2>
+
+<ul>
+  <li><strong>Facing Direction</strong>: Determines the initial facing direction of the experience. Options include:
+    <ul>
+      <li>User: Faces the user’s current direction. Non-geospatial experiences only.</li>
+      <li>North: Aligns the experience to face geographic north. Geospatial experiences only.</li>
+    </ul>
+  </li>
+  <li><strong>Placement Type</strong>: Determines how the experience is initially placed in the AR space. This is set in the webapp and cannot be changed in the Unity editor.
+    <ul>
+      <li>In Front of Camera: Places the experience in front of the camera.</li>
+      <li>Geospatial: Places the experience at a specific geographic location using Google Visual Positioning System.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Placement Distance</strong>: The distance at which the experience is placed when using the “In Front of Camera” placement type.</p>
+  </li>
+  <li><strong>Reposition Type</strong>: Determines how the experience should be repositioned as location data improves. For geospatial and experiences who use Vertical Positioning: Floor.
+    <ul>
+      <li>None: No repositioning.</li>
+      <li>Smooth: Smoothly moves the experience to the new location.</li>
+      <li>Instant: Instantly jumps the experience to the new location.</li>
+    </ul>
+  </li>
+  <li><strong>Vertical Positioning</strong>: Specifies how the experience should be positioned vertically:
+    <ul>
+      <li>None: No vertical positioning. The experience 0,0,0 will be at the level of the device.</li>
+      <li>Floor: Positions the experience 0,0,0 on the ground using plane detection.</li>
+      <li>Altitude: Uses altitude data from location services. This can be inaccurate and should be used with caution.</li>
+    </ul>
+  </li>
+  <li><strong>Reposition Threshold</strong>: The minimum distance (in meters) between the current and new location required to trigger repositioning.</li>
+</ul>
+
+<h2 id="audio">Audio</h2>
+
+<ul>
+  <li><strong>Override Mute Switch</strong>: When enabled, this setting overrides the mute switch on iOS devices, ensuring audio playback even when the device is muted.</li>
+</ul>
+
+<h2 id="ar-session">AR Session</h2>
+
+<ul>
+  <li><strong>Camera Facing Direction</strong>: Sets the initial camera direction:
+    <ul>
+      <li>World: Uses the rear-facing camera.</li>
+      <li>User: Uses the front-facing (selfie) camera.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="planes">Planes</h3>
+
+<ul>
+  <li>
+    <p><strong>Use Plane Manager</strong>: Enables or disables plane detection. This is enabled by default if you use Vertical Positioning: Floor.</p>
+  </li>
+  <li>
+    <p><strong>Plane Prefab</strong>: The prefab used for detected planes. If empty a default plane prefab with a Mesh Collider will be used.</p>
+  </li>
+  <li>
+    <p><strong>Use Floor Plane</strong>: When enabled, creates a large plane aligned to the lowest detected horizontal plane.</p>
+  </li>
+  <li>
+    <p><strong>Floor Prefab</strong>: The prefab used to visualize the floor plane. If empty a default plane prefab with a Mesh Collider will be used.</p>
+  </li>
+  <li>
+    <p><strong>Plane Detection Mode</strong>: Specifies which types of planes to detect (horizontal, vertical, or both). Only detect the planes you need. Plane detection is performance-intensive and should be used sparingly.</p>
+  </li>
+</ul>
+
+<h3 id="point-cloud">Point Cloud</h3>
+
+<ul>
+  <li>
+    <p><strong>Use Point Cloud Manager</strong>: Enables or disables the AR subsystems point cloud visualization.</p>
+  </li>
+  <li>
+    <p><strong>Point Cloud Prefab</strong>: The prefab used to visualize each point.</p>
+  </li>
+</ul>
+
+<h3 id="ar-camera-background">AR Camera Background</h3>
+
+<ul>
+  <li>
+    <p><strong>Use AR Camera Background Texture</strong>: Enables or disables the use of the camera feed as a background.</p>
+  </li>
+  <li>
+    <p><strong>AR Camera Background Mode</strong>: Sets the rendering mode for the AR camera background (CPU or GPU).</p>
+  </li>
+</ul>
+
+<h3 id="occlusion">Occlusion</h3>
+
+<p>AR Occlussion functions differently depending on platform, and is split into platform-specific settings. Keep in mind that occlusion is performance-intensive.</p>
+
+<ul>
+  <li><strong>Use Occlusion</strong>: Enables or disables occlusion.</li>
+  <li><strong>Environment Depth Mode</strong>: Configures the depth estimation for enviroment mode. This option usually looks bad in outdoor environments.</li>
+  <li><strong>Temporal Smoothing</strong>: Enables or disables temporal smoothing for occlusion.</li>
+  <li><strong>Human Segmentation Stencil Mode</strong>: Configures the quality of human segmentation for stencils.</li>
+  <li><strong>Human Segmentation Depth Mode</strong>: Configures the quality of human segmentation for depth.</li>
+  <li><strong>Occlusion Preference Mode</strong>: Sets the preference for environment or human occlusion.</li>
+</ul>
+
+<h3 id="reflections">Reflections</h3>
+
+<p>Platform-specific reflection settings:</p>
+
+<ul>
+  <li><strong>Use Reflections</strong>: Enables or disables environmental reflections.</li>
+  <li><strong>Automatic Placement</strong>: Enables or disables automatic placement of reflection probes.</li>
+  <li><strong>Environment Texture Filter</strong>: Sets the filtering mode for environment textures.</li>
+</ul>
+
+<h2 id="device">Device</h2>
+
+<ul>
+  <li><strong>Increase Screen Brightness</strong>: When enabled, this setting increases the screen brightness to maximum for better visibility.</li>
+</ul>
+
+<h3 id="performance">Performance</h3>
+
+<ul>
+  <li>
+    <p><strong>Use Performance Manager</strong>: When enabled, this will trigger a Visual Scripting event when the device FPS reaches the specificed treshold.</p>
+  </li>
+  <li>
+    <p><strong>Target FPS Android</strong>: The target frame rate for Android devices.</p>
+  </li>
+  <li>
+    <p><strong>Target FPS iOS</strong>: The target frame rate for iOS devices.</p>
+  </li>
+</ul>
+
+<h2 id="lighting">Lighting</h2>
+
+<ul>
+  <li><strong>Enable Default Directional Light</strong>: When enabled, this setting adds a default directional light to the scene. Untoggle this if you use your own lighting setup.</li>
+</ul>
+
+<h2 id="geofencing">Geofencing</h2>
+
+<ul>
+  <li>
+    <p><strong>Use Geofencing</strong>: When enabled, this feature prompts users to return to or leave the content area based on their distance from the starting position.</p>
+  </li>
+  <li>
+    <p><strong>Geofencing Radius</strong>: The distance (in meters) from the starting position at which geofencing notifications are triggered.</p>
+  </li>
+  <li>
+    <p><strong>Geofencing Start</strong>: The delay (in minutes) before geofencing becomes active.</p>
+  </li>
+</ul>
+
+<h2 id="public-methods">Public Methods</h2>
+
+<ul>
+  <li><strong>GetLocationDataValue(string propertyid, out object value, out Type type)</strong>: Retrieves location-specific data and its type based on the provided property ID.</li>
+</ul>
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#experience-component">Experience Component</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#position">Position</a></li>
+<li class="toc-entry toc-h2"><a href="#audio">Audio</a></li>
+<li class="toc-entry toc-h2"><a href="#ar-session">AR Session</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#planes">Planes</a></li>
+<li class="toc-entry toc-h3"><a href="#point-cloud">Point Cloud</a></li>
+<li class="toc-entry toc-h3"><a href="#ar-camera-background">AR Camera Background</a></li>
+<li class="toc-entry toc-h3"><a href="#occlusion">Occlusion</a></li>
+<li class="toc-entry toc-h3"><a href="#reflections">Reflections</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#device">Device</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#performance">Performance</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#lighting">Lighting</a></li>
+<li class="toc-entry toc-h2"><a href="#geofencing">Geofencing</a></li>
+<li class="toc-entry toc-h2"><a href="#public-methods">Public Methods</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+</body>
+</html>
