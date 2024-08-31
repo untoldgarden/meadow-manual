@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Touch Interaction</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Touch Interaction" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/touch-interaction/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Touch Interaction">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">Installing Unity</a>
+        <a href="/install-the-template-project" class="">Install the Template Project</a>
+        <a href="/navigate-the-unity-editor" class="">Navigate the Unity Editor</a>
+        <a href="/create-your-first-experience" class="">Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">Upload to Meadow</a>
+        <a href="/use-meadow-in-an-existing-project" class="">Use Meadow in an Existing Project</a>
+        <a href="/update-packages" class="">Update Packages</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">Image Tracking</a>
+        <a href="/dialogue-system" class="">Dialogue System</a>
+        <a href="/vibrations" class="">Vibrations</a>
+        <a href="/map-marker" class="">Map Marker</a>
+        <a href="/visual-scripting" class="">Visual Scripting</a>
+        <a href="/touch-interaction" class="active">Touch Interaction</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      <!-- Main content will be inserted here -->
+      <h1 id="touch-interaction">Touch Interaction</h1>
+
+<p>The Touch Interaction Manager allows you to use touches from the user’s device screen to manipulate your experience. This can be used for various interactive elements such as chess games, meditations where you stack snails, or intricate escape rooms.</p>
+
+<h2 id="documentation">Documentation</h2>
+
+<h3 id="touch-interaction-manager-properties">Touch Interaction Manager Properties</h3>
+
+<ul>
+  <li><strong>Detect Touch</strong>: <code class="language-plaintext highlighter-rouge">bool</code> - Enable or disable touch detection.</li>
+  <li><strong>Enable Tap</strong>: <code class="language-plaintext highlighter-rouge">bool</code> - Enable or disable tap detection.</li>
+  <li><strong>Enable Raycast</strong>: <code class="language-plaintext highlighter-rouge">RaycastFlag</code> - Set the raycast mode (None, OnSingleTouch, OnMultipleTouch).</li>
+</ul>
+
+<h4 id="touch-settings">Touch Settings</h4>
+
+<ul>
+  <li><strong>Tap Length</strong>: <code class="language-plaintext highlighter-rouge">float</code> - Duration of a tap in seconds (e.g., 0.1 = 100 ms). It’s recommended to keep this value between 200 and 400.</li>
+  <li><strong>Map Touch Bottom</strong>: <code class="language-plaintext highlighter-rouge">float</code> - Maps touch.y up from bottom. Essentially moves the touch point slighlty higher on the screen, which is useful for use cases where the user needs to see what they do.</li>
+  <li><strong>Map Touch Top</strong>: <code class="language-plaintext highlighter-rouge">float</code> - Maps touch.y down from top.</li>
+  <li><strong>Min Touch Limit</strong>: <code class="language-plaintext highlighter-rouge">float</code> - Screen Y limit below which raycasts are not sent.</li>
+  <li><strong>Max Touch Limit</strong>: <code class="language-plaintext highlighter-rouge">float</code> - Screen X limit above which raycasts are not sent.</li>
+</ul>
+
+<h4 id="raycast-settings">Raycast Settings</h4>
+
+<ul>
+  <li><strong>Named Layer Masks</strong>: <code class="language-plaintext highlighter-rouge">List&lt;NamedLayerMask&gt;</code> - The list of different layer masks that you will use for raycasting.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="touch-events">Touch Events</h3>
+
+<ul>
+  <li><strong>OnHit</strong>: Triggered when a raycast from the first touch hits something in world space.
+    <ul>
+      <li>Outputs:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">hitPoint</code>: ValueOutput - The point in world space where the ray hit.</li>
+          <li><code class="language-plaintext highlighter-rouge">hitObject</code>: ValueOutput - The object that was hit by the ray.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>OnMultipleHits</strong>: Triggered when several touch fingers hit things in world space.
+    <ul>
+      <li>Outputs:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">hitPoints</code>: ValueOutput (List) - The points in world space where the rays hit.</li>
+          <li><code class="language-plaintext highlighter-rouge">hitObjects</code>: ValueOutput (List) - The objects that were hit by the rays.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>OnNoHit</strong>: Triggered when a raycast from the first touch gets no hit.
+    <ul>
+      <li>Outputs:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">Touch</code>: ValueOutput - Information about the touch that didn’t result in a hit.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>OnFirstTouchEnd</strong>: Triggered when the first registered touch ends.</p>
+  </li>
+  <li>
+    <p><strong>OnSecondTouchEnd</strong>: Triggered when the second touch ends.</p>
+  </li>
+  <li><strong>OnTap</strong>: Triggered when a tap is detected.
+    <ul>
+      <li>Outputs:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">hitPoint</code>: ValueOutput - The point in world space where the tap occurred.</li>
+          <li><code class="language-plaintext highlighter-rouge">hitObject</code>: ValueOutput - The object that was tapped.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>OnTouch</strong>: Gives you direct access to all touches from the screen.
+    <ul>
+      <li>Outputs:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">Touches</code>: ValueOutput (List) - Information about all current touches.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="manual">Manual</h2>
+
+<p>Let’s create a simple game where you can move a snail around using touch input.</p>
+
+<h3 id="set-up-touch-interaction">Set up Touch Interaction</h3>
+
+<ol>
+  <li>Add the Touch Interaction Manager script to any game object in your prefab.
+    <ul>
+      <li>Enable “Detect Touch”</li>
+      <li>Set “Enable Raycast” to “OnSingleTouch” (we don’t need to track raycasts from multiple fingers.)</li>
+      <li>Add two named layer masks: one for the selected object and one for the static objects. Assign the objects to the appropriate layers.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="../images/touch-interaction-manager.webp" alt="Touch Interaction Manager" /></p>
+
+<blockquote>
+  <p><strong>Note:</strong> If you can’t see many layers in the dropdown, you can add more layers in the Tags and Layers settings in Unity. Layers from 10 and up are available for use in Meadow.</p>
+
+  <p><br /></p>
+
+  <p>Add for example:</p>
+  <ul>
+    <li>SelectableObjects (10) - For the snail object.</li>
+    <li>StaticObjects (11) - For the ground plane.
+<br /></li>
+  </ul>
+
+  <p>Meadow uses layer 9 for AR planes, and 0 for the default layer. Make sure to include these in your layer mask if you want to raycast against them. To include layer 9 you need to create that layer in the Tags and Layers settings in Unity.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h3 id="add-your-object">Add Your Object</h3>
+
+<ol>
+  <li>Add your snail object as a sibling to the manager.</li>
+  <li>Set it to one of the layers in the layer mask for selected objects.</li>
+  <li>Ensure it has a collider component. The raycast hits are registered against colliders.</li>
+</ol>
+
+<p><img src="../images/touch-interaction-add-snail-object.webp" alt="Add Snail Object" /></p>
+
+<h3 id="add-visual-scripting">Add Visual Scripting</h3>
+
+<ol>
+  <li>Add a Script Machine component to your manager object.</li>
+  <li>Create a new Script Graph and assign it to the manager.</li>
+  <li>
+    <p>Open the Script Graph and add these nodes:</p>
+
+    <p>a. Create a graph variable of type GameObject, name it “selectedObject”.</p>
+
+    <p>b. Add an OnHit event node:</p>
+    <ul>
+      <li>Add a null check for the selectedObject.</li>
+      <li>If it’s null, assign the hit object (from hitObject output) to selectedObject.</li>
+      <li>We have now selected the snail and instead want to raycast against the ground. Change the layer mask we register raycasts against to StaticObject.</li>
+      <li>If it’s not null, set the position of the selectedObject to the hit position (from hitPoint output) from the OnHit event.</li>
+    </ul>
+
+    <p>c. Add an OnFirstTouchEnd event node:</p>
+    <ul>
+      <li>Set the selectedObject variable to null.</li>
+      <li>Change the layer mask back to SelectedObject so we can select the snail again.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="../images/touch-interaction-visual-scripting.webp" alt="Visual Scripting" /></p>
+
+<blockquote>
+  <p><strong>Tip:</strong> Press ‘cmd’ and drag to create an group around a set of nodes. This is very useful for organizing your graph.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h3 id="set-up-the-environment">Set Up the Environment</h3>
+
+<ol>
+  <li>Add a plane to your scene as a stand-in for AR planes.</li>
+  <li>Set the plane to the same layer as defined in StaticObjects.</li>
+  <li>This plane is just for testing in the Unity editor so keep it outside of your prefab.</li>
+</ol>
+
+<p><img src="../images/touch-interaction-add-plane.webp" alt="Add Plane" /></p>
+
+<h3 id="testing-your-game">Testing Your Game</h3>
+
+<ol>
+  <li>To register touch events in the Unity editor, set the Game view to “Simulator”.</li>
+  <li>Play the scene and try moving the snail around by pressing and dragging it around on the plane.</li>
+</ol>
+
+<p>This basic setup can be easily expanded to create more complex interactions. Try setting up chess game that can be played in AR!</p>
+
+<p><br /></p>
+
+<h2 id="common-issues">Common Issues</h2>
+
+<h3 id="the-object-sinks-into-the-ground-when-moved">The object sinks into the ground when moved</h3>
+<ul>
+  <li>The object will be moved to its pivot point. If the pivot is at the midpoint of the model on the Y-axis, the object may appear to sink into the ground when moved.</li>
+  <li>To fix this, set your object as a child of an empty GameObject and adjust its position upwards. Make sure to put the collider on the child object, as it’s the object with the collider that is returned by the raycast hit.</li>
+</ul>
+
+<p>Pivot:
+<img src="../images/touch-interaction-pivot-point-1.webp" alt="Object Sinking" /></p>
+
+<p>Object:
+<img src="../images/touch-interaction-pivot-point-2.webp" alt="Object Sinking" /></p>
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#touch-interaction">Touch Interaction</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#documentation">Documentation</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#touch-interaction-manager-properties">Touch Interaction Manager Properties</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#touch-settings">Touch Settings</a></li>
+<li class="toc-entry toc-h4"><a href="#raycast-settings">Raycast Settings</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#touch-events">Touch Events</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#manual">Manual</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#set-up-touch-interaction">Set up Touch Interaction</a></li>
+<li class="toc-entry toc-h3"><a href="#add-your-object">Add Your Object</a></li>
+<li class="toc-entry toc-h3"><a href="#add-visual-scripting">Add Visual Scripting</a></li>
+<li class="toc-entry toc-h3"><a href="#set-up-the-environment">Set Up the Environment</a></li>
+<li class="toc-entry toc-h3"><a href="#testing-your-game">Testing Your Game</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#common-issues">Common Issues</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#the-object-sinks-into-the-ground-when-moved">The object sinks into the ground when moved</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+</body>
+</html>
