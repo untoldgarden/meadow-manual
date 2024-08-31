@@ -2,6 +2,7 @@
 layout: default
 title: Vibrations
 toc: true
+permalink: /vibrations/
 ---
 
 # Vibrations {#vibrations}
@@ -66,7 +67,7 @@ Here's are two examples of how you might use the Vibrate node in your visual scr
 
 This graph will play a 1 second long vibration as the experience starts:
 
-![alt_text](images/vibration-example.webp "Vibration Node Example")
+![alt_text](../images/vibration-example.webp "Vibration Node Example")
 
 <br>
 
@@ -74,7 +75,7 @@ This graph will play a 1 second long vibration as the experience starts:
 
 To create a slowly pulsating vibration, you can utilize an animation curve as in the following example:
 
-![alt_text](images/vibration-animation-curve.webp "Vibration Animation Curve Example")
+![alt_text](../images/vibration-animation-curve.webp "Vibration Animation Curve Example")
 
 This graph creates a pulsating vibration effect. Here's how it works:
 

@@ -2,6 +2,7 @@
 layout: default
 title: Image Tracking
 toc: true
+permalink: /image-tracking/
 ---
 
 # Image Tracking {#image-tracking}
@@ -17,7 +18,7 @@ The images you want to track need to be imported into your experience and includ
 
 Please note that you should not create a `Reference Image Library` in Unity. Meadow will create this automatically when you upload your experience.
 
-![alt_text](images/image-import-settings.webp "Image Import Settings")
+![alt_text](../images/image-import-settings.webp "Image Import Settings")
 
 ## Add the Tracked Images component
 
@@ -30,7 +31,7 @@ The `TrackedImages` components allows you to place prefabs on top of images.
 5. Specify the `Size` of the image in meters. This is the size of the image in the real world. For example an A4 is 0.21 x 0.297 meters.
 6. Toggle `Update Position` and `Update Rotation` to update the position and rotation of the prefab when the image is moving.
 
-![alt_text](images/image-tracking.webp "Image Tracking")
+![alt_text](../images/image-tracking.webp "Image Tracking")
 
 ## Using Visual Scripting Event OnTrackedImagesChanged
 
@@ -41,7 +42,7 @@ You can also use visual scripting to trigger logic when an image is tracked for 
 - **Updated Images**: `List<ARTrackedImage>` - Images that have been updated.
 - **Removed Images**: `List<ARTrackedImage>` - Images that have been removed from the tracked images list.
 
-![alt_text](images/image-tracking-visual-scripting.webp "Image Tracking Visual Scripting")
+![alt_text](../images/image-tracking-visual-scripting.webp "Image Tracking Visual Scripting")
 
 ## Common Issues
 

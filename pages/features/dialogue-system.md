@@ -2,6 +2,7 @@
 layout: default
 title: Dialogue System
 toc: true
+permalink: /dialogue-system/
 ---
 
 # XREF Dialogue System 
@@ -29,7 +30,7 @@ Your dialogue tree is constructed from a `.tsv` sheet with a list of lines of di
 **Debug**
 - **Override Language**: `string` - Specify which language you want to use. If left empty, the system will use the system language.
 
-![alt_text](images/dialogue-system.webp "Dialogue System")
+![alt_text](../images/dialogue-system.webp "Dialogue System")
 
 <br>
 
@@ -50,7 +51,7 @@ The XREF Dialogue System comes with a range of nodes for you to build dialogue t
 
 Here is an example of a basic dialogue tree:
 
-![alt_text](images/dialogue-tree-1.webp "Dialogue Tree 1")
+![alt_text](../images/dialogue-tree-1.webp "Dialogue Tree 1")
 
 In this example, the dialogue starts with a `Question with Two Options`node, the line that is said is `greeting`. The two options are `answerOne` and `answerTwo`. This is displayed to the user with one line with the text in `greeting` and then two buttons, each with the text in `answerOne` and `answerTwo`. Depending on which of these buttons the user press, the response is either `responseOne` or `responseTwo`.
 
@@ -135,8 +136,8 @@ This is the process for publishing your tsv if you are using Google Sheets:
 4. Copy the link and use it in the `URL` field in the `XREF.DialogueSystem` component.
 5. Any changes you do to the Google Sheet is automatically reflected in your experience.
 
-![alt_text](images/google-sheet-1.webp "Publish to web using Google Sheet")
-![alt_text](images/google-sheet-2.webp "Publish to web using Google Sheet")
+![alt_text](../images/google-sheet-1.webp "Publish to web using Google Sheet")
+![alt_text](../images/google-sheet-2.webp "Publish to web using Google Sheet")
 
 <br>
 
@@ -165,4 +166,4 @@ The dialogue system can play audio clips for each line of dialogue. You add audi
 
 Example using the dialogue tree from the previous section:
 
-![alt_text](images/dialogue-audio-clips.webp "Dialogue Audio Clips")
+![alt_text](../images/dialogue-audio-clips.webp "Dialogue Audio Clips")

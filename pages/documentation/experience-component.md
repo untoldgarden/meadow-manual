@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Networking and Multiplayer
+title: Experience Component
 toc: true
 ---
 

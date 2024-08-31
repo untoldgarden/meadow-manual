@@ -2,6 +2,7 @@
 layout: default
 title: Update Your Creator Profile
 toc: true
+permalink: /update-creator-profile/
 ---
 
 # Update Your Creator Profile
@@ -18,8 +19,8 @@ Please send us a message if you'd like to be public, and we'll get to it straigh
 2. Log in with your Meadow account.
 3. Click on your profile picture in the top right corner.
 4. Click on `Profile`.
-![alt_text](images/click-profile.webp "Click profile")
+![alt_text](../images/click-profile.webp "Click profile")
 5. Update your profile picture, user name, and bio.
-![alt_text](images/unupdated-profile.webp "Update profile")
+![alt_text](../images/unupdated-profile.webp "Update profile")
 6. All changes are saved automatically. 
-![alt_text](images/profile-done.webp "Updated profile")
+![alt_text](../images/profile-done.webp "Updated profile")

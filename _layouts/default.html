@@ -6,15 +6,14 @@
   <title>{{ page.title | default: site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <meta property="og:type" content="Meadow Manual" />
-<meta property="og:title" content="{{ page.title | escape }}" />
-<meta property="og:description" content="{{ page.description | escape }}" />
-<meta property="og:image" content="{{ '/images/meadow.jpg' | prepend: site.baseurl | prepend: site.url }}" />
-<meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}" />
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ page.title | escape }}">
-<meta name="twitter:description" content="{{ page.description | escape }}">
-<meta name="twitter:image" content="{{ '/images/meadow.jpg' | prepend: site.baseurl | prepend: site.url }}">
-
+  <meta property="og:title" content="{{ page.title | escape }}" />
+  <meta property="og:description" content="{{ page.description | escape }}" />
+  <meta property="og:image" content="{{ '/images/meadow.jpg' | prepend: site.baseurl | prepend: site.url }}" />
+  <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | escape }}">
+  <meta name="twitter:description" content="{{ page.description | escape }}">
+  <meta name="twitter:image" content="{{ '/images/meadow.jpg' | prepend: site.baseurl | prepend: site.url }}">
 </head>
 <body>
   <div class="content-container">
@@ -24,33 +23,43 @@
         <span class="header-title">Meadow Manual</span>
       </header>
       <!-- Chapter links -->
-      <a href="{{ '/installing-unity.html' | relative_url }}" class="{% if page.url == '/installing-unity.html' %}active{% endif %}">Installing Unity</a>
-      <a href="{{ '/install-the-template-project.html' | relative_url }}" class="{% if page.url == '/install-the-template-project.html' %}active{% endif %}">Install the Template Project</a>
-      <a href="{{ '/install-packages.html' | relative_url }}" class="{% if page.url == '/install-packages.html' %}active{% endif %}">Install Packages</a>
-      <a href="{{ '/navigate-the-unity-editor.html' | relative_url }}" class="{% if page.url == '/navigate-the-unity-editor.html' %}active{% endif %}">Navigate the Unity Editor</a>
-      <a href="{{ '/create-your-first-experience.html' | relative_url }}" class="{% if page.url == '/create-your-first-experience.html' %}active{% endif %}">Create Your First Experience</a>
-      <a href="{{ '/upload-to-meadow.html' | relative_url }}" class="{% if page.url == '/upload-to-meadow.html' %}active{% endif %}">Upload to Meadow</a>
-      <a href="{{ '/meadow-studio.html' | relative_url }}" class="{% if page.url == '/meadow-studio.html' %}active{% endif %}">Meadow Studio</a>
-      <a href="{{ '/update-packages.html' | relative_url }}" class="{% if page.url == '/update-packages.html' %}active{% endif %}">Update Packages</a>
-      <a href="{{ '/map-marker.html' | relative_url }}" class="{% if page.url == '/map-marker.html' %}active{% endif %}">Map Marker</a>
-      <a href="{{ '/visual-scripting.html' | relative_url }}" class="{% if page.url == '/visual-scripting.html' %}active{% endif %}">Visual Scripting</a>
-      <a href="{{ '/image-tracking.html' | relative_url }}" class="{% if page.url == '/image-tracking.html' %}active{% endif %}">Image Tracking</a>
-      <a href="{{ '/dialogue-system.html' | relative_url }}" class="{% if page.url == '/dialogue-system.html' %}active{% endif %}">Dialogue System</a>
-      <a href="{{ '/vibrations.html' | relative_url }}" class="{% if page.url == '/vibrations.html' %}active{% endif %}">Vibrations</a>
+      <section>
+        <h4>Getting Started</h4>
+        <a href="{{ '/installing-unity' | relative_url }}" class="{% if page.url == '/installing-unity/' %}active{% endif %}">Installing Unity</a>
+        <a href="{{ '/install-the-template-project' | relative_url }}" class="{% if page.url == '/install-the-template-project/' %}active{% endif %}">Install the Template Project</a>
+        <a href="{{ '/navigate-the-unity-editor' | relative_url }}" class="{% if page.url == '/navigate-the-unity-editor/' %}active{% endif %}">Navigate the Unity Editor</a>
+        <a href="{{ '/create-your-first-experience' | relative_url }}" class="{% if page.url == '/create-your-first-experience/' %}active{% endif %}">Create Your First Experience</a>
+        <a href="{{ '/prepare-your-experience' | relative_url }}" class="{% if page.url == '/prepare-your-experience/' %}active{% endif %}">Prepare Your Experience</a>
+        <a href="{{ '/upload-to-meadow' | relative_url }}" class="{% if page.url == '/upload-to-meadow/' %}active{% endif %}">Upload to Meadow</a>
+        <a href="{{ '/use-meadow-in-an-existing-project' | relative_url }}" class="{% if page.url == '/use-meadow-in-an-existing-project/' %}active{% endif %}">Use Meadow in an Existing Project</a>
+        <a href="{{ '/update-packages' | relative_url }}" class="{% if page.url == '/update-packages/' %}active{% endif %}">Update Packages</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="{{ '/image-tracking' | relative_url }}" class="{% if page.url == '/image-tracking/' %}active{% endif %}">Image Tracking</a>
+        <a href="{{ '/dialogue-system' | relative_url }}" class="{% if page.url == '/dialogue-system/' %}active{% endif %}">Dialogue System</a>
+        <a href="{{ '/vibrations' | relative_url }}" class="{% if page.url == '/vibrations/' %}active{% endif %}">Vibrations</a>
+        <a href="{{ '/map-marker' | relative_url }}" class="{% if page.url == '/map-marker/' %}active{% endif %}">Map Marker</a>
+        <a href="{{ '/visual-scripting' | relative_url }}" class="{% if page.url == '/visual-scripting/' %}active{% endif %}">Visual Scripting</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="{{ '/experience-component' | relative_url }}" class="{% if page.url == '/experience-component/' %}active{% endif %}">Experience Component</a>
+      </section>
     </div>
     
+    <div class="main-content">
+      <!-- Main content will be inserted here -->
+      {{ content }}
+    </div>
     
-  
-  <div class="main-content">
-    <!-- Main content will be inserted here -->
-    {{ content }}
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      {{ content | toc_only }}
+    </div>
+    
   </div>
-  
-  <div class="toc">
-    <p class="toc-title">On this Page</p>
-    {{ content | toc_only }}
-  </div>
-  
-</div>
 </body>
 </html>

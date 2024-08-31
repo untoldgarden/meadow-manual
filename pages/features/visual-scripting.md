@@ -2,6 +2,7 @@
 layout: default
 title: Visual Scripting
 toc: true
+permalink: /visual-scripting/
 ---
 
 # Visual Scripting {#visual-scripting}

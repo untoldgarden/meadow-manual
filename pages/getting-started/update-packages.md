@@ -2,6 +2,7 @@
 layout: default
 title: Updating XREF Packages
 toc: true
+permalink: /update-packages/
 ---
 
 # Updating XREF Packages
@@ -14,7 +15,7 @@ To ensure you're using the latest features and improvements in your Meadow exper
 4. Select both XREF and XREF.ExperienceBuilder by holding Ctrl (Windows) or Cmd (Mac) and clicking on each package.
 5. With both packages selected, click the "Update" button that appears in the package details pane.
 
-![Updating XREF Packages](images/update-xref-packages.webp "Updating XREF Packages in Package Manager")
+![Updating XREF Packages](../images/update-xref-packages.webp "Updating XREF Packages in Package Manager")
 
 After clicking "Update," Unity will download and install the latest versions of these packages. Once the update process is complete, you may need to restart Unity to ensure all changes take effect.
 

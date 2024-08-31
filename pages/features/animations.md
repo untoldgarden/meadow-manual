@@ -1,7 +1,8 @@
 ---
 layout: default
-title: File Formats
+title: Animations
 toc: true
+permalink: /animations/
 ---
 
 Coming soon...

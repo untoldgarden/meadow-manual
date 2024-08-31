@@ -2,6 +2,7 @@
 layout: default
 title: Map Marker
 toc: true
+permalink: /map-marker/
 ---
 
 # Map Marker {#map-marker}
