@@ -68,8 +68,8 @@ Let's create a simple game where you can move a snail around using touch input.
 
 ### Set up Touch Interaction
 
-1. Add the Touch Interaction Manager script to any game object in your prefab. 
-   - Enable "Detect Touch"
+1. Add the `Touch Interaction Manager` component to any game object in your prefab. 
+   - Enable "Detect Touch."
    - Set "Enable Raycast" to "OnSingleTouch" (we don't need to track raycasts from multiple fingers.)
    - Add two named layer masks: one for the selected object and one for the static objects. Assign the objects to the appropriate layers.
 

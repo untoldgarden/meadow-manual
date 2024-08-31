@@ -101,10 +101,6 @@ Platform-specific reflection settings:
 
 - **Target FPS iOS**: The target frame rate for iOS devices.
 
-## Lighting
-
-- **Enable Default Directional Light**: When enabled, this setting adds a default directional light to the scene. Untoggle this if you use your own lighting setup.
-
 ## Geofencing
 
 - **Use Geofencing**: When enabled, this feature prompts users to return to or leave the content area based on their distance from the starting position.
@@ -112,6 +108,14 @@ Platform-specific reflection settings:
 - **Geofencing Radius**: The distance (in meters) from the starting position at which geofencing notifications are triggered.
 
 - **Geofencing Start**: The delay (in minutes) before geofencing becomes active.
+
+## Lighting
+
+- **Enable Default Directional Light**: When enabled, this setting adds a default directional light to the scene. Untoggle this if you use your own lighting setup.
+
+## Legacy settings
+
+- **Settings**: Use a legacy Content Settings file. This is deprecated and will be removed in future versions.
 
 ## Public Methods
 
