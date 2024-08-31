@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create your first experience</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Create your first experience" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/create-your-first-experience/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Create your first experience">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">Installing Unity</a>
+        <a href="/install-the-template-project" class="">Install the Template Project</a>
+        <a href="/navigate-the-unity-editor" class="">Navigate the Unity Editor</a>
+        <a href="/create-your-first-experience" class="active">Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">Upload to Meadow</a>
+        <a href="/use-meadow-in-an-existing-project" class="">Use Meadow in an Existing Project</a>
+        <a href="/update-packages" class="">Update Packages</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">Image Tracking</a>
+        <a href="/dialogue-system" class="">Dialogue System</a>
+        <a href="/vibrations" class="">Vibrations</a>
+        <a href="/map-marker" class="">Map Marker</a>
+        <a href="/visual-scripting" class="">Visual Scripting</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      <!-- Main content will be inserted here -->
+      <h1 id="create-your-first-experience">Create your first experience</h1>
+
+<p>To get a grasp of how the Unity editor works we will create a simple experience with a flying creature emitting a sound.</p>
+
+<h2 id="find-your-model">Find your model</h2>
+
+<p>Unity is <em>not</em> a modelling tool, you need to import models from elsewhere. However, that doesn’t mean you need to create all models yourself.  <br />
+ <br />
+There are tons of good sites for finding 3D models, both free and paid.</p>
+
+<h3 id="good-3d-model-marketplaces">Good 3D model marketplaces</h3>
+
+<p>Turbosquid, the Marks &amp; Spencer of 3D models. High quality but often expensive. <a href="https://www.turbosquid.com/">https://www.turbosquid.com/</a>
+<img src="../images/turbosquid.webp" alt="alt_text" title="image_tooltip" /></p>
+
+<p>CGTrader, the Lidl of 3D models. Affordable and with a great selection, but there’s a lot of crap as well. <a href="https://www.cgtrader.com/">https://www.cgtrader.com/</a>
+<img src="../images/cgtrader.webp" alt="alt_text" title="image_tooltip" /></p>
+
+<p>GrabCAD Library, the thrift shop of 3D models. Here you can find anything from ugly vases to accurate egnineering models of the ISS. <a href="https://grabcad.com/library">https://grabcad.com/library</a>
+<img src="../images/grabcad.webp" alt="alt_text" title="image_tooltip" /></p>
+
+<h3 id="fileformats">Fileformats</h3>
+
+<p>Standard 3D model formats for Unity is OBJ and FBX, while certain others can be used as well.  <br />
+ <br />
+<strong>OBJ:</strong> a great format for static models.</p>
+
+<p><strong>FBX:</strong> can contain animations, and is the most common format for game development.</p>
+
+<p>In most 3D market places you can toggle search results by file format.</p>
+
+<p>Let’s find a model</p>
+
+<ol>
+  <li>Go to <a href="https://www.cgtrader.com/">https://www.cgtrader.com/</a>.</li>
+  <li>Create an account (unfortunately required on all 3D libraries.)</li>
+  <li>Search for something, like dragon, butterfly or tuna.</li>
+  <li>Toggle “Free” and set Formats to Autodesk FBX.</li>
+  <li>Press “Download.”</li>
+  <li>You need to wait 20 seconds for some stupid reason.</li>
+  <li>Unzip it.</li>
+</ol>
+
+<p><a href="https://www.cgtrader.com/free-3d-models/animals/fish/tuna-fish-9f41924a-83d4-478e-a8e9-370946f141b3">Here is a link to a free Tuna model</a></p>
+
+<h2 id="import-your-model-into-unity">Import your model into Unity</h2>
+
+<ol>
+  <li>Create a new folder in your Project Window by right clicking in the empty area of the window, choosing <strong>Create</strong> &gt; <strong>Folder</strong>.
+<img src="../images/create-folder.webp" alt="alt_text" title="image_tooltip" /></li>
+  <li>Give it the name of your project, or what ever makes sense in your context.
+<img src="../images/name-folder.webp" alt="alt_text" title="image_tooltip" /></li>
+  <li>Double click the folder to enter it.</li>
+  <li>Drag and drop it from Finder (or Explorer) into your empty folder in Unity. 
+<img src="../images/add-download-to-unity.webp" alt="alt_text" title="image_tooltip" /></li>
+  <li>You should now see your downloaded model inside the project window. 
+<img src="../images/download-in-project-window.webp" alt="alt_text" title="image_tooltip" /></li>
+</ol>
+
+<h2 id="add-the-object-to-your-scene">Add the object to your scene.</h2>
+
+<ol>
+  <li>Drag and drop it from your folder in the project window to the hierarchy to place it in the scene. 
+<img src="../images/add-object-to-hierarchy.webp" alt="alt_text" title="image_tooltip" /></li>
+  <li>You should now see the 3D model in your scene. 
+<img src="../images/object-in-scene.webp" alt="alt_text" title="image_tooltip" /></li>
+  <li>Check the size of the model. Sometimes 3D models imported into Unity have very different scale. Unity’s default unit is meters, so if the object is modelled in millimeters it will be larger than it should.
+    <ol>
+      <li>An easy way to check the size is to create a default cube in the scene. Those are always 1x1x1 meters.</li>
+      <li>Right click in the Hierarchy and select 3D Object &gt; Cube to create a cube.
+ <img src="../images/create-cube.webp" alt="alt_text" title="image_tooltip" /></li>
+      <li>You can see that the Tuna is a realistic scale. However, it might be a bit large to see in AR. Let’s make it half the size for clarity.
+ <img src="../images/measurement-cube.webp" alt="alt_text" title="image_tooltip" /></li>
+      <li>Select the model in the Hierarchy and find the Transform component in the Inspector. 
+ <img src="../images/scale-model.webp" alt="alt_text" title="image_tooltip" /></li>
+      <li>Change the scale to 0.5 on all axises. (Tip: toggle the little chain icon to the left of the scale to keep the proportions.)</li>
+      <li>Delete the Cube, as we don’t need it anymore. Select it and press cmd + delete (ctrl + delete on Windows.)</li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="add-an-audioclip">Add an audioclip</h2>
+
+<p>Unity works with most common audio formats, like WAV and MP3. Unity will compress all audio when building an experience. For experiences where audio is essential you want to avoid double-compression, so then a lossless format like WAV is preferable.</p>
+
+<ol>
+  <li>Find an audioclip you would like to use, and import it to your project folder in the same way as you did with the 3D model. 
+<img src="../images/add-audio-clip.webp" alt="alt_text" title="image_tooltip" /></li>
+  <li>Create an Audio Source. An Audio Source is a virtual speaker in space.
+    <ol>
+      <li>In your Hiearchy, right click and select ‘Create Empty’. This creates an empty gameobject, which is a type of entity that doesn’t exist in the real world; an object with nothing but a position, rotation, and scale. 
+ <img src="../images/create-empty.webp" alt="alt_text" title="image_tooltip" /></li>
+      <li>Name it ‘AudioSource’ or something similar, so that you can keep track of it.</li>
+      <li>Select the ‘AudioSource’ object.</li>
+      <li>In the Inspector, press Add Component.
+ <img src="../images/add-component.webp" alt="alt_text" title="image_tooltip" /></li>
+      <li>Search for Audio Source and press it.</li>
+      <li>Now you have added an AudioSource component to your empty object.</li>
+      <li>In the little slot for AudioClip, press the circle to the left. 
+ <img src="../images/assign-audio-clip.webp" alt="alt_text" title="image_tooltip" /></li>
+      <li>Double click the audio clip you imported to Unity earlier to the audio source. 
+ <img src="../images/select-audio-clip.webp" alt="alt_text" title="image_tooltip" /></li>
+      <li>Change the Spatial Blend of the AudioSource to 3D to turn it into 3D sound, ie sound that gets lower the further you go from it.</li>
+      <li>In 3D Sound Settings, change the Max Distance to e.g 3 meters, so it will be easier to perceive the difference.</li>
+      <li>Your AudioSource should now look like this. 
+ <img src="../images/audiosource-settings.webp" alt="alt_text" title="image_tooltip" /></li>
+    </ol>
+  </li>
+</ol>
+
+<h2 id="play-your-scene-to-test-it">Play your scene to test it.</h2>
+
+<ol>
+  <li>Press the big play button in the top. Unity will load for a while. 
+<img src="../images/play-scene.webp" alt="alt_text" title="image_tooltip" /></li>
+  <li>Select the Camera. 
+<img src="../images/move-camera-in-playing-scene.webp" alt="alt_text" title="image_tooltip" /></li>
+  <li>Move the Camera around with the arrows. You should hear the sound get louder as you approach your 3D model, and lower as you go away from it.
+    <blockquote>
+      <p><strong><font color="red">DON’T FORGET TO UNPLAY!</font></strong> When in Play Mode, no changes to your scene are saved. It is <em>very</em> easy to forget this.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h2 id="add-an-animation-to-your-model">Add an animation to your model.</h2>
+
+<p>If you want a model with animations, add the search parameter ‘Animated’ on any of the 3D market places. The Tuna fish used above has an animation in the model.</p>
+
+<ol>
+  <li>You can see if the model has imported animations correctly by selecting the model in the Project window, and then looking in the animation tab in the inspector. If there are animations you can play them there to see how they look.</li>
+  <li><em>Continuing soon…</em></li>
+</ol>
+
+<h2 id="save-your-scene">Save your scene</h2>
+
+<p>Remember to save your scene when you are done, so you don’t loose your work. Most things you do in Unity is saved automatically as you are working directly towards the project folder. However, the scene is not saved automatically. Any arrangement of objects, audiosources and tuna fishes that you have made in your scene need to be saved.</p>
+
+<p><br /></p>
+
+<p><em>Models: <a href="https://skfb.ly/owonN">Snail by Rafael Rodrigues</a>, <a href="https://skfb.ly/onVxA">Grass by MauroGonzalezA</a>, <a href="https://skfb.ly/6DYxK">Flowers by Vish4More</a></em></p>
+
+<p><a href="https://creativecommons.org/licenses/by/4.0/">CC License</a></p>
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#create-your-first-experience">Create your first experience</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#find-your-model">Find your model</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#good-3d-model-marketplaces">Good 3D model marketplaces</a></li>
+<li class="toc-entry toc-h3"><a href="#fileformats">Fileformats</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#import-your-model-into-unity">Import your model into Unity</a></li>
+<li class="toc-entry toc-h2"><a href="#add-the-object-to-your-scene">Add the object to your scene.</a></li>
+<li class="toc-entry toc-h2"><a href="#add-an-audioclip">Add an audioclip</a></li>
+<li class="toc-entry toc-h2"><a href="#play-your-scene-to-test-it">Play your scene to test it.</a></li>
+<li class="toc-entry toc-h2"><a href="#add-an-animation-to-your-model">Add an animation to your model.</a></li>
+<li class="toc-entry toc-h2"><a href="#save-your-scene">Save your scene</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+</body>
+</html>

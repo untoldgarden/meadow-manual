@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Marker</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Map Marker" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/map-marker/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Map Marker">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">Installing Unity</a>
+        <a href="/install-the-template-project" class="">Install the Template Project</a>
+        <a href="/navigate-the-unity-editor" class="">Navigate the Unity Editor</a>
+        <a href="/create-your-first-experience" class="">Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">Upload to Meadow</a>
+        <a href="/use-meadow-in-an-existing-project" class="">Use Meadow in an Existing Project</a>
+        <a href="/update-packages" class="">Update Packages</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">Image Tracking</a>
+        <a href="/dialogue-system" class="">Dialogue System</a>
+        <a href="/vibrations" class="">Vibrations</a>
+        <a href="/map-marker" class="active">Map Marker</a>
+        <a href="/visual-scripting" class="">Visual Scripting</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      <!-- Main content will be inserted here -->
+      <h1 id="map-marker">Map Marker</h1>
+
+<p>Meadow allows you to create site-specific experiences that are placed on a map. To show your experience on the map you can upload a custom map marker, that can be anything from a simple icon to a 3D model.</p>
+
+<p><img src="./images/map-markers.webp" alt="" /></p>
+
+<h2 id="create-a-map-marker-using-an-image">Create a Map Marker using an image</h2>
+
+<ol>
+  <li>Create a new folder in your project, outside of your main experience folder.</li>
+  <li>Assign this folder to a new Asset Bundle, call it e.g. yourprojectnamemapmarker or whatever you want. The name does not mater, but avoid dashes or special characters as these are not allowed in the Asset Bundle name.</li>
+  <li>Create an empty GameObject in your scene.</li>
+  <li>As a child to this GameObject, create a quad facing upwards.</li>
+  <li>Move it up a bit so it’s not intersecting with the map itself, which is at 0.</li>
+  <li>Import the icon you want to use to your project.</li>
+  <li>Assign this as the texture on a new material.</li>
+  <li>Assign this material to the quad.</li>
+  <li>Drag the empty gameobject to your Map Marker folder in the project view to create a prefab.</li>
+  <li>Use <a href="https://manual.meadow.space/meadow-studio.html">Meadow Studio</a> to upload your Map Marker to your experience.</li>
+</ol>
+
+<h2 id="create-a-map-marker-using-a-3d-model">Create a Map Marker using a 3D model</h2>
+
+<ol>
+  <li>Follow step 1-3 in the previous section.</li>
+  <li>Import your 3D model.</li>
+  <li>Drag it to the scene as a child of the empty GameObject.</li>
+  <li>Position and scale it as you want it to appear on the map. Don’t make it too big or too small. A good size is between 1 and 2 meters.</li>
+  <li>Get creative and add in any fun animations, reflections, or particle effects you’d like! Bear in mind if you are using a particle effect, the scaling mode must be set to hierarchy to work properly.</li>
+  <li>Assign the tag <code class="language-plaintext highlighter-rouge">MapMarker</code> to your empty GameObject. This is for the system to know that this is the prefab that should be used as the marker.</li>
+  <li>Follow step 9-11 in the previous section.</li>
+</ol>
+
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#map-marker">Map Marker</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#create-a-map-marker-using-an-image">Create a Map Marker using an image</a></li>
+<li class="toc-entry toc-h2"><a href="#create-a-map-marker-using-a-3d-model">Create a Map Marker using a 3D model</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+</body>
+</html>

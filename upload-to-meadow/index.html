@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload to Meadow</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Upload to Meadow" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/upload-to-meadow/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Upload to Meadow">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">Installing Unity</a>
+        <a href="/install-the-template-project" class="">Install the Template Project</a>
+        <a href="/navigate-the-unity-editor" class="">Navigate the Unity Editor</a>
+        <a href="/create-your-first-experience" class="">Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="active">Upload to Meadow</a>
+        <a href="/use-meadow-in-an-existing-project" class="">Use Meadow in an Existing Project</a>
+        <a href="/update-packages" class="">Update Packages</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">Image Tracking</a>
+        <a href="/dialogue-system" class="">Dialogue System</a>
+        <a href="/vibrations" class="">Vibrations</a>
+        <a href="/map-marker" class="">Map Marker</a>
+        <a href="/visual-scripting" class="">Visual Scripting</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      <!-- Main content will be inserted here -->
+      <h1 id="upload-to-meadow">Upload to Meadow</h1>
+
+<p>To upload your experience to Meadow you will use the Meadow plugin for Unity. If you are using the template project this is already installed, but if you are using your own project you will need to <a href="https://manual.meadow.space/install-meadow-studio/">install Meadow Studio</a>.</p>
+
+<p>Before you get started with Meadow Studio you need to create an account on Meadow and create an experience.</p>
+
+<h2 id="create-an-account-on-meadow">Create an account on Meadow</h2>
+
+<p>Meadow is still in a closed beta, so your email need to be whitelisted by us before you can create an account. Contact support to get your email whitelisted.</p>
+
+<ol>
+  <li>Go to: <a href="https://app.meadow.space/">https://app.meadow.space/</a>.
+<img src="../images/webapp-homepage.webp" alt="alt_text" title="Meadow Homepage" /></li>
+  <li>Press “Login” at the top right corner. 
+<img src="../images/webapp-login.webp" alt="alt_text" title="Login" /></li>
+  <li>Sign up with an email you have access to.</li>
+</ol>
+
+<blockquote>
+  <p><strong><font color="red">Important:</font></strong> The verification email sometimes ends up in the trash. Certain non-standard email providers and government accounts blocks our verification email, use a standard gmail or outlook address instead.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong><font color="red">Important:</font></strong> Currently it’s not possible to use spaces in your name. We are working on fixing this bug, until that’s done, use a name without spaces.</p>
+</blockquote>
+
+<h2 id="create-your-experience-on-meadow">Create your experience on Meadow</h2>
+
+<ol>
+  <li>Press your profile image, and then “Dashboard.”
+<img src="../images/webapp-logged-in.webp" alt="alt_text" title="Logged in" /></li>
+  <li>In the dashboard, go to the “Experiences” tab. Here you can and manage all your experiences.
+<img src="../images/webapp-experiences.webp" alt="alt_text" title="Experiences" /></li>
+  <li>On the top right, click “+ New Experience.”
+<img src="../images/webapp-new-experience.webp" alt="alt_text" title="Details" /></li>
+  <li>Fill in the Title, add an image, and add a description. You don’t need to add anything apart from the title now, and can always edit these later.</li>
+  <li>Skip past the Deploy section for now as we will handle this from Unity.</li>
+  <li>In the “Distribution” section you can place your experience. You <strong>do not</strong> need to do this to test the experience, if you keep the toggle “Available anywhere” the experience can be opened at any location. If you want to place it somewhere and make it show up on the in-app map, search for a location and double click anywhere on the map. 
+<img src="../images/webapp-distribution-step.webp" alt="alt_text" title="Map" /></li>
+  <li>Placement Type decides how your experience will be positioned in the world.
+    <ul>
+      <li><strong>In Front Of Camera</strong>: The experience will be placed in front of the camera when the user opens it, at the <code class="language-plaintext highlighter-rouge">Placement Distance</code> specified in the Experience component.</li>
+      <li><strong>Geospatial</strong>: The experience will be placed at a physical location in the world using Google’s Visual Positioning System, which uses Google Streetview to place it. Accuracy varies depending on location, but can be below 1 meter in ideal conditions.</li>
+    </ul>
+  </li>
+  <li>Save the experience as a draft for now. You can publish it later.</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="upload-your-experience-using-meadow-studio">Upload your experience using Meadow Studio</h2>
+
+<p>Now it’s time to upload your experience to Meadow.</p>
+
+<p><br /></p>
+
+<h3 id="login-to-meadow-studio">Login to Meadow Studio</h3>
+
+<ol>
+  <li>Find the Meadow tab in Unity and open the Meadow Studio window.</li>
+  <li>Log in with the details you used when first making your Meadow account. 
+<img src="../images/meadow-studio.webp" alt="alt_text" title="Meadow Studio Experiences" /></li>
+  <li>Here you will see all your experiences listed. Click refresh if something is not up to date.</li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="upload-to-meadow">Upload to Meadow</h3>
+
+<ol>
+  <li>Open the experience you would like to upload to.</li>
+  <li>In the drop down <code class="language-plaintext highlighter-rouge">Asset Bundle</code>, select the bundle you would like to upload. This is the bundle that you assigned to your project folder. <a href="https://manual.meadow.space/upload-to-meadow.html#add-your-files-to-an-asset-bundle">See instructions here.</a></li>
+  <li>Specify if this is the Experience Bundle or the Map Marker Bundle. <a href="https://manual.meadow.space/map-marker.html">See Map Marker instructions here.</a></li>
+  <li>Select the platforms for which you would like to upload the experience.</li>
+  <li>Click <b style="color: #559859;">Upload to Meadow</b>.</li>
+  <li>The process takes a while the first time it’s done as Unity has some caching to do. Subsequent uploads will be faster.</li>
+  <li>If you have more updates to publish later on, simply repeat this process to update again.</li>
+</ol>
+
+<p><img src="../images/meadow-studio-upload.webp" alt="alt_text" title="Meadow Studio Upload" /></p>
+
+<blockquote>
+  <p><strong>Important:</strong> Make sure to choose the correct asset bundle and bundle type.</p>
+
+  <p><br /></p>
+
+  <p>Example: choose Asset bundle <code class="language-plaintext highlighter-rouge">myexperience</code> and Bundle type <code class="language-plaintext highlighter-rouge">Experience</code> to upload the experience for the asset bundle <code class="language-plaintext highlighter-rouge">myexperience</code> to Meadow.</p>
+</blockquote>
+
+<p><br /></p>
+
+<h2 id="test-your-experience-in-the-meadow-app">Test your experience in the Meadow app</h2>
+
+<p>You are now ready to test your experience in the Meadow app!</p>
+
+<ol>
+  <li>Open the app on your device.</li>
+  <li>Press the profile icon in the bottom right corner.</li>
+  <li>Log into your Meadow account.
+    <blockquote>
+      <p><strong>Note:</strong> There is currently a bug with pasting in your password, so you need to type it in manually. We apologize for the inconvenience, and are working on a fix for this.</p>
+    </blockquote>
+  </li>
+  <li>You will now see the experience listed on your profile.</li>
+  <li>Press the experience to open it.</li>
+  <li>Press “Enter Experience” to open it in AR.</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="add-cocreators-to-your-experience">Add cocreators to your experience</h2>
+
+<p>You can add collaborators to your experience to work on it together. This is great to be able to share it with team members or clients.</p>
+
+<ol>
+  <li>When editing an experience in the web app, go to the tab “Permissions.”</li>
+  <li>Add the email address of the people you would like to invite to be able to edit the experience. There are two roles for collaborators:
+    <ul>
+      <li><strong>Viewer:</strong> Viewers can see the experience but not edit or upload. They need to log in to their Meadow account in the app.</li>
+      <li><strong>Editor:</strong> Editors can upload asset bundles, change texts, images, and place the experience.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="../images/webapp-permissions.webp" alt="alt_text" title="Permissions" /></p>
+
+<p><br /></p>
+
+<h2 id="publish">Publish</h2>
+
+<p>So, you have tested your experience and it works great! Now it’s time to publish it to the world.</p>
+
+<ol>
+  <li>Go to the experience in the web app.</li>
+  <li>On the top right, click Publish.</li>
+  <li>For an experience to be published it needs to have an image and a description.</li>
+</ol>
+
+<blockquote>
+  <p><strong>Note:</strong> It is currently not possible to unpublish an experience. If you need to unpublish, contact support.</p>
+</blockquote>
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#upload-to-meadow">Upload to Meadow</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#create-an-account-on-meadow">Create an account on Meadow</a></li>
+<li class="toc-entry toc-h2"><a href="#create-your-experience-on-meadow">Create your experience on Meadow</a></li>
+<li class="toc-entry toc-h2"><a href="#upload-your-experience-using-meadow-studio">Upload your experience using Meadow Studio</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#login-to-meadow-studio">Login to Meadow Studio</a></li>
+<li class="toc-entry toc-h3"><a href="#upload-to-meadow">Upload to Meadow</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#test-your-experience-in-the-meadow-app">Test your experience in the Meadow app</a></li>
+<li class="toc-entry toc-h2"><a href="#add-cocreators-to-your-experience">Add cocreators to your experience</a></li>
+<li class="toc-entry toc-h2"><a href="#publish">Publish</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dialogue System</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Dialogue System" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/dialogue-system/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dialogue System">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">Installing Unity</a>
+        <a href="/install-the-template-project" class="">Install the Template Project</a>
+        <a href="/navigate-the-unity-editor" class="">Navigate the Unity Editor</a>
+        <a href="/create-your-first-experience" class="">Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">Upload to Meadow</a>
+        <a href="/use-meadow-in-an-existing-project" class="">Use Meadow in an Existing Project</a>
+        <a href="/update-packages" class="">Update Packages</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">Image Tracking</a>
+        <a href="/dialogue-system" class="active">Dialogue System</a>
+        <a href="/vibrations" class="">Vibrations</a>
+        <a href="/map-marker" class="">Map Marker</a>
+        <a href="/visual-scripting" class="">Visual Scripting</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      <!-- Main content will be inserted here -->
+      <h1 id="xref-dialogue-system">XREF Dialogue System</h1>
+
+<p>The Dialogue System is a tool for creating interactive conversations in your Meadow experiences. It allows you to create branching dialogues with multiple choices and responses, and  create your own RPGs.</p>
+
+<p>Your dialogue tree is constructed from a <code class="language-plaintext highlighter-rouge">.tsv</code> sheet with a list of lines of dialogue, each with a unique ID. You can add as many languages as you want, the system will automatically detect the system language and use the correct one. If the system language can’t be found, it will default to english.</p>
+
+<h3 id="dialogue-system-properties">Dialogue System Properties:</h3>
+
+<p><strong>Texts</strong></p>
+<ul>
+  <li><strong>Text Asset</strong>: <code class="language-plaintext highlighter-rouge">TextAsset</code> - A <code class="language-plaintext highlighter-rouge">TextAsset</code> with a <code class="language-plaintext highlighter-rouge">.tsv</code> file that contains the dialogue.</li>
+  <li><strong>Use URL</strong>: <code class="language-plaintext highlighter-rouge">bool</code> - If true, the dialogue will be fetched from a URL.</li>
+  <li><strong>URL</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The URL to fetch the dialogue from. Needs to be a publicly available csv file. See section “Use the Dialogue System with a URL” for more information.</li>
+</ul>
+
+<p><strong>UI</strong></p>
+<ul>
+  <li><strong>UIDocument</strong>: <code class="language-plaintext highlighter-rouge">UIDocument</code> - The UI that will be used to display the dialogue.</li>
+  <li><strong>Default Visual Asset</strong> <code class="language-plaintext highlighter-rouge">VisualAsset</code> - The visual asset that will be used to display the dialogue. Leave empty to use the visual asset referenced in the <code class="language-plaintext highlighter-rouge">UIDocument</code>.</li>
+  <li><strong>Visual Tree Assets</strong> <code class="language-plaintext highlighter-rouge">List&lt;VisualAsset&gt;</code> - A list of visual assets that can be used to display the dialogue, if you want to use different ones for different sections. You can switch between these in the visual scripting.</li>
+</ul>
+
+<p><strong>Audio</strong></p>
+<ul>
+  <li><strong>Audio Source</strong>: <code class="language-plaintext highlighter-rouge">AudioSource</code> - The audio source that will be used to play the dialogue audio.</li>
+  <li><strong>Audio Clips</strong>: <code class="language-plaintext highlighter-rouge">List&lt;AudioClip&gt;</code> - A list of audio clips that will be used to play the dialogue audio, each corresponding to one line of dialogue.</li>
+</ul>
+
+<p><strong>Debug</strong></p>
+<ul>
+  <li><strong>Override Language</strong>: <code class="language-plaintext highlighter-rouge">string</code> - Specify which language you want to use. If left empty, the system will use the system language.</li>
+</ul>
+
+<p><img src="../images/dialogue-system.webp" alt="alt_text" title="Dialogue System" /></p>
+
+<p><br /></p>
+
+<h2 id="using-the-dialogue-system">Using the Dialogue System</h2>
+
+<ol>
+  <li>Add the <code class="language-plaintext highlighter-rouge">XREFDialogue</code> component to any game object in your prefab.</li>
+  <li>Create a <code class="language-plaintext highlighter-rouge">UIDocument</code> and add it to the <code class="language-plaintext highlighter-rouge">UIDocument</code> field in the <code class="language-plaintext highlighter-rouge">XREF.DialogueSystem</code> component. This is the UI that will be used to display the dialogue. It can be added to any game object.</li>
+  <li>Add a <code class="language-plaintext highlighter-rouge">VisualAsset</code> to the <code class="language-plaintext highlighter-rouge">UIDocument</code>. You can create one yourself, or use a default one located in <code class="language-plaintext highlighter-rouge">packages/XREF.Experiencebuilder/Runtime/Dialogues/VisualTreeAssets/default</code>. To create your own visual asset, see section “Create your own visual asset”.</li>
+  <li>Add a <code class="language-plaintext highlighter-rouge">Panel Settings</code> to the <code class="language-plaintext highlighter-rouge">UIDocument</code>. You can create one yourself, or use a default one that you find when clicking the little circle next to the <code class="language-plaintext highlighter-rouge">Panel Settings</code> field.</li>
+  <li>Add your dialogue tsv to the <code class="language-plaintext highlighter-rouge">TextAsset</code> field in the <code class="language-plaintext highlighter-rouge">XREF.DialogueSystem</code> component. You can also use a URL to fetch the dialogue from. See section “Use the Dialogue System with a URL” for more information.</li>
+  <li>Create your dialogue tree in visual scripting. See section “Create your dialogue tree” for more information.</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="create-your-dialogue-tree">Create your dialogue tree</h2>
+
+<p>The XREF Dialogue System comes with a range of nodes for you to build dialogue trees. All nodes are found in <code class="language-plaintext highlighter-rouge">XREF &gt; Dialogues</code> among the visual scripting nodes.</p>
+
+<p>Here is an example of a basic dialogue tree:</p>
+
+<p><img src="../images/dialogue-tree-1.webp" alt="alt_text" title="Dialogue Tree 1" /></p>
+
+<p>In this example, the dialogue starts with a <code class="language-plaintext highlighter-rouge">Question with Two Options</code>node, the line that is said is <code class="language-plaintext highlighter-rouge">greeting</code>. The two options are <code class="language-plaintext highlighter-rouge">answerOne</code> and <code class="language-plaintext highlighter-rouge">answerTwo</code>. This is displayed to the user with one line with the text in <code class="language-plaintext highlighter-rouge">greeting</code> and then two buttons, each with the text in <code class="language-plaintext highlighter-rouge">answerOne</code> and <code class="language-plaintext highlighter-rouge">answerTwo</code>. Depending on which of these buttons the user press, the response is either <code class="language-plaintext highlighter-rouge">responseOne</code> or <code class="language-plaintext highlighter-rouge">responseTwo</code>.</p>
+
+<p>In each node you can either specify an ID that takes the line from a <code class="language-plaintext highlighter-rouge">.tsv</code> file, or you can specify the line directly in the node.</p>
+
+<p><br /></p>
+<h3 id="list-of-nodes">List of nodes:</h3>
+
+<p><strong>Say Line</strong> - Prints a line to the user.</p>
+
+<ul>
+  <li><strong>Game Object</strong>: <code class="language-plaintext highlighter-rouge">GameObject</code> - The game object with the XREFDialogue component. Use <code class="language-plaintext highlighter-rouge">this</code> to reference the game object the visual scripting is on.</li>
+  <li><strong>Line</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The line you want to say, or the ID of the line in the <code class="language-plaintext highlighter-rouge">.tsv</code> file.</li>
+  <li><strong>Duration</strong>: <code class="language-plaintext highlighter-rouge">float</code> - The duration the line will be displayed in seconds. If 0, the line will be displayed continuously.</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Question with N Options</strong> - Asks a question to the user with N options. There is currently the choice of 1, 2 or 3 options.</p>
+
+<ul>
+  <li><strong>Game Object</strong>: <code class="language-plaintext highlighter-rouge">GameObject</code> - The game object with the XREFDialogue component. Use <code class="language-plaintext highlighter-rouge">this</code> to reference the game object the visual scripting is on.</li>
+  <li><strong>Line</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The line you want to say, or the ID of the line in the <code class="language-plaintext highlighter-rouge">.tsv</code> file.</li>
+  <li><strong>Options X</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The text of the option, can be referenced directly or through an ID in the <code class="language-plaintext highlighter-rouge">.tsv</code> file. X is the number of the option.</li>
+  <li><strong>Duration</strong>: <code class="language-plaintext highlighter-rouge">float</code> - The duration before the user can press either of the buttons.</li>
+  <li><strong>Port: Option X</strong>: <code class="language-plaintext highlighter-rouge">Flow</code> - The port that will be triggered when the user presses the button for option X.</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Say Line Custom Property</strong> - Prints a line to the user on a specific <code class="language-plaintext highlighter-rouge">Label</code> element in your visual asset.</p>
+
+<ul>
+  <li><strong>Game Object</strong>: <code class="language-plaintext highlighter-rouge">GameObject</code> - The game object with the XREFDialogue component. Use <code class="language-plaintext highlighter-rouge">this</code> to reference the game object the visual scripting is on.</li>
+  <li><strong>Line</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The line you want to say, or the ID of the line in the <code class="language-plaintext highlighter-rouge">.tsv</code> file.</li>
+  <li><strong>Property</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The Visual Asset property you want to display the text on.</li>
+  <li><strong>Duration</strong>: <code class="language-plaintext highlighter-rouge">float</code> - The duration the line will be displayed in seconds. If 0, the line will be displayed continuously.</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Set Visual Asset</strong> - Sets the visual asset used by your UIDocument.</p>
+
+<ul>
+  <li><strong>Game Object</strong>: <code class="language-plaintext highlighter-rouge">GameObject</code> - The game object with the XREFDialogue component. Use <code class="language-plaintext highlighter-rouge">this</code> to reference the game object the visual scripting is on.</li>
+  <li><strong>Visual Asset</strong>: <code class="language-plaintext highlighter-rouge">VisualAsset</code> - The visual asset you want to use.</li>
+  <li><strong>Set Enabled</strong>: <code class="language-plaintext highlighter-rouge">bool</code> - If true, the visual asset will be enabled. If false, it will be disabled.</li>
+</ul>
+
+<p><br /></p>
+<h2 id="create-a-dialogue-tsv">Create a Dialogue <code class="language-plaintext highlighter-rouge">tsv</code></h2>
+
+<p>In any text editor, create a <code class="language-plaintext highlighter-rouge">.tsv</code> file where the first row contains the languages you want to use. The first column should contain the ID of the line, and the following columns should contain the dialogue in the corresponding language.</p>
+
+<p><strong>Example:</strong></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>ID</td>
+      <td>English</td>
+      <td>French</td>
+      <td>Swedish</td>
+      <td>Spanish</td>
+    </tr>
+    <tr>
+      <td>greeting</td>
+      <td>Hi How are you</td>
+      <td>Salut, comment ça va ?</td>
+      <td>Hej, hur mår du?</td>
+      <td>Hola, ¿cómo estás?</td>
+    </tr>
+    <tr>
+      <td>answerOne</td>
+      <td>I’m good</td>
+      <td>Je vais bien</td>
+      <td>Jag mår bra</td>
+      <td>Estoy bien</td>
+    </tr>
+    <tr>
+      <td>answerTwo</td>
+      <td>I’m not so good</td>
+      <td>Je ne vais pas très bien</td>
+      <td>Jag mår inte så bra</td>
+      <td>No estoy muy bien</td>
+    </tr>
+    <tr>
+      <td>responseOne</td>
+      <td>Good to hear</td>
+      <td>Content de l’entendre</td>
+      <td>Gott att höra</td>
+      <td>Bueno oír eso</td>
+    </tr>
+    <tr>
+      <td>responseTwo</td>
+      <td>I’m sorry to hear that</td>
+      <td>Désolé de l’entendre</td>
+      <td>Tråkigt att höra</td>
+      <td>Lo siento escuchar eso</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can use which languages you want. The system will automatically detect the system language and use the correct one. If the system language can’t be found, it will default to english.</p>
+
+<p>It is good practice to use human readable ID’s for the lines. It will make it easier to keep track of the dialogue and you don’t need to cross reference everytime you forgot what line <code class="language-plaintext highlighter-rouge">b1c9</code> was.</p>
+
+<p><b><font color="red">Please note:</font></b> Unity does not recognize <code class="language-plaintext highlighter-rouge">.tsv</code> files as text assets by default. You need to change the file extension to e.g. <code class="language-plaintext highlighter-rouge">.csv</code> and then import it, to trick Unity into thinking it’s a text file. This doesn’t change the content of the file.</p>
+
+<p><br /></p>
+
+<h2 id="use-the-dialogue-system-with-a-textasset">Use the Dialogue System with a TextAsset</h2>
+
+<ol>
+  <li>Save your <code class="language-plaintext highlighter-rouge">.tsv</code> file to disk.</li>
+  <li>Due to a limitation in Unity, you need to change the file extension to <code class="language-plaintext highlighter-rouge">.csv</code> before importing it. This does not change the content of the file.</li>
+  <li>Import the <code class="language-plaintext highlighter-rouge">.csv</code> file to your project. Unity will display it as a <code class="language-plaintext highlighter-rouge">TextAsset</code>. Place it in the folder of your experience to make sure it’s included in the asset bundle.</li>
+  <li>Reference the <code class="language-plaintext highlighter-rouge">TextAsset</code> in the <code class="language-plaintext highlighter-rouge">XREF.DialogueSystem</code> component in the <code class="language-plaintext highlighter-rouge">Text Asset</code> field.</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="use-the-dialogue-system-with-a-url">Use the Dialogue System with a URL</h2>
+
+<ol>
+  <li>Publish your <code class="language-plaintext highlighter-rouge">tsv</code> file to a publicly available URL.</li>
+  <li>Reference the URL in the <code class="language-plaintext highlighter-rouge">XREF.DialogueSystem</code> component in the <code class="language-plaintext highlighter-rouge">URL</code> field. Toggle the <code class="language-plaintext highlighter-rouge">Use URL</code> bool to true.</li>
+</ol>
+
+<p>This is the process for publishing your tsv if you are using Google Sheets:</p>
+<ol>
+  <li>Go to <code class="language-plaintext highlighter-rouge">File &gt; Share &gt; Publish to the web</code>.</li>
+  <li>Choose <code class="language-plaintext highlighter-rouge">Entire Document</code> and <code class="language-plaintext highlighter-rouge">Tab-separated values (.tsv)</code> as the format.</li>
+  <li>Press <code class="language-plaintext highlighter-rouge">Publish</code>.</li>
+  <li>Copy the link and use it in the <code class="language-plaintext highlighter-rouge">URL</code> field in the <code class="language-plaintext highlighter-rouge">XREF.DialogueSystem</code> component.</li>
+  <li>Any changes you do to the Google Sheet is automatically reflected in your experience.</li>
+</ol>
+
+<p><img src="../images/google-sheet-1.webp" alt="alt_text" title="Publish to web using Google Sheet" />
+<img src="../images/google-sheet-2.webp" alt="alt_text" title="Publish to web using Google Sheet" /></p>
+
+<p><br /></p>
+
+<h2 id="create-your-own-visual-asset">Create your own visual asset</h2>
+
+<p>You can create and use your own visual asset to display the dialogue.</p>
+
+<p>If you want to be able to use the <code class="language-plaintext highlighter-rouge">Say Line</code> you need to add a <code class="language-plaintext highlighter-rouge">Label</code> element to your visual asset with the name <code class="language-plaintext highlighter-rouge">text</code>. You can use another name, but then you need to specify the name in the <code class="language-plaintext highlighter-rouge">Say Line Custom Property</code> node.</p>
+
+<p>If you want to be able to use the <code class="language-plaintext highlighter-rouge">Question with N Options</code> you need to add a <code class="language-plaintext highlighter-rouge">Button</code> element to your visual asset with the name <code class="language-plaintext highlighter-rouge">optionX</code> for each option, e.g. <code class="language-plaintext highlighter-rouge">Option0</code>, <code class="language-plaintext highlighter-rouge">Option1</code>, <code class="language-plaintext highlighter-rouge">Option2</code>.</p>
+
+<p>You can also make a copy of the <code class="language-plaintext highlighter-rouge">default</code> visual asset and modify it to your liking.</p>
+
+<p><br /></p>
+
+<h2 id="using-audio-clips">Using Audio Clips</h2>
+
+<p>The dialogue system can play audio clips for each line of dialogue. You add audio clips to the <code class="language-plaintext highlighter-rouge">Audio Clips</code> list in the <code class="language-plaintext highlighter-rouge">XREFDialogue</code> component.</p>
+
+<ol>
+  <li>Add an <code class="language-plaintext highlighter-rouge">AudioSource</code> somewhere in your prefab. Reference it in the <code class="language-plaintext highlighter-rouge">XREFDialogue</code> component in the <code class="language-plaintext highlighter-rouge">Audio Source</code> field. The <code class="language-plaintext highlighter-rouge">AudioSource</code> is the virtual speaker in space that will play the audio clips. If your dialogue will be spoken by a virtual character, place the audio on the character’s head or mouth to make use of Unity’s spatial audio.</li>
+  <li>You don’t need to do anything with the <code class="language-plaintext highlighter-rouge">AudioSource</code> component, but if you want to utilize spatial audio you need to change <code class="language-plaintext highlighter-rouge">Spatial Blend</code> to 3D and set the <code class="language-plaintext highlighter-rouge">Max Distance</code> to a value that makes sense in your experience, often around 5 meters to make it noticable.</li>
+  <li>Add your audio clips to the <code class="language-plaintext highlighter-rouge">Audio Clips</code> list in the <code class="language-plaintext highlighter-rouge">XREFDialogue</code> component.</li>
+  <li>For each list item, add a <code class="language-plaintext highlighter-rouge">string</code> and an <code class="language-plaintext highlighter-rouge">AudioClip</code>. The <code class="language-plaintext highlighter-rouge">string</code> is the ID of the line in the <code class="language-plaintext highlighter-rouge">.tsv</code> file that you want to play the audio for. This system is in place so that you may easily change audio clips during testing, without having to rename them. You do not need to have one audio clip for every line in your dialogue, only the ones with a corresponding audio clip will be played.</li>
+</ol>
+
+<p><b><font color="red">Please note:</font></b> Meadow currently does not support separate audio clips for different languages. Let us know if you need this feature, and we’ll add it.</p>
+
+<p>Example using the dialogue tree from the previous section:</p>
+
+<p><img src="../images/dialogue-audio-clips.webp" alt="alt_text" title="Dialogue Audio Clips" /></p>
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#xref-dialogue-system">XREF Dialogue System</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#dialogue-system-properties">Dialogue System Properties:</a></li>
+<li class="toc-entry toc-h2"><a href="#using-the-dialogue-system">Using the Dialogue System</a></li>
+<li class="toc-entry toc-h2"><a href="#create-your-dialogue-tree">Create your dialogue tree</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#list-of-nodes">List of nodes:</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#create-a-dialogue-tsv">Create a Dialogue tsv</a></li>
+<li class="toc-entry toc-h2"><a href="#use-the-dialogue-system-with-a-textasset">Use the Dialogue System with a TextAsset</a></li>
+<li class="toc-entry toc-h2"><a href="#use-the-dialogue-system-with-a-url">Use the Dialogue System with a URL</a></li>
+<li class="toc-entry toc-h2"><a href="#create-your-own-visual-asset">Create your own visual asset</a></li>
+<li class="toc-entry toc-h2"><a href="#using-audio-clips">Using Audio Clips</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+</body>
+</html>

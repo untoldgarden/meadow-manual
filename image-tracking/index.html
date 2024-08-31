@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Tracking</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Image Tracking" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/image-tracking/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image Tracking">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">Installing Unity</a>
+        <a href="/install-the-template-project" class="">Install the Template Project</a>
+        <a href="/navigate-the-unity-editor" class="">Navigate the Unity Editor</a>
+        <a href="/create-your-first-experience" class="">Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">Upload to Meadow</a>
+        <a href="/use-meadow-in-an-existing-project" class="">Use Meadow in an Existing Project</a>
+        <a href="/update-packages" class="">Update Packages</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="active">Image Tracking</a>
+        <a href="/dialogue-system" class="">Dialogue System</a>
+        <a href="/vibrations" class="">Vibrations</a>
+        <a href="/map-marker" class="">Map Marker</a>
+        <a href="/visual-scripting" class="">Visual Scripting</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      <!-- Main content will be inserted here -->
+      <h1 id="image-tracking">Image Tracking</h1>
+
+<p>Meadow allows you to create experiences that are triggered by images. This is a way to create interactive XR experiences that are triggered by posters, paintings, or any other image.</p>
+
+<h2 id="import-and-prepare-images">Import and Prepare Images</h2>
+
+<p>The images you want to track need to be imported into your experience and included in your asset bundle.</p>
+
+<ol>
+  <li>Import the images you want to track into your project. Make sure to only use <code class="language-plaintext highlighter-rouge">.png</code> or <code class="language-plaintext highlighter-rouge">.jpg</code> images. Please note <code class="language-plaintext highlighter-rouge">.jpeg</code> images are not supported, just change the extension to <code class="language-plaintext highlighter-rouge">.jpg</code>.</li>
+  <li>Make sure to enable the <code class="language-plaintext highlighter-rouge">Read/Write</code> option in the import settings for the images.</li>
+</ol>
+
+<p>Please note that you should not create a <code class="language-plaintext highlighter-rouge">Reference Image Library</code> in Unity. Meadow will create this automatically when you upload your experience.</p>
+
+<p><img src="../images/image-import-settings.webp" alt="alt_text" title="Image Import Settings" /></p>
+
+<h2 id="add-the-tracked-images-component">Add the Tracked Images component</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">TrackedImages</code> components allows you to place prefabs on top of images.</p>
+
+<ol>
+  <li>Add the <code class="language-plaintext highlighter-rouge">TrackedImages</code> prefab to your main prefab. It can be on any GameObject.</li>
+  <li>For each image you want to track, add a new entry to the <code class="language-plaintext highlighter-rouge">Image Prefab Pairs</code> list.</li>
+  <li>Assign the image you want to track to the <code class="language-plaintext highlighter-rouge">Image</code> field.</li>
+  <li>Assign the prefab you want to place on top of the image to the <code class="language-plaintext highlighter-rouge">Prefab</code> field.</li>
+  <li>Specify the <code class="language-plaintext highlighter-rouge">Size</code> of the image in meters. This is the size of the image in the real world. For example an A4 is 0.21 x 0.297 meters.</li>
+  <li>Toggle <code class="language-plaintext highlighter-rouge">Update Position</code> and <code class="language-plaintext highlighter-rouge">Update Rotation</code> to update the position and rotation of the prefab when the image is moving.</li>
+</ol>
+
+<p><img src="../images/image-tracking.webp" alt="alt_text" title="Image Tracking" /></p>
+
+<h2 id="using-visual-scripting-event-ontrackedimageschanged">Using Visual Scripting Event OnTrackedImagesChanged</h2>
+
+<p>You can also use visual scripting to trigger logic when an image is tracked for more granular control.</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>Added Images</strong>: <code class="language-plaintext highlighter-rouge">List&lt;ARTrackedImage&gt;</code> - New images added to the tracked images list since the last event.</li>
+  <li><strong>Updated Images</strong>: <code class="language-plaintext highlighter-rouge">List&lt;ARTrackedImage&gt;</code> - Images that have been updated.</li>
+  <li><strong>Removed Images</strong>: <code class="language-plaintext highlighter-rouge">List&lt;ARTrackedImage&gt;</code> - Images that have been removed from the tracked images list.</li>
+</ul>
+
+<p><img src="../images/image-tracking-visual-scripting.webp" alt="alt_text" title="Image Tracking Visual Scripting" /></p>
+
+<h2 id="common-issues">Common Issues</h2>
+
+<h3 id="instantiated-prefab-transform">Instantiated Prefab Transform</h3>
+
+<p>Make sure the position of the prefab is set to <code class="language-plaintext highlighter-rouge">0, 0, 0,</code> to place it in the middle of the image that is being tracked.</p>
+
+<p>Also, make sure the scale is set to something that the user can see. If the prefab is very large the user will not see it as it is instantiated since they are standing inside of it. For example, if the user is standing 1 meter away from the image that is tracked, and the prefab is larger than 1 meter in size, the user might not see it.</p>
+
+<h3 id="image-is-not-recognized">Image is not recognized</h3>
+
+<p>Make sure that the image is set to <code class="language-plaintext highlighter-rouge">Read/Write</code> enabled in the import settings.</p>
+
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#image-tracking">Image Tracking</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#import-and-prepare-images">Import and Prepare Images</a></li>
+<li class="toc-entry toc-h2"><a href="#add-the-tracked-images-component">Add the Tracked Images component</a></li>
+<li class="toc-entry toc-h2"><a href="#using-visual-scripting-event-ontrackedimageschanged">Using Visual Scripting Event OnTrackedImagesChanged</a></li>
+<li class="toc-entry toc-h2"><a href="#common-issues">Common Issues</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#instantiated-prefab-transform">Instantiated Prefab Transform</a></li>
+<li class="toc-entry toc-h3"><a href="#image-is-not-recognized">Image is not recognized</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+</body>
+</html>

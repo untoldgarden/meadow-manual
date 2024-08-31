@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Install Meadow Studio</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Install Meadow Studio" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/use-meadow-in-an-existing-project/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Install Meadow Studio">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">Installing Unity</a>
+        <a href="/install-the-template-project" class="">Install the Template Project</a>
+        <a href="/navigate-the-unity-editor" class="">Navigate the Unity Editor</a>
+        <a href="/create-your-first-experience" class="">Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">Upload to Meadow</a>
+        <a href="/use-meadow-in-an-existing-project" class="active">Use Meadow in an Existing Project</a>
+        <a href="/update-packages" class="">Update Packages</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">Image Tracking</a>
+        <a href="/dialogue-system" class="">Dialogue System</a>
+        <a href="/vibrations" class="">Vibrations</a>
+        <a href="/map-marker" class="">Map Marker</a>
+        <a href="/visual-scripting" class="">Visual Scripting</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      <!-- Main content will be inserted here -->
+      <h1 id="use-meadow-in-an-existing-project">Use Meadow in an Existing Project</h1>
+
+<p>It is easy to use Meadow in an existing Unity project, you just need to install Meadow Studio and import the required packages.</p>
+
+<blockquote>
+  <p><strong><font color="red">Important:</font></strong> Meadow currently does not support custom C# scripts. This means that any custom C# scripts will need to be converted into Visual Scripting graphs.</p>
+</blockquote>
+
+<h2 id="download-meadow-studio">Download Meadow Studio</h2>
+
+<ol>
+  <li>Go to: <a href="https://app.meadow.space/dashboard/meadow-studio">Download Meadow Studio</a> <a href="https://app.meadow.space/dashboard/meadow-studio">(https://app.meadow.space/dashboard/meadow-studio)</a>.</li>
+  <li>Click Download (the large white button in the bottom of the page). Once downloaded, drag and drop the package into your project window.</li>
+  <li>You should now see the Meadow tab in the Unity editor.</li>
+</ol>
+
+<p><img src="../images/meadow-studio.webp" alt="alt_text" title="Meadow Studio Tab" /></p>
+
+<h2 id="import-xref-packages">Import XREF packages</h2>
+
+<p>Our packages are available through a scoped registry.</p>
+
+<p>Required packages:</p>
+
+<ul>
+  <li><strong>XREF</strong>: Extended Reality Experience Framework, providing the core functionality for creating immersive experiences.</li>
+</ul>
+
+<p>Optional packages:</p>
+
+<ul>
+  <li><strong>XREF.ExperienceBuilder</strong>: Adds advanced features for creating experiences, including audio interaction, dialogue, and character movement tools.</li>
+  <li><strong>XREF.ExperienceBuilder.Networking</strong>: Adds networking capabilities for multiplayer experiences.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="add-the-scoped-registry">Add the Scoped Registry</h3>
+
+<ol>
+  <li>In Unity, go to <code class="language-plaintext highlighter-rouge">Edit</code> &gt; <code class="language-plaintext highlighter-rouge">Project Settings</code> &gt; <code class="language-plaintext highlighter-rouge">Package Manager</code>.</li>
+  <li>Enable the option for <code class="language-plaintext highlighter-rouge">Enable Pre-release Packages</code>.</li>
+  <li>Add the Untold Garden scoped registry to your project:
+    <ul>
+      <li>Name: <code class="language-plaintext highlighter-rouge">Untold Garden</code></li>
+      <li>URL: <code class="language-plaintext highlighter-rouge">http://35.189.115.164:4873</code></li>
+      <li>Scopes:
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">com.untoldgarden</code></li>
+          <li><code class="language-plaintext highlighter-rouge">com.google.ar.core.arfoundation.extensions-lite</code></li>
+          <li><code class="language-plaintext highlighter-rouge">com.google.external-dependency-manager</code></li>
+          <li><code class="language-plaintext highlighter-rouge">com.google.firebase</code>
+<img src="../images/ugscopedregistry.webp" alt="alt_text" title="Untold Garden Scoped Registry" /></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Add the Game Package Registry by Google scoped registry to your project: (This requirement will be removed in a future release.)
+    <ul>
+      <li>Name: <code class="language-plaintext highlighter-rouge">Game Package Registry by Google</code></li>
+      <li>URL: <code class="language-plaintext highlighter-rouge">https://unityregistry-pa.googleapis.com</code></li>
+      <li>Scopes: <code class="language-plaintext highlighter-rouge">com.google</code>
+<img src="../images/googlescopedregistry.webp" alt="alt_text" title="Google Scoped Registry" /></li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="add-the-packages">Add the Packages</h3>
+
+<ol>
+  <li>In Unity, go to <code class="language-plaintext highlighter-rouge">Window</code> &gt; <code class="language-plaintext highlighter-rouge">Package Manager</code> to open the package manager.</li>
+  <li>Click the <code class="language-plaintext highlighter-rouge">+</code> button in the top-left corner of the Package Manager.
+<img src="../images/installpackage.webp" alt="alt_text" title="Install Package" /></li>
+  <li>Select <code class="language-plaintext highlighter-rouge">Install package by name</code>.</li>
+  <li>Search for and add the following packages to your project:
+    <ul>
+      <li>com.untoldgarden.xref</li>
+      <li>com.untoldgarden.xref-experience-builder</li>
+    </ul>
+  </li>
+  <li>You should now see the packages in your list
+<img src="../images/packages.webp" alt="alt_text" title="Packages successfully installed" /></li>
+</ol>
+
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#use-meadow-in-an-existing-project">Use Meadow in an Existing Project</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#download-meadow-studio">Download Meadow Studio</a></li>
+<li class="toc-entry toc-h2"><a href="#import-xref-packages">Import XREF packages</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#add-the-scoped-registry">Add the Scoped Registry</a></li>
+<li class="toc-entry toc-h3"><a href="#add-the-packages">Add the Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+</body>
+</html>

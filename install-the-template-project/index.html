@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download and install the Meadow template project</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Download and install the Meadow template project" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/install-the-template-project/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Download and install the Meadow template project">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">Installing Unity</a>
+        <a href="/install-the-template-project" class="active">Install the Template Project</a>
+        <a href="/navigate-the-unity-editor" class="">Navigate the Unity Editor</a>
+        <a href="/create-your-first-experience" class="">Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">Upload to Meadow</a>
+        <a href="/use-meadow-in-an-existing-project" class="">Use Meadow in an Existing Project</a>
+        <a href="/update-packages" class="">Update Packages</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">Image Tracking</a>
+        <a href="/dialogue-system" class="">Dialogue System</a>
+        <a href="/vibrations" class="">Vibrations</a>
+        <a href="/map-marker" class="">Map Marker</a>
+        <a href="/visual-scripting" class="">Visual Scripting</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      <!-- Main content will be inserted here -->
+      <h1 id="download-and-install-our-template-project-for-unity">Download and install the template project for Unity</h1>
+
+<p>To create and publish your experiences to meadow you need to install Meadow Studio and the two XREF packages in your project. To make it easier to get started we have created a template project that has everything already installed.</p>
+
+<p><br /></p>
+
+<h2 id="download-the-template-project-from-github">Download the template project from Github</h2>
+
+<h3 id="via-the-github-website">Via the Github website:</h3>
+
+<ol>
+  <li>Go to <a href="https://github.com/untoldgarden/XREF_ExperienceBuilder">https://github.com/untoldgarden/XREF_ExperienceBuilder</a>.</li>
+  <li>Click the green “Code” button and press download zip.
+<img src="../images/downloadFromGithub.webp" alt="alt_text" title="image_tooltip" /></li>
+  <li>Unzip it in a sensible location (e.g. <code class="language-plaintext highlighter-rouge">Projects/UnityTutorial</code>).</li>
+</ol>
+
+<h3 id="via-the-command-line">Via the command line:</h3>
+
+<ol>
+  <li>Open your terminal or command prompt.</li>
+  <li><code class="language-plaintext highlighter-rouge">cd</code> to the directory where you want to download the project.</li>
+  <li>Run the following command to clone the repository:
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/untoldgarden/XREF_ExperienceBuilder
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="add-the-template-project-to-unity-hub">Add the template project to Unity Hub</h2>
+
+<ol>
+  <li>Go to Unity Hub.</li>
+  <li>Click “Projects.”</li>
+  <li>Click on the little arrow to the right of “Add” and choose “Add project from disk”. <img src="../images/addProjectFromDisk.webp" alt="alt_text" title="image_tooltip" /></li>
+  <li>Navigate to where you cloned your project template.</li>
+  <li>Choose the root folder (e.g. <code class="language-plaintext highlighter-rouge">XREF_ExperienceBuilder</code>).</li>
+  <li>Press “Add Project.”</li>
+  <li>If you installed a different version than 2023.2.20f1 you need to tell Unity that you want to use that version instead.
+    <ol>
+      <li>Press the drop down under “Editor version” that has a little warning triangle next to it.
+ <img src="../images/hubChangeVersion.webp" alt="alt_text" title="image_tooltip" />.</li>
+      <li>Select your installed version of Unity.</li>
+      <li>Press “Open with…”</li>
+      <li>In the following dialogue, press “Change version.”</li>
+      <li>It will take some time to open the project, and then show a new dialogue, press “Continue.”</li>
+    </ol>
+  </li>
+  <li>The project should open in Unity and look like this:
+<img src="../images/startingUnity.webp" alt="alt_text" title="Starting Unity" /></li>
+</ol>
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#download-and-install-our-template-project-for-unity">Download and install the template project for Unity</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#download-the-template-project-from-github">Download the template project from Github</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#via-the-github-website">Via the Github website:</a></li>
+<li class="toc-entry toc-h3"><a href="#via-the-command-line">Via the command line:</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#add-the-template-project-to-unity-hub">Add the template project to Unity Hub</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+</body>
+</html>
