@@ -9,7 +9,7 @@ permalink: /map-marker/
 
 Meadow allows you to create site-specific experiences that are placed on a map. To show your experience on the map you can upload a custom map marker, that can be anything from a simple icon to a 3D model.
 
-![](./images/map-markers.webp)
+![](../images/map-markers.webp)
 
 ## Create a Map Marker using an image
 
