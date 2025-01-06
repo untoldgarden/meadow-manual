@@ -48,6 +48,34 @@ By default, when users scan the QR code, they'll be taken to the experience's "A
 
 <br>
 
+### User Flow
+
+When a user scans your QR code, they'll follow one of two paths depending on whether they have the Meadow app installed:
+
+<br>
+
+![QR code user flow](../images/qr-code-flowchart.webp)
+
+<br>
+
+#### Users with Meadow Installed
+
+1. Scan QR code
+2. Experience opens directly in the Meadow app
+
+#### Users without Meadow Installed
+
+1. Scan QR code
+2. Opens webapp experience page
+3. Press "Enter Experience"
+4. Redirected to App Store/Google Play
+5. Install Meadow
+6. Scan QR code again to open experience
+
+*Note: We are working on implementing smart links that will remember the experience after app installation, eliminating the need to scan the QR code twice.*
+
+<br>
+
 ## Known Limitations
 
 - Some mobile browsers may not recognize the dynamic link in the QR code. In these cases, users will be redirected to the web app instead, where they can open the experience in the Meadow app.
