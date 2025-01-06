@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Codes</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="QR Codes" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/qr-code/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="QR Codes">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <div class="content-container">
+    <div class="sidebar">
+      <header class="site-header">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+        <span class="header-title">Meadow Manual</span>
+      </header>
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">Installing Unity</a>
+        <a href="/navigate-the-unity-editor" class="">Navigate the Unity Editor</a>
+        <a href="/install-meadow-studio" class="">Install Meadow Studio</a>
+        <a href="/create-your-first-experience" class="">Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">Upload to Meadow</a>
+        <a href="/update-packages" class="">Update Packages</a>
+        <a href="/install-the-template-project" class="">Install the Template Project</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">Image Tracking</a>
+        <a href="/dialogue-system" class="">Dialogue System</a>
+        <a href="/vibrations" class="">Vibrations</a>
+        <a href="/map-marker" class="">Map Marker</a>
+        <a href="/visual-scripting" class="">Visual Scripting</a>
+        <a href="/touch-interaction" class="">Touch Interaction</a>
+        <a href="/qr-code" class="active">QR Code</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      <!-- Main content will be inserted here -->
+      <h1 id="qr-codes">QR Codes</h1>
+
+<p>You can create QR codes for your Meadow experiences to make them easily accessible to your audience. When scanned, these QR codes will direct users to your experience either in the Meadow app or guide them to download it if they haven’t already installed it.</p>
+
+<p><br /></p>
+
+<h2 id="using-the-built-in-qr-code">Using the Built-in QR Code</h2>
+
+<p>The simplest way to get a QR code for your experience is to use the one automatically generated on the experience page:</p>
+
+<ol>
+  <li>Go to your experience in the Meadow dashboard</li>
+  <li>
+    <p>Click the “Public view” button in the top right corner to access the public-facing experience page</p>
+
+    <p><img src="../images/experience-dashboard-view.webp" alt="Public view button" /></p>
+  </li>
+  <li>Locate the QR code displayed on the page</li>
+  <li>
+    <p>Right-click the QR code and select “Save Image” to download it</p>
+
+    <p><img src="../images/experience-public-view.webp" alt="QR code" /></p>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="creating-custom-qr-codes">Creating Custom QR Codes</h2>
+
+<p>You can also create your own QR codes using any QR code generator:</p>
+
+<ol>
+  <li>Copy your experience URL: <code class="language-plaintext highlighter-rouge">https://app.meadow.space/e/your-experience-id</code></li>
+  <li>Visit your preferred QR code generator</li>
+  <li>Paste the URL and generate your QR code</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="advanced-url-options">Advanced URL Options</h2>
+
+<h3 id="instant-ar-launch">Instant AR Launch</h3>
+
+<p>By default, when users scan the QR code, they’ll be taken to the experience’s “About” page in the Meadow app. From there, they need to press “Enter Experience” to launch the AR view. You can modify this behavior:</p>
+
+<ul>
+  <li>Add <code class="language-plaintext highlighter-rouge">?i</code> to the end of your experience URL to launch directly into AR mode</li>
+  <li>Example: <code class="language-plaintext highlighter-rouge">https://app.meadow.space/e/your-experience-id?i</code></li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="known-limitations">Known Limitations</h2>
+
+<ul>
+  <li>Some mobile browsers may not recognize the dynamic link in the QR code. In these cases, users will be redirected to the web app instead, where they can open the experience in the Meadow app.</li>
+  <li>We are actively working on improving QR code compatibility across different devices and browsers.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="future-updates">Future Updates</h2>
+
+<p>We are developing additional QR code features that will be available soon:</p>
+<ul>
+  <li>QR code management system</li>
+  <li>Dynamic QR codes</li>
+  <li>Enhanced tracking and analytics</li>
+</ul>
+
+<p>Stay tuned for these upcoming features that will make it even easier to share your experiences.</p>
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#qr-codes">QR Codes</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#using-the-built-in-qr-code">Using the Built-in QR Code</a></li>
+<li class="toc-entry toc-h2"><a href="#creating-custom-qr-codes">Creating Custom QR Codes</a></li>
+<li class="toc-entry toc-h2"><a href="#advanced-url-options">Advanced URL Options</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#instant-ar-launch">Instant AR Launch</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#known-limitations">Known Limitations</a></li>
+<li class="toc-entry toc-h2"><a href="#future-updates">Future Updates</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+</body>
+</html>
