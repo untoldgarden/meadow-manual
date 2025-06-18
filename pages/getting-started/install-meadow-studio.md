@@ -31,7 +31,7 @@ It is easy to use Meadow in an existing Unity project, you just need to install 
 
 ![alt_text](../images/meadow-studio.webp "Meadow Studio Tab")
 
-## Import XREF packages 
+<!-- ## Import XREF packages 
 
 Our packages are available through a scoped registry.
 
@@ -77,5 +77,5 @@ Optional packages:
    - com.untoldgarden.xref
    - com.untoldgarden.xref-experience-builder
 5. You should now see the packages in your list
-![alt_text](../images/packages.webp "Packages successfully installed")
+![alt_text](../images/packages.webp "Packages successfully installed") -->
 
