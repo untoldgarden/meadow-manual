@@ -1,0 +1,26 @@
+{
+  "id": "e37f1d5e-2781-4766-bd73-345def7eec5a",
+  "identifier": "UG-1797",
+  "title": "Improve the Manual Design",
+  "description": "```\nAI Instructions:\n- Make manual and integrated documentation industry standard design\n- Add a search feature with a shortcut CMD+K\n```",
+  "state": {
+    "name": "Todo",
+    "type": "unstarted"
+  },
+  "assignee": {
+    "name": "Max Čelar"
+  },
+  "team": {
+    "name": "Untold Garden"
+  },
+  "project": {
+    "name": "Meadow Manual"
+  },
+  "labels": {
+    "nodes": [
+      {
+        "name": "AI"
+      }
+    ]
+  }
+}

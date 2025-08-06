@@ -36,3 +36,6 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
 gem 'jekyll-watch'
 gem 'jekyll-toc'
+gem 'csv'
+gem 'base64'
+gem 'bigdecimal'

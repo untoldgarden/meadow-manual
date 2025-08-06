@@ -1,0 +1,35 @@
+{% assign pages = site.pages | where: "layout", "default" | sort: "url" %}
+{% assign current_index = nil %}
+
+{% for p in pages %}
+  {% if p.url == page.url %}
+    {% assign current_index = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% if current_index %}
+  {% assign prev_index = current_index | minus: 1 %}
+  {% assign next_index = current_index | plus: 1 %}
+  
+  <nav class="page-nav">
+    {% if prev_index >= 0 %}
+      {% assign prev_page = pages[prev_index] %}
+      {% if prev_page %}
+        <a href="{{ prev_page.url | relative_url }}" class="page-nav-prev">
+          <span class="label">Previous</span>
+          <span class="title">{{ prev_page.title }}</span>
+        </a>
+      {% endif %}
+    {% endif %}
+    
+    {% if next_index < pages.size %}
+      {% assign next_page = pages[next_index] %}
+      {% if next_page %}
+        <a href="{{ next_page.url | relative_url }}" class="page-nav-next">
+          <span class="label">Next</span>
+          <span class="title">{{ next_page.title }}</span>
+        </a>
+      {% endif %}
+    {% endif %}
+  </nav>
+{% endif %}
