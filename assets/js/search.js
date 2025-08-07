@@ -13,25 +13,57 @@
     bindSearchEvents();
   }
 
+  // Check if lunr is available
+  function waitForLunr(callback) {
+    if (typeof lunr !== 'undefined') {
+      callback();
+    } else {
+      console.log('Waiting for lunr to load...');
+      setTimeout(() => waitForLunr(callback), 100);
+    }
+  }
+
   // Load search data
   function loadSearchData() {
-    fetch('/search.json')
-      .then(response => response.json())
-      .then(data => {
-        searchData = data;
-        searchIndex = lunr(function() {
-          this.ref('id');
-          this.field('title', { boost: 10 });
-          this.field('content');
-          this.field('category', { boost: 5 });
+    console.log('Loading search data...');
+    
+    // Wait for lunr to be available before proceeding
+    waitForLunr(() => {
+      console.log('Lunr is available, fetching search data...');
+      
+      fetch('/search.json')
+        .then(response => {
+          console.log('Search JSON response status:', response.status);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('Search data loaded:', data.length, 'items');
+          searchData = data;
           
-          data.forEach((doc, idx) => {
-            doc.id = idx;
-            this.add(doc);
+          // Build the search index
+          searchIndex = lunr(function() {
+            this.ref('id');
+            this.field('title', { boost: 10 });
+            this.field('content');
+            this.field('category', { boost: 5 });
+            
+            data.forEach((doc, idx) => {
+              doc.id = idx;
+              this.add(doc);
+            });
           });
+          
+          console.log('Search index built successfully');
+        })
+        .catch(error => {
+          console.error('Error loading search data:', error);
+          // Set a flag to indicate loading failed
+          searchIndex = false;
         });
-      })
-      .catch(error => console.error('Error loading search data:', error));
+    });
   }
 
   // Create search modal
@@ -144,12 +176,70 @@
       return;
     }
 
-    if (!searchIndex) {
+    if (searchIndex === null) {
       searchResults.innerHTML = '<div class="search-empty">Search index is loading...</div>';
       return;
     }
+    
+    if (searchIndex === false) {
+      searchResults.innerHTML = '<div class="search-empty">Search failed to load. Please refresh the page.</div>';
+      return;
+    }
 
-    const results = searchIndex.search(query);
+    // Try multiple search strategies for better results
+    let results = [];
+    
+    try {
+      // Strategy 1: Exact search
+      results = searchIndex.search(query);
+      
+      // Strategy 2: If no results, try with wildcards for partial matches
+      if (results.length === 0 && query.length >= 3) {
+        const wildcardQuery = query.split(/\s+/).map(term => {
+          if (term.length >= 3) {
+            return term + '*';
+          }
+          return term;
+        }).join(' ');
+        results = searchIndex.search(wildcardQuery);
+      }
+      
+      // Strategy 3: If still no results, try fuzzy search
+      if (results.length === 0 && query.length >= 4) {
+        const fuzzyQuery = query.split(/\s+/).map(term => {
+          if (term.length >= 4) {
+            return term + '~1';
+          }
+          return term;
+        }).join(' ');
+        results = searchIndex.search(fuzzyQuery);
+      }
+      
+      // Strategy 4: Last resort - search individual terms with wildcards
+      if (results.length === 0 && query.length >= 3) {
+        const terms = query.split(/\s+/);
+        for (const term of terms) {
+          if (term.length >= 3) {
+            const termResults = searchIndex.search(term + '*');
+            results = results.concat(termResults);
+          }
+        }
+        // Remove duplicates
+        const seen = new Set();
+        results = results.filter(result => {
+          if (seen.has(result.ref)) {
+            return false;
+          }
+          seen.add(result.ref);
+          return true;
+        });
+      }
+    } catch (error) {
+      console.warn('Search error:', error);
+      // Fallback to simple search
+      results = searchIndex.search(query);
+    }
+    
     displayResults(results, query);
   }
 

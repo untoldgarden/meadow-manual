@@ -3,6 +3,7 @@ layout: default
 title: Navigate the Unity editor
 toc: true
 permalink: /navigate-the-unity-editor/
+order: 2
 ---
 
 <div style="padding:56.25% 0 0 0;position:relative;margin-bottom:2em;">

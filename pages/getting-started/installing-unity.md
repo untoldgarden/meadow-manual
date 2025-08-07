@@ -3,6 +3,7 @@ layout: default
 title: Installing Unity
 toc: true
 permalink: /installing-unity/
+order: 1
 ---
 
 <div style="padding:56.25% 0 0 0;position:relative;margin-bottom:2em;">

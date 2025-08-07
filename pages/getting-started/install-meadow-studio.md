@@ -3,6 +3,7 @@ layout: default
 title: Install Meadow Studio
 toc: true
 permalink: /install-meadow-studio/
+order: 3
 ---
 
 <div style="padding:56.25% 0 0 0;position:relative;margin-bottom:2em;">

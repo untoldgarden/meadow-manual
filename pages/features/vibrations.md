@@ -3,6 +3,7 @@ layout: default
 title: Vibrations
 toc: true
 permalink: /vibrations/
+order: 22
 ---
 
 # Vibrations {#vibrations}
