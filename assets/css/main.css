@@ -1,14 +1,14 @@
 :root {
-  --color-bg-primary: #0d1117;
-  --color-bg-secondary: #161b22;
-  --color-bg-tertiary: #1f2428;
-  --color-bg-hover: #30363d;
-  --color-bg-active: #1f6feb;
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #141414;
+  --color-bg-tertiary: #1a1a1a;
+  --color-bg-hover: #2a2a2a;
+  --color-bg-active: #559859;
   --color-text-primary: #f0f6fc;
   --color-text-secondary: #8b949e;
-  --color-text-link: #58a6ff;
-  --color-border: #30363d;
-  --color-accent: #1f6feb;
+  --color-text-link: #559859;
+  --color-border: #2a2a2a;
+  --color-accent: #559859;
   --sidebar-width: 280px;
   --toc-width: 250px;
   --header-height: 64px;
@@ -62,7 +62,7 @@ body {
   align-items: center;
   padding: 0 var(--spacing-lg);
   backdrop-filter: blur(10px);
-  background: rgba(22, 27, 34, 0.95);
+  background: rgba(20, 20, 20, 0.95);
 }
 
 .header-content {
@@ -467,7 +467,7 @@ blockquote p:not(:last-child) {
 }
 
 .callout-info {
-  background: rgba(31, 111, 235, 0.1);
+  background: rgba(85, 152, 89, 0.1);
   border-color: var(--color-accent);
 }
 
