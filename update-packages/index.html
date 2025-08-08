@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Updating XREF Packages</title>
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/search.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <meta property="og:type" content="Meadow Manual" />
   <meta property="og:title" content="Updating XREF Packages" />
   <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
@@ -16,44 +19,86 @@
   <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
 </head>
 <body>
-  <div class="content-container">
-    <div class="sidebar">
-      <header class="site-header">
-        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo" />
+  <header class="top-header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="/" class="header-logo-link">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo">
         <span class="header-title">Meadow Manual</span>
-      </header>
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="search-trigger">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <span class="search-text">Search...</span>
+        <span class="search-shortcut">⌘K</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="content-container">
+    <div class="sidebar" id="sidebar">
       <!-- Chapter links -->
       <section>
         <h4>Getting Started</h4>
-        <a href="/installing-unity" class="">Installing Unity</a>
-        <a href="/navigate-the-unity-editor" class="">Navigate the Unity Editor</a>
-        <a href="/install-meadow-studio" class="">Install Meadow Studio</a>
-        <a href="/create-your-first-experience" class="">Create Your First Experience</a>
-        <a href="/prepare-your-experience" class="">Prepare Your Experience</a>
-        <a href="/upload-to-meadow" class="">Upload to Meadow</a>
-        <a href="/update-packages" class="active">Update Packages</a>
-        <a href="/install-the-template-project" class="">Install the Template Project</a>
+        <a href="/installing-unity" class="">🎮 Installing Unity</a>
+        <a href="/navigate-the-unity-editor" class="">🧭 Navigate the Unity Editor</a>
+        <a href="/install-meadow-studio" class="">💿 Install Meadow Studio</a>
+        <a href="/install-the-template-project" class="">📋 Install the Template Project</a>
+        <a href="/create-your-first-experience" class="">✨ Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">🎯 Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">⬆️ Upload to Meadow</a>
+        <a href="/update-packages" class="active">📦 Update Packages</a>
+        <a href="/file-formats" class="">📄 File Formats</a>
+        <a href="/update-creator-profile" class="">👤 Update Creator Profile</a>
       </section>
       
       <section>
         <h4>Features</h4>
-        <a href="/image-tracking" class="">Image Tracking</a>
-        <a href="/dialogue-system" class="">Dialogue System</a>
-        <a href="/vibrations" class="">Vibrations</a>
-        <a href="/map-marker" class="">Map Marker</a>
-        <a href="/visual-scripting" class="">Visual Scripting</a>
-        <a href="/touch-interaction" class="">Touch Interaction</a>
-        <a href="/qr-code" class="">QR Code</a>
+        <a href="/image-tracking" class="">📸 Image Tracking</a>
+        <a href="/dialogue-system" class="">💬 Dialogue System</a>
+        <a href="/vibrations" class="">📳 Vibrations</a>
+        <a href="/map-marker" class="">📍 Map Marker</a>
+        <a href="/visual-scripting" class="">🎨 Visual Scripting</a>
+        <a href="/touch-interaction" class="">👆 Touch Interaction</a>
+        <a href="/qr-code" class="">🔲 QR Code</a>
+        <a href="/animations" class="">🎬 Animations</a>
+        <a href="/networking-and-multiplayer" class="">🌐 Networking & Multiplayer</a>
       </section>
       
       <section>
         <h4>Documentation</h4>
-        <a href="/experience-component" class="">Experience Component</a>
+        <a href="/experience-component" class="">🧩 Experience Component</a>
       </section>
     </div>
     
     <div class="main-content">
-      <!-- Main content will be inserted here -->
+      
+<nav class="breadcrumbs">
+  <a href="/">Home</a>
+  <span class="separator">›</span>
+  
+  
+    
+      <span>Updating XREF Packages</span>
+    
+  
+</nav>
+
+      
       <h1 id="updating-xref-packages">Updating XREF Packages</h1>
 
 <p>To ensure you’re using the latest features and improvements in your Meadow experiences, it’s important to keep your XREF packages up to date. Follow these steps to update the XREF and XREF.ExperienceBuilder packages:</p>
@@ -84,6 +129,38 @@
 
 <p>Remember to check for updates regularly and regenerate nodes after each update to take advantage of new features, bug fixes, and performance improvements in the XREF ecosystem.</p>
 
+      
+      
+
+
+
+
+
+  
+  
+  
+  <nav class="page-nav">
+    
+      
+      
+        <a href="/upload-to-meadow/" class="page-nav-prev">
+          <span class="label">Previous</span>
+          <span class="title">Upload to Meadow</span>
+        </a>
+      
+    
+    
+    
+      
+      
+        <a href="/file-formats/" class="page-nav-next">
+          <span class="label">Next</span>
+          <span class="title">File Formats</span>
+        </a>
+      
+    
+  </nav>
+
     </div>
     
     <div class="toc">
@@ -98,5 +175,9 @@
     </div>
     
   </div>
+  
+  <script src="/assets/js/lunr.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script src="/assets/js/main.js"></script>
 </body>
 </html>
