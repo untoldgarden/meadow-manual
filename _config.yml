@@ -7,8 +7,8 @@ theme: null
 layouts_dir: _layouts
 include: ["pages"]
 data_dir: _data
-baseurl: ""
-url: "https://manual.meadow.space"
+baseurl: "/meadow-manual"
+url: "https://untoldgarden.github.io"
 permalink: /:title/
 plugins:
   - jekyll-toc
