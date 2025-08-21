@@ -3,6 +3,7 @@ layout: default
 title: Visual Scripting
 toc: true
 permalink: /visual-scripting/
+order: 24
 ---
 
 # Visual Scripting {#visual-scripting}

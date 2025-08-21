@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/search.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/components.css' | relative_url }}">
+  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
   <meta property="og:type" content="Meadow Manual" />
   <meta property="og:title" content="{{ page.title | escape }}" />
   <meta property="og:description" content="{{ page.description | escape }}" />
@@ -16,45 +19,50 @@
   <meta name="twitter:image" content="{{ '/images/meadow.jpg' | prepend: site.baseurl | prepend: site.url }}">
 </head>
 <body>
+  {% include header.html %}
+  
   <div class="content-container">
-    <div class="sidebar">
-      <header class="site-header">
-        <img src="{{ '/assets/meadow-logo.webp' | relative_url}}" alt="Meadow Logo" class="logo" />
-        <span class="header-title">Meadow Manual</span>
-      </header>
+    <div class="sidebar" id="sidebar">
       <!-- Chapter links -->
       <section>
         <h4>Getting Started</h4>
-        <a href="{{ '/installing-unity' | relative_url }}" class="{% if page.url == '/installing-unity/' %}active{% endif %}">Installing Unity</a>
-        <a href="{{ '/navigate-the-unity-editor' | relative_url }}" class="{% if page.url == '/navigate-the-unity-editor/' %}active{% endif %}">Navigate the Unity Editor</a>
-        <a href="{{ '/install-meadow-studio' | relative_url }}" class="{% if page.url == '/install-meadow-studio/' %}active{% endif %}">Install Meadow Studio</a>
-        <a href="{{ '/create-your-first-experience' | relative_url }}" class="{% if page.url == '/create-your-first-experience/' %}active{% endif %}">Create Your First Experience</a>
-        <a href="{{ '/prepare-your-experience' | relative_url }}" class="{% if page.url == '/prepare-your-experience/' %}active{% endif %}">Prepare Your Experience</a>
-        <a href="{{ '/upload-to-meadow' | relative_url }}" class="{% if page.url == '/upload-to-meadow/' %}active{% endif %}">Upload to Meadow</a>
-        <a href="{{ '/update-packages' | relative_url }}" class="{% if page.url == '/update-packages/' %}active{% endif %}">Update Packages</a>
-        <a href="{{ '/install-the-template-project' | relative_url }}" class="{% if page.url == '/install-the-template-project/' %}active{% endif %}">Install the Template Project</a>
+        <a href="{{ '/installing-unity' | relative_url }}" class="{% if page.url == '/installing-unity/' %}active{% endif %}">🎮 Installing Unity</a>
+        <a href="{{ '/navigate-the-unity-editor' | relative_url }}" class="{% if page.url == '/navigate-the-unity-editor/' %}active{% endif %}">🧭 Navigate the Unity Editor</a>
+        <a href="{{ '/install-meadow-studio' | relative_url }}" class="{% if page.url == '/install-meadow-studio/' %}active{% endif %}">💿 Install Meadow Studio</a>
+        <a href="{{ '/install-the-template-project' | relative_url }}" class="{% if page.url == '/install-the-template-project/' %}active{% endif %}">📋 Install the Template Project</a>
+        <a href="{{ '/create-your-first-experience' | relative_url }}" class="{% if page.url == '/create-your-first-experience/' %}active{% endif %}">✨ Create Your First Experience</a>
+        <a href="{{ '/prepare-your-experience' | relative_url }}" class="{% if page.url == '/prepare-your-experience/' %}active{% endif %}">🎯 Prepare Your Experience</a>
+        <a href="{{ '/upload-to-meadow' | relative_url }}" class="{% if page.url == '/upload-to-meadow/' %}active{% endif %}">⬆️ Upload to Meadow</a>
+        <a href="{{ '/update-packages' | relative_url }}" class="{% if page.url == '/update-packages/' %}active{% endif %}">📦 Update Packages</a>
+        <a href="{{ '/file-formats' | relative_url }}" class="{% if page.url == '/file-formats/' %}active{% endif %}">📄 File Formats</a>
+        <a href="{{ '/update-creator-profile' | relative_url }}" class="{% if page.url == '/update-creator-profile/' %}active{% endif %}">👤 Update Creator Profile</a>
       </section>
       
       <section>
         <h4>Features</h4>
-        <a href="{{ '/image-tracking' | relative_url }}" class="{% if page.url == '/image-tracking/' %}active{% endif %}">Image Tracking</a>
-        <a href="{{ '/dialogue-system' | relative_url }}" class="{% if page.url == '/dialogue-system/' %}active{% endif %}">Dialogue System</a>
-        <a href="{{ '/vibrations' | relative_url }}" class="{% if page.url == '/vibrations/' %}active{% endif %}">Vibrations</a>
-        <a href="{{ '/map-marker' | relative_url }}" class="{% if page.url == '/map-marker/' %}active{% endif %}">Map Marker</a>
-        <a href="{{ '/visual-scripting' | relative_url }}" class="{% if page.url == '/visual-scripting/' %}active{% endif %}">Visual Scripting</a>
-        <a href="{{ '/touch-interaction' | relative_url }}" class="{% if page.url == '/touch-interaction/' %}active{% endif %}">Touch Interaction</a>
-        <a href="{{ '/qr-code' | relative_url }}" class="{% if page.url == '/qr-code/' %}active{% endif %}">QR Code</a>
+        <a href="{{ '/image-tracking' | relative_url }}" class="{% if page.url == '/image-tracking/' %}active{% endif %}">📸 Image Tracking</a>
+        <a href="{{ '/dialogue-system' | relative_url }}" class="{% if page.url == '/dialogue-system/' %}active{% endif %}">💬 Dialogue System</a>
+        <a href="{{ '/vibrations' | relative_url }}" class="{% if page.url == '/vibrations/' %}active{% endif %}">📳 Vibrations</a>
+        <a href="{{ '/map-marker' | relative_url }}" class="{% if page.url == '/map-marker/' %}active{% endif %}">📍 Map Marker</a>
+        <a href="{{ '/visual-scripting' | relative_url }}" class="{% if page.url == '/visual-scripting/' %}active{% endif %}">🎨 Visual Scripting</a>
+        <a href="{{ '/touch-interaction' | relative_url }}" class="{% if page.url == '/touch-interaction/' %}active{% endif %}">👆 Touch Interaction</a>
+        <a href="{{ '/qr-code' | relative_url }}" class="{% if page.url == '/qr-code/' %}active{% endif %}">🔲 QR Code</a>
+        <a href="{{ '/animations' | relative_url }}" class="{% if page.url == '/animations/' %}active{% endif %}">🎬 Animations</a>
+        <a href="{{ '/networking-and-multiplayer' | relative_url }}" class="{% if page.url == '/networking-and-multiplayer/' %}active{% endif %}">🌐 Networking & Multiplayer</a>
       </section>
       
       <section>
         <h4>Documentation</h4>
-        <a href="{{ '/experience-component' | relative_url }}" class="{% if page.url == '/experience-component/' %}active{% endif %}">Experience Component</a>
+        <a href="{{ '/experience-component' | relative_url }}" class="{% if page.url == '/experience-component/' %}active{% endif %}">🧩 Experience Component</a>
       </section>
     </div>
     
     <div class="main-content">
-      <!-- Main content will be inserted here -->
+      {% include breadcrumbs.html %}
+      
       {{ content }}
+      
+      {% include page-nav.html %}
     </div>
     
     <div class="toc">
@@ -63,5 +71,9 @@
     </div>
     
   </div>
+  
+  <script src="{{ '/assets/js/lunr.min.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>

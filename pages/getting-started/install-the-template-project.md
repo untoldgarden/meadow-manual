@@ -3,6 +3,7 @@ layout: default
 title: Download and install the Meadow template project
 toc: true
 permalink: /install-the-template-project/
+order: 4
 ---
 
 # Download and install the template project for Unity {#download-and-install-our-template-project-for-unity}

@@ -3,6 +3,7 @@ layout: default
 title: Image Tracking
 toc: true
 permalink: /image-tracking/
+order: 20
 ---
 
 # Image Tracking {#image-tracking}

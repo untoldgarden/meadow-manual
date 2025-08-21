@@ -3,6 +3,7 @@ layout: default
 title: Prepare your experience
 toc: true
 permalink: /prepare-your-experience/
+order: 6
 ---
 
 # Prepare Your Experience

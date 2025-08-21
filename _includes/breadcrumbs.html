@@ -1,0 +1,19 @@
+{% if page.url != "/" %}
+<nav class="breadcrumbs">
+  <a href="{{ '/' | relative_url }}">Home</a>
+  <span class="separator">›</span>
+  {% assign crumbs = page.url | remove: "/" | split: "/" %}
+  {% for crumb in crumbs %}
+    {% if forloop.last %}
+      <span>{{ page.title }}</span>
+    {% else %}
+      {% assign crumb_url = "" %}
+      {% for i in (1..forloop.index) %}
+        {% assign crumb_url = crumb_url | append: "/" | append: crumbs[i-1] %}
+      {% endfor %}
+      <a href="{{ crumb_url | relative_url }}">{{ crumb | replace: "-", " " | capitalize }}</a>
+      <span class="separator">›</span>
+    {% endif %}
+  {% endfor %}
+</nav>
+{% endif %}

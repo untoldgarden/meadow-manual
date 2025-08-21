@@ -3,6 +3,7 @@ layout: default
 title: Touch Interaction
 toc: true
 permalink: /touch-interaction/
+order: 25
 ---
 
 # Touch Interaction
