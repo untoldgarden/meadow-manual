@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save System</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/search.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Save System" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/pages/features/save-system/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Save System">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <header class="top-header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="/" class="header-logo-link">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo">
+        <span class="header-title">Meadow Manual</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="search-trigger">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <span class="search-text">Search...</span>
+        <span class="search-shortcut">⌘K</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="content-container">
+    <div class="sidebar" id="sidebar">
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">🎮 Installing Unity</a>
+        <a href="/navigate-the-unity-editor" class="">🧭 Navigate the Unity Editor</a>
+        <a href="/install-meadow-studio" class="">💿 Install Meadow Studio</a>
+        <a href="/install-the-template-project" class="">📋 Install the Template Project</a>
+        <a href="/create-your-first-experience" class="">✨ Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">🎯 Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">⬆️ Upload to Meadow</a>
+        <a href="/update-packages" class="">📦 Update Packages</a>
+        <a href="/file-formats" class="">📄 File Formats</a>
+        <a href="/update-creator-profile" class="">👤 Update Creator Profile</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">📸 Image Tracking</a>
+        <a href="/dialogue-system" class="">💬 Dialogue System</a>
+        <a href="/vibrations" class="">📳 Vibrations</a>
+        <a href="/map-marker" class="">📍 Map Marker</a>
+        <a href="/visual-scripting" class="">🎨 Visual Scripting</a>
+        <a href="/touch-interaction" class="">👆 Touch Interaction</a>
+        <a href="/qr-code" class="">🔲 QR Code</a>
+        <a href="/animations" class="">🎬 Animations</a>
+        <a href="/networking-and-multiplayer" class="">🌐 Networking & Multiplayer</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">🧩 Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      
+<nav class="breadcrumbs">
+  <a href="/">Home</a>
+  <span class="separator">›</span>
+  
+  
+    
+      <span>Save System</span>
+    
+  
+</nav>
+
+      
+      <h1 id="save-system">Save System</h1>
+
+<p>The Save System allows you to track user progress through your Meadow experience by creating save points, measuring elapsed time, and storing custom data. This system is perfect for creating checkpoint-based experiences like urban audio walks, or building RPG-style games where user progress needs to be preserved between sessions.</p>
+
+<p>The save data persists across app sessions and is automatically saved when the user closes the app, goes to the background, or at regular intervals during gameplay.</p>
+
+<h3 id="save-system-properties">Save System Properties:</h3>
+
+<p><strong>Configuration</strong></p>
+<ul>
+  <li><strong>Save On Start</strong>: <code class="language-plaintext highlighter-rouge">bool</code> - Automatically starts tracking when the experience begins.</li>
+  <li><strong>Auto Save</strong>: <code class="language-plaintext highlighter-rouge">bool</code> - Enables automatic saving at regular intervals.</li>
+  <li><strong>Auto Save Interval</strong>: <code class="language-plaintext highlighter-rouge">float</code> - Time in seconds between automatic saves (default: 15 seconds).</li>
+</ul>
+
+<p><strong>Automatic Save Triggers</strong>
+The system automatically saves progress when:</p>
+<ul>
+  <li>The application is closed or paused</li>
+  <li>The experience object is disabled</li>
+  <li>Auto save interval is reached (if enabled)</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="using-the-save-system">Using the Save System</h2>
+
+<ol>
+  <li>Add the <code class="language-plaintext highlighter-rouge">SaveManager</code> component to any game object in your prefab.</li>
+  <li>Configure the auto-save settings based on your experience needs.</li>
+  <li>Use the visual scripting nodes to create save points and track progress throughout your experience.</li>
+  <li>The system will automatically use your experience ID.</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="save-system-features">Save System Features</h2>
+
+<p><strong>Save Points</strong>: Create named checkpoints in your experience that track elapsed time from when they were set.</p>
+
+<p><strong>Custom Data Storage</strong>: Save custom data (strings, numbers) associated with your experience.</p>
+
+<p><strong>Automatic Persistence</strong>: All data is automatically saved to device storage and restored when the experience is loaded again.</p>
+
+<p><strong>Last Save Point Tracking</strong>: The system remembers which save point was set most recently, useful for implementing “Continue from where you left off” functionality.</p>
+
+<p><br /></p>
+
+<h2 id="create-your-save-system-logic">Create your save system logic</h2>
+
+<p>The Save System comes with a range of nodes for managing user progress. All nodes are found in <code class="language-plaintext highlighter-rouge">XREF &gt; SaveSystem</code> among the visual scripting nodes.</p>
+
+<p>Here is an example of a basic save system implementation in use in a RPG-style game:</p>
+
+<p><img src="images/save-system-example.webp" alt="alt_text" title="Save System Example" /></p>
+
+<p>In this example, the experience starts by creating an initial save point, then sets checkpoints as the user progresses through the game.</p>
+
+<p><br /></p>
+
+<h3 id="list-of-nodes">List of nodes:</h3>
+
+<p><strong>Start Experience Saving</strong> - Begins tracking the overall experience progress and creates a save point for total experience time.</p>
+
+<ul>
+  <li><strong>Game Object</strong>: <code class="language-plaintext highlighter-rouge">GameObject</code> - The game object with the SaveManager component. Use <code class="language-plaintext highlighter-rouge">this</code> to reference the game object the visual scripting is on.</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Set Save Point</strong> - Creates a named save point that tracks elapsed time from the moment it was set.</p>
+
+<ul>
+  <li><strong>Game Object</strong>: <code class="language-plaintext highlighter-rouge">GameObject</code> - The game object with the SaveManager component. Use <code class="language-plaintext highlighter-rouge">this</code> to reference the game object the visual scripting is on.</li>
+  <li><strong>Save Point Name</strong>: <code class="language-plaintext highlighter-rouge">string</code> - A unique name for this save point (e.g., “level1_complete”, “checkpoint_forest”).</li>
+  <li><strong>Overwrite Existing</strong>: <code class="language-plaintext highlighter-rouge">bool</code> - If true, overwrites any existing save point with the same name. If false, ignores the request if a save point already exists.</li>
+  <li><strong>Mark As Last Save Point</strong>: <code class="language-plaintext highlighter-rouge">bool</code> - If true, marks this as the most recent save point for “continue” functionality.</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Has Save Point</strong> - Checks if a save point with the specified name exists and returns its elapsed time.</p>
+
+<ul>
+  <li><strong>Game Object</strong>: <code class="language-plaintext highlighter-rouge">GameObject</code> - The game object with the SaveManager component. Use <code class="language-plaintext highlighter-rouge">this</code> to reference the game object the visual scripting is on.</li>
+  <li><strong>Save Point Name</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The name of the save point to check for.</li>
+  <li><strong>Has Save</strong>: <code class="language-plaintext highlighter-rouge">bool</code> - Output indicating whether the save point exists.</li>
+  <li><strong>Elapsed Time</strong>: <code class="language-plaintext highlighter-rouge">float</code> - Output showing the elapsed time for the save point (in seconds).</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Get Save Point Elapsed Time</strong> - Retrieves the elapsed time for a specific save point.</p>
+
+<ul>
+  <li><strong>Game Object</strong>: <code class="language-plaintext highlighter-rouge">GameObject</code> - The game object with the SaveManager component. Use <code class="language-plaintext highlighter-rouge">this</code> to reference the game object the visual scripting is on.</li>
+  <li><strong>Save Point Name</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The name of the save point to query.</li>
+  <li><strong>Elapsed Time</strong>: <code class="language-plaintext highlighter-rouge">float</code> - Output showing the elapsed time for the save point (in seconds), or 0 if the save point doesn’t exist.</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Get Last Save Point</strong> - Gets information about the most recently set save point.</p>
+
+<ul>
+  <li><strong>Game Object</strong>: <code class="language-plaintext highlighter-rouge">GameObject</code> - The game object with the SaveManager component. Use <code class="language-plaintext highlighter-rouge">this</code> to reference the game object the visual scripting is on.</li>
+  <li><strong>Has Save Point</strong>: <code class="language-plaintext highlighter-rouge">bool</code> - Output indicating whether any save point exists.</li>
+  <li><strong>Save Point Name</strong>: <code class="language-plaintext highlighter-rouge">string</code> - Output showing the name of the last save point.</li>
+  <li><strong>Elapsed Time</strong>: <code class="language-plaintext highlighter-rouge">float</code> - Output showing the elapsed time for the last save point (in seconds).</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Get All Save Points</strong> - Returns a list of all save point names that have been created.</p>
+
+<ul>
+  <li><strong>Game Object</strong>: <code class="language-plaintext highlighter-rouge">GameObject</code> - The game object with the SaveManager component. Use <code class="language-plaintext highlighter-rouge">this</code> to reference the game object the visual scripting is on.</li>
+  <li><strong>Save Point Names</strong>: <code class="language-plaintext highlighter-rouge">List&lt;string&gt;</code> - Output containing all save point names.</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Save All Save Points</strong> - Manually triggers a save of all current progress (normally happens automatically).</p>
+
+<ul>
+  <li><strong>Game Object</strong>: <code class="language-plaintext highlighter-rouge">GameObject</code> - The game object with the SaveManager component. Use <code class="language-plaintext highlighter-rouge">this</code> to reference the game object the visual scripting is on.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="custom-data-storage">Custom Data Storage</h2>
+
+<p>In addition to the visual scripting nodes, the SaveManager component provides methods for storing custom data:</p>
+
+<p>**SaveCustomData<T>(string key, T value)** - Save any serializable data with a string key.</T></p>
+
+<p>**GetCustomData<T>(string key)** - Retrieve previously saved custom data.</T></p>
+
+<p>This is useful for storing game state, user preferences, or any other data that should persist between sessions.</p>
+
+<p><br /></p>
+
+<h2 id="common-use-cases">Common Use Cases</h2>
+
+<p><strong>Checkpoint System</strong>: Use <code class="language-plaintext highlighter-rouge">Set Save Point</code> when players reach important milestones, then use <code class="language-plaintext highlighter-rouge">Get Last Save Point</code> when they restart to continue from their progress.</p>
+
+<p><strong>Level Completion Tracking</strong>: Create save points for each completed level and use <code class="language-plaintext highlighter-rouge">Has Save Point</code> to check what content the user has unlocked.</p>
+
+<p><strong>Time-Based Saving</strong>: Use <code class="language-plaintext highlighter-rouge">Get Save Point Elapsed Time</code> to return to a specific point in for example an audio track.</p>
+
+<p><strong>Session Restoration</strong>: Use the automatic saving features to seamlessly restore user progress when they return to your experience.</p>
+
+<p><br /></p>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<p><strong>Meaningful Names</strong>: Use descriptive save point names like “tutorial_complete” or “boss_defeated” rather than generic names like “save1”.</p>
+
+<p><strong>Strategic Placement</strong>: Set save points at natural breakpoints in your experience - after tutorials, level completions, or major story beats.</p>
+
+<p><strong>Progress Validation</strong>: Use <code class="language-plaintext highlighter-rouge">Has Save Point</code> to check if users have completed prerequisite content before allowing access to new areas.</p>
+
+<p><b><font color="red">Please note:</font></b> Save data is stored locally on the user’s device using Unity’s PlayerPrefs system. Data will persist between app sessions but may be lost if the user clears their app data or uninstalls the app.</p>
+
+      
+      
+
+
+
+
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#save-system">Save System</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#save-system-properties">Save System Properties:</a></li>
+<li class="toc-entry toc-h2"><a href="#using-the-save-system">Using the Save System</a></li>
+<li class="toc-entry toc-h2"><a href="#save-system-features">Save System Features</a></li>
+<li class="toc-entry toc-h2"><a href="#create-your-save-system-logic">Create your save system logic</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#list-of-nodes">List of nodes:</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#custom-data-storage">Custom Data Storage</a></li>
+<li class="toc-entry toc-h2"><a href="#common-use-cases">Common Use Cases</a></li>
+<li class="toc-entry toc-h2"><a href="#best-practices">Best Practices</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+  
+  <script src="/assets/js/lunr.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
