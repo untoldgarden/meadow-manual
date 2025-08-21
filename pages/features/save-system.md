@@ -2,6 +2,8 @@
 layout: default
 title: Save System
 toc: true
+Permalink: /save-system/
+order: 29
 ---
 
 # Save System
