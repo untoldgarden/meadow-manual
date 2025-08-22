@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience Linking</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/search.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Experience Linking" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/experience-linking/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Experience Linking">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <header class="top-header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="/" class="header-logo-link">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo">
+        <span class="header-title">Meadow Manual</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="search-trigger">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <span class="search-text">Search...</span>
+        <span class="search-shortcut">⌘K</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="content-container">
+    <div class="sidebar" id="sidebar">
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">🎮 Installing Unity</a>
+        <a href="/navigate-the-unity-editor" class="">🧭 Navigate the Unity Editor</a>
+        <a href="/install-meadow-studio" class="">💿 Install Meadow Studio</a>
+        <a href="/install-the-template-project" class="">📋 Install the Template Project</a>
+        <a href="/create-your-first-experience" class="">✨ Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">🎯 Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">⬆️ Upload to Meadow</a>
+        <a href="/update-packages" class="">📦 Update Packages</a>
+        <a href="/file-formats" class="">📄 File Formats</a>
+        <a href="/update-creator-profile" class="">👤 Update Creator Profile</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">📸 Image Tracking</a>
+        <a href="/dialogue-system" class="">💬 Dialogue System</a>
+        <a href="/vibrations" class="">📳 Vibrations</a>
+        <a href="/map-marker" class="">📍 Map Marker</a>
+        <a href="/visual-scripting" class="">🎨 Visual Scripting</a>
+        <a href="/touch-interaction" class="">👆 Touch Interaction</a>
+        <a href="/qr-code" class="">🔲 QR Code</a>
+        <a href="/animations" class="">🎬 Animations</a>
+        <a href="/networking-and-multiplayer" class="">🌐 Networking & Multiplayer</a>
+        <a href="/save-system" class="">💾 Save System</a>
+        <a href="/experience-linking" class="active">🔗 Experience Linking</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">🧩 Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      
+<nav class="breadcrumbs">
+  <a href="/">Home</a>
+  <span class="separator">›</span>
+  
+  
+    
+      <span>Experience Linking</span>
+    
+  
+</nav>
+
+      
+      
+        <div class="page-header-with-sample">
+          <div class="page-header-content">
+            <h1 id="experience-linking">Experience Linking</h1>
+
+<p>The Experience Linking system allows you to connect multiple experiences together, enabling your audience to seamlessly jump from one experience to another. This is perfect for creating multi-level games, connected artworks, or building your own exhibition within Meadow. You could even create your own mini-Meadow within Meadow, the meta possibilities are endless…</p>
+
+<p>The system can be used in two different ways:</p>
+
+<ol>
+  <li>
+    <p><strong>Object Triggers</strong>: Use GameObjects in your experience to trigger the transition to another experience. For example portals or doors that trigger the transition to another experience. When approaching, the user will see a small popup with the “Enter Experience” button that they can press to enter the next experience. Perfect for creating interactive installations or guided tours.</p>
+  </li>
+  <li>
+    <p><strong>Visual Scripting Triggers</strong>: Use visual scripting nodes to load another experience user interactions or game events. Perfect for creating multi-leveled games. Each level is a distinct experience on Meadow that you load at specific points in your game logic.</p>
+  </li>
+</ol>
+
+<p><img src="../images/experience-linking-example.webp" alt="Experience Linking Overview" /></p>
+
+<p><br /></p>
+
+<h2 id="components-overview">Components Overview</h2>
+
+<p>The Experience Linking system consists of two main components:</p>
+
+<h3 id="xr-experience-linker">XR Experience Linker</h3>
+<p>The central manager component that handles detection and triggering of experience links. This component continuously checks if the user is close to any experience link objects.</p>
+
+<h3 id="experience-link">Experience Link</h3>
+<p>Individual components attached to objects that act as portals or triggers to other experiences. Contains a reference to the experience ID of the connected experience.</p>
+
+<p><br /></p>
+
+<h2 id="setting-up-experience-linking-with-object-triggers">Setting Up Experience Linking with Object Triggers</h2>
+
+<h3 id="1-add-the-xr-experience-linker">1. Add the XR Experience Linker</h3>
+
+<ol>
+  <li>Add the <code class="language-plaintext highlighter-rouge">XR Experience Linker</code> component to any GameObject in your experience (typically a manager object).</li>
+  <li>Configure the <strong>Marker Trigger Range</strong> - this determines how close the user needs to be to a link object before it becomes active (e.g., 10 meters).</li>
+  <li>The component will automatically handle detection and user interaction feedback, including haptic vibration when a link becomes active.</li>
+</ol>
+
+<p><img src="../images/xr-experience-linker-component.webp" alt="XR Experience Linker Component" /></p>
+
+<h3 id="2-create-experience-link-objects">2. Create Experience Link Objects</h3>
+
+<ol>
+  <li>Create or select a GameObject that will serve as your triggers (like a portal, door, or an artwork).</li>
+  <li>Add the <code class="language-plaintext highlighter-rouge">Experience Link</code> component to this GameObject.</li>
+  <li>Configure the Experience Link properties:
+    <ul>
+      <li><strong>Type</strong>: Set to <code class="language-plaintext highlighter-rouge">Experience</code> for linking to other Meadow experiences. You can set it to <code class="language-plaintext highlighter-rouge">Exhibition</code> to link to a Meadow Exhibition (Enterprise only).</li>
+      <li><strong>ID</strong>: Enter the unique identifier of the target experience you want to link to. You can find this in the webapp, it’s the string of characters in the url. E.g: in <code class="language-plaintext highlighter-rouge">https://app.meadow.space/e/-Nc8E1l1aTknOBEahAin</code> the ID is <code class="language-plaintext highlighter-rouge">-Nc8E1l1aTknOBEahAin</code>.</li>
+      <li><strong>Get Metadata On Awake</strong>: Enable this to automatically fetch experience information when the component starts</li>
+    </ul>
+  </li>
+</ol>
+
+<p><img src="../images/experience-link-component.webp" alt="Experience Link Component" /></p>
+
+<h3 id="3-register-links-with-the-linker">3. Register Links with the Linker</h3>
+
+<ol>
+  <li>In the <code class="language-plaintext highlighter-rouge">XR Experience Linker</code> component, expand the <strong>Links</strong> list.</li>
+  <li>Add each GameObject that has an <code class="language-plaintext highlighter-rouge">Experience Link</code> component to this list.</li>
+  <li>Make sure all your link objects are included in this list, or they won’t be detected.</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="setting-up-experience-linking-with-visual-scripting-nodes">Setting Up Experience Linking with Visual Scripting Nodes</h2>
+
+<p>Coming soon…</p>
+
+<p><br /></p>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<p><strong>Portal Placement</strong>: Position experience links at natural transition points - doorways, paintings, interactive objects, or end-of-level areas.</p>
+
+<p><strong>Visual Clarity</strong>: Make it obvious to users that an object is interactive. Use glowing effects, animations, or clear visual indicators.</p>
+
+<p><br /></p>
+
+<h2 id="common-use-cases">Common Use Cases</h2>
+
+<p><strong>Multi-Level Games</strong>: Create a hub world with portals to different game levels or challenges.</p>
+
+<p><strong>Art Exhibitions</strong>: Link related artworks or create guided tours that flow from one piece to another.</p>
+
+<p><strong>Storytelling</strong>: Build branching narratives where users can choose different story paths through experience links.</p>
+
+<p><strong>Educational Content</strong>: Create learning journeys that connect related topics or progressive difficulty levels.</p>
+
+<p><strong>Virtual Museums</strong>: Build your own curated collection of experiences with thematic connections.</p>
+
+<p><br /></p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="links-not-detected">Links Not Detected</h3>
+<ul>
+  <li>Ensure all link GameObjects are added to the Links list in XR Experience Linker</li>
+  <li>Check that link objects have colliders for raycast detection</li>
+  <li>Verify the trigger range is appropriate for your experience. If the trigger is high up in the air a trigger range of 1m might not be sufficient.</li>
+</ul>
+
+<h3 id="metadata-not-loading">Metadata Not Loading</h3>
+<ul>
+  <li>Check that the experience ID is correct and the target experience exists</li>
+  <li>Ensure <code class="language-plaintext highlighter-rouge">Get Metadata On Awake</code> is enabled if you want automatic loading</li>
+</ul>
+
+          </div>
+          <a href="https://app.meadow.space/e/-OYFpqKK9s4cIP3FsrrR" class="sample-button" target="_blank" rel="noopener">
+            Get Sample
+          </a>
+        </div>
+      
+      
+      
+
+
+
+
+
+  
+  
+  
+  <nav class="page-nav">
+    
+      
+      
+        <a href="/experience-component/" class="page-nav-prev">
+          <span class="label">Previous</span>
+          <span class="title">Experience Component</span>
+        </a>
+      
+    
+    
+    
+  </nav>
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#experience-linking">Experience Linking</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#components-overview">Components Overview</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#xr-experience-linker">XR Experience Linker</a></li>
+<li class="toc-entry toc-h3"><a href="#experience-link">Experience Link</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#setting-up-experience-linking-with-object-triggers">Setting Up Experience Linking with Object Triggers</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#1-add-the-xr-experience-linker">1. Add the XR Experience Linker</a></li>
+<li class="toc-entry toc-h3"><a href="#2-create-experience-link-objects">2. Create Experience Link Objects</a></li>
+<li class="toc-entry toc-h3"><a href="#3-register-links-with-the-linker">3. Register Links with the Linker</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#setting-up-experience-linking-with-visual-scripting-nodes">Setting Up Experience Linking with Visual Scripting Nodes</a></li>
+<li class="toc-entry toc-h2"><a href="#best-practices">Best Practices</a></li>
+<li class="toc-entry toc-h2"><a href="#common-use-cases">Common Use Cases</a></li>
+<li class="toc-entry toc-h2"><a href="#troubleshooting">Troubleshooting</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#links-not-detected">Links Not Detected</a></li>
+<li class="toc-entry toc-h3"><a href="#metadata-not-loading">Metadata Not Loading</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+  
+  <script src="/assets/js/lunr.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
