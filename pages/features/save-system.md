@@ -54,7 +54,7 @@ The Save System comes with a range of nodes for managing user progress. All node
 
 Here is an example of a basic save system implementation in use in a RPG-style game:
 
-![alt_text](images/save-system-example.webp "Save System Example")
+![alt_text](../images/save-system-example.webp "Save System Example")
 
 In this example, the experience starts by creating an initial save point, then sets checkpoints as the user progresses through the game.
 
