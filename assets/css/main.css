@@ -419,8 +419,46 @@ img {
   border-radius: var(--radius-lg);
 }
 
+/* Constrain images in main content to 5:4 aspect ratio maximum */
+.main-content img {
+  max-width: 100%;
+  max-height: calc(min(900px, 100vw - 2 * var(--spacing-xl)) * 0.8);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: var(--spacing-lg) auto;
+  border-radius: var(--radius-lg);
+}
+
 img:hover {
   cursor: zoom-in;
+}
+
+/* Sample button */
+.page-header-with-sample {
+  position: relative;
+}
+
+.sample-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--color-accent);
+  color: white !important;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.sample-button:hover {
+  background: #4a7a4d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(85, 152, 89, 0.3);
 }
 
 /* Lists */

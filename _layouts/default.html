@@ -50,6 +50,7 @@
         <a href="{{ '/animations' | relative_url }}" class="{% if page.url == '/animations/' %}active{% endif %}">🎬 Animations</a>
         <a href="{{ '/networking-and-multiplayer' | relative_url }}" class="{% if page.url == '/networking-and-multiplayer/' %}active{% endif %}">🌐 Networking & Multiplayer</a>
         <a href="{{ '/save-system' | relative_url }}" class="{% if page.url == '/save-system/' %}active{% endif %}">💾 Save System</a>
+        <a href="{{ '/experience-linking' | relative_url }}" class="{% if page.url == '/experience-linking/' %}active{% endif %}">🔗 Experience Linking</a>
       </section>
       
       <section>
@@ -61,7 +62,18 @@
     <div class="main-content">
       {% include breadcrumbs.html %}
       
-      {{ content }}
+      {% if page.sample-url %}
+        <div class="page-header-with-sample">
+          <div class="page-header-content">
+            {{ content }}
+          </div>
+          <a href="{{ page.sample-url }}" class="sample-button" target="_blank" rel="noopener">
+            Get Sample
+          </a>
+        </div>
+      {% else %}
+        {{ content }}
+      {% endif %}
       
       {% include page-nav.html %}
     </div>
