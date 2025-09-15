@@ -147,6 +147,23 @@ li {
   padding-bottom: var(--spacing-xl);
   scrollbar-width: thin;
   scrollbar-color: var(--color-border) transparent;
+  /* Smooth scroll behavior */
+  scroll-behavior: smooth;
+}
+
+/* Prevent flash during scroll restoration */
+.sidebar.scroll-restoring {
+  overflow: hidden;
+}
+
+/* Prevent layout shift during page load */
+.sidebar.loading {
+  visibility: hidden;
+}
+
+.sidebar.loading .sidebar-group-header,
+.sidebar.loading .sidebar-sublinks {
+  transition: none !important;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -213,6 +230,80 @@ li {
   height: 20px;
   background: white;
   border-radius: 0 3px 3px 0;
+}
+
+/* Collapsible sidebar groups */
+.sidebar-group {
+  margin-bottom: var(--spacing-sm);
+}
+
+.sidebar-group-header {
+  color: var(--color-text-primary);
+  display: block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin: 0 var(--spacing-sm);
+  border-radius: var(--radius-md);
+  transition: all 0.15s ease;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.sidebar-group-header:hover {
+  background: var(--color-bg-hover);
+}
+
+.sidebar-group-header::after {
+  content: '▸';
+  position: absolute;
+  right: var(--spacing-md);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease;
+  font-size: 12px;
+}
+
+.sidebar-group-header.expanded::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.sidebar-sublinks {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  margin-left: var(--spacing-md);
+}
+
+.sidebar-sublinks.expanded {
+  max-height: 500px;
+  overflow: visible;
+}
+
+/* Prevent transitions on page load to eliminate jumping */
+.sidebar-no-transitions .sidebar-sublinks {
+  transition: none !important;
+}
+
+.sidebar-no-transitions .sidebar-group-header::after {
+  transition: none !important;
+}
+
+.sidebar-sublinks a {
+  font-size: 13px;
+  padding: 6px var(--spacing-lg);
+  margin: 0 var(--spacing-sm);
+  color: var(--color-text-secondary);
+}
+
+.sidebar-sublinks a:hover:not(.active) {
+  color: var(--color-text-primary);
+  background: var(--color-bg-hover);
+}
+
+.sidebar-sublinks a.active {
+  background: var(--color-bg-active);
+  color: white;
 }
 
 .main-content {
