@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earnings Dashboard</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/search.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Earnings Dashboard" />
+  <meta property="og:description" content="Track your revenue, view transaction history, and manage payouts with Meadow&#39;s comprehensive earnings dashboard." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/earnings-dashboard/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Earnings Dashboard">
+  <meta name="twitter:description" content="Track your revenue, view transaction history, and manage payouts with Meadow&#39;s comprehensive earnings dashboard.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <header class="top-header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="/" class="header-logo-link">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo">
+        <span class="header-title">Meadow Manual</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="search-trigger">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <span class="search-text">Search...</span>
+        <span class="search-shortcut">⌘K</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="content-container">
+    <div class="sidebar" id="sidebar">
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">🎮 Installing Unity</a>
+        <a href="/navigate-the-unity-editor" class="">🧭 Navigate the Unity Editor</a>
+        <a href="/install-meadow-studio" class="">💿 Install Meadow Studio</a>
+        <a href="/create-your-first-experience" class="">✨ Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">🎯 Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">⬆️ Upload to Meadow</a>
+        <a href="/update-packages" class="">📦 Update Packages</a>
+        <a href="/file-formats" class="">📄 File Formats</a>
+        <a href="/update-creator-profile" class="">👤 Update Creator Profile</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">📸 Image Tracking</a>
+        <a href="/dialogue-system" class="">💬 Dialogue System</a>
+        <a href="/vibrations" class="">📳 Vibrations</a>
+        <a href="/map-marker" class="">📍 Map Marker</a>
+        <a href="/visual-scripting" class="">🎨 Visual Scripting</a>
+        <a href="/touch-interaction" class="">👆 Touch Interaction</a>
+        <a href="/qr-code" class="">🔲 QR Code</a>
+        <a href="/animations" class="">🎬 Animations</a>
+        <a href="/networking-and-multiplayer" class="">🌐 Networking & Multiplayer</a>
+        <a href="/save-system" class="">💾 Save System</a>
+        <a href="/experience-linking" class="">🔗 Experience Linking</a>
+      </section>
+      
+      <section>
+        <h4>Monetization</h4>
+        <a href="/monetization-settings" class="">⚙️ Monetization Settings</a>
+        <a href="/purchase-process" class="">🛒 Purchase Process</a>
+        <a href="/earnings-dashboard" class="active">📊 Earnings Dashboard</a>
+        <a href="/resale-market" class="">🔄 Resale Market</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">🧩 Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      
+<nav class="breadcrumbs">
+  <a href="/">Home</a>
+  <span class="separator">›</span>
+  
+  
+    
+      <span>Earnings Dashboard</span>
+    
+  
+</nav>
+
+      
+      
+        <h1 id="earnings-dashboard">Earnings Dashboard</h1>
+
+<p>Your central hub for tracking revenue, managing transactions, and processing payouts.</p>
+
+<p><img src="../images/monetisation/earnings.png" alt="Monetization settings overview" title="Monetization Settings Overview" /></p>
+
+<h2 id="revenue-overview">Revenue Overview</h2>
+
+<p>The dashboard displays three key financial metrics:</p>
+
+<p><strong>Available Balance</strong> shows funds ready for immediate payout to your bank account (after the 10% platform fee is deducted).</p>
+
+<p><strong>Pending Balance</strong> includes recent transactions still being processed by Stripe (2-7 days) or cryptocurrency confirmations.</p>
+
+<p><strong>Total Earnings</strong> displays your cumulative revenue for any selected time period with gross/net breakdown and transaction count.</p>
+
+<h2 id="initial-setup">Initial Setup</h2>
+
+<p>Follow the guide on <a href="https://app.meadow.space/dashboard/earnings">dashboard earnings</a> page</p>
+
+<h2 id="tracking-performance">Tracking Performance</h2>
+
+<p>View earnings trends through interactive charts with daily, weekly, monthly, or custom date range options. The charts help identify peak performance periods and growth patterns.</p>
+
+<p>The currency reflects your Stripe Connect account.</p>
+
+<h2 id="transaction-history">Transaction History</h2>
+
+<p>View detailed records of all sales including timestamp, experience name, edition number, payment method, and financial breakdown (gross amount, platform fee, net earnings).</p>
+
+<p>Transaction status indicators show whether payments are succeeded, pending, failed, disputed, or refunded.</p>
+
+<h2 id="payouts">Payouts</h2>
+
+<p>Until funds settle, the balance will remain pending. Standard transfers take 3-5 business days, while international wires may take 5-10 business days.
+The settled funds will pe payed to your account daily.</p>
+
+<h3 id="stripe-integration">Stripe Integration</h3>
+
+<p>Access your full Stripe Connect dashboard with one click for advanced analytics, fraud monitoring, and financial documents including monthly statements and tax forms.</p>
+
+<h2 id="getting-paid">Getting Paid</h2>
+
+<h3 id="stripe-account-setup">Stripe Account Setup</h3>
+
+<p>Complete business verification to receive payments by providing:</p>
+<ul>
+  <li>Business information (type, tax ID, address)</li>
+  <li>Bank account details for payouts</li>
+  <li>Identity verification documents</li>
+  <li>Tax forms (W-9, W-8BEN, etc.)</li>
+</ul>
+
+<h2 id="common-issues">Common Issues</h2>
+
+<p><strong>Payout Delays:</strong> Usually caused by bank holidays, pending account verification, or balances below minimum thresholds.</p>
+
+<p><strong>Transaction Disputes:</strong> Handle customer chargebacks through the dispute resolution process with evidence submission.</p>
+
+<p><strong>Technical Issues:</strong> Clear browser cache for loading problems or contact support for data synchronization issues.</p>
+
+<h2 id="need-help">Need Help?</h2>
+
+<p>If you encounter issues with Stripe account verification, high gas fees, or shipping restrictions, contact <a href="mailto:support@meadow.space">support</a> for assistance.</p>
+
+<hr />
+
+<p><em>Next: Learn about the complete <a href="purchase-process">Purchase Process</a> from the buyer’s perspective.</em></p>
+
+      
+      
+      
+
+
+
+
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#earnings-dashboard">Earnings Dashboard</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#revenue-overview">Revenue Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#initial-setup">Initial Setup</a></li>
+<li class="toc-entry toc-h2"><a href="#tracking-performance">Tracking Performance</a></li>
+<li class="toc-entry toc-h2"><a href="#transaction-history">Transaction History</a></li>
+<li class="toc-entry toc-h2"><a href="#payouts">Payouts</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#stripe-integration">Stripe Integration</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#getting-paid">Getting Paid</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#stripe-account-setup">Stripe Account Setup</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#common-issues">Common Issues</a></li>
+<li class="toc-entry toc-h2"><a href="#need-help">Need Help?</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+  
+  <script src="/assets/js/lunr.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monetization Settings</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/search.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Monetization Settings" />
+  <meta property="og:description" content="Configure pricing, editions, payment methods, and certificate options for your Meadow experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/monetization-settings/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Monetization Settings">
+  <meta name="twitter:description" content="Configure pricing, editions, payment methods, and certificate options for your Meadow experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <header class="top-header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="/" class="header-logo-link">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo">
+        <span class="header-title">Meadow Manual</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="search-trigger">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <span class="search-text">Search...</span>
+        <span class="search-shortcut">⌘K</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="content-container">
+    <div class="sidebar" id="sidebar">
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">🎮 Installing Unity</a>
+        <a href="/navigate-the-unity-editor" class="">🧭 Navigate the Unity Editor</a>
+        <a href="/install-meadow-studio" class="">💿 Install Meadow Studio</a>
+        <a href="/create-your-first-experience" class="">✨ Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">🎯 Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">⬆️ Upload to Meadow</a>
+        <a href="/update-packages" class="">📦 Update Packages</a>
+        <a href="/file-formats" class="">📄 File Formats</a>
+        <a href="/update-creator-profile" class="">👤 Update Creator Profile</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">📸 Image Tracking</a>
+        <a href="/dialogue-system" class="">💬 Dialogue System</a>
+        <a href="/vibrations" class="">📳 Vibrations</a>
+        <a href="/map-marker" class="">📍 Map Marker</a>
+        <a href="/visual-scripting" class="">🎨 Visual Scripting</a>
+        <a href="/touch-interaction" class="">👆 Touch Interaction</a>
+        <a href="/qr-code" class="">🔲 QR Code</a>
+        <a href="/animations" class="">🎬 Animations</a>
+        <a href="/networking-and-multiplayer" class="">🌐 Networking & Multiplayer</a>
+        <a href="/save-system" class="">💾 Save System</a>
+        <a href="/experience-linking" class="">🔗 Experience Linking</a>
+      </section>
+      
+      <section>
+        <h4>Monetization</h4>
+        <a href="/monetization-settings" class="active">⚙️ Monetization Settings</a>
+        <a href="/purchase-process" class="">🛒 Purchase Process</a>
+        <a href="/earnings-dashboard" class="">📊 Earnings Dashboard</a>
+        <a href="/resale-market" class="">🔄 Resale Market</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">🧩 Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      
+<nav class="breadcrumbs">
+  <a href="/">Home</a>
+  <span class="separator">›</span>
+  
+  
+    
+      <span>Monetization Settings</span>
+    
+  
+</nav>
+
+      
+      
+        <h1 id="monetization-settings">Monetization Settings</h1>
+
+<p>Transform your digital experience into a revenue-generating asset by configuring pricing, payment methods, and delivery options.</p>
+
+<p><img src="../images/monetisation/monetisation-settings.png" alt="Monetization settings overview" title="Monetization Settings Overview" /></p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>To begin selling your experience, navigate to your experience settings and toggle on the monetization option. This unlocks all revenue features including pricing controls, payment processing, and certificate generation.</p>
+
+<p>⚠️ <strong>WARNING: Once monetization is enabled on a public experience:</strong></p>
+
+<p>• You cannot disable monetization
+• You cannot edit monetization settings<br />
+• You cannot make the experience private
+• You cannot delete the experience</p>
+
+<h2 id="pricing--editions">Pricing &amp; Editions</h2>
+
+<h3 id="set-your-price">Set Your Price</h3>
+
+<p>Choose your base price in EUR, GBP, or USD. This is the amount buyers pay and what you earn before the <strong>10% platform fee</strong> (which covers payment processing and platform maintenance).
+*Reasles have a reduced <strong>5% platform fee</strong></p>
+
+<h3 id="limited-editions">Limited Editions</h3>
+
+<p>Create scarcity and collector value. Set a total count (1-1000 items) and each buyer receives a numbered edition. Perfect for NFT collectors and exclusive releases.</p>
+
+<h2 id="payment-methods">Payment Methods</h2>
+
+<p>Choose how buyers can pay for your experience:</p>
+
+<p><strong>Credit Card (Stripe)</strong> offers the widest accessibility with familiar checkout process and instant payment confirmation. Best for reaching mainstream audiences.</p>
+
+<p><strong>Buyer’s Choice</strong> allows both credit card and cryptocurrency payments, maximizing your market reach. Crypto payments automatically generate NFTs on the blockchain. (<a href="https://metamask.io/">MetaMask wallet</a> required)</p>
+
+<!-- **NFT Only** restricts purchases to cryptocurrency transactions, appealing to blockchain enthusiasts but requiring buyers to have crypto wallets and pay gas fees. -->
+
+<h2 id="certificates">Certificates</h2>
+
+<p><strong>Physical certificates</strong> will be added to editions at additional price depending on the buyer’s location, professionally printed through our global pratner’s network and delivered within 5-10 business days.</p>
+
+<h2 id="map-placement">Map Placement</h2>
+
+<p><strong>Map Placement</strong> allows buyers to mark their location on your experience map (default limit: 3 locations per buyer). This builds community and provides social proof of global ownership.</p>
+
+<p>Physical certificate shipping is available worldwide through our Gelato integration, with automatic cost calculation and full tracking information.</p>
+
+<h2 id="setup-process">Setup Process</h2>
+
+<ol>
+  <li><strong>Enable monetization</strong> in your experience settings</li>
+  <li><strong>Set pricing</strong> and choose edition type</li>
+  <li><strong>Configure payment methods</strong> and connect Stripe if needed</li>
+  <li><strong>Select certificate templates</strong> and shipping options</li>
+  <li><strong>Test the purchase process</strong> before going live</li>
+</ol>
+
+<h2 id="need-help">Need Help?</h2>
+
+<p>If you encounter issues with Stripe account verification, high gas fees, or shipping restrictions, contact <a href="mailto:support@meadow.space">support</a> for assistance.</p>
+
+<hr />
+
+<p><em>Next: Monitor your revenue with the <a href="earnings-dashboard">Earnings Dashboard</a> to track sales and manage payouts.</em></p>
+
+      
+      
+      
+
+
+
+
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#monetization-settings">Monetization Settings</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#getting-started">Getting Started</a></li>
+<li class="toc-entry toc-h2"><a href="#pricing--editions">Pricing &amp; Editions</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#set-your-price">Set Your Price</a></li>
+<li class="toc-entry toc-h3"><a href="#limited-editions">Limited Editions</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#payment-methods">Payment Methods</a></li>
+<li class="toc-entry toc-h2"><a href="#certificates">Certificates</a></li>
+<li class="toc-entry toc-h2"><a href="#map-placement">Map Placement</a></li>
+<li class="toc-entry toc-h2"><a href="#setup-process">Setup Process</a></li>
+<li class="toc-entry toc-h2"><a href="#need-help">Need Help?</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+  
+  <script src="/assets/js/lunr.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

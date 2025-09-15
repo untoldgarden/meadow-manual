@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resale Market</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/search.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Resale Market" />
+  <meta property="og:description" content="Learn about the secondary marketplace for experience resales, NFT trading, and edition management." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/resale-market/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Resale Market">
+  <meta name="twitter:description" content="Learn about the secondary marketplace for experience resales, NFT trading, and edition management.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <header class="top-header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="/" class="header-logo-link">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo">
+        <span class="header-title">Meadow Manual</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="search-trigger">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <span class="search-text">Search...</span>
+        <span class="search-shortcut">⌘K</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="content-container">
+    <div class="sidebar" id="sidebar">
+      <!-- Chapter links -->
+      <section>
+        <h4>Getting Started</h4>
+        <a href="/installing-unity" class="">🎮 Installing Unity</a>
+        <a href="/navigate-the-unity-editor" class="">🧭 Navigate the Unity Editor</a>
+        <a href="/install-meadow-studio" class="">💿 Install Meadow Studio</a>
+        <a href="/create-your-first-experience" class="">✨ Create Your First Experience</a>
+        <a href="/prepare-your-experience" class="">🎯 Prepare Your Experience</a>
+        <a href="/upload-to-meadow" class="">⬆️ Upload to Meadow</a>
+        <a href="/update-packages" class="">📦 Update Packages</a>
+        <a href="/file-formats" class="">📄 File Formats</a>
+        <a href="/update-creator-profile" class="">👤 Update Creator Profile</a>
+      </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">📸 Image Tracking</a>
+        <a href="/dialogue-system" class="">💬 Dialogue System</a>
+        <a href="/vibrations" class="">📳 Vibrations</a>
+        <a href="/map-marker" class="">📍 Map Marker</a>
+        <a href="/visual-scripting" class="">🎨 Visual Scripting</a>
+        <a href="/touch-interaction" class="">👆 Touch Interaction</a>
+        <a href="/qr-code" class="">🔲 QR Code</a>
+        <a href="/animations" class="">🎬 Animations</a>
+        <a href="/networking-and-multiplayer" class="">🌐 Networking & Multiplayer</a>
+        <a href="/save-system" class="">💾 Save System</a>
+        <a href="/experience-linking" class="">🔗 Experience Linking</a>
+      </section>
+      
+      <section>
+        <h4>Monetization</h4>
+        <a href="/monetization-settings" class="">⚙️ Monetization Settings</a>
+        <a href="/purchase-process" class="">🛒 Purchase Process</a>
+        <a href="/earnings-dashboard" class="">📊 Earnings Dashboard</a>
+        <a href="/resale-market" class="active">🔄 Resale Market</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">🧩 Experience Component</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      
+<nav class="breadcrumbs">
+  <a href="/">Home</a>
+  <span class="separator">›</span>
+  
+  
+    
+      <span>Resale Market</span>
+    
+  
+</nav>
+
+      
+      
+        <h1 id="resale-market">Resale Market</h1>
+
+<p>The secondary marketplace enables owners to resell their experience editions, with full support for NFT trading, automatic certificate transfers, and secure ownership verification.</p>
+
+<p><img src="../images/monetisation/owner-settings.png" alt="Monetization settings overview" title="Monetization Settings Overview" /></p>
+
+<h2 id="owner-settings">Owner Settings</h2>
+
+<h3 id="managing-your-editions">Managing Your Editions</h3>
+
+<h4 id="accessing-edition-management">Accessing Edition Management</h4>
+
+<p>Access your owned editions through the “Manage” button on experience page:</p>
+
+<h4 id="ownership-history-tracking">Ownership History Tracking</h4>
+
+<p>The transaction ledger on experience page provides a histroy of edition sales.</p>
+
+<h3 id="edition-settings">Edition Settings</h3>
+
+<h4 id="editions-purchased-on-stripe">Editions Purchased on Stripe</h4>
+
+<p>Editions purchased off-chain can be added to resale market with two payment methods:</p>
+<ul>
+  <li><strong>Buyer’s Coice</strong>: the buyers choose whether they want to buy the experience with their credit card or if they want to mint it to NFT. (MetaMask wallet required)</li>
+  <li><strong>Credit Card Only</strong>: the buyers can only purchase the experience via Stripe.</li>
+</ul>
+
+<p>The editions sold on Stripe will be sold in the experience’s original currency (decided by experience creator).</p>
+
+<p><strong>Late Minting</strong>
+Owners can mint the edition into an NFT wihout any costs (apart from gas fee).</p>
+
+<h4 id="nft-editions">NFT Editions</h4>
+
+<p>NFT editions can only be sold on the ethereum blockchain.</p>
+
+<h3 id="price-structure--fees">Price Structure &amp; Fees</h3>
+
+<h4 id="revenue-breakdown">Revenue Breakdown</h4>
+<p>Understanding the financial structure:</p>
+<ul>
+  <li><strong>Your Selling Price</strong>: Amount you set for the edition (amount you receive)</li>
+  <li><strong>Platform Fee</strong>: 5% added to your selling price</li>
+  <li><strong>Gas Fees</strong>: Blockchain transaction costs (paid by buyer)</li>
+</ul>
+
+<p><strong>Example Transaction:</strong></p>
+<ul>
+  <li>Your Listed Price: 1.0 ETH</li>
+  <li>Platform Fee (5%): 0.05 ETH</li>
+  <li>Buyer Pays: 1.05 ETH + certificate costs + gas fees</li>
+</ul>
+
+<h3 id="transfer-process">Transfer Process</h3>
+
+<h4 id="automatic-blockchain-transfer">Automatic Blockchain Transfer</h4>
+<p>Seamless ownership transfer upon sale:</p>
+<ol>
+  <li><strong>Sale Confirmation</strong>: Buyer completes purchase transaction</li>
+  <li><strong>Smart Contract Execution</strong>: Automated transfer process</li>
+  <li><strong>Ownership Update</strong>: Blockchain record immediately updated</li>
+  <li><strong>Certificate Transfer</strong>: New ownership certificate generated</li>
+  <li><strong>Payment Distribution</strong>: Instant payment to seller’s wallet</li>
+</ol>
+
+<h4 id="certificate-management">Certificate Management</h4>
+<p>Automatic certificate handling:</p>
+<ul>
+  <li><strong>Old Certificate Invalidation</strong>: Previous owner’s certificate marked invalid</li>
+  <li><strong>New Certificate Generation</strong>: Fresh certificate for new owner</li>
+</ul>
+
+<h2 id="need-help">Need Help?</h2>
+
+<p>If you encounter issues with Stripe account verification, high gas fees, or shipping restrictions, contact <a href="mailto:support@meadow.space">support</a> for assistance.</p>
+
+<hr />
+
+<p><em>Return to: <a href="monetization-settings">Monetization Settings</a> to configure your experience for sale.</em></p>
+
+      
+      
+      
+
+
+
+
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#resale-market">Resale Market</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#owner-settings">Owner Settings</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#managing-your-editions">Managing Your Editions</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#accessing-edition-management">Accessing Edition Management</a></li>
+<li class="toc-entry toc-h4"><a href="#ownership-history-tracking">Ownership History Tracking</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#edition-settings">Edition Settings</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#editions-purchased-on-stripe">Editions Purchased on Stripe</a></li>
+<li class="toc-entry toc-h4"><a href="#nft-editions">NFT Editions</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#price-structure--fees">Price Structure &amp; Fees</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#revenue-breakdown">Revenue Breakdown</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#transfer-process">Transfer Process</a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#automatic-blockchain-transfer">Automatic Blockchain Transfer</a></li>
+<li class="toc-entry toc-h4"><a href="#certificate-management">Certificate Management</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#need-help">Need Help?</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+  
+  <script src="/assets/js/lunr.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
