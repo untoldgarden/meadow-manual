@@ -3,7 +3,7 @@ layout: default
 title: Upload to Meadow
 toc: true
 permalink: /upload-to-meadow/
-order: 7
+order: 6
 ---
 
 <div style="padding:56.25% 0 0 0;position:relative;margin-bottom:2em;">

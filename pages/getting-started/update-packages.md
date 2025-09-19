@@ -3,7 +3,7 @@ layout: default
 title: Updating XREF Packages
 toc: true
 permalink: /update-packages/
-order: 8
+order: 7
 ---
 
 # Updating XREF Packages
