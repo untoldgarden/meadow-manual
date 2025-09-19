@@ -72,13 +72,6 @@
   },
 
   {
-    "title": "Download and install the Meadow template project",
-    "url": "/install-the-template-project/",
-    "content": "Download and install the template project for UnityTo create and publish your experiences to meadow you need to install Meadow Studio and the two XREF packages in your project. To make it easier to get started we have created a template project that has everything already installed.Download the template project from GithubVia the Github website:  Go to https://github.com/untoldgarden/XREF_ExperienceBuilder.  Click the green “Code” button and press download zip.  Unzip it in a sensible location (e.g. Projects/UnityTutorial).Via the command line:  Open your terminal or command prompt.  cd to the directory where you want to download the project.  Run the following command to clone the repository:    git clone https://github.com/untoldgarden/XREF_ExperienceBuilder      Add the template project to Unity Hub  Go to Unity Hub.  Click “Projects.”  Click on the little arrow to the right of “Add” and choose “Add project from disk”.   Navigate to where you cloned your project template.  Choose the root folder (e.g. XREF_ExperienceBuilder).  Press “Add Project.”  If you installed a different version than 6000.1 you need to tell Unity that you want to use that version instead.          Press the drop down under “Editor version” that has a little warning triangle next to it. .      Select your installed version of Unity.      Press “Open with…”      In the following dialogue, press “Change version.”      It will take some time to open the project, and then show a new dialogue, press “Continue.”        The project should open in Unity and look like this:",
-    "category": "General"
-  },
-
-  {
     "title": "Installing Unity",
     "url": "/installing-unity/",
     "content": "        Installing UnityYour Unity installs and projects are managed through an application called Unity Hub. You need to download this software to install and use Unity. It’s similar to Adobe Creative Cloud.  Download Unity hub from https://unity.com/download  Install it  Open the Hub, create an account, and login  Install an editor (Unity publishes new versions weekly). You can install the latest suggested version for Unity 6000.0 (We do not currently recommend versions 6000.1), but make sure it’s Unity 6 as older versions will not work with Meadow. If you plan to use visual effects and/or shader graph make sure to download 6000.0.1, as newer versions might not display the effects correctly.  When prompted, install iOS and Android modules. At the moment both are needed even if you only plan on building for one platform.  Get a license. Use the free personal one. You do not need to use the PRO version to use Meadow.",
