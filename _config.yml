@@ -12,6 +12,7 @@ url: "https://manual.meadow.space"
 permalink: /:title/
 plugins:
   - jekyll-toc
+  - jekyll-sitemap
 
 defaults:
   - scope:
