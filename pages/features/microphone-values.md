@@ -69,7 +69,7 @@ Optional:
 - Create a **BaseScale** variable to store and object's original size. Adjust its `Vector3` values to match proportions (recommended default: x1, y1, z1).
 - Define the **Object** variable and assign it to the object you want to interact with in the scene. 
 
-![alt_text](../images/microphone-example-obj.webp)
+![alt_text](../images/microphone-example-object.webp)
 
 <br>
 
