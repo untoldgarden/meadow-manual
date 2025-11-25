@@ -16,7 +16,7 @@ Meadow allows you to access live pitch and decibel (dB) through the **Microphone
 
 ![alt_text](../images/microphone-node-library.webp)
 
-1. Ensure that **Experience Builder** toolkit is installed via `Meadow > Optional Packages`. 
+1. Open the **Package Manager** and ensure that **Experience Builder** toolkit is installed in your project (see [How to Install Optional Packages](/optional-packages/)) 
 2. Verify that necessary nodes are available in **Visual Scripting**.
 - Go to `Edit > Project Settings > Visual Scripting > Node Library`.
 - If you don't see `XREF.ExperienceBuilder` listed:
