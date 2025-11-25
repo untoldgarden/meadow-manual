@@ -16,9 +16,9 @@ Meadow allows you to access live pitch and decibel (dB) through the **Microphone
 
 ![alt_text](../images/microphone-node-library.webp)
 
-1. Open the **Pacjage Manager** and ensure that **XREF Experience Builder is installed in your project.
-2. Verify that necessary nodes are availabe in **Visual Scripting***.
-- Got to `Edit > Project Settings > Visual Scripting > Node Library`.
+1. Ensure that **Experience Builder** toolkit is installed via `Meadow > Optional Packages`. 
+2. Verify that necessary nodes are available in **Visual Scripting***.
+- Go to `Edit > Project Settings > Visual Scripting > Node Library`.
 - If you don't see `XREF.ExperienceBuilder` listed:
 - Click the **+** icon at the bottom right.
 - Search for **XREF.ExperienceBuilder**.
@@ -43,7 +43,7 @@ Create a **Manager GameObject** and add the following components:
 
 ## Nodes
 
-Use the followig nodes
+Use the following nodes
 
 - [Audio Source Pitch Values: Get Current Pitch Values]
 - [Audio Source Decibel Values: Get Current DB Values]
@@ -66,14 +66,14 @@ After adapting the values, multiply them by a **Sensitivity** variable to fine-t
 Use **Lerp** to limit the range (for example, keep height between 0 and 10).
 
 Optional: 
-- Create a **BaseScale** variable to store and object's original size. Adjust its `Vector3` values to match proportions (recommended default: x1, y1, z1).
+- Create a **BaseScale** variable to store an object's original size. Adjust its `Vector3` values to match proportions (recommended default: x1, y1, z1).
 - Define the **Object** variable and assign it to the object you want to interact with in the scene. 
 
 ![alt_text](../images/microphone-example-object.webp)
 
 <br>
 
-## Pitch/dB Values - Use Idea
+## Pitch/dB Values - Usage Idea
 
 You can use pitch and decibel inputs in many ways, such as triggering visual or behavioral changes like modifying **textures**, **colors**, or **animations**.
 
