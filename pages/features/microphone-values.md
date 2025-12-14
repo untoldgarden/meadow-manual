@@ -9,21 +9,8 @@ order: 30
 # Microphone Values {#microphone-values}
 
 Meadow allows you to access live pitch and decibel (dB) through the **Microphone to Audio Source** feature. This makes it easy to create interactions using real-time audio input from the device's microphone.
-
 <br>
-
-## Set Up
-
-![alt_text](../images/microphone-node-library.webp)
-
-1. Open the **Package Manager** and ensure that **Experience Builder** toolkit is installed in your project (see [How to Install Optional Packages](/optional-packages/)) 
-2. Verify that necessary nodes are available in **Visual Scripting**.
-- Go to `Edit > Project Settings > Visual Scripting > Node Library`.
-- If you don't see `XREF.ExperienceBuilder` listed:
-- Click the **+** icon at the bottom right.
-- Search for **XREF.ExperienceBuilder**.
-- Press **Enter** to add it.
-- Then click **Regenerate Nodes**.
+To use **Microphone Values** you need the **XREF Experience Builder Package** installed (see [How to Install Optional Packages](/optional-packages/)) 
 
 <br>
 
@@ -78,3 +65,16 @@ Optional:
 You can use pitch and decibel inputs in many ways, such as triggering visual or behavioral changes like modifying **textures**, **colors**, or **animations**.
 
 For example, you could make a **bird fly when player whistles** and dynamically change its color based on **decibel variations**.
+
+<br>
+
+## Nodes not appearing in the graph?
+
+If the requiered nodes don't show up when you try to add them, proceed as follows:
+
+- Go to `Edit > Project Settings > Visual Scripting > Node Library`.
+- If you don't see `XREF.ExperienceBuilder` listed:
+- Click the **+** icon at the bottom right.
+- Search for **XREF.ExperienceBuilder**.
+- Press **Enter** to add it.
+- Then click **Regenerate Nodes**.
