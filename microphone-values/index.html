@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Installing Unity</title>
+  <title>Microphone Values</title>
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="/assets/css/search.css">
   <link rel="stylesheet" href="/assets/css/components.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <meta property="og:type" content="Meadow Manual" />
-  <meta property="og:title" content="Installing Unity" />
+  <meta property="og:title" content="Microphone Values" />
   <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
   <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
-  <meta property="og:url" content="https://manual.meadow.space/installing-unity/" />
+  <meta property="og:url" content="https://manual.meadow.space/microphone-values/" />
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Installing Unity">
+  <meta name="twitter:title" content="Microphone Values">
   <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
   <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
 </head>
@@ -54,7 +54,7 @@
       <!-- Chapter links -->
         <section>
             <h4>Getting Started</h4>
-            <a href="/installing-unity" class="active">🎮 Installing Unity</a>
+            <a href="/installing-unity" class="">🎮 Installing Unity</a>
             <a href="/navigate-the-unity-editor" class="">🧭 Navigate the Unity Editor</a>
             <a href="/install-meadow-studio" class="">💿 Install Meadow Studio</a>
             <a href="/create-your-first-experience" class="">✨ Create Your First Experience</a>
@@ -71,7 +71,7 @@
         <a href="/image-tracking" class="">📸 Image Tracking</a>
         <a href="/dialogue-system" class="">💬 Dialogue System</a>
         <a href="/vibrations" class="">📳 Vibrations</a>
-        <a href="/microphone-values" class="">🎙️ Microphone</a>
+        <a href="/microphone-values" class="active">🎙️ Microphone</a>
         <a href="/map-marker" class="">📍 Map Marker</a>
         <a href="/visual-scripting" class="">🎨 Visual Scripting</a>
         <a href="/touch-interaction" class="">👆 Touch Interaction</a>
@@ -104,33 +104,95 @@
   
   
     
-      <span>Installing Unity</span>
+      <span>Microphone Values</span>
     
   
 </nav>
 
       
       
-        <div style="padding:56.25% 0 0 0;position:relative;margin-bottom:2em;">
-    <iframe src="https://player.vimeo.com/video/1027857357?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Install Unity" allowfullscreen="">
-    </iframe>
-</div>
-<script src="https://player.vimeo.com/api/player.js"></script>
+        <h1 id="microphone-values">Microphone Values</h1>
 
-<h2 id="installing-unity">Installing Unity</h2>
+<p>Meadow allows you to access live pitch and decibel (dB) through the <strong>Microphone to Audio Source</strong> feature. This makes it easy to create interactions using real-time audio input from the device’s microphone.
+<br />
+To use <strong>Microphone Values</strong> you need the <strong>XREF Experience Builder Package</strong> installed (see <a href="/optional-packages/">How to Install Optional Packages</a>)</p>
 
-<p>Your Unity installs and projects are managed through an application called Unity Hub. You need to download this software to install and use Unity. It’s similar to Adobe Creative Cloud.</p>
+<p><br /></p>
 
-<ol>
-  <li>Download Unity hub from <a href="https://unity.com/download">https://unity.com/download</a></li>
-  <li>Install it</li>
-  <li>Open the Hub, create an account, and login</li>
-  <li>Install an editor (Unity publishes new versions weekly). You can install the latest suggested version, but make sure it’s Unity 6 or newer. (Support for older version is not guaranteed.)
-<img src="../images/install-unity.webp" alt="alt_text" title="install unity" /></li>
-  <li>When prompted, install iOS and Android modules. At the moment both are needed even if you only plan on building for one platform.
-<img src="../images/hubModules.webp" alt="alt_text" title="install modules" /></li>
-  <li>Get a license. Use the free personal one. You do <strong>not</strong> need to a PRO Unity License to use Meadow.</li>
-</ol>
+<h1 id="components">Components</h1>
+
+<p><img src="../images/microphone-components.webp" alt="alt_text" /></p>
+
+<p>Create a <strong>Manager GameObject</strong> and add the following components:</p>
+
+<ul>
+  <li><strong>Microphone To Audio Source (Script)</strong></li>
+  <li><strong>Audio Source Pitch Values (Script)</strong></li>
+  <li><strong>Audio Source Decibel Values</strong></li>
+  <li><strong>Audio Source</strong></li>
+  <li><strong>Script Machine</strong></li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="nodes">Nodes</h2>
+
+<p>Use the following nodes</p>
+
+<ul>
+  <li>[Audio Source Pitch Values: Get Current Pitch Values]</li>
+  <li>[Audio Source Decibel Values: Get Current DB Values]</li>
+</ul>
+
+<p>These nodes provide a float number that you can use to create logic in the <strong>OnUpdate</strong> event.</p>
+
+<p>Depending on your application, you may need mathematical nodes to adjust pitch and dB values for your desired outcome, such as <strong>Clamp</strong>, <strong>Lerp</strong>, <strong>Inverse Lerp</strong>, or basic operations like <strong>Add</strong> and <strong>Multiply</strong>.</p>
+
+<p><br /></p>
+
+<h2 id="example">Example</h2>
+
+<p><img src="../images/microphone-example.webp" alt="alt_text" /></p>
+
+<p>In this example:</p>
+<ul>
+  <li>The <strong>pitch value</strong> controls the height of an object.</li>
+  <li>The <strong>dB value</strong> increases its scale.</li>
+</ul>
+
+<p>After adapting the values, multiply them by a <strong>Sensitivity</strong> variable to fine-tune control.
+Use <strong>Lerp</strong> to limit the range (for example, keep height between 0 and 10).</p>
+
+<p>Optional:</p>
+<ul>
+  <li>Create a <strong>BaseScale</strong> variable to store an object’s original size. Adjust its <code class="language-plaintext highlighter-rouge">Vector3</code> values to match proportions (recommended default: x1, y1, z1).</li>
+  <li>Define the <strong>Object</strong> variable and assign it to the object you want to interact with in the scene.</li>
+</ul>
+
+<p><img src="../images/microphone-example-object.webp" alt="alt_text" /></p>
+
+<p><br /></p>
+
+<h2 id="pitchdb-values---usage-idea">Pitch/dB Values - Usage Idea</h2>
+
+<p>You can use pitch and decibel inputs in many ways, such as triggering visual or behavioral changes like modifying <strong>textures</strong>, <strong>colors</strong>, or <strong>animations</strong>.</p>
+
+<p>For example, you could make a <strong>bird fly when player whistles</strong> and dynamically change its color based on <strong>decibel variations</strong>.</p>
+
+<p><br /></p>
+
+<h2 id="nodes-not-appearing-in-the-graph">Nodes not appearing in the graph?</h2>
+
+<p>If the requiered nodes don’t show up when you try to add them, proceed as follows:</p>
+
+<ul>
+  <li>Go to <code class="language-plaintext highlighter-rouge">Edit &gt; Project Settings &gt; Visual Scripting &gt; Node Library</code>.</li>
+  <li>If you don’t see <code class="language-plaintext highlighter-rouge">XREF.ExperienceBuilder</code> listed:</li>
+  <li>Click the <strong>+</strong> icon at the bottom right.</li>
+  <li>Search for <strong>XREF.ExperienceBuilder</strong>.</li>
+  <li>Press <strong>Enter</strong> to add it.</li>
+  <li>Then click <strong>Regenerate Nodes</strong>.</li>
+</ul>
 
       
       
@@ -145,13 +207,21 @@
   
   <nav class="page-nav">
     
+      
+      
+        <a href="/save-system/" class="page-nav-prev">
+          <span class="label">Previous</span>
+          <span class="title">Save System</span>
+        </a>
+      
+    
     
     
       
       
-        <a href="/navigate-the-unity-editor/" class="page-nav-next">
+        <a href="/experience-component/" class="page-nav-next">
           <span class="label">Next</span>
-          <span class="title">Navigate the Unity editor</span>
+          <span class="title">Experience Component</span>
         </a>
       
     
@@ -162,7 +232,15 @@
     <div class="toc">
       <p class="toc-title">On this Page</p>
       <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h2"><a href="#installing-unity">Installing Unity</a></li>
+<li class="toc-entry toc-h1"><a href="#microphone-values">Microphone Values</a></li>
+<li class="toc-entry toc-h1"><a href="#components">Components</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#nodes">Nodes</a></li>
+<li class="toc-entry toc-h2"><a href="#example">Example</a></li>
+<li class="toc-entry toc-h2"><a href="#pitchdb-values---usage-idea">Pitch/dB Values - Usage Idea</a></li>
+<li class="toc-entry toc-h2"><a href="#nodes-not-appearing-in-the-graph">Nodes not appearing in the graph?</a></li>
+</ul>
+</li>
 </ul>
     </div>
     
