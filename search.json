@@ -1,7 +1,8 @@
 ---
 layout: null
 ---
-{% assign valid_pages = site.pages | where_exp: "page", "page.title and page.url != '/404.html'" %}
+{% assign pages_with_title = site.pages | where_exp: "page", "page.title" %}
+{% assign valid_pages = pages_with_title | where_exp: "page", "page.url != '/404.html'" %}
 [
 {% for page in valid_pages %}
   {
