@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public API</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/search.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Public API" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/public-api/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Public API">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <header class="top-header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="/" class="header-logo-link">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo">
+        <span class="header-title">Meadow Manual</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="search-trigger">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <span class="search-text">Search...</span>
+        <span class="search-shortcut">⌘K</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="content-container">
+    <div class="sidebar" id="sidebar">
+      <!-- Chapter links -->
+        <section>
+            <h4>Getting Started</h4>
+            <a href="/installing-unity" class="">🎮 Installing Unity</a>
+            <a href="/navigate-the-unity-editor" class="">🧭 Navigate the Unity Editor</a>
+            <a href="/install-meadow-studio" class="">💿 Install Meadow Studio</a>
+            <a href="/create-your-first-experience" class="">✨ Create Your First Experience</a>
+            <a href="/prepare-your-experience" class="">🎯 Prepare Your Experience</a>
+            <a href="/upload-to-meadow" class="">⬆️ Upload to Meadow</a>
+            <a href="/optional-packages" class="">⧉ Install Optional Packages</a>
+            <a href="/update-packages" class="">📦 Update Packages</a>
+            <a href="/file-formats" class="">📄 File Formats</a>
+            <a href="/update-creator-profile" class="">👤 Update Creator Profile</a>
+        </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">📸 Image Tracking</a>
+        <a href="/dialogue-system" class="">💬 Dialogue System</a>
+        <a href="/vibrations" class="">📳 Vibrations</a>
+        <a href="/microphone-values" class="">🎙️ Microphone</a>
+        <a href="/map-marker" class="">📍 Map Marker</a>
+        <a href="/visual-scripting" class="">🎨 Visual Scripting</a>
+        <a href="/touch-interaction" class="">👆 Touch Interaction</a>
+        <a href="/qr-code" class="">🔲 QR Code</a>
+        <a href="/animations" class="">🎬 Animations</a>
+        <a href="/networking-and-multiplayer" class="">🌐 Networking & Multiplayer</a>
+        <a href="/save-system" class="">💾 Save System</a>
+        <a href="/experience-linking" class="">🔗 Experience Linking</a>
+      </section>
+      
+      <section>
+        <h4>Monetization</h4>
+        <a href="/monetization-settings" class="">⚙️ Monetization Settings</a>
+        <a href="/purchase-process" class="">🛒 Purchase Process</a>
+        <a href="/earnings-dashboard" class="">📊 Earnings Dashboard</a>
+        <a href="/resale-market" class="">🔄 Resale Market</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">🧩 Experience Component</a>
+        <a href="/public-api" class="active">🔌 Public API</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      
+<nav class="breadcrumbs">
+  <a href="/">Home</a>
+  <span class="separator">›</span>
+  
+  
+    
+      <span>Public API</span>
+    
+  
+</nav>
+
+      
+      
+        <h1 id="meadow-public-api">Meadow Public API</h1>
+
+<p>The Meadow API provides third-party developers with secure, RESTful access to experience data, real-time information, and webhooks for event notifications. All API access is scoped to individual experiences using API keys.</p>
+
+<h3 id="key-features">Key Features</h3>
+
+<ul>
+  <li><strong>Experience-Scoped API Keys:</strong> Each API key is tied to a specific experience</li>
+  <li><strong>Role-Based Access Control:</strong> Read and Write permissions</li>
+  <li><strong>Real-time Data Streaming:</strong> Server-Sent Events (SSE) for live updates</li>
+  <li><strong>Webhooks:</strong> Event-driven notifications for user presence and other triggers</li>
+  <li><strong>Comprehensive CRUD Operations:</strong> Full control over experience data</li>
+</ul>
+
+<h3 id="base-url">Base URL</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://api.meadow.space/v1
+</code></pre></div></div>
+
+<p>All API endpoints are prefixed with <code class="language-plaintext highlighter-rouge">/v1</code>.</p>
+
+<p><br /></p>
+
+<h2 id="architecture">Architecture</h2>
+
+<h3 id="system-components">System Components</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>┌─────────────────────────────────────────────────────────────┐
+│                     Third-Party Client                      │
+│                   (Your Application)                        │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      │ API Key Authentication
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│                  Cloud Functions (API Layer)                │
+├─────────────────────────────────────────────────────────────┤
+│  • API Key Validation                                       │
+│  • Experience Authorization                                 │
+│  • Permission Checking (Read/Write)                         │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│              Firebase Realtime Database                     │
+├─────────────────────────────────────────────────────────────┤
+│  • Experience Metadata                                      │
+│  • Realtime Data                                            │
+│  • User Presence                                            │
+│  • API Keys &amp; Webhooks                                      │
+└─────────────────────┬───────────────────────────────────────┘
+                      │
+                      │ Database Triggers
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│                     Webhook System                          │
+│              (Calls Your Endpoints)                         │
+└─────────────────────────────────────────────────────────────┘
+</code></pre></div></div>
+
+<h3 id="data-flow">Data Flow</h3>
+
+<ol>
+  <li><strong>Client Request</strong> → Includes API key in <code class="language-plaintext highlighter-rouge">x-api-key</code> header</li>
+  <li><strong>API Key Validation</strong> → Verifies key exists and is active</li>
+  <li><strong>Experience Authorization</strong> → Ensures API key is scoped to requested experience</li>
+  <li><strong>Permission Check</strong> → Validates key has required permission (read/write)</li>
+  <li><strong>Database Operation</strong> → Executes read/write operation</li>
+  <li><strong>Response</strong> → Returns data or confirmation</li>
+</ol>
+
+<h3 id="security-layers">Security Layers</h3>
+
+<ol>
+  <li><strong>API Key Authentication:</strong> All requests require valid API key</li>
+  <li><strong>Experience Isolation:</strong> Keys only access their assigned experience</li>
+  <li><strong>Permission-Based Access:</strong> Operations restricted by key permissions</li>
+  <li><strong>Database Rules:</strong> Firebase security rules provide additional validation</li>
+  <li><strong>HTTPS Only:</strong> All traffic encrypted in transit</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="authentication">Authentication</h2>
+
+<h3 id="api-key-management">API Key Management</h3>
+
+<p>API keys are experience-specific and must be created through the Meadow platform.</p>
+
+<h3 id="creating-an-api-key">Creating an API Key</h3>
+
+<p><strong>Via Web Interface:</strong></p>
+<ol>
+  <li>Navigate to your experience in the Meadow dashboard</li>
+  <li>Go to the “Networking” tab</li>
+  <li>Click “Add API Key”</li>
+  <li>Enter a descriptive name</li>
+  <li>Select permissions (Read and/or Write)</li>
+  <li>Copy and securely store the generated key</li>
+</ol>
+
+<p><strong>Via Callable Function (Programmatic):</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">getFunctions</span><span class="p">,</span> <span class="nx">httpsCallable</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">firebase/functions</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">functions</span> <span class="o">=</span> <span class="nf">getFunctions</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="dl">'</span><span class="s1">europe-west1</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">createApiKey</span> <span class="o">=</span> <span class="nf">httpsCallable</span><span class="p">(</span><span class="nx">functions</span><span class="p">,</span> <span class="dl">'</span><span class="s1">apikeys-createApiKey</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">createApiKey</span><span class="p">({</span>
+  <span class="na">experienceId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">your-experience-id</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Production Server</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">permissions</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">read</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">write</span><span class="dl">'</span><span class="p">]</span> <span class="c1">// Optional, defaults to ['read', 'write']</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">API Key:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">apiKey</span><span class="p">);</span>
+<span class="c1">// Store this securely - it won't be shown again!</span>
+</code></pre></div></div>
+
+<h3 id="using-an-api-key">Using an API Key</h3>
+
+<p>Include the API key in the <code class="language-plaintext highlighter-rouge">x-api-key</code> header of all API requests:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.meadow.space/v1/experiences/abc123"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: exp_your-api-key-here"</span>
+</code></pre></div></div>
+
+<h3 id="api-key-format">API Key Format</h3>
+
+<p>All API keys use a prefix to indicate their scope:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">exp_xxxxx</code> - Experience-scoped keys (current)</li>
+  <li><code class="language-plaintext highlighter-rouge">org_xxxxx</code> - Organization-scoped keys (future)</li>
+  <li><code class="language-plaintext highlighter-rouge">exh_xxxxx</code> - Exhibition-scoped keys (future)</li>
+</ul>
+
+<p>Example: <code class="language-plaintext highlighter-rouge">exp_abc123def456ghi789jk</code></p>
+
+<h3 id="api-key-properties">API Key Properties</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">experienceId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">experience-id</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nx">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Production Server</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nx">createdAt</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2025-11-16T10:00:00.000Z</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nx">expiresAt</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2026-11-16T10:00:00.000Z</span><span class="dl">"</span><span class="p">,</span>  <span class="c1">// 1 year validity</span>
+  <span class="nx">permissions</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">read</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">write</span><span class="dl">"</span><span class="p">],</span>  <span class="c1">// Granted permissions</span>
+  <span class="nx">isActive</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="permission-types">Permission Types</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Permission</th>
+      <th>Description</th>
+      <th>Grants Access To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>read</strong></td>
+      <td>Read-only access</td>
+      <td>Get experience metadata, read realtime data, view presence counts, stream data updates</td>
+    </tr>
+    <tr>
+      <td><strong>write</strong></td>
+      <td>Write access (includes read)</td>
+      <td>All read operations plus create/update/delete realtime data</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><b><font color="red">Please note:</font></b> Write permission automatically includes read access. You can create keys with read only (<code class="language-plaintext highlighter-rouge">["read"]</code>) or read + write (<code class="language-plaintext highlighter-rouge">["read", "write"]</code>).</p>
+
+<p><br /></p>
+
+<h2 id="data-path-structure">Data Path Structure</h2>
+
+<p>Realtime data is organized using a hierarchical path structure:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>realtimeData/{experienceId}/{locationId}/{userId}/{key}
+</code></pre></div></div>
+
+<p><strong>Path Components:</strong></p>
+<ul>
+  <li><strong>experienceId</strong>: The unique identifier for your experience (e.g., <code class="language-plaintext highlighter-rouge">-Oe9QMA9qTdjy7UMSr_S</code>)</li>
+  <li><strong>locationId</strong>: Unique location ID or <code class="language-plaintext highlighter-rouge">'global'</code> for experience-wide data (e.g., <code class="language-plaintext highlighter-rouge">-NfK8pL2mQxY9wZ1VbN4</code>)</li>
+  <li><strong>userId</strong>: Unique user ID or <code class="language-plaintext highlighter-rouge">'all'</code> for shared data (e.g., <code class="language-plaintext highlighter-rouge">I9bRV70dVvcvpUVAjeTjFLqWU232</code>)</li>
+  <li><strong>key</strong>: The data field name</li>
+</ul>
+
+<p><strong>Special Values:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">locationId: 'global'</code> - Data accessible across all physical locations (not location-specific)</li>
+  <li><code class="language-plaintext highlighter-rouge">userId: 'all'</code> - Data shared among all users (not user-specific)</li>
+</ul>
+
+<p><strong>Common Use Cases:</strong></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Use Case</th>
+      <th>locationId</th>
+      <th>userId</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Global leaderboard</td>
+      <td><code class="language-plaintext highlighter-rouge">'global'</code></td>
+      <td><code class="language-plaintext highlighter-rouge">'all'</code></td>
+      <td>High scores visible everywhere</td>
+    </tr>
+    <tr>
+      <td>Location statistics</td>
+      <td><code class="language-plaintext highlighter-rouge">-NfK8pL2mQxY9wZ1VbN4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">'all'</code></td>
+      <td>Visitor count at specific location</td>
+    </tr>
+    <tr>
+      <td>User progress (global)</td>
+      <td><code class="language-plaintext highlighter-rouge">'global'</code></td>
+      <td><code class="language-plaintext highlighter-rouge">I9bRV70dVvcvpUVAjeTjFLqWU232</code></td>
+      <td>User’s overall progress</td>
+    </tr>
+    <tr>
+      <td>User progress (location)</td>
+      <td><code class="language-plaintext highlighter-rouge">-NfK8pL2mQxY9wZ1VbN4</code></td>
+      <td><code class="language-plaintext highlighter-rouge">I9bRV70dVvcvpUVAjeTjFLqWU232</code></td>
+      <td>User’s progress in specific location</td>
+    </tr>
+    <tr>
+      <td>Location state</td>
+      <td><code class="language-plaintext highlighter-rouge">-MpQ3rT5nUvW7xY8ZaB1</code></td>
+      <td><code class="language-plaintext highlighter-rouge">'all'</code></td>
+      <td>Shared state for specific location</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Example Paths:</strong></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/realtimeData/-Oe9QMA9qTdjy7UMSr_S/global/all/totalScore
+/realtimeData/-Oe9QMA9qTdjy7UMSr_S/-NfK8pL2mQxY9wZ1VbN4/all/visitorCount
+/realtimeData/-Oe9QMA9qTdjy7UMSr_S/-NfK8pL2mQxY9wZ1VbN4/I9bRV70dVvcvpUVAjeTjFLqWU232/progress
+/realtimeData/-Oe9QMA9qTdjy7UMSr_S/global/I9bRV70dVvcvpUVAjeTjFLqWU232/achievements
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="rest-api-endpoints">REST API Endpoints</h2>
+
+<p>All REST API endpoints use the API key authentication method described above. The v1 API follows RESTful conventions with resource-based URLs and proper HTTP verb usage.</p>
+
+<p><br /></p>
+
+<h3 id="get-experience-metadata">Get Experience Metadata</h3>
+
+<p>Retrieve basic information about an experience.</p>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v1/experiences/{experienceId}</code></p>
+
+<p><strong>Required Permission:</strong> read</p>
+
+<p><strong>Path Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong> (required): The experience ID</li>
+</ul>
+
+<p><strong>Example Request:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.meadow.space/v1/experiences/-Oe9QMA9qTdjy7UMSr_S"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: your-api-key"</span>
+</code></pre></div></div>
+
+<p><strong>Example Response:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"experienceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-Oe9QMA9qTdjy7UMSr_S"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"titles"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My AR Experience"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"descriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"en"</span><span class="p">:</span><span class="w"> </span><span class="s2">"An interactive augmented reality experience"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"authorUid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uid-123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-01-01T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Art"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Error Responses:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">400</code>: Missing or invalid parameters</li>
+  <li><code class="language-plaintext highlighter-rouge">401</code>: Invalid or expired API key</li>
+  <li><code class="language-plaintext highlighter-rouge">403</code>: API key not authorized for this experience</li>
+  <li><code class="language-plaintext highlighter-rouge">404</code>: Experience not found</li>
+  <li><code class="language-plaintext highlighter-rouge">500</code>: Internal server error</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="get-all-realtime-data">Get All Realtime Data</h3>
+
+<p>Retrieve all real-time data for a specific location and user scope.</p>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v1/experiences/{experienceId}/data/{locationId}/{userId}</code></p>
+
+<p><strong>Required Permission:</strong> read</p>
+
+<p><strong>Path Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong> (required): The experience ID (e.g., <code class="language-plaintext highlighter-rouge">-Oe9QMA9qTdjy7UMSr_S</code>)</li>
+  <li><strong>locationId</strong> (required): Unique location ID (e.g., <code class="language-plaintext highlighter-rouge">-NfK8pL2mQxY9wZ1VbN4</code>) or <code class="language-plaintext highlighter-rouge">'global'</code> for experience-wide data</li>
+  <li><strong>userId</strong> (required): Unique user ID (e.g., <code class="language-plaintext highlighter-rouge">I9bRV70dVvcvpUVAjeTjFLqWU232</code>) or <code class="language-plaintext highlighter-rouge">'all'</code> for non-user-specific data</li>
+</ul>
+
+<p><strong>Example Request:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.meadow.space/v1/experiences/-Oe9QMA9qTdjy7UMSr_S/data/global/all"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: your-api-key"</span>
+</code></pre></div></div>
+
+<p><strong>Example Response:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"experienceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-Oe9QMA9qTdjy7UMSr_S"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"global"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"playerCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="get-specific-realtime-data">Get Specific Realtime Data</h3>
+
+<p>Retrieve a specific real-time data value by key.</p>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v1/experiences/{experienceId}/data/{locationId}/{userId}/{key}</code></p>
+
+<p><strong>Required Permission:</strong> read</p>
+
+<p><strong>Path Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong> (required): The experience ID</li>
+  <li><strong>locationId</strong> (required): Unique location ID or <code class="language-plaintext highlighter-rouge">'global'</code></li>
+  <li><strong>userId</strong> (required): Unique user ID or <code class="language-plaintext highlighter-rouge">'all'</code></li>
+  <li><strong>key</strong> (required): The data key to retrieve</li>
+</ul>
+
+<p><strong>Example Request:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.meadow.space/v1/experiences/-Oe9QMA9qTdjy7UMSr_S/data/global/all/playerCount"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: your-api-key"</span>
+</code></pre></div></div>
+
+<p><strong>Example Response:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"experienceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-Oe9QMA9qTdjy7UMSr_S"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"global"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"playerCount"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="batch-update-realtime-data">Batch Update Realtime Data</h3>
+
+<p>Update multiple real-time data values atomically.</p>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">POST /v1/experiences/{experienceId}/data/{locationId}/{userId}</code></p>
+
+<p><strong>Required Permission:</strong> write</p>
+
+<p><strong>Path Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong> (required): The experience ID</li>
+  <li><strong>locationId</strong> (required): Unique location ID or <code class="language-plaintext highlighter-rouge">'global'</code></li>
+  <li><strong>userId</strong> (required): Unique user ID or <code class="language-plaintext highlighter-rouge">'all'</code></li>
+</ul>
+
+<p><strong>Request Body:</strong></p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"playerCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"level"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"lastUpdated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-16T12:00:00.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Example Request:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.meadow.space/v1/experiences/-Oe9QMA9qTdjy7UMSr_S/data/global/all"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: your-api-key"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "playerCount": 43,
+    "level": 6,
+    "lastUpdated": "2025-11-16T12:00:00.000Z"
+  }'</span>
+</code></pre></div></div>
+
+<p><strong>Example Response:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data updated successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"experienceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-Oe9QMA9qTdjy7UMSr_S"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"global"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"keysUpdated"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Supported Value Types:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">string</code>: Text values</li>
+  <li><code class="language-plaintext highlighter-rouge">number</code>: Integer or float</li>
+  <li><code class="language-plaintext highlighter-rouge">boolean</code>: true/false</li>
+  <li><code class="language-plaintext highlighter-rouge">object</code>: Nested data structures</li>
+  <li><code class="language-plaintext highlighter-rouge">array</code>: Lists of values</li>
+</ul>
+
+<p><strong>Limits:</strong></p>
+<ul>
+  <li>Maximum request size: 1MB</li>
+  <li>Maximum keys per batch: 100</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="update-single-realtime-data-value">Update Single Realtime Data Value</h3>
+
+<p>Update a specific real-time data value.</p>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">PUT /v1/experiences/{experienceId}/data/{locationId}/{userId}/{key}</code></p>
+
+<p><strong>Required Permission:</strong> write</p>
+
+<p><strong>Path Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong> (required): The experience ID</li>
+  <li><strong>locationId</strong> (required): Unique location ID or <code class="language-plaintext highlighter-rouge">'global'</code></li>
+  <li><strong>userId</strong> (required): Unique user ID or <code class="language-plaintext highlighter-rouge">'all'</code></li>
+  <li><strong>key</strong> (required): The data key to update</li>
+</ul>
+
+<p><strong>Request Body:</strong></p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Example Request:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> PUT <span class="s2">"https://api.meadow.space/v1/experiences/-Oe9QMA9qTdjy7UMSr_S/data/global/all/playerCount"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: your-api-key"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{"value": 43}'</span>
+</code></pre></div></div>
+
+<p><strong>Example Response:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data updated successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"experienceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-Oe9QMA9qTdjy7UMSr_S"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"global"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"playerCount"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="delete-realtime-data">Delete Realtime Data</h3>
+
+<p>Remove a specific real-time data key.</p>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">DELETE /v1/experiences/{experienceId}/data/{locationId}/{userId}/{key}</code></p>
+
+<p><strong>Required Permission:</strong> write</p>
+
+<p><strong>Path Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong> (required): The experience ID</li>
+  <li><strong>locationId</strong> (required): Unique location ID or <code class="language-plaintext highlighter-rouge">'global'</code></li>
+  <li><strong>userId</strong> (required): Unique user ID or <code class="language-plaintext highlighter-rouge">'all'</code></li>
+  <li><strong>key</strong> (required): The data key to delete</li>
+</ul>
+
+<p><strong>Example Request:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> DELETE <span class="s2">"https://api.meadow.space/v1/experiences/-Oe9QMA9qTdjy7UMSr_S/data/global/all/temporaryData"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: your-api-key"</span>
+</code></pre></div></div>
+
+<p><strong>Example Response:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Data deleted successfully"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"experienceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-Oe9QMA9qTdjy7UMSr_S"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"global"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"temporaryData"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="stream-realtime-data-sse">Stream Realtime Data (SSE)</h3>
+
+<p>Open a Server-Sent Events connection for real-time updates.</p>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v1/experiences/{experienceId}/data/{locationId}/{userId}/stream</code></p>
+
+<p><strong>Required Permission:</strong> read</p>
+
+<p><strong>Path Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong> (required): The experience ID</li>
+  <li><strong>locationId</strong> (required): Unique location ID or <code class="language-plaintext highlighter-rouge">'global'</code></li>
+  <li><strong>userId</strong> (required): Unique user ID or <code class="language-plaintext highlighter-rouge">'all'</code></li>
+</ul>
+
+<p><strong>Example Request:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-N</span> <span class="nt">-X</span> GET <span class="s2">"https://api.meadow.space/v1/experiences/-Oe9QMA9qTdjy7UMSr_S/data/global/all/stream"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: your-api-key"</span>
+</code></pre></div></div>
+
+<p><strong>Event Stream Format:</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>event: data
+data: {"type":"initial","experienceId":"-Oe9QMA9qTdjy7UMSr_S","locationId":"global","userId":"all","data":{"playerCount":42},"timestamp":"2025-11-20T12:00:00.000Z"}
+
+event: data
+data: {"type":"update","experienceId":"-Oe9QMA9qTdjy7UMSr_S","locationId":"global","userId":"all","data":{"playerCount":43},"timestamp":"2025-11-20T12:00:05.000Z"}
+
+event: heartbeat
+data: {"timestamp":"2025-11-20T12:00:30.000Z"}
+</code></pre></div></div>
+
+<p><strong>Client Implementation (JavaScript):</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">eventSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">EventSource</span><span class="p">(</span>
+  <span class="dl">'</span><span class="s1">https://api.meadow.space/v1/experiences/-Oe9QMA9qTdjy7UMSr_S/data/global/all/stream</span><span class="dl">'</span><span class="p">,</span>
+  <span class="p">{</span>
+    <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">x-api-key</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">your-api-key</span><span class="dl">'</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">);</span>
+
+<span class="nx">eventSource</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">update</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Data update:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">update</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Location:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">update</span><span class="p">.</span><span class="nx">locationId</span><span class="p">,</span> <span class="dl">'</span><span class="s1">User:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">update</span><span class="p">.</span><span class="nx">userId</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">eventSource</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">heartbeat</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Heartbeat:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">eventSource</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">SSE Error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+  <span class="nx">eventSource</span><span class="p">.</span><span class="nf">close</span><span class="p">();</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p><strong>Notes:</strong></p>
+<ul>
+  <li>Heartbeat sent every 30 seconds</li>
+  <li>Connection auto-closes on client disconnect</li>
+  <li>Initial snapshot sent immediately upon connection</li>
+  <li>Each stream is scoped to a specific <code class="language-plaintext highlighter-rouge">locationId</code> and <code class="language-plaintext highlighter-rouge">userId</code> combination</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="get-user-presence-count-total">Get User Presence Count (Total)</h3>
+
+<p>Retrieve the current number of users experiencing the content across all locations.</p>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v1/experiences/{experienceId}/presence</code></p>
+
+<p><strong>Required Permission:</strong> read</p>
+
+<p><strong>Path Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong> (required): The experience ID</li>
+</ul>
+
+<p><strong>Example Request:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.meadow.space/v1/experiences/-Oe9QMA9qTdjy7UMSr_S/presence"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: your-api-key"</span>
+</code></pre></div></div>
+
+<p><strong>Example Response:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"experienceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-Oe9QMA9qTdjy7UMSr_S"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"location-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"location-2"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="get-user-presence-count-specific-location">Get User Presence Count (Specific Location)</h3>
+
+<p>Retrieve the number of users at a specific location.</p>
+
+<p><strong>Endpoint:</strong> <code class="language-plaintext highlighter-rouge">GET /v1/experiences/{experienceId}/presence/{locationId}</code></p>
+
+<p><strong>Required Permission:</strong> read</p>
+
+<p><strong>Path Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong> (required): The experience ID</li>
+  <li><strong>locationId</strong> (required): The specific location ID</li>
+</ul>
+
+<p><strong>Example Request:</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-X</span> GET <span class="s2">"https://api.meadow.space/v1/experiences/-Oe9QMA9qTdjy7UMSr_S/presence/location-1"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"x-api-key: your-api-key"</span>
+</code></pre></div></div>
+
+<p><strong>Example Response:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"experienceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-Oe9QMA9qTdjy7UMSr_S"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"locationId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"location-1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"details"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="callable-functions">Callable Functions</h2>
+
+<p>Callable functions require Firebase Authentication and are intended for use within authenticated client applications.</p>
+
+<p><br /></p>
+
+<h3 id="create-api-key">Create API Key</h3>
+
+<p>Create a new API key for an experience.</p>
+
+<p><strong>Function:</strong> <code class="language-plaintext highlighter-rouge">apikeys-createApiKey</code></p>
+
+<p><strong>Required Permission:</strong> Owner of the experience</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The experience ID</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">getFunctions</span><span class="p">,</span> <span class="nx">httpsCallable</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">firebase/functions</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">functions</span> <span class="o">=</span> <span class="nf">getFunctions</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="dl">'</span><span class="s1">europe-west1</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">createApiKey</span> <span class="o">=</span> <span class="nf">httpsCallable</span><span class="p">(</span><span class="nx">functions</span><span class="p">,</span> <span class="dl">'</span><span class="s1">apikeys-createApiKey</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">createApiKey</span><span class="p">({</span>
+    <span class="na">experienceId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">exp-123</span><span class="dl">'</span>
+  <span class="p">});</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">API Key created:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">apiKey</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Expires:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">apiKeyData</span><span class="p">.</span><span class="nx">expiresAt</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">catch </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><strong>Response:</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">apiKey</span><span class="p">:</span> <span class="dl">"</span><span class="s2">abc123def456...</span><span class="dl">"</span><span class="p">,</span>
+  <span class="nx">apiKeyData</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nl">userId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">uid-123</span><span class="dl">"</span><span class="p">,</span>
+    <span class="nx">experienceId</span><span class="p">:</span> <span class="dl">"</span><span class="s2">exp-123</span><span class="dl">"</span><span class="p">,</span>
+    <span class="nx">createdAt</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2025-11-14T12:00:00.000Z</span><span class="dl">"</span><span class="p">,</span>
+    <span class="nx">expiresAt</span><span class="p">:</span> <span class="dl">"</span><span class="s2">2026-11-14T12:00:00.000Z</span><span class="dl">"</span><span class="p">,</span>
+    <span class="nx">permissions</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">read</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">write</span><span class="dl">"</span><span class="p">],</span>
+    <span class="nx">isActive</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="set-experience-webhook">Set Experience Webhook</h3>
+
+<p>Configure a webhook for an experience.</p>
+
+<p><strong>Function:</strong> <code class="language-plaintext highlighter-rouge">webhooks-setExperienceWebhook</code></p>
+
+<p><strong>Required Permission:</strong> Owner of the experience</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The experience ID</li>
+  <li><strong>webhookType</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The webhook type (e.g., <code class="language-plaintext highlighter-rouge">"userPresenceUpdated"</code>)</li>
+  <li><strong>config</strong>: <code class="language-plaintext highlighter-rouge">object</code> - Webhook configuration containing:
+    <ul>
+      <li><strong>url</strong>: <code class="language-plaintext highlighter-rouge">string</code> - Your webhook endpoint URL</li>
+      <li><strong>enabled</strong>: <code class="language-plaintext highlighter-rouge">bool</code> - Whether the webhook is active</li>
+      <li><strong>method</strong>: <code class="language-plaintext highlighter-rouge">string</code> - HTTP method (typically <code class="language-plaintext highlighter-rouge">"POST"</code>)</li>
+      <li><strong>authKey</strong>: <code class="language-plaintext highlighter-rouge">string</code> - Optional bearer token for authentication</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Supported Webhook Types:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">userPresenceUpdated</code>: Triggered when user presence count changes</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">setWebhook</span> <span class="o">=</span> <span class="nf">httpsCallable</span><span class="p">(</span><span class="nx">functions</span><span class="p">,</span> <span class="dl">'</span><span class="s1">webhooks-setExperienceWebhook</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">setWebhook</span><span class="p">({</span>
+  <span class="na">experienceId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">exp-123</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">webhookType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">userPresenceUpdated</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">config</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">url</span><span class="p">:</span> <span class="dl">'</span><span class="s1">https://your-server.com/webhook/presence</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">enabled</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">authKey</span><span class="p">:</span> <span class="dl">'</span><span class="s1">your-secret-token</span><span class="dl">'</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// "Webhook configured successfully"</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="get-experience-webhook">Get Experience Webhook</h3>
+
+<p>Retrieve webhook configuration.</p>
+
+<p><strong>Function:</strong> <code class="language-plaintext highlighter-rouge">webhooks-getExperienceWebhook</code></p>
+
+<p><strong>Required Permission:</strong> read</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The experience ID</li>
+  <li><strong>webhookType</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The webhook type</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getWebhook</span> <span class="o">=</span> <span class="nf">httpsCallable</span><span class="p">(</span><span class="nx">functions</span><span class="p">,</span> <span class="dl">'</span><span class="s1">webhooks-getExperienceWebhook</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">getWebhook</span><span class="p">({</span>
+  <span class="na">experienceId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">exp-123</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">webhookType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">userPresenceUpdated</span><span class="dl">'</span>
+<span class="p">});</span>
+
+<span class="k">if </span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">exists</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Webhook URL:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Enabled:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">enabled</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="delete-experience-webhook">Delete Experience Webhook</h3>
+
+<p>Remove a webhook configuration.</p>
+
+<p><strong>Function:</strong> <code class="language-plaintext highlighter-rouge">webhooks-deleteExperienceWebhook</code></p>
+
+<p><strong>Required Permission:</strong> Owner of the experience</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The experience ID</li>
+  <li><strong>webhookType</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The webhook type</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">deleteWebhook</span> <span class="o">=</span> <span class="nf">httpsCallable</span><span class="p">(</span><span class="nx">functions</span><span class="p">,</span> <span class="dl">'</span><span class="s1">webhooks-deleteExperienceWebhook</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">deleteWebhook</span><span class="p">({</span>
+  <span class="na">experienceId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">exp-123</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">webhookType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">userPresenceUpdated</span><span class="dl">'</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span> <span class="c1">// "Webhook deleted successfully"</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="test-experience-webhook">Test Experience Webhook</h3>
+
+<p>Send a test payload to your webhook endpoint.</p>
+
+<p><strong>Function:</strong> <code class="language-plaintext highlighter-rouge">webhooks-testExperienceWebhook</code></p>
+
+<p><strong>Required Permission:</strong> Owner of the experience</p>
+
+<p><strong>Parameters:</strong></p>
+<ul>
+  <li><strong>experienceId</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The experience ID</li>
+  <li><strong>webhookType</strong>: <code class="language-plaintext highlighter-rouge">string</code> - The webhook type</li>
+</ul>
+
+<p><strong>Example:</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">testWebhook</span> <span class="o">=</span> <span class="nf">httpsCallable</span><span class="p">(</span><span class="nx">functions</span><span class="p">,</span> <span class="dl">'</span><span class="s1">webhooks-testExperienceWebhook</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">testWebhook</span><span class="p">({</span>
+  <span class="na">experienceId</span><span class="p">:</span> <span class="dl">'</span><span class="s1">exp-123</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">webhookType</span><span class="p">:</span> <span class="dl">'</span><span class="s1">userPresenceUpdated</span><span class="dl">'</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Status:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Response:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">result</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">responseBody</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><strong>Test Payload Sent:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"experienceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exp-123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"webhookType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"userPresenceUpdated"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"locationCounts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"test-location"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w"> </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-14T12:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a test webhook call from Meadow"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="webhooks">Webhooks</h2>
+
+<p>Webhooks allow you to receive real-time notifications when events occur in your experience.</p>
+
+<h3 id="user-presence-updated-webhook">User Presence Updated Webhook</h3>
+
+<p>Triggered whenever the user presence count changes for an experience.</p>
+
+<p><strong>Webhook Type:</strong> <code class="language-plaintext highlighter-rouge">userPresenceUpdated</code></p>
+
+<p><strong>Trigger:</strong> Changes to <code class="language-plaintext highlighter-rouge">/userPresenceCount/{experienceId}</code></p>
+
+<p><strong>Payload Format:</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"experienceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exp-123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"locationCounts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"location-1"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"location-2"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2025-11-14T12:00:00.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p><strong>Headers:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Content-Type: application/json</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Authorization: Bearer {authKey}</code> (if configured)</li>
+</ul>
+
+<p><strong>Your Endpoint Requirements:</strong></p>
+<ul>
+  <li>Must accept POST requests (or configured method)</li>
+  <li>Should respond with 2xx status code for success</li>
+  <li>Timeout: 10 seconds recommended</li>
+  <li>Must be HTTPS in production</li>
+</ul>
+
+<p><strong>Example Endpoint (Node.js/Express):</strong></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nf">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/webhook/presence</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">{</span> <span class="nx">experienceId</span><span class="p">,</span> <span class="nx">count</span><span class="p">,</span> <span class="nx">locationCounts</span><span class="p">,</span> <span class="nx">timestamp</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+
+  <span class="c1">// Verify auth key if configured</span>
+  <span class="kd">const</span> <span class="nx">authHeader</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">headers</span><span class="p">.</span><span class="nx">authorization</span><span class="p">;</span>
+  <span class="k">if </span><span class="p">(</span><span class="nx">authHeader</span> <span class="o">!==</span> <span class="s2">`Bearer </span><span class="p">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">WEBHOOK_SECRET</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nf">status</span><span class="p">(</span><span class="mi">401</span><span class="p">).</span><span class="nf">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">Unauthorized</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Experience </span><span class="p">${</span><span class="nx">experienceId</span><span class="p">}</span><span class="s2"> has </span><span class="p">${</span><span class="nx">count</span><span class="p">}</span><span class="s2"> users`</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Location breakdown:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">locationCounts</span><span class="p">);</span>
+
+  <span class="c1">// Process the data...</span>
+
+  <span class="nx">res</span><span class="p">.</span><span class="nf">status</span><span class="p">(</span><span class="mi">200</span><span class="p">).</span><span class="nf">send</span><span class="p">(</span><span class="dl">'</span><span class="s1">OK</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p><strong>Example Endpoint (Python/Flask):</strong></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">jsonify</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="sh">'</span><span class="s">/webhook/presence</span><span class="sh">'</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="sh">'</span><span class="s">POST</span><span class="sh">'</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">presence_webhook</span><span class="p">():</span>
+    <span class="c1"># Verify auth key
+</span>    <span class="n">auth_header</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">headers</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="sh">'</span><span class="s">Authorization</span><span class="sh">'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">auth_header</span> <span class="o">!=</span> <span class="sa">f</span><span class="sh">'</span><span class="s">Bearer </span><span class="si">{</span><span class="n">WEBHOOK_SECRET</span><span class="si">}</span><span class="sh">'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sh">'</span><span class="s">Unauthorized</span><span class="sh">'</span><span class="p">,</span> <span class="mi">401</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="p">.</span><span class="n">json</span>
+    <span class="n">experience_id</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="sh">'</span><span class="s">experienceId</span><span class="sh">'</span><span class="p">]</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="sh">'</span><span class="s">count</span><span class="sh">'</span><span class="p">]</span>
+    <span class="n">location_counts</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="sh">'</span><span class="s">locationCounts</span><span class="sh">'</span><span class="p">]</span>
+
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">Experience </span><span class="si">{</span><span class="n">experience_id</span><span class="si">}</span><span class="s"> has </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s"> users</span><span class="sh">'</span><span class="p">)</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">'</span><span class="s">Location breakdown: </span><span class="si">{</span><span class="n">location_counts</span><span class="si">}</span><span class="sh">'</span><span class="p">)</span>
+
+    <span class="c1"># Process the data...
+</span>
+    <span class="k">return</span> <span class="sh">'</span><span class="s">OK</span><span class="sh">'</span><span class="p">,</span> <span class="mi">200</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="code-examples">Code Examples</h2>
+
+<h3 id="complete-integration-example-nodejs">Complete Integration Example (Node.js)</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">fetch</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">node-fetch</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">MeadowAPI</span> <span class="p">{</span>
+  <span class="nf">constructor</span><span class="p">(</span><span class="nx">apiKey</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">apiKey</span> <span class="o">=</span> <span class="nx">apiKey</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://api.meadow.space/v1</span><span class="dl">'</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">async</span> <span class="nf">getMetadata</span><span class="p">(</span><span class="nx">experienceId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span>
+      <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">}</span><span class="s2">/experiences/</span><span class="p">${</span><span class="nx">experienceId</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+      <span class="p">{</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">x-api-key</span><span class="dl">'</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">apiKey</span> <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">);</span>
+
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="s2">`API Error: </span><span class="p">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">async</span> <span class="nf">setData</span><span class="p">(</span><span class="nx">experienceId</span><span class="p">,</span> <span class="nx">locationId</span><span class="p">,</span> <span class="nx">userId</span><span class="p">,</span> <span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span>
+      <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">}</span><span class="s2">/experiences/</span><span class="p">${</span><span class="nx">experienceId</span><span class="p">}</span><span class="s2">/data/</span><span class="p">${</span><span class="nx">locationId</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">userId</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">key</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+      <span class="p">{</span>
+        <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">PUT</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+          <span class="dl">'</span><span class="s1">x-api-key</span><span class="dl">'</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">apiKey</span><span class="p">,</span>
+          <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+        <span class="p">},</span>
+        <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">({</span> <span class="nx">value</span> <span class="p">})</span>
+      <span class="p">}</span>
+    <span class="p">);</span>
+
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="s2">`API Error: </span><span class="p">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">async</span> <span class="nf">batchSetData</span><span class="p">(</span><span class="nx">experienceId</span><span class="p">,</span> <span class="nx">locationId</span><span class="p">,</span> <span class="nx">userId</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span>
+      <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">}</span><span class="s2">/experiences/</span><span class="p">${</span><span class="nx">experienceId</span><span class="p">}</span><span class="s2">/data/</span><span class="p">${</span><span class="nx">locationId</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">userId</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+      <span class="p">{</span>
+        <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">POST</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+          <span class="dl">'</span><span class="s1">x-api-key</span><span class="dl">'</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">apiKey</span><span class="p">,</span>
+          <span class="dl">'</span><span class="s1">Content-Type</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">application/json</span><span class="dl">'</span>
+        <span class="p">},</span>
+        <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span>
+      <span class="p">}</span>
+    <span class="p">);</span>
+
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="s2">`API Error: </span><span class="p">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">async</span> <span class="nf">getData</span><span class="p">(</span><span class="nx">experienceId</span><span class="p">,</span> <span class="nx">locationId</span><span class="p">,</span> <span class="nx">userId</span><span class="p">,</span> <span class="nx">key</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">key</span>
+      <span class="p">?</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">}</span><span class="s2">/experiences/</span><span class="p">${</span><span class="nx">experienceId</span><span class="p">}</span><span class="s2">/data/</span><span class="p">${</span><span class="nx">locationId</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">userId</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">key</span><span class="p">}</span><span class="s2">`</span>
+      <span class="p">:</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">}</span><span class="s2">/experiences/</span><span class="p">${</span><span class="nx">experienceId</span><span class="p">}</span><span class="s2">/data/</span><span class="p">${</span><span class="nx">locationId</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">userId</span><span class="p">}</span><span class="s2">`</span><span class="p">;</span>
+
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">x-api-key</span><span class="dl">'</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">apiKey</span> <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="s2">`API Error: </span><span class="p">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">async</span> <span class="nf">deleteData</span><span class="p">(</span><span class="nx">experienceId</span><span class="p">,</span> <span class="nx">locationId</span><span class="p">,</span> <span class="nx">userId</span><span class="p">,</span> <span class="nx">key</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span>
+      <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">}</span><span class="s2">/experiences/</span><span class="p">${</span><span class="nx">experienceId</span><span class="p">}</span><span class="s2">/data/</span><span class="p">${</span><span class="nx">locationId</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">userId</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="nx">key</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span>
+      <span class="p">{</span>
+        <span class="na">method</span><span class="p">:</span> <span class="dl">'</span><span class="s1">DELETE</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">x-api-key</span><span class="dl">'</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">apiKey</span> <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">);</span>
+
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="s2">`API Error: </span><span class="p">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">async</span> <span class="nf">getPresenceCount</span><span class="p">(</span><span class="nx">experienceId</span><span class="p">,</span> <span class="nx">locationId</span> <span class="o">=</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">locationId</span>
+      <span class="p">?</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">}</span><span class="s2">/experiences/</span><span class="p">${</span><span class="nx">experienceId</span><span class="p">}</span><span class="s2">/presence/</span><span class="p">${</span><span class="nx">locationId</span><span class="p">}</span><span class="s2">`</span>
+      <span class="p">:</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">}</span><span class="s2">/experiences/</span><span class="p">${</span><span class="nx">experienceId</span><span class="p">}</span><span class="s2">/presence`</span><span class="p">;</span>
+
+    <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">x-api-key</span><span class="dl">'</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">apiKey</span> <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="s2">`API Error: </span><span class="p">${</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage</span>
+<span class="kd">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MeadowAPI</span><span class="p">(</span><span class="dl">'</span><span class="s1">your-api-key</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// Get experience metadata</span>
+<span class="kd">const</span> <span class="nx">metadata</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nf">getMetadata</span><span class="p">(</span><span class="dl">'</span><span class="s1">-Oe9QMA9qTdjy7UMSr_S</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Title:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">metadata</span><span class="p">.</span><span class="nx">metadata</span><span class="p">.</span><span class="nx">titles</span><span class="p">.</span><span class="nx">en</span><span class="p">);</span>
+
+<span class="c1">// Set single data value (global, all users)</span>
+<span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nf">setData</span><span class="p">(</span><span class="dl">'</span><span class="s1">-Oe9QMA9qTdjy7UMSr_S</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">score</span><span class="dl">'</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="c1">// Set location-specific data (all users at a location)</span>
+<span class="kd">const</span> <span class="nx">locationId</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">-NfK8pL2mQxY9wZ1VbN4</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nf">setData</span><span class="p">(</span><span class="dl">'</span><span class="s1">-Oe9QMA9qTdjy7UMSr_S</span><span class="dl">'</span><span class="p">,</span> <span class="nx">locationId</span><span class="p">,</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">visitorCount</span><span class="dl">'</span><span class="p">,</span> <span class="mi">42</span><span class="p">);</span>
+
+<span class="c1">// Set user-specific data at a location</span>
+<span class="kd">const</span> <span class="nx">userId</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">I9bRV70dVvcvpUVAjeTjFLqWU232</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nf">setData</span><span class="p">(</span><span class="dl">'</span><span class="s1">-Oe9QMA9qTdjy7UMSr_S</span><span class="dl">'</span><span class="p">,</span> <span class="nx">locationId</span><span class="p">,</span> <span class="nx">userId</span><span class="p">,</span> <span class="dl">'</span><span class="s1">progress</span><span class="dl">'</span><span class="p">,</span> <span class="mi">75</span><span class="p">);</span>
+
+<span class="c1">// Batch set data (global, all users)</span>
+<span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nf">batchSetData</span><span class="p">(</span><span class="dl">'</span><span class="s1">-Oe9QMA9qTdjy7UMSr_S</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">score</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+  <span class="na">level</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="na">lastUpdated</span><span class="p">:</span> <span class="k">new</span> <span class="nc">Date</span><span class="p">().</span><span class="nf">toISOString</span><span class="p">()</span>
+<span class="p">});</span>
+
+<span class="c1">// Get specific data value</span>
+<span class="kd">const</span> <span class="nx">scoreData</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nf">getData</span><span class="p">(</span><span class="dl">'</span><span class="s1">-Oe9QMA9qTdjy7UMSr_S</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">score</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Score:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">scoreData</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+
+<span class="c1">// Get all data for location/user combination</span>
+<span class="kd">const</span> <span class="nx">allData</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nf">getData</span><span class="p">(</span><span class="dl">'</span><span class="s1">-Oe9QMA9qTdjy7UMSr_S</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">All data:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">allData</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+
+<span class="c1">// Delete data</span>
+<span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nf">deleteData</span><span class="p">(</span><span class="dl">'</span><span class="s1">-Oe9QMA9qTdjy7UMSr_S</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">temporaryKey</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="c1">// Get presence count</span>
+<span class="kd">const</span> <span class="nx">presence</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">api</span><span class="p">.</span><span class="nf">getPresenceCount</span><span class="p">(</span><span class="dl">'</span><span class="s1">-Oe9QMA9qTdjy7UMSr_S</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Active users:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">presence</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="streaming-data-example-browser">Streaming Data Example (Browser)</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">MeadowStream</span> <span class="p">{</span>
+  <span class="nf">constructor</span><span class="p">(</span><span class="nx">apiKey</span><span class="p">,</span> <span class="nx">experienceId</span><span class="p">,</span> <span class="nx">locationId</span><span class="p">,</span> <span class="nx">userId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">apiKey</span> <span class="o">=</span> <span class="nx">apiKey</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">https://api.meadow.space/v1</span><span class="dl">'</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">experienceId</span> <span class="o">=</span> <span class="nx">experienceId</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">locationId</span> <span class="o">=</span> <span class="nx">locationId</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">userId</span> <span class="o">=</span> <span class="nx">userId</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nf">connect</span><span class="p">(</span><span class="nx">onData</span><span class="p">,</span> <span class="nx">onError</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">baseUrl</span><span class="p">}</span><span class="s2">/experiences/</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">experienceId</span><span class="p">}</span><span class="s2">/data/</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">locationId</span><span class="p">}</span><span class="s2">/</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">userId</span><span class="p">}</span><span class="s2">/stream`</span><span class="p">;</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">EventSource</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">headers</span><span class="p">:</span> <span class="p">{</span> <span class="dl">'</span><span class="s1">x-api-key</span><span class="dl">'</span><span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">apiKey</span> <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">update</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+      <span class="nf">onData</span><span class="p">(</span><span class="nx">update</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span><span class="p">.</span><span class="nf">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">heartbeat</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Heartbeat received</span><span class="dl">'</span><span class="p">);</span>
+    <span class="p">});</span>
+
+    <span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span><span class="p">.</span><span class="nx">onerror</span> <span class="o">=</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Stream error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+      <span class="nf">onError</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nf">disconnect</span><span class="p">();</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nf">disconnect</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span><span class="p">.</span><span class="nf">close</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">eventSource</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Usage - Global data stream (all locations, all users)</span>
+<span class="kd">const</span> <span class="nx">globalStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MeadowStream</span><span class="p">(</span><span class="dl">'</span><span class="s1">your-api-key</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">-Oe9QMA9qTdjy7UMSr_S</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">global</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">globalStream</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span>
+  <span class="p">(</span><span class="nx">update</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Data update:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">update</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Location:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">update</span><span class="p">.</span><span class="nx">locationId</span><span class="p">,</span> <span class="dl">'</span><span class="s1">User:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">update</span><span class="p">.</span><span class="nx">userId</span><span class="p">);</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">update</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">initial</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Initial data loaded:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">update</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if </span><span class="p">(</span><span class="nx">update</span><span class="p">.</span><span class="nx">type</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">update</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Data changed:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">update</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Stream error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">);</span>
+
+<span class="c1">// Usage - Location-specific stream (all users at location)</span>
+<span class="kd">const</span> <span class="nx">locationId</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">-NfK8pL2mQxY9wZ1VbN4</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">locationStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">MeadowStream</span><span class="p">(</span><span class="dl">'</span><span class="s1">your-api-key</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">-Oe9QMA9qTdjy7UMSr_S</span><span class="dl">'</span><span class="p">,</span> <span class="nx">locationId</span><span class="p">,</span> <span class="dl">'</span><span class="s1">all</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">locationStream</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span>
+  <span class="p">(</span><span class="nx">update</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Location data:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">update</span><span class="p">.</span><span class="nx">data</span><span class="p">),</span>
+  <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nf">error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Error:</span><span class="dl">'</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// Later, to disconnect:</span>
+<span class="c1">// globalStream.disconnect();</span>
+<span class="c1">// locationStream.disconnect();</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="best-practices">Best Practices</h2>
+
+<h3 id="security">Security</h3>
+
+<ol>
+  <li><strong>Never expose API keys in client-side code</strong> - Use a backend proxy</li>
+  <li><strong>Store API keys securely</strong> - Use environment variables, not hardcoded</li>
+  <li><strong>Rotate keys periodically</strong> - Especially if compromised</li>
+  <li><strong>Use HTTPS only</strong> - Never send keys over unencrypted connections</li>
+  <li><strong>Implement webhook authentication</strong> - Always use authKey for webhooks</li>
+</ol>
+
+<h3 id="performance">Performance</h3>
+
+<ol>
+  <li><strong>Use streaming for real-time updates</strong> - More efficient than polling</li>
+  <li><strong>Batch updates when possible</strong> - Use batch update endpoint</li>
+  <li><strong>Cache metadata</strong> - Experience metadata changes infrequently</li>
+  <li><strong>Implement exponential backoff</strong> - For retrying failed requests</li>
+  <li><strong>Close SSE connections</strong> - When no longer needed</li>
+</ol>
+
+<h3 id="error-handling">Error Handling</h3>
+
+<ol>
+  <li><strong>Check status codes</strong> - Handle 4xx and 5xx errors appropriately</li>
+  <li><strong>Log errors</strong> - For debugging and monitoring</li>
+  <li><strong>Implement retries</strong> - For transient failures (5xx errors)</li>
+  <li><strong>Validate responses</strong> - Don’t assume successful responses have expected format</li>
+  <li><strong>Handle webhook failures gracefully</strong> - Return 2xx even if processing fails</li>
+</ol>
+
+<h3 id="webhook-development">Webhook Development</h3>
+
+<ol>
+  <li><strong>Respond quickly</strong> - Process asynchronously if needed</li>
+  <li><strong>Return 2xx status codes</strong> - For successful receipt</li>
+  <li><strong>Implement idempotency</strong> - Handle duplicate events</li>
+  <li><strong>Validate payloads</strong> - Check signature/auth key</li>
+  <li><strong>Test thoroughly</strong> - Use the test function before going live</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="error-handling-1">Error Handling</h2>
+
+<h3 id="http-status-codes">HTTP Status Codes</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Meaning</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">200</code></td>
+      <td>Success</td>
+      <td>Continue normally</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">400</code></td>
+      <td>Bad Request</td>
+      <td>Check request parameters</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">401</code></td>
+      <td>Unauthorized</td>
+      <td>Verify API key is valid and not expired</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">403</code></td>
+      <td>Forbidden</td>
+      <td>Check API key matches experience, verify user permissions</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">404</code></td>
+      <td>Not Found</td>
+      <td>Experience or resource doesn’t exist</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">500</code></td>
+      <td>Internal Server Error</td>
+      <td>Retry with exponential backoff</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="common-errors">Common Errors</h3>
+
+<p><strong>API Key Invalid</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid or expired API key"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Solution: Verify API key, check expiration date, regenerate if needed.</p>
+
+<p><strong>Experience Mismatch</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"API key is not authorized for this experience"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Solution: Ensure the experienceId in your request matches the experienceId the API key was created for.</p>
+
+<p><strong>Permission Denied</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User does not have permission to write data"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Solution: Verify the user who created the API key has Editor or Owner permission for write operations.</p>
+
+<h3 id="error-handling-pattern">Error Handling Pattern</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nf">makeAPIRequest</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">maxRetries</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="kd">let</span> <span class="nx">retries</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+  <span class="k">while </span><span class="p">(</span><span class="nx">retries</span> <span class="o">&lt;</span> <span class="nx">maxRetries</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+
+      <span class="k">if </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">ok</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Client errors (4xx) - don't retry</span>
+      <span class="k">if </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">&gt;=</span> <span class="mi">400</span> <span class="o">&amp;&amp;</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">&lt;</span> <span class="mi">500</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">error</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">response</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="s2">`Client error: </span><span class="p">${</span><span class="nx">error</span><span class="p">.</span><span class="nx">error</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Server errors (5xx) - retry with backoff</span>
+      <span class="k">if </span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span> <span class="o">&gt;=</span> <span class="mi">500</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">retries</span><span class="o">++</span><span class="p">;</span>
+        <span class="kd">const</span> <span class="nx">delay</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nf">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nx">retries</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nf">warn</span><span class="p">(</span><span class="s2">`Server error, retrying in </span><span class="p">${</span><span class="nx">delay</span><span class="p">}</span><span class="s2">ms...`</span><span class="p">);</span>
+        <span class="k">await</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">(</span><span class="nx">resolve</span> <span class="o">=&gt;</span> <span class="nf">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">delay</span><span class="p">));</span>
+        <span class="k">continue</span><span class="p">;</span>
+      <span class="p">}</span>
+
+    <span class="p">}</span> <span class="k">catch </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if </span><span class="p">(</span><span class="nx">retries</span> <span class="o">&gt;=</span> <span class="nx">maxRetries</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="nx">error</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="nx">retries</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="dl">'</span><span class="s1">Max retries exceeded</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h2 id="rate-limits">Rate Limits</h2>
+
+<p><strong>Request Size Limits:</strong></p>
+<ul>
+  <li><strong>Maximum request body size:</strong> 1MB per request</li>
+  <li><strong>Maximum keys per batch update:</strong> 100 keys</li>
+  <li><strong>Maximum single value size:</strong> 1MB</li>
+</ul>
+
+<p><strong>Recommended Client-Side Limits:</strong></p>
+<ul>
+  <li><strong>API Calls:</strong> 100 requests per minute per API key</li>
+  <li><strong>Streaming:</strong> 5 concurrent SSE connections per API key</li>
+  <li><strong>Webhooks:</strong> No limit on incoming webhooks</li>
+</ul>
+
+<p><strong>Error Responses:</strong></p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">413 Payload Too Large</code>: Request exceeds 1MB size limit</li>
+  <li><code class="language-plaintext highlighter-rouge">400 Bad Request</code>: Batch update exceeds 100 keys</li>
+</ul>
+
+<p><b><font color="red">Please note:</font></b> Implement your own rate limiting to avoid overwhelming the system.</p>
+
+      
+      
+      
+
+
+
+
+
+  
+  
+  
+  <nav class="page-nav">
+    
+      
+      
+        <a href="/experience-linking/" class="page-nav-prev">
+          <span class="label">Previous</span>
+          <span class="title">Experience Linking</span>
+        </a>
+      
+    
+    
+    
+  </nav>
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#meadow-public-api">Meadow Public API</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#key-features">Key Features</a></li>
+<li class="toc-entry toc-h3"><a href="#base-url">Base URL</a></li>
+<li class="toc-entry toc-h2"><a href="#architecture">Architecture</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#system-components">System Components</a></li>
+<li class="toc-entry toc-h3"><a href="#data-flow">Data Flow</a></li>
+<li class="toc-entry toc-h3"><a href="#security-layers">Security Layers</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#authentication">Authentication</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#api-key-management">API Key Management</a></li>
+<li class="toc-entry toc-h3"><a href="#creating-an-api-key">Creating an API Key</a></li>
+<li class="toc-entry toc-h3"><a href="#using-an-api-key">Using an API Key</a></li>
+<li class="toc-entry toc-h3"><a href="#api-key-format">API Key Format</a></li>
+<li class="toc-entry toc-h3"><a href="#api-key-properties">API Key Properties</a></li>
+<li class="toc-entry toc-h3"><a href="#permission-types">Permission Types</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#data-path-structure">Data Path Structure</a></li>
+<li class="toc-entry toc-h2"><a href="#rest-api-endpoints">REST API Endpoints</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#get-experience-metadata">Get Experience Metadata</a></li>
+<li class="toc-entry toc-h3"><a href="#get-all-realtime-data">Get All Realtime Data</a></li>
+<li class="toc-entry toc-h3"><a href="#get-specific-realtime-data">Get Specific Realtime Data</a></li>
+<li class="toc-entry toc-h3"><a href="#batch-update-realtime-data">Batch Update Realtime Data</a></li>
+<li class="toc-entry toc-h3"><a href="#update-single-realtime-data-value">Update Single Realtime Data Value</a></li>
+<li class="toc-entry toc-h3"><a href="#delete-realtime-data">Delete Realtime Data</a></li>
+<li class="toc-entry toc-h3"><a href="#stream-realtime-data-sse">Stream Realtime Data (SSE)</a></li>
+<li class="toc-entry toc-h3"><a href="#get-user-presence-count-total">Get User Presence Count (Total)</a></li>
+<li class="toc-entry toc-h3"><a href="#get-user-presence-count-specific-location">Get User Presence Count (Specific Location)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#callable-functions">Callable Functions</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#create-api-key">Create API Key</a></li>
+<li class="toc-entry toc-h3"><a href="#set-experience-webhook">Set Experience Webhook</a></li>
+<li class="toc-entry toc-h3"><a href="#get-experience-webhook">Get Experience Webhook</a></li>
+<li class="toc-entry toc-h3"><a href="#delete-experience-webhook">Delete Experience Webhook</a></li>
+<li class="toc-entry toc-h3"><a href="#test-experience-webhook">Test Experience Webhook</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#webhooks">Webhooks</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#user-presence-updated-webhook">User Presence Updated Webhook</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#code-examples">Code Examples</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#complete-integration-example-nodejs">Complete Integration Example (Node.js)</a></li>
+<li class="toc-entry toc-h3"><a href="#streaming-data-example-browser">Streaming Data Example (Browser)</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#best-practices">Best Practices</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#security">Security</a></li>
+<li class="toc-entry toc-h3"><a href="#performance">Performance</a></li>
+<li class="toc-entry toc-h3"><a href="#error-handling">Error Handling</a></li>
+<li class="toc-entry toc-h3"><a href="#webhook-development">Webhook Development</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#error-handling-1">Error Handling</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#http-status-codes">HTTP Status Codes</a></li>
+<li class="toc-entry toc-h3"><a href="#common-errors">Common Errors</a></li>
+<li class="toc-entry toc-h3"><a href="#error-handling-pattern">Error Handling Pattern</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#rate-limits">Rate Limits</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+  
+  <script src="/assets/js/lunr.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
