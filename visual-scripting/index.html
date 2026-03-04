@@ -160,6 +160,32 @@
 
 <p>These event is triggered when the positioning system has new information and repositions your experience accordingly. In most cases this is imperceptible to the user.</p>
 
+<p><br /></p>
+
+<h2 id="utility-nodes">Utility Nodes</h2>
+
+<h3 id="get-user-info">Get User Info</h3>
+
+<p>Retrieves profile information about a Meadow user. This node fetches data from the Meadow platform and returns the user’s public profile details.</p>
+
+<p>If no <strong>User Id</strong> is provided, the node defaults to the currently logged-in user. This is useful for personalising an experience — for example, greeting users by name or displaying their profile picture in the scene.</p>
+
+<p><strong>Inputs:</strong></p>
+<ul>
+  <li><strong>User Id</strong> <em>(optional)</em>: <code class="language-plaintext highlighter-rouge">string</code> — The Meadow user ID to look up. Leave empty to use the current user.</li>
+</ul>
+
+<p><strong>Outputs:</strong></p>
+<ul>
+  <li><strong>Username</strong>: <code class="language-plaintext highlighter-rouge">string</code> — The user’s @username.</li>
+  <li><strong>Name</strong>: <code class="language-plaintext highlighter-rouge">string</code> — The user’s display name.</li>
+  <li><strong>Bio</strong>: <code class="language-plaintext highlighter-rouge">string</code> — The user’s bio text.</li>
+  <li><strong>Profile Picture</strong>: <code class="language-plaintext highlighter-rouge">Texture2D</code> — The user’s profile image (small resolution).</li>
+  <li><strong>Success</strong>: <code class="language-plaintext highlighter-rouge">bool</code> — <code class="language-plaintext highlighter-rouge">true</code> if the data was fetched successfully, <code class="language-plaintext highlighter-rouge">false</code> otherwise.</li>
+</ul>
+
+<p>This node is found under <strong>XREF → Networking</strong> in the visual scripting fuzzy finder.</p>
+
       
       
       
@@ -206,6 +232,11 @@
 <li class="toc-entry toc-h3"><a href="#togglearui">ToggleARUI</a></li>
 <li class="toc-entry toc-h3"><a href="#usercapturecreated">UserCaptureCreated</a></li>
 <li class="toc-entry toc-h3"><a href="#repositionstart-and-repositionend">RepositionStart and RepositionEnd</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#utility-nodes">Utility Nodes</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#get-user-info">Get User Info</a></li>
 </ul>
 </li>
 </ul>

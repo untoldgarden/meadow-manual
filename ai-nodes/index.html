@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Nodes</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/search.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="AI Nodes" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/ai-nodes/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Nodes">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <header class="top-header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="/" class="header-logo-link">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo">
+        <span class="header-title">Meadow Manual</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="search-trigger">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <span class="search-text">Search...</span>
+        <span class="search-shortcut">⌘K</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="content-container">
+    <div class="sidebar" id="sidebar">
+      <!-- Chapter links -->
+        <section>
+            <h4>Getting Started</h4>
+            <a href="/installing-unity" class="">🎮 Installing Unity</a>
+            <a href="/navigate-the-unity-editor" class="">🧭 Navigate the Unity Editor</a>
+            <a href="/install-meadow-studio" class="">💿 Install Meadow Studio</a>
+            <a href="/create-your-first-experience" class="">✨ Create Your First Experience</a>
+            <a href="/prepare-your-experience" class="">🎯 Prepare Your Experience</a>
+            <a href="/upload-to-meadow" class="">⬆️ Upload to Meadow</a>
+            <a href="/optional-packages" class="">⧉ Install Optional Packages</a>
+            <a href="/update-packages" class="">📦 Update Packages</a>
+            <a href="/file-formats" class="">📄 File Formats</a>
+            <a href="/update-creator-profile" class="">👤 Update Creator Profile</a>
+        </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">📸 Image Tracking</a>
+        <a href="/dialogue-system" class="">💬 Dialogue System</a>
+        <a href="/vibrations" class="">📳 Vibrations</a>
+        <a href="/microphone-values" class="">🎙️ Microphone</a>
+        <a href="/map-marker" class="">📍 Map Marker</a>
+        <a href="/visual-scripting" class="">🎨 Visual Scripting</a>
+        <a href="/touch-interaction" class="">👆 Touch Interaction</a>
+        <a href="/qr-code" class="">🔲 QR Code</a>
+        <a href="/animations" class="">🎬 Animations</a>
+        <a href="/networking-and-multiplayer" class="">🌐 Networking & Multiplayer</a>
+        <a href="/save-system" class="">💾 Save System</a>
+        <a href="/experience-linking" class="">🔗 Experience Linking</a>
+      </section>
+      
+      <section>
+        <h4>Monetization</h4>
+        <a href="/monetization-settings" class="">⚙️ Monetization Settings</a>
+        <a href="/purchase-process" class="">🛒 Purchase Process</a>
+        <a href="/earnings-dashboard" class="">📊 Earnings Dashboard</a>
+        <a href="/resale-market" class="">🔄 Resale Market</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">🧩 Experience Component</a>
+        <a href="/public-api" class="">🔌 Public API</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      
+<nav class="breadcrumbs">
+  <a href="/">Home</a>
+  <span class="separator">›</span>
+  
+  
+    
+      <span>AI Nodes</span>
+    
+  
+</nav>
+
+      
+      
+        <h1 id="ai-nodes">AI Nodes</h1>
+
+<p>Meadow provides visual scripting nodes for integrating AI capabilities directly into your experiences. You can send text and image prompts to large language models and use text-to-speech to generate audio — all from within your visual scripting graphs.</p>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>All AI nodes require an <strong>API key</strong> from the respective provider. You are responsible for your own API usage and costs. Keep your API keys secure and be mindful of rate limits.</p>
+
+<ul>
+  <li><strong>ChatGPT / ChatGPT TTS</strong>: <a href="https://platform.openai.com/api-keys">OpenAI API key</a></li>
+  <li><strong>Claude</strong>: <a href="https://console.anthropic.com/">Anthropic API key</a></li>
+  <li><strong>Gemini / Gemini TTS</strong>: <a href="https://aistudio.google.com/apikey">Google AI API key</a></li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="chat-nodes">Chat Nodes</h2>
+
+<p>The chat nodes send a text prompt (and optionally an image) to an AI model and return a text response. All three chat nodes share the same interface pattern.</p>
+
+<h3 id="chatgpt">ChatGPT</h3>
+
+<p>Sends a request to OpenAI’s ChatGPT API.</p>
+
+<p><strong>Inputs:</strong></p>
+<ul>
+  <li><strong>Message</strong>: <code class="language-plaintext highlighter-rouge">string</code> — The user prompt to send.</li>
+  <li><strong>Image</strong> <em>(optional)</em>: <code class="language-plaintext highlighter-rouge">Texture2D</code> — An image to include with the prompt (vision).</li>
+  <li><strong>System Prompt</strong> <em>(optional)</em>: <code class="language-plaintext highlighter-rouge">string</code> — Instructions that guide the AI’s behaviour.</li>
+  <li><strong>API Key</strong>: <code class="language-plaintext highlighter-rouge">string</code> — Your OpenAI API key.</li>
+  <li><strong>Model</strong>: <code class="language-plaintext highlighter-rouge">ChatGPTModel</code> — Which model to use. Options:
+    <ul>
+      <li>GPT-5.2, GPT-5.1, GPT-5, GPT-5 Mini, GPT-5 Nano</li>
+      <li>GPT-4.1, GPT-4.1 Mini, GPT-4.1 Nano</li>
+      <li>o4 Mini</li>
+    </ul>
+  </li>
+  <li><strong>Max Tokens</strong>: <code class="language-plaintext highlighter-rouge">int</code> — Maximum length of the response (default: 1024).</li>
+</ul>
+
+<p><strong>Outputs:</strong></p>
+<ul>
+  <li><strong>Success</strong> → Control flow on successful response.</li>
+  <li><strong>Failure</strong> → Control flow on error.</li>
+  <li><strong>Response</strong>: <code class="language-plaintext highlighter-rouge">string</code> — The AI’s text response.</li>
+  <li><strong>Error</strong>: <code class="language-plaintext highlighter-rouge">string</code> — Error message if the request failed.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="claude">Claude</h3>
+
+<p>Sends a request to Anthropic’s Claude API.</p>
+
+<p><strong>Inputs:</strong></p>
+<ul>
+  <li><strong>Message</strong>: <code class="language-plaintext highlighter-rouge">string</code> — The user prompt to send.</li>
+  <li><strong>Image</strong> <em>(optional)</em>: <code class="language-plaintext highlighter-rouge">Texture2D</code> — An image to include with the prompt (vision).</li>
+  <li><strong>System Prompt</strong> <em>(optional)</em>: <code class="language-plaintext highlighter-rouge">string</code> — Instructions that guide the AI’s behaviour.</li>
+  <li><strong>API Key</strong>: <code class="language-plaintext highlighter-rouge">string</code> — Your Anthropic API key.</li>
+  <li><strong>Model</strong>: <code class="language-plaintext highlighter-rouge">ClaudeModel</code> — Which model to use. Options:
+    <ul>
+      <li>Claude Sonnet 4.5, Claude Opus 4.5, Claude Opus 4.1</li>
+      <li>Claude Sonnet 4, Claude Opus 4</li>
+      <li>Claude 3.5 Haiku</li>
+    </ul>
+  </li>
+  <li><strong>Max Tokens</strong>: <code class="language-plaintext highlighter-rouge">int</code> — Maximum length of the response (default: 1024).</li>
+</ul>
+
+<p><strong>Outputs:</strong></p>
+<ul>
+  <li><strong>Success</strong> → Control flow on successful response.</li>
+  <li><strong>Failure</strong> → Control flow on error.</li>
+  <li><strong>Response</strong>: <code class="language-plaintext highlighter-rouge">string</code> — The AI’s text response.</li>
+  <li><strong>Error</strong>: <code class="language-plaintext highlighter-rouge">string</code> — Error message if the request failed.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="gemini">Gemini</h3>
+
+<p>Sends a request to Google’s Gemini API.</p>
+
+<p><strong>Inputs:</strong></p>
+<ul>
+  <li><strong>Message</strong>: <code class="language-plaintext highlighter-rouge">string</code> — The user prompt to send.</li>
+  <li><strong>Image</strong> <em>(optional)</em>: <code class="language-plaintext highlighter-rouge">Texture2D</code> — An image to include with the prompt (vision).</li>
+  <li><strong>System Prompt</strong> <em>(optional)</em>: <code class="language-plaintext highlighter-rouge">string</code> — Instructions that guide the AI’s behaviour.</li>
+  <li><strong>API Key</strong>: <code class="language-plaintext highlighter-rouge">string</code> — Your Google AI API key.</li>
+  <li><strong>Model</strong>: <code class="language-plaintext highlighter-rouge">GeminiModel</code> — Which model to use. Options:
+    <ul>
+      <li>Gemini 3 Flash (Preview), Gemini 3 Pro (Preview)</li>
+      <li>Gemini 2.5 Flash, Gemini 2.5 Pro</li>
+      <li>Gemini 2.0 Flash</li>
+    </ul>
+  </li>
+  <li><strong>Max Tokens</strong>: <code class="language-plaintext highlighter-rouge">int</code> — Maximum length of the response (default: 1024).</li>
+</ul>
+
+<p><strong>Outputs:</strong></p>
+<ul>
+  <li><strong>Success</strong> → Control flow on successful response.</li>
+  <li><strong>Failure</strong> → Control flow on error.</li>
+  <li><strong>Response</strong>: <code class="language-plaintext highlighter-rouge">string</code> — The AI’s text response.</li>
+  <li><strong>Error</strong>: <code class="language-plaintext highlighter-rouge">string</code> — Error message if the request failed.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="text-to-speech-nodes">Text-to-Speech Nodes</h2>
+
+<p>The TTS nodes convert text into spoken audio, returning an <code class="language-plaintext highlighter-rouge">AudioClip</code> that you can play with an <code class="language-plaintext highlighter-rouge">AudioSource</code> component.</p>
+
+<h3 id="chatgpt-tts">ChatGPT TTS</h3>
+
+<p>Generates speech using OpenAI’s TTS API.</p>
+
+<p><strong>Inputs:</strong></p>
+<ul>
+  <li><strong>Text</strong>: <code class="language-plaintext highlighter-rouge">string</code> — The text to convert to speech (max 4096 characters).</li>
+  <li><strong>API Key</strong>: <code class="language-plaintext highlighter-rouge">string</code> — Your OpenAI API key.</li>
+  <li><strong>Model</strong>: <code class="language-plaintext highlighter-rouge">ChatGPTTTSModel</code> — Which TTS model to use. Options:
+    <ul>
+      <li>GPT-4o Mini TTS</li>
+      <li>TTS-1</li>
+      <li>TTS-1 HD</li>
+    </ul>
+  </li>
+  <li><strong>Voice</strong>: <code class="language-plaintext highlighter-rouge">ChatGPTTTSVoice</code> — The voice to use. Options:
+    <ul>
+      <li>Alloy, Ash, Ballad, Coral, Echo, Sage, Shimmer, Verse, Marin, Cedar</li>
+    </ul>
+  </li>
+  <li><strong>Speed</strong>: <code class="language-plaintext highlighter-rouge">float</code> — Playback speed (0.25 to 4.0, default: 1.0).</li>
+</ul>
+
+<p><strong>Outputs:</strong></p>
+<ul>
+  <li><strong>Success</strong> → Control flow on successful response.</li>
+  <li><strong>Failure</strong> → Control flow on error.</li>
+  <li><strong>Audio Clip</strong>: <code class="language-plaintext highlighter-rouge">AudioClip</code> — The generated speech audio.</li>
+  <li><strong>Error</strong>: <code class="language-plaintext highlighter-rouge">string</code> — Error message if the request failed.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="gemini-tts">Gemini TTS</h3>
+
+<p>Generates speech using Google’s Gemini TTS API.</p>
+
+<p><strong>Inputs:</strong></p>
+<ul>
+  <li><strong>Text</strong>: <code class="language-plaintext highlighter-rouge">string</code> — The text to convert to speech.</li>
+  <li><strong>API Key</strong>: <code class="language-plaintext highlighter-rouge">string</code> — Your Google AI API key.</li>
+  <li><strong>Voice</strong>: <code class="language-plaintext highlighter-rouge">GeminiTTSVoice</code> — The voice to use. Options:
+    <ul>
+      <li>Aoede, Charon, Fenrir, Kore, Puck, Leda, Orus, Zephyr</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Outputs:</strong></p>
+<ul>
+  <li><strong>Success</strong> → Control flow on successful response.</li>
+  <li><strong>Failure</strong> → Control flow on error.</li>
+  <li><strong>Audio Clip</strong>: <code class="language-plaintext highlighter-rouge">AudioClip</code> — The generated speech audio.</li>
+  <li><strong>Error</strong>: <code class="language-plaintext highlighter-rouge">string</code> — Error message if the request failed.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="playing-tts-audio">Playing TTS Audio</h2>
+
+<p>To play the audio clip returned by a TTS node:</p>
+
+<ol>
+  <li>Add an <code class="language-plaintext highlighter-rouge">AudioSource</code> component to a GameObject in your scene.</li>
+  <li>After the TTS node’s <strong>Success</strong> output, use a <strong>Set AudioSource Clip</strong> node to assign the audio clip.</li>
+  <li>Use a <strong>Play AudioSource</strong> node to play it.</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="tips">Tips</h2>
+
+<ul>
+  <li><strong>System prompts</strong> are useful for setting the AI’s personality, language, or constraining its output format. For example: <em>“You are a friendly museum guide. Keep responses under 50 words.”</em></li>
+  <li><strong>Vision</strong> works by connecting a <code class="language-plaintext highlighter-rouge">Texture2D</code> to the Image input. This could be a camera capture, a rendered texture, or any image in your scene. The AI will describe or respond based on the image content.</li>
+  <li><strong>Smaller models are faster and cheaper.</strong> Use GPT-5 Nano, Claude 3.5 Haiku, or Gemini 2.0 Flash for quick interactions. Save the larger models for complex reasoning.</li>
+  <li><strong>API calls take time.</strong> Consider showing a loading indicator while waiting for responses, especially on slower connections.</li>
+  <li>All AI nodes are found under the <strong>XREF → AI</strong> category in the visual scripting fuzzy finder.</li>
+</ul>
+
+      
+      
+      
+
+
+
+
+
+  
+  
+  
+  <nav class="page-nav">
+    
+      
+      
+        <a href="/experience-linking/" class="page-nav-prev">
+          <span class="label">Previous</span>
+          <span class="title">Experience Linking</span>
+        </a>
+      
+    
+    
+    
+      
+      
+        <a href="/public-api/" class="page-nav-next">
+          <span class="label">Next</span>
+          <span class="title">Public API</span>
+        </a>
+      
+    
+  </nav>
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#ai-nodes">AI Nodes</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#requirements">Requirements</a></li>
+<li class="toc-entry toc-h2"><a href="#chat-nodes">Chat Nodes</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#chatgpt">ChatGPT</a></li>
+<li class="toc-entry toc-h3"><a href="#claude">Claude</a></li>
+<li class="toc-entry toc-h3"><a href="#gemini">Gemini</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#text-to-speech-nodes">Text-to-Speech Nodes</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#chatgpt-tts">ChatGPT TTS</a></li>
+<li class="toc-entry toc-h3"><a href="#gemini-tts">Gemini TTS</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#playing-tts-audio">Playing TTS Audio</a></li>
+<li class="toc-entry toc-h2"><a href="#tips">Tips</a></li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+  
+  <script src="/assets/js/lunr.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
