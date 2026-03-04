@@ -45,3 +45,25 @@ This event is triggered following a user action of taking a picture or recording
 ### RepositionStart and RepositionEnd
 
 These event is triggered when the positioning system has new information and repositions your experience accordingly. In most cases this is imperceptible to the user.
+
+<br>
+
+## Utility Nodes
+
+### Get User Info
+
+Retrieves profile information about a Meadow user. This node fetches data from the Meadow platform and returns the user's public profile details.
+
+If no **User Id** is provided, the node defaults to the currently logged-in user. This is useful for personalising an experience — for example, greeting users by name or displaying their profile picture in the scene.
+
+**Inputs:**
+- **User Id** *(optional)*: `string` — The Meadow user ID to look up. Leave empty to use the current user.
+
+**Outputs:**
+- **Username**: `string` — The user's @username.
+- **Name**: `string` — The user's display name.
+- **Bio**: `string` — The user's bio text.
+- **Profile Picture**: `Texture2D` — The user's profile image (small resolution).
+- **Success**: `bool` — `true` if the data was fetched successfully, `false` otherwise.
+
+This node is found under **XREF → Networking** in the visual scripting fuzzy finder.
