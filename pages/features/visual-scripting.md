@@ -12,6 +12,8 @@ In Meadow you need to use visual scripting for your experience logic. There are 
 * [Unity Visual Scripting – Getting Started](https://www.youtube.com/watch?v=JYkFm1Sc3v8)
 * [How to do Visual Scripting in Unity!](https://www.youtube.com/watch?v=hcrHmGil_rM)
 
+> **<font color="red">Attention:</font>** In Meadow, you upload a **prefab** — not a scene. This means **Scene Variables** and **App Variables** will not work, as they are tied to the scene or application context which doesn't exist at runtime. Use **Object Variables** or **Graph Variables** instead, as these travel with the prefab.
+
 <br>
 ## Meadow specific visual scripting events
 
