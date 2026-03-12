@@ -119,53 +119,56 @@
 
 <p><br /></p>
 
-<h2 id="using-the-built-in-qr-code">Using the Built-in QR Code</h2>
+<h2 id="getting-your-qr-code">Getting Your QR Code</h2>
 
-<p>The simplest way to get a QR code for your experience is to use the one automatically generated on the experience page:</p>
+<p>Every experience in Meadow comes with a QR code. To find it:</p>
 
 <ol>
   <li>Go to your experience in the Meadow dashboard</li>
-  <li>
-    <p>Click the “Public view” button in the top right corner to access the public-facing experience page</p>
-
-    <p><img src="../images/experience-dashboard-view.webp" alt="Public view button" /></p>
-  </li>
-  <li>Locate the QR code displayed on the page</li>
-  <li>
-    <p>Right-click the QR code and select “Save Image” to download it</p>
-
-    <p><img src="../images/experience-public-view.webp" alt="QR code" /></p>
-  </li>
+  <li>The QR code is displayed on the experience page</li>
+  <li>Click the QR code to open the <strong>QR Code Settings</strong> editor, where you can customise and download it</li>
 </ol>
 
 <p><br /></p>
 
-<h2 id="creating-custom-qr-codes">Creating Custom QR Codes</h2>
+<h2 id="qr-code-settings">QR Code Settings</h2>
 
-<p>You can also create your own QR codes using any QR code generator:</p>
+<p>Clicking the QR code opens a full editor with a live preview. You can customise the appearance and behaviour of your QR code before downloading it.</p>
 
-<ol>
-  <li>Copy your experience URL: <code class="language-plaintext highlighter-rouge">https://app.meadow.space/e/your-experience-id</code></li>
-  <li>Visit your preferred QR code generator</li>
-  <li>Paste the URL and generate your QR code</li>
-</ol>
+<p><img src="../images/qr-code-settings.webp" alt="QR Code Settings" /></p>
 
 <p><br /></p>
 
-<h2 id="advanced-url-options">Advanced URL Options</h2>
-
-<h3 id="instant-ar-launch">Instant AR Launch</h3>
-
-<p>By default, when users scan the QR code, they’ll be taken to the experience’s “About” page in the Meadow app. From there, they need to press “Enter Experience” to launch the AR view. You can modify this behavior:</p>
+<h3 id="basic-settings">Basic Settings</h3>
 
 <ul>
-  <li>Add <code class="language-plaintext highlighter-rouge">?i</code> to the end of your experience URL to launch directly into AR mode</li>
-  <li>Example: <code class="language-plaintext highlighter-rouge">https://app.meadow.space/e/your-experience-id?i</code></li>
+  <li><strong>Direct link</strong> — Toggle this on to make the QR code open your experience directly, instead of going to its info page first.</li>
+  <li><strong>Size</strong> — Set the resolution of the exported image, from 128px to 2048px.</li>
+  <li><strong>Margin</strong> — Adjust the quiet zone (white space) around the QR code, from 0 to 10. A margin of at least 1 is recommended for reliable scanning.</li>
+  <li><strong>Error Correction Level</strong> — Controls how much of the QR code can be damaged or obscured and still scan correctly. Options range from Low (7%) to High (30%). Higher levels make the code more resilient but also denser.</li>
+  <li><strong>Colors</strong> — Set custom <strong>Foreground</strong> and <strong>Background</strong> colours. Make sure there is enough contrast between the two for the code to remain scannable.</li>
 </ul>
 
 <p><br /></p>
 
-<h3 id="user-flow">User Flow</h3>
+<h3 id="styling-options">Styling Options</h3>
+
+<ul>
+  <li><strong>Dot Style</strong> — Change the shape of the individual data dots (e.g. Square, Rounded, Dots).</li>
+  <li><strong>Corner Square Style</strong> — Change the shape of the three large corner squares.</li>
+  <li><strong>Corner Dot Style</strong> — Change the shape of the dots inside the corner squares.</li>
+  <li><strong>Reset to Defaults</strong> — Revert all styling options back to their defaults.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="downloading">Downloading</h3>
+
+<p>At the bottom of the editor you can choose between <strong>PNG</strong> and <strong>SVG</strong> format, then click <strong>Download</strong> to save the file. Use SVG if you need a scalable version for print.</p>
+
+<p><br /></p>
+
+<h2 id="user-flow">User Flow</h2>
 
 <p>When a user scans your QR code, they’ll follow one of two paths depending on whether they have the Meadow app installed:</p>
 
@@ -175,14 +178,14 @@
 
 <p><br /></p>
 
-<h4 id="users-with-meadow-installed">Users with Meadow Installed</h4>
+<h3 id="users-with-meadow-installed">Users with Meadow Installed</h3>
 
 <ol>
   <li>Scan QR code</li>
   <li>Experience opens directly in the Meadow app</li>
 </ol>
 
-<h4 id="users-without-meadow-installed">Users without Meadow Installed</h4>
+<h3 id="users-without-meadow-installed">Users without Meadow Installed</h3>
 
 <ol>
   <li>Scan QR code</li>
@@ -200,22 +203,9 @@
 <h2 id="known-limitations">Known Limitations</h2>
 
 <ul>
-  <li>Some mobile browsers may not recognize the dynamic link in the QR code. In these cases, users will be redirected to the web app instead, where they can open the experience in the Meadow app.</li>
-  <li>We are actively working on improving QR code compatibility across different devices and browsers.</li>
+  <li>Some mobile browsers may not recognise the dynamic link in the QR code. In these cases, users will be redirected to the web app instead, where they can open the experience in the Meadow app.</li>
+  <li>When customising colours or styles, always test the QR code with a phone before printing to ensure it scans reliably.</li>
 </ul>
-
-<p><br /></p>
-
-<h2 id="future-updates">Future Updates</h2>
-
-<p>We are developing additional QR code features that will be available soon:</p>
-<ul>
-  <li>QR code management system</li>
-  <li>Dynamic QR codes</li>
-  <li>Enhanced tracking and analytics</li>
-</ul>
-
-<p>Stay tuned for these upcoming features that will make it even easier to share your experiences.</p>
 
       
       
@@ -257,21 +247,21 @@
       <ul id="toc" class="section-nav">
 <li class="toc-entry toc-h1"><a href="#qr-codes">QR Codes</a>
 <ul>
-<li class="toc-entry toc-h2"><a href="#using-the-built-in-qr-code">Using the Built-in QR Code</a></li>
-<li class="toc-entry toc-h2"><a href="#creating-custom-qr-codes">Creating Custom QR Codes</a></li>
-<li class="toc-entry toc-h2"><a href="#advanced-url-options">Advanced URL Options</a>
+<li class="toc-entry toc-h2"><a href="#getting-your-qr-code">Getting Your QR Code</a></li>
+<li class="toc-entry toc-h2"><a href="#qr-code-settings">QR Code Settings</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#instant-ar-launch">Instant AR Launch</a></li>
-<li class="toc-entry toc-h3"><a href="#user-flow">User Flow</a>
-<ul>
-<li class="toc-entry toc-h4"><a href="#users-with-meadow-installed">Users with Meadow Installed</a></li>
-<li class="toc-entry toc-h4"><a href="#users-without-meadow-installed">Users without Meadow Installed</a></li>
+<li class="toc-entry toc-h3"><a href="#basic-settings">Basic Settings</a></li>
+<li class="toc-entry toc-h3"><a href="#styling-options">Styling Options</a></li>
+<li class="toc-entry toc-h3"><a href="#downloading">Downloading</a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#user-flow">User Flow</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#users-with-meadow-installed">Users with Meadow Installed</a></li>
+<li class="toc-entry toc-h3"><a href="#users-without-meadow-installed">Users without Meadow Installed</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#known-limitations">Known Limitations</a></li>
-<li class="toc-entry toc-h2"><a href="#future-updates">Future Updates</a></li>
 </ul>
 </li>
 </ul>
