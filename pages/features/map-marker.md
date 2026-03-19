@@ -23,7 +23,12 @@ Meadow allows you to create site-specific experiences that are placed on a map. 
 7. Assign this as the texture on a new material.
 8. Assign this material to the quad.
 9. Drag the empty gameobject to your Map Marker folder in the project view to create a prefab.
-10. Use [Meadow Studio](https://manual.meadow.space/meadow-studio.html) to upload your Map Marker to your experience.
+10. Open the [Meadow Studio](https://manual.meadow.space/meadow-studio.html) plugin window in Unity.
+11. Set **Bundle type** to **MapMarker**.
+12. In the **Asset bundle** dropdown, select the bundle you assigned to your map marker folder.
+13. Select the target platforms (iOS, Android, or both) and click **Upload to Meadow**.
+
+![Meadow Studio — MapMarker upload](../images/meadow-studio-mapmarker.webp)
 
 ## Create a Map Marker using a 3D model
 
@@ -33,6 +38,6 @@ Meadow allows you to create site-specific experiences that are placed on a map. 
 4. Position and scale it as you want it to appear on the map. Don't make it too big or too small. A good size is between 1 and 2 meters.
 5. Get creative and add in any fun animations, reflections, or particle effects you'd like! Bear in mind if you are using a particle effect, the scaling mode must be set to hierarchy to work properly. 
 6. Assign the tag `MapMarker` to your empty GameObject. This is for the system to know that this is the prefab that should be used as the marker. 
-7. Follow step 9-11 in the previous section.
+7. Follow steps 10–13 in the previous section to upload via Meadow Studio.
 
 
