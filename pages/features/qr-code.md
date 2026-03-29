@@ -12,44 +12,50 @@ You can create QR codes for your Meadow experiences to make them easily accessib
 
 <br>
 
-## Using the Built-in QR Code
+## Getting Your QR Code
 
-The simplest way to get a QR code for your experience is to use the one automatically generated on the experience page:
+Every experience in Meadow comes with a QR code. To find it:
 
 1. Go to your experience in the Meadow dashboard
-2. Click the "Public view" button in the top right corner to access the public-facing experience page
-
-    ![Public view button](../images/experience-dashboard-view.webp)
-
-3. Locate the QR code displayed on the page
-4. Right-click the QR code and select "Save Image" to download it
-
-    ![QR code](../images/experience-public-view.webp)
+2. The QR code is displayed on the experience page
+3. Click the QR code to open the **QR Code Settings** editor, where you can customise and download it
 
 <br>
 
-## Creating Custom QR Codes
+## QR Code Settings
 
-You can also create your own QR codes using any QR code generator:
+Clicking the QR code opens a full editor with a live preview. You can customise the appearance and behaviour of your QR code before downloading it.
 
-1. Copy your experience URL: `https://app.meadow.space/e/your-experience-id`
-2. Visit your preferred QR code generator
-3. Paste the URL and generate your QR code
+![QR Code Settings](../images/qr-code-settings.webp)
 
 <br>
 
-## Advanced URL Options
+### Basic Settings
 
-### Instant AR Launch
-
-By default, when users scan the QR code, they'll be taken to the experience's "About" page in the Meadow app. From there, they need to press "Enter Experience" to launch the AR view. You can modify this behavior:
-
-- Add `?i` to the end of your experience URL to launch directly into AR mode
-- Example: `https://app.meadow.space/e/your-experience-id?i`
+- **Direct link** — Toggle this on to make the QR code open your experience directly, instead of going to its info page first.
+- **Size** — Set the resolution of the exported image, from 128px to 2048px.
+- **Margin** — Adjust the quiet zone (white space) around the QR code, from 0 to 10. A margin of at least 1 is recommended for reliable scanning.
+- **Error Correction Level** — Controls how much of the QR code can be damaged or obscured and still scan correctly. Options range from Low (7%) to High (30%). Higher levels make the code more resilient but also denser.
+- **Colors** — Set custom **Foreground** and **Background** colours. Make sure there is enough contrast between the two for the code to remain scannable.
 
 <br>
 
-### User Flow
+### Styling Options
+
+- **Dot Style** — Change the shape of the individual data dots (e.g. Square, Rounded, Dots).
+- **Corner Square Style** — Change the shape of the three large corner squares.
+- **Corner Dot Style** — Change the shape of the dots inside the corner squares.
+- **Reset to Defaults** — Revert all styling options back to their defaults.
+
+<br>
+
+### Downloading
+
+At the bottom of the editor you can choose between **PNG** and **SVG** format, then click **Download** to save the file. Use SVG if you need a scalable version for print.
+
+<br>
+
+## User Flow
 
 When a user scans your QR code, they'll follow one of two paths depending on whether they have the Meadow app installed:
 
@@ -59,12 +65,12 @@ When a user scans your QR code, they'll follow one of two paths depending on whe
 
 <br>
 
-#### Users with Meadow Installed
+### Users with Meadow Installed
 
 1. Scan QR code
 2. Experience opens directly in the Meadow app
 
-#### Users without Meadow Installed
+### Users without Meadow Installed
 
 1. Scan QR code
 2. Opens webapp experience page
@@ -79,16 +85,5 @@ When a user scans your QR code, they'll follow one of two paths depending on whe
 
 ## Known Limitations
 
-- Some mobile browsers may not recognize the dynamic link in the QR code. In these cases, users will be redirected to the web app instead, where they can open the experience in the Meadow app.
-- We are actively working on improving QR code compatibility across different devices and browsers.
-
-<br>
-
-## Future Updates
-
-We are developing additional QR code features that will be available soon:
-- QR code management system
-- Dynamic QR codes
-- Enhanced tracking and analytics
-
-Stay tuned for these upcoming features that will make it even easier to share your experiences.
+- Some mobile browsers may not recognise the dynamic link in the QR code. In these cases, users will be redirected to the web app instead, where they can open the experience in the Meadow app.
+- When customising colours or styles, always test the QR code with a phone before printing to ensure it scans reliably.
