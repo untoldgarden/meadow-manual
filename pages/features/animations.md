@@ -3,7 +3,7 @@ layout: default
 title: Animations
 toc: true
 permalink: /animations/
-order: 27
+order: 28
 ---
 
 Coming soon...

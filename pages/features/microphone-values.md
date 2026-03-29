@@ -3,7 +3,7 @@ layout: default
 title: Microphone Values
 toc: true
 permalink: /microphone-values/
-order: 30
+order: 23
 ---
 
 # Microphone Values {#microphone-values}

@@ -3,7 +3,7 @@ layout: default
 title: Experience Component
 toc: true
 permalink: /experience-component/
-order: 30
+order: 50
 ---
 
 # Experience Component

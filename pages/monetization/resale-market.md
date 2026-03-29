@@ -3,6 +3,7 @@ title: "Resale Market"
 layout: default
 description: "Learn about the secondary marketplace for experience resales, NFT trading, and edition management."
 permalink: /resale-market/
+order: 43
 ---
 
 # Resale Market

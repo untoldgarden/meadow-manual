@@ -3,7 +3,7 @@ layout: default
 title: AI Nodes
 toc: true
 permalink: /ai-nodes/
-order: 32
+order: 33
 ---
 
 # AI Nodes {#ai-nodes}

@@ -3,6 +3,7 @@ title: "Earnings Dashboard"
 layout: default
 description: "Track your revenue, view transaction history, and manage payouts with Meadow's comprehensive earnings dashboard."
 permalink: /earnings-dashboard/
+order: 42
 ---
 
 # Earnings Dashboard

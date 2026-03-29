@@ -3,7 +3,7 @@ layout: default
 title: Update Your Creator Profile
 toc: true
 permalink: /update-creator-profile/
-order: 9
+order: 10
 ---
 
 # Update Your Creator Profile

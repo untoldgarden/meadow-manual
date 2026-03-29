@@ -3,7 +3,7 @@ layout: default
 title: Public API
 toc: true
 permalink: /public-api/
-order: 32
+order: 51
 ---
 
 # Meadow Public API
