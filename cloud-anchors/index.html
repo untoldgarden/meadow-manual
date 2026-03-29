@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Anchors</title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/search.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta property="og:type" content="Meadow Manual" />
+  <meta property="og:title" content="Cloud Anchors" />
+  <meta property="og:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences." />
+  <meta property="og:image" content="https://manual.meadow.space/images/meadow.jpg" />
+  <meta property="og:url" content="https://manual.meadow.space/cloud-anchors/" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cloud Anchors">
+  <meta name="twitter:description" content="Meadow is a social platform for building, publishing &amp; distributing immersive content. This manual shows you how you can create and upload your own XR experiences.">
+  <meta name="twitter:image" content="https://manual.meadow.space/images/meadow.jpg">
+</head>
+<body>
+  <header class="top-header">
+  <div class="header-content">
+    <div class="header-left">
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <a href="/" class="header-logo-link">
+        <img src="/assets/meadow-logo.webp" alt="Meadow Logo" class="logo">
+        <span class="header-title">Meadow Manual</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <button class="search-trigger">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <span class="search-text">Search...</span>
+        <span class="search-shortcut">⌘K</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+  
+  <div class="content-container">
+    <div class="sidebar" id="sidebar">
+      <!-- Chapter links -->
+        <section>
+            <h4>Getting Started</h4>
+            <a href="/installing-unity" class="">🎮 Installing Unity</a>
+            <a href="/navigate-the-unity-editor" class="">🧭 Navigate the Unity Editor</a>
+            <a href="/install-meadow-studio" class="">💿 Install Meadow Studio</a>
+            <a href="/create-your-first-experience" class="">✨ Create Your First Experience</a>
+            <a href="/prepare-your-experience" class="">🎯 Prepare Your Experience</a>
+            <a href="/upload-to-meadow" class="">⬆️ Upload to Meadow</a>
+            <a href="/optional-packages" class="">⧉ Install Optional Packages</a>
+            <a href="/update-packages" class="">📦 Update Packages</a>
+            <a href="/file-formats" class="">📄 File Formats</a>
+            <a href="/update-creator-profile" class="">👤 Update Creator Profile</a>
+        </section>
+      
+      <section>
+        <h4>Features</h4>
+        <a href="/image-tracking" class="">📸 Image Tracking</a>
+        <a href="/dialogue-system" class="">💬 Dialogue System</a>
+        <a href="/vibrations" class="">📳 Vibrations</a>
+        <a href="/microphone-values" class="">🎙️ Microphone</a>
+        <a href="/map-marker" class="">📍 Map Marker</a>
+        <a href="/visual-scripting" class="">🎨 Visual Scripting</a>
+        <a href="/touch-interaction" class="">👆 Touch Interaction</a>
+        <a href="/qr-code" class="">🔲 QR Code</a>
+        <a href="/animations" class="">🎬 Animations</a>
+        <a href="/networking-and-multiplayer" class="">🌐 Networking & Multiplayer</a>
+        <a href="/save-system" class="">💾 Save System</a>
+        <a href="/experience-linking" class="">🔗 Experience Linking</a>
+        <a href="/cloud-anchors" class="active">☁️ Cloud Anchors</a>
+        <a href="/ai-nodes" class="">🤖 AI Nodes</a>
+      </section>
+      
+      <section>
+        <h4>Monetization</h4>
+        <a href="/monetization-settings" class="">⚙️ Monetization Settings</a>
+        <a href="/purchase-process" class="">🛒 Purchase Process</a>
+        <a href="/earnings-dashboard" class="">📊 Earnings Dashboard</a>
+        <a href="/resale-market" class="">🔄 Resale Market</a>
+      </section>
+      
+      <section>
+        <h4>Documentation</h4>
+        <a href="/experience-component" class="">🧩 Experience Component</a>
+        <a href="/public-api" class="">🔌 Public API</a>
+      </section>
+    </div>
+    
+    <div class="main-content">
+      
+<nav class="breadcrumbs">
+  <a href="/">Home</a>
+  <span class="separator">›</span>
+  
+  
+    
+      <span>Cloud Anchors</span>
+    
+  
+</nav>
+
+      
+      
+        <h1 id="cloud-anchors">Cloud Anchors</h1>
+
+<p>Cloud Anchors allow you to place experiences at precise real-world locations that persist across sessions and devices. Using Google’s ARCore Cloud Anchors, your experience will appear in the exact same position for all users who visit the location.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> Cloud Anchor creation is a PRO feature. <a href="https://app.meadow.space/dashboard/user/account#subscription">Upgrade to PRO to create and use Cloud Anchors in your experiences.</a></p>
+</blockquote>
+
+<h2 id="use-cases">Use Cases</h2>
+
+<p>There are two ways to use Cloud Anchors in Meadow:</p>
+
+<ol>
+  <li><strong>Cloud Anchor Location</strong> - Position your entire experience at a precise real-world location</li>
+  <li><strong>Persistent Objects</strong> - Anchor specific objects within your experience to real-world positions</li>
+</ol>
+
+<hr />
+
+<h2 id="cloud-anchor-location">Cloud Anchor Location</h2>
+
+<p>Use this when you want your experience to appear at an exact position in the real world - for example, placing a virtual sculpture in a specific corner of a gallery, or positioning an interactive installation at a precise spot in a venue.</p>
+
+<blockquote>
+  <p><strong>Tip:</strong> For outdoor experiences, consider using the Geospatial placement type instead, as it is more robust in open environments.</p>
+</blockquote>
+
+<h3 id="step-1-place-your-experience-on-the-map">Step 1: Place Your Experience on the Map</h3>
+
+<p>First, you need to place your experience at the general location where you want it to appear.</p>
+
+<ol>
+  <li>Go to the <a href="https://app.meadow.space/">Meadow Web App</a> and open your experience</li>
+  <li>In the <strong>Distribution</strong> section, search for your location and place the experience on the map</li>
+  <li>Save the experience</li>
+</ol>
+
+<h3 id="step-2-create-the-cloud-anchor-on-site">Step 2: Create the Cloud Anchor On-Site</h3>
+
+<p>You need to physically go to the location to scan the environment and create the anchor.</p>
+
+<ol>
+  <li>Open the Meadow app on your device</li>
+  <li>Go to <strong>Profile &gt; Settings &gt; Tools &gt; Cloud Anchor</strong></li>
+  <li>Select your experience from the list</li>
+  <li>You’ll enter AR.</li>
+</ol>
+
+<div style="display: flex; gap: 1rem; aspect-ratio: 16/9; max-height: 400px;">
+  <img src="../images/cloudanchor-utility.webp" alt="Cloud Anchor Utility" style="height: 100%; width: auto; object-fit: contain;" />
+  <img src="../images/cloudanchor-chooseexperience.webp" alt="Cloud Anchor Experience Selection" style="height: 100%; width: auto; object-fit: contain;" />
+</div>
+<p><br /></p>
+<h3 id="step-3-scan-the-environment">Step 3: Scan the Environment</h3>
+
+<ol>
+  <li>Look around, and press the position where you want to place your experience.</li>
+  <li>You will see an anchor appear.</li>
+  <li>Move around the space to scan your surroundings thoroughly:</li>
+</ol>
+
+<ul>
+  <li>Include as much of the surrounding environment as possible</li>
+  <li>Scan walls, floors, furniture, and distinctive features</li>
+  <li>Move slowly and steadily</li>
+  <li>Cover multiple angles of the space</li>
+</ul>
+
+<div style="display: flex; gap: 1rem; aspect-ratio: 16/9; max-height: 400px;">
+  <img src="../images/cloudanchor-scanning.webp" alt="Cloud Anchor Scanning" style="height: 100%; width: auto; object-fit: contain;" />
+  <img src="../images/cloudanchor-placeanchor.webp" alt="Cloud Anchor Place Anchor" style="height: 100%; width: auto; object-fit: contain;" />
+</div>
+<p><br /></p>
+<blockquote>
+  <p><strong>Note:</strong> There is currently no indicator showing scan progress or time remaining. Continue scanning until the app prompts you to save.</p>
+</blockquote>
+
+<h3 id="step-4-save-the-anchor">Step 4: Save the Anchor</h3>
+
+<p>When scanning is complete, you’ll be prompted to save the anchor.</p>
+
+<ol>
+  <li>Enter a memorable name for the anchor (you’ll need this later)</li>
+  <li>Press <strong>Save</strong> (there is currently no confirmation message, but the anchor will be saved in the background.)</li>
+</ol>
+
+<div style="display: flex; gap: 1rem; aspect-ratio: 16/9; max-height: 400px;">
+  <img src="../images/cloudanchor-saveanchor.webp" alt="Cloud Anchor Save Anchor" style="height: 100%; width: auto; object-fit: contain;" />
+  <img src="../images/cloudanchor-myAnchor.webp" alt="Cloud Anchor Save Anchor" style="height: 100%; width: auto; object-fit: contain;" />
+</div>
+<p><br /></p>
+<blockquote>
+  <p><strong>Tip:</strong> For scanning several cloud anchors, its safest to leave the tool and re-enter for each anchor.</p>
+</blockquote>
+
+<h3 id="step-5-configure-the-location-in-web-app">Step 5: Configure the Location in Web App</h3>
+
+<p>Finally, connect the anchor to your experience location:</p>
+
+<ol>
+  <li>Return to the <a href="https://app.meadow.space/">Meadow Web App</a></li>
+  <li>Open your experience and go to the <strong>Distribution</strong> section</li>
+  <li>Click the <strong>Edit</strong> button on your placed location</li>
+</ol>
+
+<p><img src="../images/experiencelocation-edit-button.webp" alt="alt_text" title="Experience Location Edit button" /></p>
+
+<ol>
+  <li>Set <strong>Placement Type</strong> to <strong>Cloud Anchor</strong></li>
+  <li>In the <strong>Cloud Anchor Name</strong> field, enter the exact name you gave the anchor</li>
+  <li>Save the experience</li>
+</ol>
+
+<p><img src="../images/experiencelocation-edit-location.webp" alt="alt_text" title="Experience Location Editing" /></p>
+
+<p>Your experience will now appear at the precise position where you created the anchor for all users who visit that location.</p>
+
+<hr />
+
+<h2 id="persistent-objects">Persistent Objects</h2>
+
+<p>Use the Persistent Objects component when you want to anchor specific GameObjects within your experience to real-world positions.</p>
+
+<h3 id="setup">Setup</h3>
+
+<ol>
+  <li>Add the <strong>PersistentObjects</strong> component to a GameObject in your scene</li>
+  <li>Configure the list of anchor-prefab pairs:
+    <ul>
+      <li><strong>Anchor Name</strong>: The identifier for this anchor point</li>
+      <li><strong>Prefab</strong>: The GameObject to instantiate at this anchor</li>
+    </ul>
+  </li>
+  <li>Use the process described in the Cloud Anchor Location section to create anchors on-site and save them with the corresponding names.</li>
+</ol>
+
+<p><img src="../images/persistentobjects.webp" alt="alt_text" title="Persistent Objects Setup" /></p>
+
+<p>When the experience loads, any saved anchors will be resolved and the corresponding prefabs will be instantiated at their stored positions.</p>
+
+<hr />
+
+<h2 id="best-practices">Best Practices</h2>
+
+<h3 id="ideal-environments">Ideal Environments</h3>
+
+<p>Cloud Anchors work best in:</p>
+
+<ul>
+  <li><strong>Indoor locations</strong> with stable features</li>
+  <li><strong>Spaces that don’t change often</strong> - avoid areas where furniture is frequently rearranged</li>
+  <li><strong>Well-lit environments</strong> with consistent lighting</li>
+</ul>
+
+<h3 id="outdoor-considerations">Outdoor Considerations</h3>
+
+<p>Outdoor Cloud Anchors can work but are more challenging:</p>
+
+<ul>
+  <li><strong>Scan in overcast weather</strong> for best results</li>
+  <li><strong>Avoid stark shadows</strong> - these change with the sun and can break anchor recognition</li>
+  <li>Natural environments with vegetation may be less reliable as plants grow and change</li>
+</ul>
+
+<h3 id="what-can-break-an-anchor">What Can Break an Anchor</h3>
+
+<ul>
+  <li>Moving furniture or objects that were part of the scan</li>
+  <li>Significant lighting changes</li>
+  <li>Renovations or redecorations</li>
+  <li>Seasonal changes (for outdoor anchors)</li>
+</ul>
+
+<blockquote>
+  <p><strong>Tip:</strong> If an anchor stops working reliably, you can create a new one by repeating the scanning process at the location.</p>
+</blockquote>
+
+<hr />
+
+<h2 id="known-issues">Known Issues</h2>
+
+<h3 id="private-experiences-opened-from-profile-view-may-use-incorrect-placement">Private experiences opened from Profile view may use incorrect placement</h3>
+
+<p>When opening a private (unpublished) experience from your Profile that uses Cloud Anchor placement, the experience may occasionally load with “In Front of Camera” placement instead of the Cloud Anchor position.</p>
+
+<p><strong>Why this happens:</strong> Private experiences load their location data slightly later than public experiences. If you open the experience before the location data has loaded, the app defaults to direct placement.</p>
+
+<p><strong>Workarounds:</strong></p>
+<ul>
+  <li>Open the experience from the Map view instead of the Profile view</li>
+  <li>Wait a few seconds after the app loads before opening the experience from Profile</li>
+  <li>If this is a problem for your use case, disable “Available Everywhere” in the experience settings - this ensures the experience can only be opened when the user is at the Cloud Anchor location</li>
+</ul>
+
+      
+      
+      
+
+
+
+
+
+    </div>
+    
+    <div class="toc">
+      <p class="toc-title">On this Page</p>
+      <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#cloud-anchors">Cloud Anchors</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#use-cases">Use Cases</a></li>
+<li class="toc-entry toc-h2"><a href="#cloud-anchor-location">Cloud Anchor Location</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#step-1-place-your-experience-on-the-map">Step 1: Place Your Experience on the Map</a></li>
+<li class="toc-entry toc-h3"><a href="#step-2-create-the-cloud-anchor-on-site">Step 2: Create the Cloud Anchor On-Site</a></li>
+<li class="toc-entry toc-h3"><a href="#step-3-scan-the-environment">Step 3: Scan the Environment</a></li>
+<li class="toc-entry toc-h3"><a href="#step-4-save-the-anchor">Step 4: Save the Anchor</a></li>
+<li class="toc-entry toc-h3"><a href="#step-5-configure-the-location-in-web-app">Step 5: Configure the Location in Web App</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#persistent-objects">Persistent Objects</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#setup">Setup</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#best-practices">Best Practices</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#ideal-environments">Ideal Environments</a></li>
+<li class="toc-entry toc-h3"><a href="#outdoor-considerations">Outdoor Considerations</a></li>
+<li class="toc-entry toc-h3"><a href="#what-can-break-an-anchor">What Can Break an Anchor</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#known-issues">Known Issues</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#private-experiences-opened-from-profile-view-may-use-incorrect-placement">Private experiences opened from Profile view may use incorrect placement</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+    </div>
+    
+  </div>
+  
+  <script src="/assets/js/lunr.min.js"></script>
+  <script src="/assets/js/search.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
