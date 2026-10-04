@@ -10,7 +10,7 @@ order: 5
 
 To upload your experience to Meadow you need to do a few things in Unity:
 * Add all your GameObjects as children to one root GameObject.
-* Add an Experience component to the root GameObject. 
+* Add a Meadow Experience component to the root GameObject. 
 * Turn the root GameObject into a prefab in your project folder.
 * Add the folder to an asset bundle.
 
@@ -42,23 +42,25 @@ Here's a detailed breakdown:
 
 <br>
 
-## Add the Experience component to your root object
+## Add the Meadow Experience component to your root object
 
-Experience.cs is a script that tells the Meadow platform that this is an experience that should be displayed in the app. 
+The Meadow Experience component tells the Meadow platform that this is an experience that should be displayed in the app. 
 
 1. Select the empty object you just created.
-2. Press "Add Component", search for Experience, and add it. The component is located in the namespace `XREF`.
+2. Press "Add Component", search for **Meadow Experience**, and add it. The component is located in the namespace `Meadow`.
+3. If your experience uses AR, press **Enable AR** on the Meadow Experience component. This adds an **AR Settings** component, which holds the placement and AR settings.
 
 ![alt_text](../images/add-content-component.webp "image_tooltip")
 
+> **<font color="red">Important:</font>** Always use **Meadow Experience**, not the plain **Experience** component from the `XREF` namespace. The plain component is used internally and can cause unexpected behaviour in the Meadow app. If your experience already has a plain Experience component, select it and press **Upgrade to MeadowExperience** in the red banner at the top of the Inspector. Your settings are kept, and AR settings are moved to a new AR Settings component. If you don't see the banner, [update your packages](/update-packages/).
 
 ## Set your experience settings 
 
-The Experience component includes a number of settings which tells the Meadow app how your experience should be presented in the app. For a full list of settings, see the [Experience component documentation](/experience-component/).
+The Meadow Experience and AR Settings components include a number of settings which tell the Meadow app how your experience should be presented in the app. For a full list of settings, see the [Experience component documentation](/experience-component/).
 
 ![alt_text](../images/experience-component.webp "Experience component")
 
->Here are the most important settings:
+>Here are the most important settings, found on the AR Settings component:
 >
 >- **Facing Direction**: 
 >    - User: Experience will open facing the user (non-geospatial only.)
@@ -81,7 +83,7 @@ The Experience component includes a number of settings which tells the Meadow ap
 
 Now you need to add the experience you have created to your folder in the Project Window. When you do this, you create what is called a [prefab](https://docs.unity3d.com/Manual/Prefabs.html). A prefab is a type of object that can be reused in different scenes, and also built as an asset bundle. Unity shows you that it is a prefab by changing the icon in the Hierarchy to a blue cube.
 
-1. Select the root object of your experience (the one with the Content component.)
+1. Select the root object of your experience (the one with the Meadow Experience component.)
 2. Drag it into the empty area of your folder in the Project Window. 
 
 ![alt_text](../images/create-prefab.webp "image_tooltip")
