@@ -10,7 +10,7 @@ order: 50
 
 The Meadow Experience component is a core part of Meadow, which tells the platform that this is an experience that should be displayed in the app. Together with the AR Settings component, it holds all the settings that define how your experience should be presented.
 
-Add it to the root GameObject of your experience: press "Add Component" and search for **Meadow Experience** (namespace `Meadow`). If your experience uses AR, press **Enable AR** on the component to add the AR Settings component. The [Position](#position) and [AR Session](#ar-session) settings below live on AR Settings; the rest live on Meadow Experience.
+Add it to the root GameObject of your experience: press "Add Component" and search for **Meadow Experience** (namespace `Meadow`). Adding it also adds the AR Settings component; press **Disable AR** on Meadow Experience if your experience doesn't use AR. The [Position](#position) and [AR Session](#ar-session) settings below live on AR Settings; the rest live on Meadow Experience.
 
 > **<font color="red">Important:</font>** Always use **Meadow Experience**, not the plain **Experience** component from the `XREF` namespace. The plain component is used internally and can cause unexpected behaviour in the Meadow app. If your experience already has a plain Experience component, select it and press **Upgrade to MeadowExperience** in the red banner at the top of the Inspector. Your settings and references are kept, and AR settings are moved to a new AR Settings component. If you don't see the banner, [update your packages](/update-packages/).
 

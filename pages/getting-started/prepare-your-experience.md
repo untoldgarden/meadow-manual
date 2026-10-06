@@ -48,7 +48,7 @@ The Meadow Experience component tells the Meadow platform that this is an experi
 
 1. Select the empty object you just created.
 2. Press "Add Component", search for **Meadow Experience**, and add it. The component is located in the namespace `Meadow`.
-3. If your experience uses AR, press **Enable AR** on the Meadow Experience component. This adds an **AR Settings** component, which holds the placement and AR settings.
+3. Unity also adds an **AR Settings** component, which holds the placement and AR settings. If your experience doesn't use AR, press **Disable AR** on the Meadow Experience component to remove it.
 
 ![alt_text](../images/add-content-component.webp "image_tooltip")
 
