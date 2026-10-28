@@ -27,11 +27,9 @@ Your Unity installs and projects are managed through an application called Unity
 1. Download Unity hub from [https://unity.com/download](https://unity.com/download)
 2. Install it
 3. Open the Hub, create an account, and login
-4. Install an editor (Unity publishes new versions weekly). You can install the latest suggested version, but make sure it's Unity 6 or newer. (Support for older version is not guaranteed.)
-
-   <p style="color: orange; margin-left: 1em;"><strong>Note:</strong> Unity 6.3 is now supported (requires XREF 0.2.79+). However, <strong>VFX Graph does not work</strong> with experiences built in 6.3 — if you use VFX Graph, please stick to <strong>Unity 6.2</strong> until the Meadow app is updated.</p>
+4. Install an editor. Unity publishes new versions often. Install **Unity 6.3** (any 6000.3.x version works). Newer versions like Unity 6.4 have not been tested with Meadow yet.
 
 ![alt_text](../images/install-unity.webp "install unity")
 5. When prompted, install iOS and Android modules. At the moment both are needed even if you only plan on building for one platform.
 ![alt_text](../images/hubModules.webp "install modules")
-6. Get a license. Use the free personal one. You do **not** need to a PRO Unity License to use Meadow.
+6. Get a license. Use the free personal one. You do **not** need a Pro Unity License to use Meadow.
