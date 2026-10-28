@@ -3,7 +3,7 @@ layout: default
 title: Installing Optional Packages
 toc: true
 permalink: /optional-packages/
-order: 7
+order: 730
 ---
 
 # Installing Optional Packages

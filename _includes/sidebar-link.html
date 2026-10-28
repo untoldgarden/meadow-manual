@@ -1,0 +1,2 @@
+{% assign target = site.pages | where: "url", include.url | first %}
+{% unless target.hidden %}<a href="{{ include.url | relative_url }}" class="{% if page.url == include.url %}active{% endif %}">{{ include.label }}</a>{% endunless %}

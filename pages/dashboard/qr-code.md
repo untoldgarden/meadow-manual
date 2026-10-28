@@ -3,7 +3,7 @@ layout: default
 title: QR Codes
 toc: true
 permalink: /qr-code/
-order: 27
+order: 470
 ---
 
 # QR Codes

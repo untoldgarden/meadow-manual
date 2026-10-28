@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  {% if page.hidden %}<meta name="robots" content="noindex">{% endif %}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
@@ -24,51 +25,108 @@
   <div class="content-container">
     <div class="sidebar" id="sidebar">
       <!-- Chapter links -->
-        <section>
-            <h4>Getting Started</h4>
-            <a href="{{ '/installing-unity' | relative_url }}" class="{% if page.url == '/installing-unity/' %}active{% endif %}">🎮 Installing Unity</a>
-            <a href="{{ '/navigate-the-unity-editor' | relative_url }}" class="{% if page.url == '/navigate-the-unity-editor/' %}active{% endif %}">🧭 Navigate the Unity Editor</a>
-            <a href="{{ '/install-meadow-studio' | relative_url }}" class="{% if page.url == '/install-meadow-studio/' %}active{% endif %}">💿 Install Meadow Studio</a>
-            <a href="{{ '/create-your-first-experience' | relative_url }}" class="{% if page.url == '/create-your-first-experience/' %}active{% endif %}">✨ Create Your First Experience</a>
-            <a href="{{ '/prepare-your-experience' | relative_url }}" class="{% if page.url == '/prepare-your-experience/' %}active{% endif %}">🎯 Prepare Your Experience</a>
-            <a href="{{ '/upload-to-meadow' | relative_url }}" class="{% if page.url == '/upload-to-meadow/' %}active{% endif %}">⬆️ Upload to Meadow</a>
-            <a href="{{ '/optional-packages' | relative_url }}" class="{% if page.url == '/optional-packages/' %}active{% endif %}">⧉ Install Optional Packages</a>
-            <a href="{{ '/update-packages' | relative_url }}" class="{% if page.url == '/update-packages/' %}active{% endif %}">📦 Update Packages</a>
-            <a href="{{ '/file-formats' | relative_url }}" class="{% if page.url == '/file-formats/' %}active{% endif %}">📄 File Formats</a>
-            <a href="{{ '/update-creator-profile' | relative_url }}" class="{% if page.url == '/update-creator-profile/' %}active{% endif %}">👤 Update Creator Profile</a>
-        </section>
+        {% capture links %}
+            {% include sidebar-link.html url="/installing-unity/" label="🎮 Installing Unity" %}
+            {% include sidebar-link.html url="/navigate-the-unity-editor/" label="🧭 Navigate the Unity Editor" %}
+            {% include sidebar-link.html url="/install-meadow-studio/" label="💿 Install Meadow Studio" %}
+            {% include sidebar-link.html url="/create-your-first-experience/" label="✨ Create Your First Experience" %}
+            {% include sidebar-link.html url="/prepare-your-experience/" label="🎯 Prepare Your Experience" %}
+            {% include sidebar-link.html url="/upload-to-meadow/" label="⬆️ Upload to Meadow" %}
+        {% endcapture %}
+        {% assign links = links | strip %}
+        {% if links != "" %}<section>
+          <h4>Getting Started</h4>
+          {{ links }}
+        </section>{% endif %}
       
-      <section>
-        <h4>Features</h4>
-        <a href="{{ '/image-tracking' | relative_url }}" class="{% if page.url == '/image-tracking/' %}active{% endif %}">📸 Image Tracking</a>
-        <a href="{{ '/dialogue-system' | relative_url }}" class="{% if page.url == '/dialogue-system/' %}active{% endif %}">💬 Dialogue System</a>
-        <a href="{{ '/vibrations' | relative_url }}" class="{% if page.url == '/vibrations/' %}active{% endif %}">📳 Vibrations</a>
-        <a href="{{ '/microphone-values' | relative_url }}" class="{% if page.url == '/microphone-values/' %}active{% endif %}">🎙️ Microphone</a>
-        <a href="{{ '/map-marker' | relative_url }}" class="{% if page.url == '/map-marker/' %}active{% endif %}">📍 Map Marker</a>
-        <a href="{{ '/visual-scripting' | relative_url }}" class="{% if page.url == '/visual-scripting/' %}active{% endif %}">🎨 Visual Scripting</a>
-        <a href="{{ '/touch-interaction' | relative_url }}" class="{% if page.url == '/touch-interaction/' %}active{% endif %}">👆 Touch Interaction</a>
-        <a href="{{ '/qr-code' | relative_url }}" class="{% if page.url == '/qr-code/' %}active{% endif %}">🔲 QR Code</a>
-        <a href="{{ '/animations' | relative_url }}" class="{% if page.url == '/animations/' %}active{% endif %}">🎬 Animations</a>
-        <a href="{{ '/networking-and-multiplayer' | relative_url }}" class="{% if page.url == '/networking-and-multiplayer/' %}active{% endif %}">🌐 Networking & Multiplayer</a>
-        <a href="{{ '/save-system' | relative_url }}" class="{% if page.url == '/save-system/' %}active{% endif %}">💾 Save System</a>
-        <a href="{{ '/experience-linking' | relative_url }}" class="{% if page.url == '/experience-linking/' %}active{% endif %}">🔗 Experience Linking</a>
-        <a href="{{ '/cloud-anchors' | relative_url }}" class="{% if page.url == '/cloud-anchors/' %}active{% endif %}">☁️ Cloud Anchors</a>
-        <a href="{{ '/ai-nodes' | relative_url }}" class="{% if page.url == '/ai-nodes/' %}active{% endif %}">🤖 AI Nodes</a>
-      </section>
-      
-      <section>
+      {% capture links %}
+        {% include sidebar-link.html url="/dialogue-system/" label="💬 Dialogue System" %}
+        {% include sidebar-link.html url="/subtitles/" label="📝 Subtitles" %}
+        {% include sidebar-link.html url="/vibrations/" label="📳 Vibrations" %}
+        {% include sidebar-link.html url="/microphone-values/" label="🎙️ Microphone" %}
+        {% include sidebar-link.html url="/map-marker/" label="📍 Map Marker" %}
+        {% include sidebar-link.html url="/in-experience-map/" label="🗺️ In-Experience Map" %}
+        {% include sidebar-link.html url="/visual-scripting/" label="🎨 Visual Scripting" %}
+        {% include sidebar-link.html url="/touch-interaction/" label="👆 Touch Interaction" %}
+        {% include sidebar-link.html url="/ui-toolkit/" label="🧩 UI Toolkit" %}
+        {% include sidebar-link.html url="/animations/" label="🎬 Animations" %}
+        {% include sidebar-link.html url="/save-system/" label="💾 Save System" %}
+        {% include sidebar-link.html url="/experience-linking/" label="🔗 Experience Linking" %}
+        {% include sidebar-link.html url="/ai-nodes/" label="🤖 AI Nodes" %}
+      {% endcapture %}
+      {% assign links = links | strip %}
+      {% if links != "" %}<section>
+        <h4>XR Features</h4>
+        {{ links }}
+      </section>{% endif %}
+
+      {% capture links %}
+        {% include sidebar-link.html url="/placement-best-practices/" label="🎯 Placement in AR — Best Practices" %}
+        {% include sidebar-link.html url="/geospatial/" label="🌐 Geospatial" %}
+        {% include sidebar-link.html url="/cloud-anchors/" label="☁️ Cloud Anchors" %}
+        {% include sidebar-link.html url="/image-tracking/" label="📸 Image Tracking" %}
+        {% include sidebar-link.html url="/location-object/" label="📍 Location Object" %}
+      {% endcapture %}
+      {% assign links = links | strip %}
+      {% if links != "" %}<section>
+        <h4>Placement</h4>
+        {{ links }}
+      </section>{% endif %}
+
+      {% capture links %}
+        {% include sidebar-link.html url="/networking-and-multiplayer/" label="🌐 Networking & Multiplayer" %}
+        {% include sidebar-link.html url="/saving-object-hierarchies/" label="🗂️ Saving Object Hierarchies" %}
+      {% endcapture %}
+      {% assign links = links | strip %}
+      {% if links != "" %}<section>
+        <h4>Networking & Multiplayer</h4>
+        {{ links }}
+      </section>{% endif %}
+
+      {% capture links %}
+        {% include sidebar-link.html url="/analytics/" label="📈 Analytics" %}
+        {% include sidebar-link.html url="/qr-code/" label="🔲 QR Code" %}
+        {% include sidebar-link.html url="/update-creator-profile/" label="👤 Update Creator Profile" %}
+      {% endcapture %}
+      {% assign links = links | strip %}
+      {% if links != "" %}<section>
+        <h4>Dashboard</h4>
+        {{ links }}
+      </section>{% endif %}
+
+      {% capture links %}
+        {% include sidebar-link.html url="/monetization-settings/" label="⚙️ Monetization Settings" %}
+        {% include sidebar-link.html url="/purchase-process/" label="🛒 Purchase Process" %}
+        {% include sidebar-link.html url="/earnings-dashboard/" label="📊 Earnings Dashboard" %}
+        {% include sidebar-link.html url="/resale-market/" label="🔄 Resale Market" %}
+      {% endcapture %}
+      {% assign links = links | strip %}
+      {% if links != "" %}<section>
         <h4>Monetization</h4>
-        <a href="{{ '/monetization-settings' | relative_url }}" class="{% if page.url == '/monetization-settings/' %}active{% endif %}">⚙️ Monetization Settings</a>
-        <a href="{{ '/purchase-process' | relative_url }}" class="{% if page.url == '/purchase-process/' %}active{% endif %}">🛒 Purchase Process</a>
-        <a href="{{ '/earnings-dashboard' | relative_url }}" class="{% if page.url == '/earnings-dashboard/' %}active{% endif %}">📊 Earnings Dashboard</a>
-        <a href="{{ '/resale-market' | relative_url }}" class="{% if page.url == '/resale-market/' %}active{% endif %}">🔄 Resale Market</a>
-      </section>
+        {{ links }}
+      </section>{% endif %}
       
-      <section>
+      {% capture links %}
+        {% include sidebar-link.html url="/experience-component/" label="🧩 Experience Component" %}
+        {% include sidebar-link.html url="/public-api/" label="🔌 Public API" %}
+      {% endcapture %}
+      {% assign links = links | strip %}
+      {% if links != "" %}<section>
         <h4>Documentation</h4>
-        <a href="{{ '/experience-component' | relative_url }}" class="{% if page.url == '/experience-component/' %}active{% endif %}">🧩 Experience Component</a>
-        <a href="{{ '/public-api' | relative_url }}" class="{% if page.url == '/public-api/' %}active{% endif %}">🔌 Public API</a>
-      </section>
+        {{ links }}
+      </section>{% endif %}
+
+      {% capture links %}
+        {% include sidebar-link.html url="/limitations/" label="⚠️ Limitations" %}
+        {% include sidebar-link.html url="/file-formats/" label="📄 File Formats" %}
+        {% include sidebar-link.html url="/optional-packages/" label="⧉ Install Optional Packages" %}
+        {% include sidebar-link.html url="/update-packages/" label="📦 Update Packages" %}
+      {% endcapture %}
+      {% assign links = links | strip %}
+      {% if links != "" %}<section>
+        <h4>Reference</h4>
+        {{ links }}
+      </section>{% endif %}
     </div>
     
     <div class="main-content">

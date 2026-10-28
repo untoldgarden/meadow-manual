@@ -3,7 +3,7 @@ title: "Purchase Process"
 layout: default
 description: "Understand the complete purchase experience for buyers, from discovery to certificate delivery."
 permalink: /purchase-process/
-order: 41
+order: 520
 ---
 
 # Purchase Process

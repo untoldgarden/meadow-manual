@@ -1,4 +1,4 @@
-{% assign pages = site.pages | where: "layout", "default" | where_exp: "p", "p.order" | sort: "order" %}
+{% assign pages = site.pages | where: "layout", "default" | where_exp: "p", "p.order" | where_exp: "p", "p.hidden != true" | sort: "order" %}
 {% assign current_index = nil %}
 
 {% for p in pages %}

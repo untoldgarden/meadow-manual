@@ -3,7 +3,7 @@ title: "Monetization Settings"
 layout: default
 description: "Configure pricing, editions, payment methods, and certificate options for your Meadow experiences."
 permalink: /monetization-settings/
-order: 40
+order: 510
 ---
 
 # Monetization Settings
