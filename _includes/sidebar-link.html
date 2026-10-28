@@ -1,2 +1,7 @@
+{% comment %}
+  Sidebar link that disappears when the target page has `hidden: true` in its front matter.
+  Hidden pages are still built (their URL works) but are left out of the sidebar, the
+  previous/next links, search and the sitemap, and are marked noindex. Use it for unfinished pages.
+{% endcomment %}
 {% assign target = site.pages | where: "url", include.url | first %}
 {% unless target.hidden %}<a href="{{ include.url | relative_url }}" class="{% if page.url == include.url %}active{% endif %}">{{ include.label }}</a>{% endunless %}

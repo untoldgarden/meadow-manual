@@ -1,0 +1,18 @@
+---
+layout: null
+sitemap: false
+---
+{%- comment -%}
+  Replaces the jekyll-sitemap output so pages with `hidden: true` are left out. A plugin hook
+  can't do this: GitHub Pages builds this site in safe mode, which skips _plugins.
+{%- endcomment -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for p in site.html_pages %}
+  {%- unless p.hidden or p.sitemap == false or p.url == '/404.html' %}
+  <url>
+    <loc>{{ p.url | absolute_url | xml_escape }}</loc>
+  </url>
+  {%- endunless %}
+{%- endfor %}
+</urlset>
